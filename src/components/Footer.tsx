@@ -1,4 +1,5 @@
 import { stringToSlug } from "../utils";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   const teamYear = import.meta.env.VITE_TEAM_YEAR;
@@ -10,40 +11,33 @@ export function Footer() {
       <div className="container">
         <div className="row mb-4">
           <div className="col-lg-6 col-xs-12">
-            <h4 className="mb-3">Heading</h4>
+            <h4 className="mb-3">Small leaf. Big protection.</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-              ante mollis quam tristique convallis
+              SCU-China is engineering duckweed as a plant-based vaccine
+              platform for livestock and poultry mucosal protection.
             </p>
           </div>
           <div className="col-lg-3 col-xs-12">
-            <h4 className="mt-lg-0 mt-sm-3">Links</h4>
+            <h4 className="mt-lg-0 mt-sm-3">Explore</h4>
             <ul className="m-2 p-2">
               <li>
-                <a href="#">Lorem ipsum</a>
+                <Link to="/description">Project description</Link>
               </li>
               <li>
-                <a href="#">Nam mauris velit</a>
+                <Link to="/engineering">Engineering</Link>
               </li>
               <li>
-                <a href="#">Etiam vitae mauris</a>
+                <Link to="/experiments">Experiments</Link>
               </li>
               <li>
-                <a href="#">Fusce scelerisque</a>
-              </li>
-              <li>
-                <a href="#">Sed faucibus</a>
-              </li>
-              <li>
-                <a href="#">Mauris efficitur nulla</a>
+                <Link to="/human-practices">Human practices</Link>
               </li>
             </ul>
           </div>
           <div className="col-lg-3 col-xs-12">
-            <h4 className="mt-lg-0 mt-sm-4 mb-3">Contact</h4>
-            <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
-            <p className="mb-0">(541) 754-3010</p>
-            <p>info@hsdf.com</p>
+            <h4 className="mt-lg-0 mt-sm-4 mb-3">Team</h4>
+            <p>Sichuan University</p>
+            <p>SCU-China · iGEM {teamYear}</p>
           </div>
         </div>
         <hr />

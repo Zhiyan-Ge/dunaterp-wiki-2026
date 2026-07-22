@@ -43,7 +43,7 @@ const Pages: (Page | Folder)[] = [
     title: "Home",
     path: "/",
     component: Home,
-    lead: "Your iGEM Journey Begins Here! We wish you a successful and rewarding season!",
+    lead: "Engineering duckweed for mucosal vaccine protection.",
   },
   {
     name: "Team",

@@ -37,10 +37,16 @@ const App = () => {
               path={path}
               element={
                 <>
-                  <Header title={title || ""} lead={lead || ""} />
-                  <div className="container">
+                  {path === "/" ? (
                     <Component />
-                  </div>
+                  ) : (
+                    <>
+                      <Header title={title || ""} lead={lead || ""} />
+                      <div className="container">
+                        <Component />
+                      </div>
+                    </>
+                  )}
                 </>
               }
             />
