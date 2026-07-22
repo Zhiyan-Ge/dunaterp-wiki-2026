@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import heroImage from "https://static.igem.wiki/teams/6212/wiki/duckweed-dawn.avif";
+import heroImage from "../assets/duckweed-dawn.png";
 
 const pathogenCards = [
   { icon: "virus", name: "Viruses" },
