@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, type CSSProperties } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties } from "react";
 import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { archiveNavigation, navigation, pageOrder, pages } from "./site-data";
 import { dryLabMenuGroups } from "./content/dry-lab";
@@ -36,6 +36,15 @@ function BrandMark() {
       <path className="brand-mark__branch" d="M13 17h4M31 17h4M13 31h4M31 31h4" />
     </svg>
   </span>;
+}
+
+function BootLoadingScreen() {
+  return <main id="main-content" tabIndex={-1} className="px-loading px-loading--boot" role="status" aria-live="polite">
+    <p className="px-loading-title">DUNATERP</p>
+    <div className="px-loader-scene" aria-hidden="true"><i /><b /><span /></div>
+    <p className="px-loading-sub">Surveying the salt flats…</p>
+    <div className="px-meter" aria-hidden="true">{Array.from({ length: 16 }, (_, index) => <i key={index} style={{ "--px-cell-index": index } as CSSProperties} />)}</div>
+  </main>;
 }
 
 function Header({ light = false }: { light?: boolean }) {
@@ -96,6 +105,93 @@ function Footer() {
   return <footer className="site-footer"><div><p className="footer-brand">DunaTerp<span aria-hidden="true">.</span></p><p>A programmable, salt-adapted terpenoid platform in <i>Dunaliella salina</i>.</p><small>SCU–CHINA / iGEM 2026</small></div><div className="footer-links"><a href="https://gitlab.igem.org/2026/scu-china">Team GitLab ↗</a><a href="https://creativecommons.org/licenses/by/4.0/">Content: CC BY 4.0 ↗</a><Link to="/attributions">Attributions</Link><Link to="/responsible-ai">Responsible AI</Link></div></footer>;
 }
 
+function pageReferences(page: (typeof pages)[string]) {
+  if (page.references) return page.references;
+  const seen = new Set<string>();
+  const references: Array<{ label: string; href: string }> = [];
+  for (const section of page.sections) {
+    for (const block of section.blocks ?? []) {
+      if (block.kind !== "links") continue;
+      for (const link of block.links) {
+        if (!/^https?:\/\//i.test(link.href) || seen.has(link.href)) continue;
+        seen.add(link.href);
+        references.push(link);
+      }
+    }
+  }
+  return references;
+}
+
+function firstPageFigure(page: (typeof pages)[string]) {
+  if (page.figure) return page.figure.src;
+  for (const section of page.sections) {
+    for (const block of section.blocks ?? []) {
+      if (block.kind === "figure") return block.src;
+      if (block.kind === "figure-grid" && block.figures[0]) return block.figures[0].src;
+    }
+  }
+  return "/figures/project/salt-strata.svg";
+}
+
+function renderCitations(text: string, referenceNumbers: Map<string, number>) {
+  if (referenceNumbers.size === 0) return text;
+  const parts = text.split(/\[(\d+)\]/g);
+  return parts.map((part, index) => {
+    if (index % 2 === 0) return part;
+    const number = Number(part);
+    return number > 0 && number <= referenceNumbers.size
+      ? <a className="inline-citation" href={`#reference-${number}`} key={`${index}-${number}`}>[{number}]</a>
+      : `[${part}]`;
+  });
+}
+
+function ArticleToc({ slug, titles, hasReferences }: { slug: string; titles: string[]; hasReferences: boolean }) {
+  const nav = useRef<HTMLElement>(null);
+  const [activeId, setActiveId] = useState("section-1");
+  const titleKey = titles.join("\u0000");
+
+  useEffect(() => {
+    const pageTitles = titleKey ? titleKey.split("\u0000") : [];
+    const items = [...pageTitles.map((title, index) => ({ id: `section-${index + 1}`, title })), ...(hasReferences ? [{ id: "references", title: "References" }] : [])];
+    let frame = 0;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const marker = Math.min(220, window.innerHeight * 0.3);
+        let next = items[0]?.id ?? "";
+        for (const item of items) {
+          const section = document.getElementById(item.id);
+          if (!section) continue;
+          if (section.getBoundingClientRect().top <= marker) next = item.id;
+          else break;
+        }
+        setActiveId((current) => current === next ? current : next);
+        const scrollport = nav.current;
+        const link = scrollport?.querySelector<HTMLElement>(`[data-toc-id="${next}"]`);
+        if (scrollport && link) {
+          const port = scrollport.getBoundingClientRect();
+          const target = link.getBoundingClientRect();
+          if (target.top < port.top) scrollport.scrollTop -= port.top - target.top;
+          else if (target.bottom > port.bottom) scrollport.scrollTop += target.bottom - port.bottom;
+        }
+      });
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [slug, titleKey, hasReferences]);
+
+  const items = [...titles.map((title, index) => ({ id: `section-${index + 1}`, title })), ...(hasReferences ? [{ id: "references", title: "References" }] : [])];
+  return <aside className="article-toc"><p>ON THIS PAGE</p><nav ref={nav} aria-label="On this page">
+    {items.map((item, index) => <Link key={item.id} data-toc-id={item.id} className={activeId === item.id ? "is-active" : undefined} aria-current={activeId === item.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${item.id}` }}><span>{String(index + 1).padStart(2, "0")}</span>{item.title}</Link>)}
+  </nav><Link className="toc-map" to="/wiki-map">All chapters ↗</Link></aside>;
+}
+
 const groupDescriptions = [
   "From the biological idea to experiments and evidence.",
   "Understand the system, its constraints and its possibilities.",
@@ -125,13 +221,17 @@ function Article({ slug }: { slug: string }) {
   const figureSrc = page.figure ? resolveFigureSrc(page.figure.src) : "";
   const hasContent = page.sections.length > 0;
   const isModeling = MODELING_PATHS.includes(`/${slug}`);
-  return <><Header /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent } as CSSProperties} className={`article-page${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}`}>
+  const references = pageReferences(page);
+  const referenceNumbers = new Map(references.map((reference, index) => [reference.href, index + 1]));
+  const heroImage = resolveFigureSrc(firstPageFigure(page));
+  return <><Header /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}`}>
     <nav className="breadcrumbs" aria-label="Breadcrumb"><Link to="/wiki-map">Wiki</Link><span aria-hidden="true">/</span>{group && <>{group.label === 'Dry Lab' ? <Link to="/dry-lab">Dry Lab</Link> : <span>{group.label}</span>}<span aria-hidden="true">/</span></>}<span aria-current="page">{group?.items.find(([, href]) => href === `/${slug}`)?.[0] || page.title}</span></nav>
     <header className="article-hero"><div><p className="page-eyebrow">{page.eyebrow}</p><h1>{page.title}</h1></div>{page.intro && <div className="article-intro"><p>{page.intro}</p></div>}</header>
     {hasContent && <>
-    <div className="article-layout"><aside className="article-toc"><p>ON THIS PAGE</p><nav aria-label="On this page">{page.sections.map((section, i) => <Link key={section.title} to={{ pathname: `/${slug}`, hash: `#section-${i + 1}` }}><span>{String(i + 1).padStart(2, "0")}</span>{section.title}</Link>)}</nav><Link className="toc-map" to="/wiki-map">All chapters ↗</Link></aside>
+    <div className="article-layout"><ArticleToc slug={slug} titles={page.sections.map((section) => section.title)} hasReferences={references.length > 0} />
       <div className="article-body">{page.figure && <figure className="feature-figure"><img src={figureSrc} alt={page.figure.alt} loading="lazy" decoding="async" /><figcaption>{page.figure.caption}</figcaption></figure>}
-        <div className="article-sections">{page.sections.map((section, i) => <section id={`section-${i + 1}`} tabIndex={-1} key={section.title}><div className="section-number">{String(i + 1).padStart(2, "0")}</div><div>{section.eyebrow && <p className="section-eyebrow">{section.eyebrow}</p>}<h2>{section.title}</h2>{section.body && <p>{section.body}</p>}{section.blocks && <ArticleBlocks blocks={section.blocks} />}{section.items && <ul>{section.items.map((item) => <li key={item}>{item}</li>)}</ul>}{section.note && <aside>{section.note}</aside>}</div></section>)}</div>
+        <div className="article-sections">{page.sections.map((section, i) => <section id={`section-${i + 1}`} tabIndex={-1} key={section.title}><div className="section-number">{String(i + 1).padStart(2, "0")}</div><div>{section.eyebrow && <p className="section-eyebrow">{section.eyebrow}</p>}<h2>{section.title}</h2>{section.body && <p>{renderCitations(section.body, referenceNumbers)}</p>}{section.blocks && <ArticleBlocks blocks={section.blocks} referenceNumbers={referenceNumbers} />}{section.items && <ul>{section.items.map((item) => <li key={item}>{renderCitations(item, referenceNumbers)}</li>)}</ul>}{section.note && <aside>{section.note}</aside>}</div></section>)}</div>
+        {references.length > 0 && <section id="references" tabIndex={-1} className="article-references"><div className="section-number" aria-hidden="true">↗</div><div><p className="section-eyebrow">SOURCES &amp; FURTHER READING</p><h2>References</h2><ol>{references.map((reference, index) => <li id={`reference-${index + 1}`} key={reference.href}><span>{String(index + 1).padStart(2, "0")}</span><a href={reference.href} target="_blank" rel="noreferrer">{reference.label} ↗</a></li>)}</ol></div></section>}
         <Link className="next-page" to={`/${nextSlug}`}><span>CONTINUE EXPLORING</span><strong>{next.title}</strong><b aria-hidden="true">↗</b></Link>
       </div>
     </div>
@@ -143,7 +243,7 @@ function ScrollAndTitle() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
     const slug = normalizePath(pathname).replace(/^\//, "");
-    document.title = slug && pages[slug] ? `${pages[slug].title} · DunaTerp` : slug === "wiki-map" ? "Explore the Wiki · DunaTerp" : "DunaTerp · SCU-China 2026";
+    document.title = slug && pages[slug] ? `SCU-China iGEM 2026 · ${pages[slug].title} · DunaTerp` : slug === "wiki-map" ? "SCU-China iGEM 2026 · Wiki Map · DunaTerp" : "SCU-China iGEM 2026 · DunaTerp";
     const frame = requestAnimationFrame(() => {
       if (hash) {
         let id = hash.slice(1);
@@ -166,7 +266,7 @@ function ScrollAndTitle() {
 export default function App() {
   const { pathname, search } = useLocation();
   return <><Link className="skip-link" to={{ pathname, search, hash: "#main-content" }}>Skip to content</Link><ScrollAndTitle /><Routes>
-    <Route path="/" element={<Suspense fallback={<><main id="main-content" tabIndex={-1} className="world-loading"><p className="page-eyebrow">SCU–CHINA / iGEM 2026</p><h1>DunaTerp.</h1><p role="status">Surveying the salt flats…</p><Link to="/wiki-map">Explore the Wiki ↗</Link></main></>}><PixelWorld Header={Header} /></Suspense>} />
+    <Route path="/" element={<Suspense fallback={<BootLoadingScreen />}><PixelWorld Header={Header} /></Suspense>} />
     <Route path="/wiki-map" element={<WikiMap />} />
     {pageOrder.map((slug) => <Route key={slug} path={`/${slug}`} element={<Article slug={slug} />} />)}
     <Route path="*" element={<Navigate to="/wiki-map" replace />} />

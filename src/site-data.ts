@@ -19,6 +19,7 @@ export type WikiPage = {
   status: "team-draft" | "structure-only" | "review-ready";
   sections: WikiSection[];
   figure?: { src: string; alt: string; caption: string };
+  references?: Array<{ label: string; href: string }>;
 };
 
 export const navigation: Array<{ label: string; items: ReadonlyArray<readonly [string, string]> }> = [

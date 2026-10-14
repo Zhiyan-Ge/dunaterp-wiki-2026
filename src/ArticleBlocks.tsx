@@ -14,11 +14,23 @@ function resolveAsset(src: string) {
   return `${import.meta.env.BASE_URL}${src.replace(/^\/+/, '')}`;
 }
 
+function renderTableCell(text: string) {
+  return text.split(/(\$[^$]+\$)/g).map((part, index) => {
+    if (!part.startsWith("$") || !part.endsWith("$")) return part;
+    try {
+      const html = katex.renderToString(part.slice(1, -1), { displayMode: false, throwOnError: true, trust: false });
+      return <span className="research-table-math" key={`${index}-${part}`} dangerouslySetInnerHTML={{ __html: html }} />;
+    } catch {
+      return part;
+    }
+  });
+}
+
 function DataTable({ block }: { block: Extract<ContentBlock, { kind: 'table' }> }) {
   const content = <div className="research-table-scroll" role="region" aria-label={block.caption} tabIndex={0}>
     <table><caption>{block.caption}</caption><thead><tr>{block.columns.map((name) => <th key={name} scope="col">{name}</th>)}</tr></thead>
       <tbody>{block.rows.map((row, i) => <tr key={i}>{row.map((cell, j) => {
-        const value = /^https?:\/\//.test(cell) ? <a href={cell}>Reference ↗</a> : cell;
+        const value = /^https?:\/\//.test(cell) ? <a href={cell}>Reference ↗</a> : renderTableCell(cell);
         return j === 0 ? <th scope="row" key={j}>{value}</th> : <td key={j}>{value}</td>;
       })}</tr>)}</tbody>
     </table>
@@ -28,11 +40,11 @@ function DataTable({ block }: { block: Extract<ContentBlock, { kind: 'table' }> 
 
 function renderEquation(text: string): string | null {
   try {
-    // KaTeX's default \jot is fixed. Add a clearly visible gap between rows,
+    // KaTeX's default \jot is fixed. Give multi-line displays a modest shared gap,
     // while respecting any larger, formula-specific spacing in the source.
     const spacedText = text.replace(
       /\\\\(?:\s*\[(\d+(?:\.\d+)?)pt\])?/g,
-      (_lineBreak, authoredGap?: string) => `\\\\[${authoredGap && Number(authoredGap) > 10 ? authoredGap : 10}pt]`,
+      (_lineBreak, authoredGap?: string) => `\\\\[${authoredGap && Number(authoredGap) > 4 ? authoredGap : 4}pt]`,
     );
     return katex.renderToString(spacedText, { displayMode: true, throwOnError: true, trust: false });
   } catch {
@@ -53,10 +65,10 @@ function ResearchFigure({ figure, compact = false }: { figure: { src: string; al
   </figure>;
 }
 
-export function ArticleBlocks({ blocks }: { blocks: ContentBlock[] }) {
+export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, number>() }: { blocks: ContentBlock[]; referenceNumbers?: Map<string, number> }) {
   return <div className="research-blocks">{blocks.map((block, i) => {
     switch (block.kind) {
-      case 'paragraph': return <p key={i}>{block.text}</p>;
+      case 'paragraph': return <p key={i}>{renderCitations(block.text, referenceNumbers)}</p>;
       case 'heading': return <h3 key={i}>{block.text}</h3>;
       case 'equation': return <Equation key={i} block={block} />;
       case 'code': return <div className="research-code" key={i}><p>{block.label}</p><pre tabIndex={0}><code>{block.text}</code></pre></div>;
@@ -64,11 +76,29 @@ export function ArticleBlocks({ blocks }: { blocks: ContentBlock[] }) {
       case 'figure-grid': return <div className="research-figure-grid" key={i}>{block.figures.map((figure) => <ResearchFigure key={figure.src} figure={figure} compact />)}</div>;
       case 'chapter-grid': return <div className="research-chapter-grid" key={i}>{block.items.map((item) => <Link className="research-chapter-card" to={item.href} key={item.href}><span>{item.index}</span><div><h3>{item.title}</h3><p>{item.text}</p></div><b aria-hidden="true">↗</b></Link>)}</div>;
       case 'table': return <DataTable key={i} block={block} />;
-      case 'links': return <ul className="research-links" key={i}>{block.links.map(({label,href}) => <li key={href}>{href.startsWith('/') ? <Link to={href}>{label} ↗</Link> : <a href={href}>{label} ↗</a>}</li>)}</ul>;
+      case 'links': return <ul className="research-links" key={i}>{block.links.map(({label,href}) => {
+        if (href.startsWith('/')) return <li key={href}><Link to={href}>{label} ↗</Link></li>;
+        const reference = referenceNumbers.get(href);
+        return <li key={href}>{reference
+          ? <a href={`#reference-${reference}`}>{label} <sup>[{reference}]</sup></a>
+          : <a href={href} target="_blank" rel="noreferrer">{label} ↗</a>}</li>;
+      })}</ul>;
       case 'docking-viewer': return <Suspense key={i} fallback={<p>Loading 3D docking view…</p>}><DockingViewer /></Suspense>;
       case 'pbr-widget': return <PBRWidget key={i} />;
       case 'safety-overview': return <SafetyOverview key={i} />;
       case 'safety-results': return <SafetyResults key={i} />;
     }
   })}</div>;
+}
+
+function renderCitations(text: string, referenceNumbers: Map<string, number>) {
+  if (referenceNumbers.size === 0) return text;
+  const parts = text.split(/\[(\d+)\]/g);
+  return parts.map((part, index) => {
+    if (index % 2 === 0) return part;
+    const number = Number(part);
+    return number > 0 && number <= referenceNumbers.size
+      ? <a className="inline-citation" href={`#reference-${number}`} key={`${index}-${number}`}>[{number}]</a>
+      : `[${part}]`;
+  });
 }

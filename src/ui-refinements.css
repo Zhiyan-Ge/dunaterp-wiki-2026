@@ -334,7 +334,10 @@ main:focus:not(:focus-visible) { outline: none; }
   overflow: hidden;
   padding: clamp(2rem, 5vw, 4.2rem);
   border: 4px solid var(--ink);
-  background: var(--deep);
+  background-color: var(--deep);
+  background-image: linear-gradient(90deg, rgba(6,34,31,.94) 0%, rgba(6,34,31,.86) 52%, rgba(6,34,31,.68) 100%), var(--article-hero-image);
+  background-size: cover;
+  background-position: center;
   color: #fff5db;
   box-shadow: 10px 10px 0 color-mix(in srgb, var(--article-accent) 55%, var(--ink));
 }
@@ -361,16 +364,25 @@ main:focus:not(:focus-visible) { outline: none; }
 }
 .article-page .article-layout { padding-top: 4rem; }
 .article-page .article-toc {
+  position: sticky;
+  top: 6rem;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100svh - 7.5rem);
+  overflow: hidden;
   padding: 1rem;
   border: 3px solid var(--ink);
-  background: #fffaf0;
+  background: #e8eddc;
   box-shadow: 5px 5px 0 var(--ink);
 }
+.article-page .article-toc nav { min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-color: #849777 transparent; scrollbar-width: thin; }
 .article-page .article-toc > p { color: #486158; font-family: ui-monospace, Menlo, monospace; }
 .article-page .article-toc nav a { border-left: 4px solid #cbd5c9; font-weight: 680; }
+.article-page .article-toc nav a.is-active { border-left-color: var(--article-accent); background: color-mix(in srgb, var(--article-accent) 30%, #fffaf0); color: var(--ink); }
 .article-page .article-toc nav a:hover,
 .article-page .article-toc nav a:focus-visible { border-left-color: var(--article-accent); background: color-mix(in srgb, var(--article-accent) 24%, #fffaf0); }
 .article-page .toc-map { font-family: ui-monospace, Menlo, monospace; font-weight: 800; }
+.article-page .toc-map { flex: 0 0 auto; }
 
 .article-page .article-sections > section {
   grid-template-columns: 3rem minmax(0,1fr);
@@ -398,6 +410,13 @@ main:focus:not(:focus-visible) { outline: none; }
 .article-page .next-page > span,
 .article-page .next-page strong { font-family: ui-monospace, Menlo, monospace; font-weight: 900; }
 .article-page .next-page strong { text-transform: uppercase; }
+.article-page .article-references { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: clamp(1rem, 3vw, 2rem); margin-top: 1.4rem; padding: clamp(1.4rem, 4vw, 3rem); border: 3px solid var(--ink); background: #e8eddc; box-shadow: 6px 6px 0 var(--article-accent); scroll-margin-top: 7rem; }
+.article-page .article-references h2 { margin: 0 0 1.2rem; color: var(--ink); font: 900 clamp(1.45rem, 2.1vw, 2.05rem)/1.2 ui-monospace, Menlo, monospace; text-transform: uppercase; }
+.article-page .article-references ol { margin: 0; padding: 0; list-style: none; counter-reset: references; }
+.article-page .article-references li { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .7rem; align-items: start; padding: .8rem 0; border-top: 1px solid #bdc9b8; color: #36514c; font-size: .9rem; line-height: 1.6; scroll-margin-top: 7rem; }
+.article-page .article-references li > span { color: #607468; font: 900 .75rem/1.6 ui-monospace, Menlo, monospace; }
+.article-page .article-references li > a { color: var(--ink); text-underline-offset: .2em; }
+.article-page .inline-citation { color: #176c82; font-size: .82em; font-weight: 800; text-underline-offset: .15em; }
 
 /* Modeling reads as a sequence of white laboratory sheets on warm paper.
    Most exported plots already use white canvases, so this avoids the previous
@@ -432,7 +451,8 @@ body:has(.article-page--hardware) { background: #f3ecd0; }
 .article-page--overview .article-layout { padding-top: 2.25rem; }
 
 @media (max-width: 900px) {
-  .article-page .article-toc { position: static; border-radius: 0; }
+  .article-page .article-toc { position: static; max-height: none; overflow: visible; border-radius: 0; }
+  .article-page .article-toc nav { max-height: min(48svh, 26rem); }
 }
 @media (max-width: 800px) {
   .article-page .article-hero { padding: 1.5rem; box-shadow: 6px 6px 0 color-mix(in srgb, var(--article-accent) 55%, var(--ink)); }
@@ -440,4 +460,5 @@ body:has(.article-page--hardware) { background: #f3ecd0; }
   .article-page--overview .article-hero { grid-template-columns: 1fr; gap: 1.25rem; }
   .article-page .article-sections > section { grid-template-columns: 2.5rem minmax(0,1fr); padding: 1.25rem; box-shadow: 4px 4px 0 #b9c7b9; }
   .article-page .section-number { width: 2.25rem; height: 2.25rem; }
+  .article-page .article-references { grid-template-columns: 2.5rem minmax(0,1fr); padding: 1.25rem; box-shadow: 4px 4px 0 var(--article-accent); }
 }

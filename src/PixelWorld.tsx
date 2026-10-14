@@ -28,8 +28,9 @@ function LoadingScreen({ ratio }: { ratio: number }) {
     <div className="px-loading" role="status" aria-live="polite">
       <div className="px-loading-crest" aria-hidden="true"><i /><i /><i /><i /><i /></div>
       <p className="px-loading-title">DUNATERP</p>
+      <div className="px-loader-scene" aria-hidden="true"><i /><b /><span /></div>
       <p className="px-loading-sub">Surveying the salt flats…</p>
-      <div className="px-meter" aria-hidden="true">
+      <div className="px-meter" role="progressbar" aria-label="Loading the salt route" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(ratio * 100)}>
         {Array.from({ length: cells }, (_, index) => (
           <i key={index} className={index < filled ? "is-on" : undefined} />
         ))}
@@ -45,6 +46,8 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
   const stage = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const routeRef = useRef<HTMLDivElement>(null);
+  const routeTitleRef = useRef<HTMLSpanElement>(null);
+  const routePercentRef = useRef<HTMLSpanElement>(null);
   const engineRef = useRef<PixelEngine | null>(null);
   const scrollLock = useRef(0);
   const archiveTimer = useRef<number | null>(null);
@@ -72,6 +75,22 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
     () => STATION_COPY.find((item) => item.key === stationDialogueKey) ?? null,
     [stationDialogueKey],
   );
+  const updateRouteUi = useCallback((position: number) => {
+    const value = Math.max(0, Math.min(1, position));
+    const percent = Math.round(value * 100);
+    const currentStopIndex = STATION_COPY.reduce((current, station, index) => station.u <= value ? index : current, -1);
+    const route = routeRef.current;
+    if (route) {
+      route.style.setProperty("--px-journey", `${value * 100}%`);
+      route.setAttribute("aria-valuenow", String(percent));
+      route.setAttribute("aria-valuetext", `${currentStopIndex < 0 ? "Salt Route trailhead" : STATION_COPY[currentStopIndex].title}, ${percent}%`);
+      route.querySelectorAll<HTMLElement>("[data-route-stop]").forEach((stop, index) => {
+        stop.classList.toggle("is-on", index === currentStopIndex);
+      });
+    }
+    if (routeTitleRef.current) routeTitleRef.current.textContent = currentStopIndex < 0 ? "Salt Route · Trailhead" : STATION_COPY[currentStopIndex].title;
+    if (routePercentRef.current) routePercentRef.current.textContent = `${percent}%`;
+  }, []);
 
   useEffect(() => {
     if (!isStory) return;
@@ -103,19 +122,12 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
       engine = new PixelEngine(surface, host, {
         onLoadProgress: setProgress,
         onReady: () => setReady(true),
-        onJourney: (value) => {
-          const route = routeRef.current;
-          if (!route) return;
-          route.style.setProperty("--px-journey", `${value * 100}%`);
-          route.setAttribute("aria-valuenow", String(Math.round(value * 100)));
-          const currentTask = [...STATION_COPY].reverse().find((station) => value >= station.u);
-          route.setAttribute("aria-valuetext", currentTask ? `${currentTask.index}: ${currentTask.short}` : "Salt Route trailhead");
-        },
         onIntroComplete: () => {
           dispatchStory("ARRIVED");
           requestAnimationFrame(() => canvas.current?.focus({ preventScroll: true }));
         },
         onMode: setMode,
+        onJourney: updateRouteUi,
         onChapter: setChapter,
         interactableStationKeys: STATION_COPY.map((station) => station.key),
         onPrompt: (station) => setPromptKey(
@@ -148,7 +160,7 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
       engine?.dispose();
       engineRef.current = null;
     };
-  }, []);
+  }, [updateRouteUi]);
 
   useEffect(() => {
     if (!ready || failed) return;
@@ -330,7 +342,6 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
   }, [ready, failed]);
 
   const activeChapter = chapter >= 0 ? STATION_COPY[chapter] : null;
-
   return (
     <main
       id="main-content"
@@ -462,6 +473,7 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
           {STATION_COPY.map((station) => (
             <span
               key={station.key}
+              data-route-stop={station.key}
               className={`px-route-stop${station.index === "01" ? " is-first" : ""}${station.index === "04" ? " is-last" : ""}${activeChapter?.key === station.key ? " is-on" : ""}`}
               style={{ left: `${station.u * 100}%`, "--px-accent": station.color } as React.CSSProperties}
             >
@@ -471,6 +483,7 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
           ))}
           <i className="px-route-traveller" aria-hidden="true" />
         </div>
+        <p className="px-route-current" aria-live="off"><span ref={routeTitleRef}>Salt Route · Trailhead</span><span ref={routePercentRef}>1%</span></p>
 
         <section className="px-archive" inert={!atArchive || mode === "free"} aria-label="DunaTerp wiki index">
           <header>

@@ -110,6 +110,7 @@ export class PixelEngine {
   private activeNpc: Npc | null = null;
   private paused = false;
   private chapter = -1;
+  private lastReportedJourney = TRAILHEAD_U;
   private resizeObserver: ResizeObserver | null = null;
   /** Stable scene entries; only the hero's position/frame changes per tick. */
   private readonly drawables: Drawable[] = [];
@@ -804,8 +805,11 @@ export class PixelEngine {
       else this.stepGuided(delta);
     }
 
-    this.events.onJourney?.(this.u);
     if (!this.introShot) this.updateProximity();
+    if (Math.abs(this.u - this.lastReportedJourney) >= 0.0015) {
+      this.lastReportedJourney = this.u;
+      this.events.onJourney?.(this.u);
+    }
 
     // Camera leads slightly in the direction of travel, and on the guided
     // route it drifts toward whichever station is coming up so the landmark is

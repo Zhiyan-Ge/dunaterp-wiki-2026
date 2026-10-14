@@ -86,7 +86,7 @@ export class RoutePath {
     return { x: a.x + dx * t, y: a.y + dy * t, dx: dx / len, dy: dy / len };
   }
 
-  /** Closest point on the route, with continuity through nearby switchbacks. */
+  /** Closest point on the route, keeping continuity through nearby switchbacks. */
   nearestU(x: number, y: number, referenceU?: number): number {
     let best = 0;
     let bestDistance = Infinity;
@@ -100,6 +100,10 @@ export class RoutePath {
     }
     if (referenceU === undefined) return this.cumulative[best] / this.length;
 
+    // The route folds back close to itself. First find the geometric nearest
+    // point, then keep the current route position when another nearby stretch
+    // is within a small tolerance. This prevents free-roam from snapping to a
+    // previous station when the visitor returns to the boardwalk.
     const closestDistance = Math.sqrt(bestDistance);
     const continuityDistance = closestDistance + TILE * 1.5;
     const continuityDistanceSquared = continuityDistance * continuityDistance;
