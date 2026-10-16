@@ -114,11 +114,7 @@ export const pages: Record<string, WikiPage> = {
   },
   experiments: {
     title: "Experiments", eyebrow: "Wet Lab", intro: "Molecular cloning, Dunaliella salina transformation, genomic DNA extraction, qPCR and product separation.", status: "team-draft",
-    sections: [
-      ...wetLabSections,
-      { title: "Transcriptomics workflow", body: "The Transcriptomics page follows the carotenoid pathway from sequence annotation to replicate-aware light comparisons, then carries the LCYB response into the mathematical model." },
-      { title: "Modelling workflow", body: "The Mathematical Modeling page records a five-state ODE from regulatory-factor activity through promoter occupancy and LCYB expression to β-carotene. The implementation requires explicit parameters and initial values, so published observations and project measurements remain distinguishable." },
-    ],
+    sections: wetLabSections,
   },
   results: {
     title: "Evidence, with its limits visible", eyebrow: "Results", intro: "This draft separates observed computational results, model-dependent predictions and measurements that still need to be made.", status: "team-draft",

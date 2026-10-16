@@ -21,28 +21,54 @@ try {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto('http://127.0.0.1:4177/dunaterp-wiki-2026/experiments');
-    await page.locator('.wet-lab-protocol').first().waitFor();
+    await page.locator('.wet-lab-overview').waitFor();
     await page.evaluate(() => document.fonts.ready);
+    await page.screenshot({ path: path.join(shots, `${width}-entry.png`) });
     assert.equal(await page.locator('.article-body iframe').count(), 0);
-    assert.equal(await page.locator('.wet-lab-protocol').count(), 8);
-    assert.equal(await page.locator('.wet-lab-protocol table').count(), 7);
+    assert.equal(await page.locator('.wet-lab-protocol').count(), 5);
+    assert.equal(await page.locator('.wet-lab-protocol table').count(), 6);
+    assert.equal(await page.locator('.method-figure img').count(), 6);
+    assert.equal(await page.locator('.method-protocol[open]').count(), 0);
     const rendered = await page.locator('.wet-lab-protocol').allTextContents();
-    const expected = await page.evaluate(documents => documents.flatMap(doc => doc.sections.map(section => {
+    const expected = await page.evaluate(documents => [...documents[0].sections, documents[1].sections[3]].map(section => {
       const wrapper = document.createElement('div');
-      wrapper.innerHTML = section.html;
+      wrapper.innerHTML = section.html.match(/<h3>[\s\S]*?<\/h3>([\s\S]*)$/)[1];
       return wrapper.textContent;
-    })), protocols);
+    }), protocols);
     assert.deepEqual(rendered, expected);
-    for (const selector of ['#section-1', '#section-4', '#section-8', '.wet-lab-protocol table']) {
+    const intros = await page.locator('.method-introduction').allTextContents();
+    const sourceIntros = await page.evaluate(documents => [...documents[0].sections, documents[1].sections[3]].map(section => {
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = section.html.split('<p>This section includes:</p>')[0];
+      return wrapper.textContent;
+    }), protocols);
+    assert.deepEqual(intros, sourceIntros);
+    for (const selector of ['#section-1', '#section-2', '#section-5', '#section-6']) {
       await page.locator(selector).first().evaluate(element => element.scrollIntoView({ block: 'start' }));
+      await page.locator(selector + ' img').evaluateAll(images => Promise.all(images.map(img => img.decode())));
       await page.waitForTimeout(150);
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${width}: horizontal overflow`);
       await page.screenshot({ path: path.join(shots, `${width}-${selector.replace(/[^a-z0-9]/gi, '')}.png`) });
     }
-    await page.locator('[data-toc-id="section-8"]').click();
+    assert.ok(await page.locator('.method-figure img').evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0)));
+    const imageUrls = await page.locator('.method-figure img').evaluateAll(images => images.map(img => img.currentSrc));
+    assert.ok(imageUrls.every(url => width < 600 ? url.endsWith('-mobile.svg') : !url.endsWith('-mobile.svg')));
+    await page.getByRole('button', { name: 'Expand all protocols' }).click();
+    assert.equal(await page.locator('.method-protocol[open]').count(), 5);
+    await page.locator('[href="#method-cloning-5"]').click();
+    await page.locator('.wet-lab-protocol table').first().scrollIntoViewIfNeeded();
+    await page.screenshot({ path: path.join(shots, `${width}-protocol-table.png`) });
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+    await page.getByRole('button', { name: 'Collapse all protocols' }).click();
+    assert.equal(await page.locator('.method-protocol[open]').count(), 0);
+    // A single protocol can also be opened using keyboard activation.
+    await page.locator('[data-method="qpcr"] summary').focus();
+    await page.keyboard.press('Enter');
+    assert.equal(await page.locator('[data-method="qpcr"] details').getAttribute('open'), '');
+    await page.locator('[data-toc-id="section-6"]').click();
     await page.waitForTimeout(250);
-    assert.equal(await page.locator('[data-toc-id="section-8"]').getAttribute('aria-current'), 'location');
-    assert.ok((await page.locator('#section-8').boundingBox()).y >= 0);
+    assert.equal(await page.locator('[data-toc-id="section-6"]').getAttribute('aria-current'), 'location');
+    assert.ok((await page.locator('#section-6').boundingBox()).y >= 0);
     const downloads = await page.locator('.protocol-download a').evaluateAll(links => links.map(link => link.href));
     assert.equal(downloads.length, 2);
     for (let i = 0; i < downloads.length; i++) {
@@ -51,7 +77,10 @@ try {
       assert.equal(createHash('sha256').update(await response.body()).digest('hex'), protocols[i].sha256);
     }
     assert.deepEqual(errors, []);
-    console.log(`PASS ${width}px: native content, tables, TOC navigation/highlight, no overflow, intact downloads, no JS errors`);
+    await page.goto('http://127.0.0.1:4177/dunaterp-wiki-2026/experiments#method-qpcr-2');
+    await page.waitForTimeout(200);
+    assert.equal(await page.locator('[data-method="qpcr"] details').getAttribute('open'), '');
+    console.log(`PASS ${width}px: original procedures intact, six responsive diagrams, deduplicated methods, expand/collapse, keyboard, TOC, no overflow, intact downloads`);
     await page.close();
   }
   console.log(`Screenshots: ${shots}`);

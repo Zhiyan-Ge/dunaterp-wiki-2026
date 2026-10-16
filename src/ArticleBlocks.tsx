@@ -4,6 +4,7 @@ import katex from 'katex';
 import type { ContentBlock } from './content/types';
 import { PBRWidget } from './PBRWidget';
 import { SafetyOverview, SafetyResults } from './SafetyEvidence';
+import { WetLabMethod, WetLabOverview } from './WetLabProtocol';
 import 'katex/dist/katex.min.css';
 import './article-blocks.css';
 
@@ -85,7 +86,8 @@ export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, numbe
       })}</ul>;
       // Build-time, escaped markup generated only from the supplied local DOCX files.
       // Native headings, lists and tables inherit article styles; no embedded document.
-      case 'wet-lab-protocol': return <div key={i} className="wet-lab-protocol" dangerouslySetInnerHTML={{ __html: block.html }} />;
+      case 'wet-lab-overview': return <WetLabOverview key={i} />;
+      case 'wet-lab-method': return <WetLabMethod key={i} block={block} />;
       case 'download': return <p className="protocol-download" key={i}><a href={resolveAsset(block.src)} download>{block.label} ↧</a></p>;
       case 'docking-viewer': return <Suspense key={i} fallback={<p>Loading 3D docking view…</p>}><DockingViewer /></Suspense>;
       case 'pbr-widget': return <PBRWidget key={i} />;
