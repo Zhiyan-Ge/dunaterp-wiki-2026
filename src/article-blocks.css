@@ -38,10 +38,24 @@
 .research-code>p { font-size: .875rem; margin-bottom: -.75rem; font-weight: 600; }
 .research-links { padding: 0; list-style: none; }
 .research-links li { margin: .45rem 0; }
+.wet-lab-protocol h3 { padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.wet-lab-protocol h4 { margin: 2rem 0 1rem; font-size: 1.125rem; line-height: 1.5; color: var(--ink); }
+.wet-lab-protocol h4 em { font-style: normal; }
+.wet-lab-protocol ol, .wet-lab-protocol ul { padding-left: 1.6rem; margin: 1.25rem 0; }
+.wet-lab-protocol li { padding-left: .3rem; margin: .85rem 0; }
+.wet-lab-protocol li::marker { color: var(--ink); font-weight: 650; }
+.wet-lab-protocol li > ol, .wet-lab-protocol li > ul { margin: .75rem 0; }
+.wet-lab-protocol .research-table-scroll { background: #fff; }
+.wet-lab-protocol .research-table-scroll th, .wet-lab-protocol .research-table-scroll td { text-align: left; }
+.wet-lab-protocol .research-table-scroll table:has(th:nth-child(3)) { min-width: 30rem; }
+.wet-lab-protocol .research-table-scroll { overflow-wrap: normal; }
+.article-page .article-sections > section:has(.wet-lab-protocol) h2 { max-width: none; font-size: clamp(1.5rem, 2.2vw, 2.05rem); line-height: 1.25; }
+.protocol-download { padding-top: 1rem; border-top: 1px solid var(--line); font-size: .875rem; }
 .article-toc { max-height: calc(100vh - 9rem); overflow-y: auto; }
 .related-wiki-pages { display: flex; flex-wrap: wrap; gap: 1rem 2rem; padding: 1rem 0 2rem; }
 .related-wiki-pages a { color: #176c82; }
 @media (max-width: 800px) {
+  .article-page .article-sections > section:has(.wet-lab-protocol) { grid-template-columns: minmax(0,1fr); gap: 1rem; }
   .article-toc { max-height: none; }
   .research-table-scroll th, .research-table-scroll td { padding: .6rem; }
   .research-table-details { padding: .75rem; }

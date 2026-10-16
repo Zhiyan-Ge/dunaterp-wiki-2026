@@ -27,6 +27,8 @@ export type EngineEvents = {
   onMode: (mode: Mode) => void;
   /** Index into world.stations, or -1 between chapters. */
   onChapter: (index: number) => void;
+  /** Current normalised position along the route. */
+  onJourney?: (u: number) => void;
   onPrompt: (station: Station | null) => void;
   /** Fired when the visitor confirms an interaction. */
   onEnter: (station: Station) => void;
@@ -108,6 +110,7 @@ export class PixelEngine {
   private activeNpc: Npc | null = null;
   private paused = false;
   private chapter = -1;
+  private lastReportedJourney = TRAILHEAD_U;
   private resizeObserver: ResizeObserver | null = null;
   /** Stable scene entries; only the hero's position/frame changes per tick. */
   private readonly drawables: Drawable[] = [];
@@ -301,7 +304,7 @@ export class PixelEngine {
 
   exitFree() {
     if (this.mode !== "free") return;
-    this.u = this.world.path.nearestU(this.hero.x, this.hero.y);
+    this.u = this.world.path.nearestU(this.hero.x, this.hero.y, this.u);
     this.targetU = this.u;
     this.uVelocity = 0;
     this.returnFrom = { x: this.hero.x, y: this.hero.y };
@@ -588,7 +591,7 @@ export class PixelEngine {
     this.walkDistance += Math.hypot(this.hero.vx, this.hero.vy) * delta;
     this.updateFacing(this.hero.vx, this.hero.vy);
     // Keep the page scroll roughly in step so leaving free mode never jumps.
-    this.u = this.world.path.nearestU(this.hero.x, this.hero.y);
+    this.u = this.world.path.nearestU(this.hero.x, this.hero.y, this.u);
     this.stepNpcs(delta);
   }
 
@@ -803,6 +806,10 @@ export class PixelEngine {
     }
 
     if (!this.introShot) this.updateProximity();
+    if (Math.abs(this.u - this.lastReportedJourney) >= 0.0015) {
+      this.lastReportedJourney = this.u;
+      this.events.onJourney?.(this.u);
+    }
 
     // Camera leads slightly in the direction of travel, and on the guided
     // route it drifts toward whichever station is coming up so the landmark is

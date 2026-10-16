@@ -4,12 +4,20 @@ import type { ContentBlock } from './types';
 const p = (text: string): ContentBlock => ({ kind: 'paragraph', text });
 const eq = (label: string, text: string): ContentBlock => ({ kind: 'equation', label, text });
 const table = (caption: string, columns: string[], rows: string[][], collapsed = false): ContentBlock => ({ kind: 'table', caption, columns, rows, collapsed });
+const math = String.raw;
 
 export const safety: WikiPage = {
   title: 'Salt-responsive containment',
   eyebrow: 'Safety & Security',
   status: 'team-draft',
   intro: 'We explore whether a change in salinity could help limit the persistence of engineered Dunaliella salina outside cultivation. Literature guides the design; a simple model tests the conditions under which it could work.',
+  references: [
+    { label: 'Chen H & Jiang J-G. Osmotic Responses of Dunaliella to the Changes of Salinity. Journal of Cellular Physiology 219:251–258 (2009).', href: 'https://doi.org/10.1002/jcp.21715' },
+    { label: 'Li J, Lu Y, Xue L & Xie H. A structurally novel salt-regulated promoter of duplicated carbonic anhydrase gene 1 from Dunaliella salina. Molecular Biology Reports 37:1143–1154 (2010).', href: 'https://doi.org/10.1007/s11033-009-9901-z' },
+    { label: 'Zhang Y et al. MazF Cleaves Cellular mRNAs Specifically at ACA to Block Protein Synthesis in Escherichia coli. Molecular Cell 12:913–923 (2003).', href: 'https://pubmed.ncbi.nlm.nih.gov/14580342/' },
+    { label: 'Farhat N et al. Optimization of salt concentrations for a higher carotenoid production in Dunaliella salina (Chlorophyceae). Journal of Phycology 47:1072–1077 (2011).', href: 'https://doi.org/10.1111/j.1529-8817.2011.01036.x' },
+    { label: 'Gómez PI & González MA. The effect of temperature and irradiance on the growth and carotenogenic capacity of seven strains of Dunaliella salina cultivated under laboratory conditions. Biological Research 38:151–162 (2005).', href: 'https://doi.org/10.4067/s0716-97602005000200005' },
+  ],
   sections: [
     { title: 'Why use salinity?', body: '', blocks: [
       p('DunaTerp is designed around a salt-adapted microalga. A fall in salinity offers a possible signal that cells have left their intended cultivation environment. However, Dunaliella can tolerate a broad range of salinities, so low salt cannot be treated as a reliable means of inactivation on its own. The range also varies with the organism and its acclimation history [1].'),
@@ -47,49 +55,41 @@ export const safety: WikiPage = {
       p('We use literature to set the biological context and choose plausible scenarios. Where the available studies do not constrain a parameter, we state the assumption and examine its consequences.'),
       table('Evidence used to choose the model inputs', ['Input', 'Choice and rationale', 'Scope of the evidence'], [
         ['Cultivation salinity', '1.50 M NaCl. Farhat et al. found favorable growth at 1.5–3.0 M in their isolate [4].', 'Supports a cultivation scenario; not a universal optimum.'],
-        ['Growth-rate amplitude', '0.28 d⁻¹ baseline; 0.14–0.83 d⁻¹ explored using the range in Gómez & González [5].', 'Cross-strain and cross-condition comparison. Reported divisions/day were converted using μ = ln(2)k.'],
+        ['Growth-rate amplitude', '0.28 d⁻¹ baseline; 0.14–0.83 d⁻¹ explored using the range in Gómez & González [5].', 'Cross-strain and cross-condition comparison; divisions/day converted to an hourly growth rate.'],
         ['Salt-responsive regulation', 'DCA1 salt regulation motivates the sensing concept [2].', 'Does not establish the full low-salt response curve.'],
         ['Effector mechanism', 'MazF-mediated translation inhibition motivates the effector concept [3].', 'Does not supply a mortality rate in Dunaliella.'],
         ['Circuit kinetics and environment', 'Effective response, delay and salt relaxation are explicit design assumptions.', 'Used to explore requirements and failure cases.'],
       ]),
+      eq('Convert division rate to growth rate', String.raw`\mu_{\mathrm{d}}=\ln(2)\,k_{\mathrm{div}},\qquad \mu_{\mathrm{h}}=\frac{\mu_{\mathrm{d}}}{24}`),
       table('Full baseline parameter set', ['Parameter', 'Value', 'Role / source'], [
-        ['Sprod / Senv', '1.50 / 0.05 M', 'Cultivation scenario / low-salt stress scenario'],
-        ['kmix', '1 h⁻¹', 'Assumed salt relaxation rate'],
-        ['μmax', '0.28 d⁻¹', 'Historical scenario amplitude; not a strain-specific fit'],
-        ['Sopt / σ', '1.75 / 0.75 M', 'Assumed shape of the salinity–growth curve'],
-        ['KS / q / L', '0.27 M / 3 / 0', 'Assumed half-response scale, Hill slope and leak'],
-        ['β / δ', '1 / 0.20 h⁻¹', 'Effective activity generation / relaxation'],
-        ['dmax / m', '0.50 h⁻¹ / 2', 'Conditional mortality rate and response exponent'],
-        ['Kn / n0 / x0', '1 / 0.5 / 0', 'Normalized carrying capacity, initial concentration and activity'],
+        [math`$S_{\mathrm{prod}}/S_{\mathrm{env}}$`, '1.50 / 0.05 M', 'Cultivation scenario / low-salt stress scenario'],
+        [math`$k_{\mathrm{mix}}$`, '1 h⁻¹', 'Assumed salt relaxation rate'],
+        [math`$\mu_{\max}$`, '0.28 d⁻¹', 'Historical scenario amplitude; not a strain-specific fit'],
+        [math`$S_{\mathrm{opt}}/\sigma$`, '1.75 / 0.75 M', 'Assumed shape of the salinity–growth curve'],
+        [math`$K_S/q/L$`, '0.27 M / 3 / 0', 'Assumed half-response scale, Hill slope and leak'],
+        [math`$\beta/\delta$`, '1 / 0.20 h⁻¹', 'Effective activity generation / relaxation'],
+        [math`$d_{\max}/m$`, '0.50 h⁻¹ / 2', 'Conditional mortality rate and response exponent'],
+        [math`$K_n/n_0/x_0$`, '1 / 0.5 / 0', 'Normalized carrying capacity, initial concentration and activity'],
         ['D', '0 or 1 h⁻¹', 'Cell retention or ideal water exchange'],
       ], true),
     ] },
     { title: 'Model formulation', body: '', blocks: [
-      p('Salinity S relaxes toward the receiving-environment value. A decreasing Hill function represents the intended effective circuit response. The normalized concentration n = C/Cref changes through growth, conditional mortality and washout. The reference concentration Cref is unspecified, so n is not converted into a number of surviving cells.'),
+      p('Salinity S relaxes toward the receiving-environment value. A decreasing Hill function represents the intended effective circuit response. Concentration is normalized to a reference value; because that reference is unspecified, the model does not convert the normalized state into an absolute number of surviving cells.'),
+      eq('Normalized concentration', 'n=\\frac{C}{C_{\\mathrm{ref}}}'),
       eq('Salinity and effective circuit activity', String.raw`S(t)=S_{\rm env}+(S_{\rm prod}-S_{\rm env})e^{-k_{\rm mix}t}\qquad A(S)=L+\frac{1-L}{1+(S/K_S)^q}`),
       eq('Activity and concentration dynamics', String.raw`\frac{dx}{dt}=\beta A(S)-\delta x\qquad\frac{dn}{dt}=\left[\mu_{\rm eff}(S,x)\left(1-\frac{n}{K_n}\right)-d_{\rm eff}(x)-D\right]n`),
       eq('Growth and conditional mortality functions', String.raw`\mu(S)=\mu_{\max}e^{-\frac{(S-S_{\rm opt})^2}{2\sigma^2}}\qquad d(x)=d_{\max}\frac{x^m}{1+x^m}`),
       table('Three alternative biological responses', ['Case', 'Effective growth', 'Extra mortality'], [
         ['No effective switch', 'μ(S)', '0'], ['Growth inhibition only', 'μ(S)/(1 + xᵐ)', '0'], ['Conditional killing', 'μ(S)', 'd(x)'],
       ]),
-      p('Time is measured in hours; the daily growth-rate input is divided by 24 before integration. The notebook solves the concentration in logarithmic form. It tracks accumulated growth G, mortality H and washout W separately and checks ln(n/n0) = G − H − W. Further checks compare the salinity and pure-washout solutions with their analytic expressions and examine numerical tolerance. These checks establish computational consistency within the model.'),
+      p('Time is measured in hours; the daily growth-rate input is divided by 24 before integration. The notebook solves concentration in logarithmic form and tracks accumulated growth G, mortality H and washout W separately. Additional checks compare the salinity and pure-washout solutions with their analytic expressions and examine numerical tolerance.'),
+      eq('Log-concentration balance', '\\ln\\!\\left(\\frac{n}{n_0}\\right)=G-H-W'),
+      p('Together, these checks test computational consistency within the stated model.'),
     ] },
     { title: 'Implications for the project', body: '', blocks: [
       p('The model identifies three priorities for evaluation: how quickly the full circuit responds to a fall in salinity, whether the response causes recoverable growth arrest or loss of viability, and whether residual activity affects cultivation. These questions matter more to the present design than refining a single predicted clearance time.'),
       p('A practical assessment must also account for weakly responding cells, genetic failure and recovery after conditions change. The present average-cell model does not estimate those outcomes or extinction probability. Its strongest use is to identify the conditions a safeguard would have to meet and the observations that would most change our design decisions.'),
       p('This page documents the biological-containment design and modeling work. Project-specific strain and construct records, laboratory controls, waste procedures and approved safety documentation will provide the operational part of the safety assessment.'),
-    ] },
-    { title: 'References', body: '', blocks: [
-      p('[1] Chen H & Jiang J-G. Osmotic Responses of Dunaliella to the Changes of Salinity. Journal of Cellular Physiology 219:251–258 (2009). Review context: pp. 251–252 and Fig. 1.'),
-      p('[2] Li J, Lu Y, Xue L & Xie H. A structurally novel salt-regulated promoter of duplicated carbonic anhydrase gene 1 from Dunaliella salina. Molecular Biology Reports 37:1143–1154 (2010). Salt-response evidence: Figs. 3, 7 and 8.'),
-      p('[3] Zhang Y et al. MazF Cleaves Cellular mRNAs Specifically at ACA to Block Protein Synthesis in Escherichia coli. Molecular Cell 12:913–923 (2003). Mechanism and cell-free translation evidence: Figs. 2–3.'),
-      p('[4] Farhat N et al. Optimization of salt concentrations for a higher carotenoid production in Dunaliella salina (Chlorophyceae). Journal of Phycology 47:1072–1077 (2011). Used for qualitative salinity guidance; absolute densities were not fitted.'),
-      p('[5] Gómez PI & González MA. The effect of temperature and irradiance on the growth and carotenogenic capacity of seven strains of Dunaliella salina (Chlorophyta) cultivated under laboratory conditions. Biological Research 38:151–162 (2005). Growth definition and Table II.'),
-      { kind: 'links', links: [
-        { label: 'Chen & Jiang · DOI', href: 'https://doi.org/10.1002/jcp.21715' },
-        { label: 'Li et al. · DOI', href: 'https://doi.org/10.1007/s11033-009-9901-z' },
-        { label: 'Farhat et al. · DOI', href: 'https://doi.org/10.1111/j.1529-8817.2011.01036.x' },
-      ] },
     ] },
   ],
 };

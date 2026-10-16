@@ -98,7 +98,7 @@ try {
   assert.equal((ode.text.match(/\\frac\{d/g) ?? []).length,5);
   assert.deepEqual(pages.model.sections.map(section => section.title), [
     'Why model the LCYB step?','From promoter binding to transcript output','Tracking the five model states',
-    'What is supported, and what still needs measuring','What the model can currently tell us','Passing the output to the product models',
+    'What is supported, and what still needs measuring','What the model can currently tell us','Passing the output to the product models','Model conclusion and experimental handoff',
   ]);
   assert(!/day-7|2\.0988|10\.9518|Car09|nine-state|FBA/i.test(JSON.stringify(pages.model)), 'Obsolete quantitative claim remains');
   for (const slug of ['transcriptomics','model','protein']) {

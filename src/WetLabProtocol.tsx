@@ -1,0 +1,36 @@
+import type { ContentBlock } from './content/types';
+import './wet-lab.css';
+
+const visuals: Record<string, { alt: string; caption: string }> = {
+  qpcr: { alt: 'qPCR assay design using genomic DNA and the programmed amplification temperatures; this is not a measured amplification curve.', caption: 'The assay uses genomic DNA. This schematic shows the sample groups and thermal program specified in the protocol; amplification and melt curves are collected during the run.' },
+};
+
+function MethodFigure({ name, alt, caption }: { name: string; alt: string; caption: string }) {
+  const base = `${import.meta.env.BASE_URL}figures/wet-lab/${name}`;
+  const height = name === 'experimental-workflow' ? 520 : name === 'qpcr' ? 430 : 320;
+  const mobileHeight = name === 'experimental-workflow' ? 890 : name === 'qpcr' ? 700 : 770;
+  return <figure className="method-figure">
+    <picture><source media="(max-width: 600px)" srcSet={`${base}-mobile.svg`} width={520} height={mobileHeight} /><img src={`${base}.svg`} width={960} height={height} alt={alt} loading="lazy" decoding="async" /></picture>
+    <figcaption><span>Method schematic</span>{caption}</figcaption>
+  </figure>;
+}
+
+export function WetLabOverview() {
+  return <div className="wet-lab-overview">
+    <p className="method-lead">Plasmid construction and algal transformation lead into two strands of experimental work: genetic characterisation and product separation.</p>
+    <MethodFigure name="experimental-workflow" alt="Experimental workflow from plasmid construction to algal transformation, branching into genomic DNA characterisation and pigment separation."
+      caption="The methods are arranged by their role in the experiment. Genetic characterisation and product separation are shown as separate branches." />
+  </div>;
+}
+
+export function WetLabMethod({ block }: { block: Extract<ContentBlock, { kind: 'wet-lab-method' }> }) {
+  const visual = visuals[block.id];
+  return <div className="wet-lab-method" data-method={block.id}>
+    <div className="method-introduction" dangerouslySetInnerHTML={{ __html: block.introHtml }} />
+    {visual && <MethodFigure name={block.id} {...visual} />}
+    <div className="method-protocol">
+      <h3>{block.protocolTitle}</h3>
+      <div className="wet-lab-protocol" dangerouslySetInnerHTML={{ __html: block.html }} />
+    </div>
+  </div>;
+}
