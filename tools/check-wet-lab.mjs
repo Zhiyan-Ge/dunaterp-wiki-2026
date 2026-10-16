@@ -44,6 +44,7 @@ try {
     const visualAlignment = await page.evaluate(() => {
       const widthOf = selector => document.querySelector(selector).getBoundingClientRect().width;
       return [
+        widthOf('#section-1 > div:last-child'),
         widthOf('.method-lead'),
         widthOf('.wet-lab-overview .method-figure'),
         widthOf('[data-method="qpcr"] .method-introduction'),
@@ -51,7 +52,7 @@ try {
         widthOf('[data-method="qpcr"] .method-protocol'),
       ];
     });
-    assert.ok(visualAlignment.every(value => Math.abs(value - visualAlignment[0]) < 1), `${width}: figures and text columns differ`);
+    assert.ok(visualAlignment.every(value => Math.abs(value - visualAlignment[0]) < 1), `${width}: figures and text do not reach the content-panel edge`);
     const rendered = await page.locator('.wet-lab-protocol').allTextContents();
     const expected = await page.evaluate(documents => [...documents[0].sections, documents[1].sections[3]].map(section => {
       const wrapper = document.createElement('div');
