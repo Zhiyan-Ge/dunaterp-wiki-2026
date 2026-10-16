@@ -41,6 +41,17 @@ try {
       })));
     assert.ok(alignedWidths.length > 0);
     assert.ok(alignedWidths.every(({ text, table }) => Math.abs(text - table) < 1), `${width}: protocol text and table widths differ`);
+    const visualAlignment = await page.evaluate(() => {
+      const widthOf = selector => document.querySelector(selector).getBoundingClientRect().width;
+      return [
+        widthOf('.method-lead'),
+        widthOf('.wet-lab-overview .method-figure'),
+        widthOf('[data-method="qpcr"] .method-introduction'),
+        widthOf('[data-method="qpcr"] .method-figure'),
+        widthOf('[data-method="qpcr"] .method-protocol'),
+      ];
+    });
+    assert.ok(visualAlignment.every(value => Math.abs(value - visualAlignment[0]) < 1), `${width}: figures and text columns differ`);
     const rendered = await page.locator('.wet-lab-protocol').allTextContents();
     const expected = await page.evaluate(documents => [...documents[0].sections, documents[1].sections[3]].map(section => {
       const wrapper = document.createElement('div');
