@@ -27,8 +27,12 @@ try {
     assert.equal(await page.locator('.article-body iframe').count(), 0);
     assert.equal(await page.locator('.wet-lab-protocol').count(), 5);
     assert.equal(await page.locator('.wet-lab-protocol table').count(), 6);
-    assert.equal(await page.locator('.method-figure img').count(), 6);
-    assert.equal(await page.locator('.method-protocol[open]').count(), 0);
+    assert.equal(await page.locator('.method-figure img').count(), 2);
+    assert.equal(await page.locator('.wet-lab-method details, .wet-lab-method summary, .method-reading-tools, .method-index, .method-figure a').count(), 0);
+    // Source text must be readable on arrival, not merely present inside a closed panel.
+    const content = page.locator('.wet-lab-protocol p, .wet-lab-protocol li, .wet-lab-protocol h4, .wet-lab-protocol table');
+    assert.ok(await content.count() > 50);
+    for (const element of await content.all()) assert.ok(await element.isVisible());
     const rendered = await page.locator('.wet-lab-protocol').allTextContents();
     const expected = await page.evaluate(documents => [...documents[0].sections, documents[1].sections[3]].map(section => {
       const wrapper = document.createElement('div');
@@ -53,18 +57,9 @@ try {
     assert.ok(await page.locator('.method-figure img').evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0)));
     const imageUrls = await page.locator('.method-figure img').evaluateAll(images => images.map(img => img.currentSrc));
     assert.ok(imageUrls.every(url => width < 600 ? url.endsWith('-mobile.svg') : !url.endsWith('-mobile.svg')));
-    await page.getByRole('button', { name: 'Expand all protocols' }).click();
-    assert.equal(await page.locator('.method-protocol[open]').count(), 5);
-    await page.locator('[href="#method-cloning-5"]').click();
     await page.locator('.wet-lab-protocol table').first().scrollIntoViewIfNeeded();
     await page.screenshot({ path: path.join(shots, `${width}-protocol-table.png`) });
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
-    await page.getByRole('button', { name: 'Collapse all protocols' }).click();
-    assert.equal(await page.locator('.method-protocol[open]').count(), 0);
-    // A single protocol can also be opened using keyboard activation.
-    await page.locator('[data-method="qpcr"] summary').focus();
-    await page.keyboard.press('Enter');
-    assert.equal(await page.locator('[data-method="qpcr"] details').getAttribute('open'), '');
     await page.locator('[data-toc-id="section-6"]').click();
     await page.waitForTimeout(250);
     assert.equal(await page.locator('[data-toc-id="section-6"]').getAttribute('aria-current'), 'location');
@@ -79,8 +74,10 @@ try {
     assert.deepEqual(errors, []);
     await page.goto('http://127.0.0.1:4177/dunaterp-wiki-2026/experiments#method-qpcr-2');
     await page.waitForTimeout(200);
-    assert.equal(await page.locator('[data-method="qpcr"] details').getAttribute('open'), '');
-    console.log(`PASS ${width}px: original procedures intact, six responsive diagrams, deduplicated methods, expand/collapse, keyboard, TOC, no overflow, intact downloads`);
+    assert.ok(await page.locator('#method-qpcr-2').isVisible());
+    const target = await page.locator('#method-qpcr-2').boundingBox();
+    assert.ok(target.y >= 0 && target.y < 900, 'Direct method anchor remains supported');
+    console.log(`PASS ${width}px: original text and tables visible without interaction, two responsive diagrams, no accordions or redundant links, TOC, no overflow, intact downloads`);
     await page.close();
   }
   console.log(`Screenshots: ${shots}`);

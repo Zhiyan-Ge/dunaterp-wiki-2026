@@ -1,4 +1,4 @@
-/* A continuous methods article, with diagrams first and complete protocols below. */
+/* A continuous methods article: full source text stays visible without interaction. */
 .article-page.article-page--experiments .article-hero { padding: 2rem; gap: 2rem; }
 .article-page.article-page--experiments .article-layout { padding-top: 2.5rem; }
 .article-page.article-page--experiments .article-sections > section {
@@ -11,39 +11,18 @@
 .article-page.article-page--experiments .article-sections h2 { max-width: 34ch; font-size: clamp(1.5rem,2.2vw,2.05rem); line-height: 1.2; margin-bottom: 1rem; }
 .article-page--experiments .method-lead, .article-page--experiments .method-introduction p { font-size: 1.05rem; line-height: 1.8; max-width: 68ch; margin: 0 0 1.75rem; }
 .method-figure { margin: 1.75rem 0 1.5rem; }
-.method-figure > a, .method-figure picture, .method-figure img { display: block; width: 100%; }
+.method-figure picture, .method-figure img { display: block; width: 100%; }
 .method-figure img { height: auto; }
-.method-figure > a { border-radius: .5rem; overflow: hidden; }
+.method-figure picture { border-radius: .5rem; overflow: hidden; }
 .method-figure figcaption { display: block; padding: 1rem 0 0; color: #617267; font-size: .82rem; line-height: 1.7; }
 .method-figure figcaption > span { display: inline; margin-right: .7rem; color: #42604f; font-weight: 750; }
-.method-reading-tools { display: flex; align-items: center; gap: 1.5rem; padding: 1.3rem 0 .2rem; border-top: 1px solid #d6dfd1; }
-.article-page--experiments .method-reading-tools p { margin: 0; font-size: .85rem; line-height: 1.7; color: #5a7063; }
-.method-reading-tools button { flex: 0 0 auto; border: 1px solid #a4b49c; background: #edf2e2; color: #143f35; padding: .85rem 1rem; font-family: inherit; font-size: .85rem; font-weight: 650; line-height: 1.4; cursor: pointer; border-radius: .25rem; }
-.method-reading-tools button span { margin-left: .6rem; }
-.method-protocol { border-top: 2px solid #7f9b5a; border-bottom: 1px solid #c8d5c0; margin-top: 1.75rem; background: #f0f4e9; }
-.method-protocol > summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.2rem 1.35rem; cursor: pointer; }
-.method-protocol > summary::-webkit-details-marker { display: none; }
-.method-protocol > summary:hover { background: #e8efdd; }
-.method-protocol > summary strong { display: block; font-size: 1rem; font-weight: 650; line-height: 1.5; }
-.method-protocol-label { display: block; margin-bottom: .3rem; font: 650 .68rem/1.3 ui-monospace, Menlo, monospace; text-transform: uppercase; letter-spacing: .12em; color: #6a7b5e; }
-.method-toggle::before { content: '+'; font-size: 1.5rem; font-weight: 400; }
-.method-protocol[open] .method-toggle::before { content: '−'; }
-.method-protocol-body { padding: 0 1.35rem 1.5rem; background: #fffdf7; }
-.method-index { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; padding: 1.25rem 0; border-bottom: 1px solid #d6dfd1; }
-.method-index a { font-size: .8rem; line-height: 1.65; color: #3d6757; }
+.method-protocol { margin-top: 1.75rem; }
+.article-page--experiments .method-protocol > h3 { font-size: 1.2rem; line-height: 1.5; margin: 0 0 1rem; }
 .wet-lab-protocol h4 { scroll-margin-top: 2rem; padding-top: 1rem; }
 .article-page--experiments .wet-lab-protocol h4 { font-size: 1.1rem; }
 .article-page--experiments .wet-lab-protocol li { font-size: .95rem; line-height: 1.8; margin: .6rem 0; }
 .article-page--experiments .wet-lab-protocol p { font-size: .95rem; line-height: 1.8; margin: 1rem 0; }
-.method-protocol summary:focus-visible, .method-reading-tools button:focus-visible { outline: 3px solid #3b8792; outline-offset: 3px; }
 @media (max-width: 800px) {
   .article-page.article-page--experiments .article-sections > section { padding: 2rem 1.15rem; }
-  .method-reading-tools { flex-direction: column; align-items: stretch; gap: 1rem; }
-  .method-protocol > summary { padding: 1rem .8rem; }
-  .method-protocol-body { padding: 0 .3rem 1.25rem; }
   .article-page--experiments .wet-lab-protocol li { padding-left: .15rem; }
-}
-@media print {
-  .method-protocol::details-content { display: block; content-visibility: visible; }
-  .method-reading-tools button, .method-toggle, .method-index { display: none; }
 }
