@@ -33,6 +33,14 @@ try {
     const content = page.locator('.wet-lab-protocol p, .wet-lab-protocol li, .wet-lab-protocol h4, .wet-lab-protocol table');
     assert.ok(await content.count() > 50);
     for (const element of await content.all()) assert.ok(await element.isVisible());
+    const alignedWidths = await page.locator('.wet-lab-protocol').evaluateAll(protocols => protocols
+      .filter(protocol => protocol.querySelector('p') && protocol.querySelector('.research-table-scroll'))
+      .map(protocol => ({
+        text: protocol.querySelector('p').getBoundingClientRect().width,
+        table: protocol.querySelector('.research-table-scroll').getBoundingClientRect().width,
+      })));
+    assert.ok(alignedWidths.length > 0);
+    assert.ok(alignedWidths.every(({ text, table }) => Math.abs(text - table) < 1), `${width}: protocol text and table widths differ`);
     const rendered = await page.locator('.wet-lab-protocol').allTextContents();
     const expected = await page.evaluate(documents => [...documents[0].sections, documents[1].sections[3]].map(section => {
       const wrapper = document.createElement('div');

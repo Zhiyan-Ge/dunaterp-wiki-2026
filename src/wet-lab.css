@@ -16,12 +16,12 @@
 .method-figure picture { border-radius: .5rem; overflow: hidden; }
 .method-figure figcaption { display: block; padding: 1rem 0 0; color: #617267; font-size: .82rem; line-height: 1.7; }
 .method-figure figcaption > span { display: inline; margin-right: .7rem; color: #42604f; font-weight: 750; }
-.method-protocol { margin-top: 1.75rem; }
+.method-protocol { width: min(100%, 68ch); margin-top: 1.75rem; }
 .article-page--experiments .method-protocol > h3 { font-size: 1.2rem; line-height: 1.5; margin: 0 0 1rem; }
 .wet-lab-protocol h4 { scroll-margin-top: 2rem; padding-top: 1rem; }
 .article-page--experiments .wet-lab-protocol h4 { font-size: 1.1rem; }
 .article-page--experiments .wet-lab-protocol li { font-size: .95rem; line-height: 1.8; margin: .6rem 0; }
-.article-page--experiments .wet-lab-protocol p { font-size: .95rem; line-height: 1.8; margin: 1rem 0; }
+.article-page--experiments .wet-lab-protocol p { max-width: none; font-size: .95rem; line-height: 1.8; margin: 1rem 0; }
 @media (max-width: 800px) {
   .article-page.article-page--experiments .article-sections > section { padding: 2rem 1.15rem; }
   .article-page--experiments .wet-lab-protocol li { padding-left: .15rem; }
