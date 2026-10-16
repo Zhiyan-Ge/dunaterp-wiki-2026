@@ -1,12 +1,6 @@
 /* A continuous methods article: full source text stays visible without interaction. */
 .article-page.article-page--experiments .article-hero { padding: 2rem; gap: 2rem; }
 .article-page.article-page--experiments .article-layout { padding-top: 2.5rem; }
-.article-page.article-page--experiments .article-sections > section {
-  display: block; padding: 2.5rem 2rem 3rem; margin: 0;
-  border: 0; border-bottom: 1px solid #cad5c8; box-shadow: none; background: #fffdf7;
-}
-.article-page.article-page--experiments .article-sections > section:first-child { padding-top: 2rem; }
-.article-page--experiments .article-sections .section-number { display: none; }
 .article-page--experiments .article-sections .section-eyebrow { font: 700 .75rem/1.4 ui-monospace, Menlo, monospace; letter-spacing: .16em; text-transform: uppercase; color: #688148; margin: 0 0 .7rem; }
 .article-page.article-page--experiments .article-sections h2 { max-width: 34ch; font-size: clamp(1.5rem,2.2vw,2.05rem); line-height: 1.2; margin-bottom: 1rem; }
 .article-page--experiments .method-lead, .article-page--experiments .method-introduction p { max-width: none; font-size: 1.05rem; line-height: 1.8; margin: 0 0 1.75rem; }
@@ -24,6 +18,7 @@
 .article-page--experiments .wet-lab-protocol li { max-width: none; font-size: .95rem; line-height: 1.8; margin: .6rem 0; }
 .article-page--experiments .wet-lab-protocol p { max-width: none; font-size: .95rem; line-height: 1.8; margin: 1rem 0; }
 @media (max-width: 800px) {
-  .article-page.article-page--experiments .article-sections > section { padding: 2rem 1.15rem; }
+  .article-page.article-page--experiments .article-sections > section,
+  .article-page.article-page--experiments .article-sections > section:has(.wet-lab-protocol) { grid-template-columns: 2.5rem minmax(0,1fr); gap: clamp(1rem, 3vw, 2rem); padding: 1.25rem; }
   .article-page--experiments .wet-lab-protocol li { padding-left: .15rem; }
 }

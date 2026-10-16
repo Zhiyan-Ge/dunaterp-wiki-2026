@@ -29,6 +29,14 @@ try {
     assert.equal(await page.locator('.wet-lab-protocol table').count(), 6);
     assert.equal(await page.locator('.method-figure img').count(), 2);
     assert.equal(await page.locator('.wet-lab-method details, .wet-lab-method summary, .method-reading-tools, .method-index, .method-figure a').count(), 0);
+    const sectionFrame = await page.locator('#section-1').evaluate(element => {
+      const style = getComputedStyle(element);
+      return { display: style.display, border: style.borderTopWidth, shadow: style.boxShadow, columns: style.gridTemplateColumns };
+    });
+    assert.equal(sectionFrame.display, 'grid');
+    assert.equal(sectionFrame.border, '3px');
+    assert.notEqual(sectionFrame.shadow, 'none');
+    assert.ok(sectionFrame.columns.split(' ').length >= 2, `${width}: experiment card lost the Dry Lab two-column frame`);
     // Source text must be readable on arrival, not merely present inside a closed panel.
     const content = page.locator('.wet-lab-protocol p, .wet-lab-protocol li, .wet-lab-protocol h4, .wet-lab-protocol table');
     assert.ok(await content.count() > 50);
