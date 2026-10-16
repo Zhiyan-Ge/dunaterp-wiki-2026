@@ -38,6 +38,9 @@
 .research-code>p { font-size: .875rem; margin-bottom: -.75rem; font-weight: 600; }
 .research-links { padding: 0; list-style: none; }
 .research-links li { margin: .45rem 0; }
+.research-document { margin: 2rem 0; }
+.research-document iframe { display: block; width: 100%; min-height: 900px; border: 1px solid rgba(6,34,31,.18); background: #fff; }
+.research-document > a { display: inline-block; margin-top: 1rem; color: var(--ink); font: 800 .76rem/1.3 ui-monospace,Menlo,monospace; letter-spacing: .05em; text-transform: uppercase; text-underline-offset: .3em; }
 .article-toc { max-height: calc(100vh - 9rem); overflow-y: auto; }
 .related-wiki-pages { display: flex; flex-wrap: wrap; gap: 1rem 2rem; padding: 1rem 0 2rem; }
 .related-wiki-pages a { color: #176c82; }
