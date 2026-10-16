@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useRef, useState } from 'react';
+import { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import katex from 'katex';
 import type { ContentBlock } from './content/types';
@@ -65,20 +65,6 @@ function ResearchFigure({ figure, compact = false }: { figure: { src: string; al
   </figure>;
 }
 
-function DocumentEmbed({ block }: { block: Extract<ContentBlock, { kind: 'document-embed' }> }) {
-  const frame = useRef<HTMLIFrameElement>(null);
-  const [height, setHeight] = useState(900);
-  const resize = useCallback(() => {
-    const document = frame.current?.contentDocument;
-    if (!document) return;
-    setHeight(Math.max(900, document.documentElement.scrollHeight, document.body.scrollHeight));
-  }, []);
-  return <div className="research-document">
-    <iframe ref={frame} src={resolveAsset(block.src)} title={block.title} loading="lazy" onLoad={resize} style={{ height }} />
-    <a href={resolveAsset(block.download)} download>Download the original DOCX ↧</a>
-  </div>;
-}
-
 export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, number>() }: { blocks: ContentBlock[]; referenceNumbers?: Map<string, number> }) {
   return <div className="research-blocks">{blocks.map((block, i) => {
     switch (block.kind) {
@@ -97,7 +83,10 @@ export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, numbe
           ? <a href={`#reference-${reference}`}>{label} <sup>[{reference}]</sup></a>
           : <a href={href} target="_blank" rel="noreferrer">{label} ↗</a>}</li>;
       })}</ul>;
-      case 'document-embed': return <DocumentEmbed key={i} block={block} />;
+      // Build-time, escaped markup generated only from the supplied local DOCX files.
+      // Native headings, lists and tables inherit article styles; no embedded document.
+      case 'wet-lab-protocol': return <div key={i} className="wet-lab-protocol" dangerouslySetInnerHTML={{ __html: block.html }} />;
+      case 'download': return <p className="protocol-download" key={i}><a href={resolveAsset(block.src)} download>{block.label} ↧</a></p>;
       case 'docking-viewer': return <Suspense key={i} fallback={<p>Loading 3D docking view…</p>}><DockingViewer /></Suspense>;
       case 'pbr-widget': return <PBRWidget key={i} />;
       case 'safety-overview': return <SafetyOverview key={i} />;

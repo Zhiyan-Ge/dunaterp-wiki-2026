@@ -1,10 +1,12 @@
 import type { ContentBlock } from './content/types';
 import { safety } from './content/safety';
 import { protein } from './content/protein';
+import { wetLabSections } from './content/experiments';
 import { dryLabNavigation, dryLabIndex, hardware, hardwareDesign, metabolomics, modeling, transcriptomics } from './content/dry-lab';
 
 export type WikiSection = {
   title: string;
+  tocTitle?: string;
   body: string;
   eyebrow?: string;
   items?: string[];
@@ -111,10 +113,9 @@ export const pages: Record<string, WikiPage> = {
     ],
   },
   experiments: {
-    title: "Make every step reproducible", eyebrow: "Experiments", intro: "A protocol-first home for wet-lab work, computational workflows, controls and raw-data provenance.", status: "structure-only",
+    title: "Experiments", eyebrow: "Wet Lab", intro: "Molecular cloning, Dunaliella salina transformation, genomic DNA extraction, qPCR and product separation.", status: "team-draft",
     sections: [
-      { title: "CPP2146 Experiments", body: "", blocks: [{ kind: "document-embed", src: "/protocols/Experiment_CPP2146_EN.html", download: "/protocols/Experiment_CPP2146_EN.docx", title: "Experiment CPP2146 English protocol" }] },
-      { title: "Team Experiments", body: "", blocks: [{ kind: "document-embed", src: "/protocols/Experiment_Team_EN.html", download: "/protocols/Experiment_Team_EN.docx", title: "Team experiment English protocol" }] },
+      ...wetLabSections,
       { title: "Transcriptomics workflow", body: "The Transcriptomics page follows the carotenoid pathway from sequence annotation to replicate-aware light comparisons, then carries the LCYB response into the mathematical model." },
       { title: "Modelling workflow", body: "The Mathematical Modeling page records a five-state ODE from regulatory-factor activity through promoter occupancy and LCYB expression to β-carotene. The implementation requires explicit parameters and initial values, so published observations and project measurements remain distinguishable." },
     ],
