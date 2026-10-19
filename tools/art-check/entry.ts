@@ -8,3 +8,5 @@ export { PixelEngine } from "../../src/pixel/engine";
 export { createNpcs } from "../../src/pixel/npc-data";
 export { isBlockedAt, isOnDeck } from "../../src/pixel/world-map";
 export { STORY_BEATS, storyReducer, initialStory } from "../../src/home/story";
+
+export { prepareHero, getHeroSheet, HERO_W, HERO_H } from "../../src/pixel/hero";

@@ -7,6 +7,7 @@
 
 import { PixelRenderer, type Camera, type Drawable } from "./renderer";
 import type { Facing } from "./sprites";
+import { HERO_DISPLAY_H } from "./hero";
 import { createNpcs, type Npc } from "./npc-data";
 import { TILE, drag } from "./tiles";
 import {
@@ -836,10 +837,11 @@ export class PixelEngine {
     }
     this.renderer.clampCamera(this.camera);
 
+    const moving = Math.hypot(this.hero.x - this.heroDrawable.x, this.hero.y - this.heroDrawable.y) > 0.01;
     this.heroDrawable.x = this.hero.x;
     this.heroDrawable.y = this.hero.y;
     this.heroDrawable.facing = this.facing;
-    this.heroDrawable.frame = this.reducedMotion ? 0 : Math.floor(this.walkDistance / 7) % 4;
+    this.heroDrawable.frame = this.reducedMotion || !moving ? 0 : Math.floor(this.walkDistance / 7) % 4;
 
     this.renderer.render({
       world: this.world,
@@ -860,7 +862,7 @@ export class PixelEngine {
         : this.activeStation
         ? {
           x: this.hero.x,
-          y: this.hero.y - 26,
+          y: this.hero.y - HERO_DISPLAY_H - 7,
           text: "E  VIEW",
           accent: this.activeStation.accent,
         }

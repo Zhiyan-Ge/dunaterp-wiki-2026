@@ -1,9 +1,5 @@
-// Every sprite in the world, authored as code.
-//
-// The hero is drawn as character grids because a walk cycle wants hand control
-// over each pixel. Everything else is painted procedurally with the DSL in
-// paint.ts, which keeps the file small and lets a whole family of props be
-// retuned by changing one ramp.
+// The hero uses an embedded PNG animation sheet; scenery and NPCs remain
+// procedural pixel art authored with the drawing helpers in paint.ts.
 
 import { drawText, textWidth } from "./font";
 import {
@@ -12,10 +8,8 @@ import {
   ditherEllipse,
   ellipse,
   frame,
-  fromGrid,
   hash2,
   line,
-  mirrored,
   px,
   rect,
   stamp,
@@ -23,183 +17,18 @@ import {
   type Painter,
 } from "./paint";
 import { colorOf } from "./palette";
+import { getHeroSheet, type Facing, type HeroSheet } from "./hero";
 
 // ---------------------------------------------------------------------------
 // Hero
 // ---------------------------------------------------------------------------
-// A synthetic-biology researcher in a white lab coat, adapted from the approved
-// character concept. Neat dark hair, raised safety goggles, a clean face and a
-// long, structured lab coat make the student-researcher role legible at map
-// scale. Lime shirt detail and a small badge tie the sprite to the DunaTerp
-// palette. 16x32, feet on the last row.
-
-export const HERO_W = 16;
-export const HERO_H = 32;
-const HERO_COAT_ROW = 19;
-const HERO_LEG_ROW = 22;
-
-const HERO_DOWN = [
-  ".....111111.....",
-  "...1111111111...",
-  "..178871178871..",
-  "..199971199971..",
-  "...1AAAAAAAA1...",
-  "..1AAAiiiiAAA1..",
-  "..1AAiiiiiiAA1..",
-  "..1Aii1ii1iiA1..",
-  "..1Aiii11iiiA1..",
-  "...1iiiiiiii1...",
-  "......1jj1......",
-  "...1111jj1111...",
-  "..1yyF1jj1Fyy1..",
-  ".1yyyFF77FFyyy1.",
-  ".1yyyF1771Fyyy1.",
-  ".1yyyF1781Fy7y1.",
-  "1j1yyF1781Fyy1j1",
-  "1i1yyF1781Fyy1i1",
-  ".11yyF1771Fyy11.",
-  "...1yF1111Fy1...",
-  "..1yyF1111Fyy1..",
-  ".1yyy1....1yyy1.",
-  "....122..221....",
-  "....122..221....",
-  "....133..331....",
-  "....133..331....",
-  "....133..331....",
-  "....133..331....",
-  "....111..111....",
-  "...1111..1111...",
-  "...1331..1331...",
-  "...1111..1111...",
-];
-
-const HERO_UP = [
-  ".....111111.....",
-  "...1111111111...",
-  "..177771177771..",
-  "..111111111111..",
-  "...1AAAAAAAA1...",
-  "..1AAAAAAAAAA1..",
-  "..1AAAAAAAAAA1..",
-  "..1AAAAAAAAAA1..",
-  "...1AAAAAAAA1...",
-  "....1AAAAAA1....",
-  "......1jj1......",
-  "...1111jj1111...",
-  "..1yyyyyyyyyy1..",
-  ".1yyyyyyyyyyyy1.",
-  ".1yyyFyyyyFyyy1.",
-  ".1yyyFyyyyFyyy1.",
-  "1j1yyFyyyyFyy1j1",
-  "1i1yyFyyyyFyy1i1",
-  ".11yyyyyyyyyy11.",
-  "...1yyyyyyyy1...",
-  "..1ycyyyyyycy1..",
-  ".1yyy1....1yyy1.",
-  "....122..221....",
-  "....122..221....",
-  "....133..331....",
-  "....133..331....",
-  "....133..331....",
-  "....133..331....",
-  "....111..111....",
-  "...1111..1111...",
-  "...1331..1331...",
-  "...1111..1111...",
-];
-
-const HERO_SIDE = [
-  ".....11111......",
-  "....11111111....",
-  "...178871111....",
-  "...199971AAA1...",
-  "...1AAAAAAAA1...",
-  "..1AAAiiiiiAA1..",
-  "..1AAiiiiiii1...",
-  "..1Aiii1iiiii1..",
-  "..1AAiiiiiiii1..",
-  "...1Aii11iii1...",
-  "......1jj1......",
-  "...1111jj111....",
-  "..1yyF1jj1Fyy1..",
-  ".1yyyFF77Fyyy1..",
-  ".1yyyF1771Fyyy1.",
-  ".1yyyF1781Fyyy1.",
-  "1j1yyF1781Fyy1..",
-  "1i1yyF1781Fyy1..",
-  ".11yyF1771Fyy1..",
-  "...1yF1111Fy1...",
-  "..1yyF1111Fyy1..",
-  ".1yyy1....1yy1..",
-  "....122..221....",
-  "....122..221....",
-  "....133..331....",
-  "....133..331....",
-  "....133..331....",
-  "....133..331....",
-  "....111..111....",
-  "...1111..1111...",
-  "...1331..1331...",
-  "...1111..1111...",
-];
-
-/** Horizontal foot offset per walk frame. Frames 0 and 2 are the pass poses. */
-const LEG_SWING = [0, 1, 0, -1];
-/** Upper body lifts a pixel on the contact frames, which reads as a stride. */
-const BODY_BOB = [0, -1, 0, -1];
-
-function heroFrame(base: Painter, frameIndex: number): Painter {
-  const p = surface(HERO_W, HERO_H);
-  const bob = BODY_BOB[frameIndex];
-  const swing = LEG_SWING[frameIndex];
-  // Head, shoulders and arms move as one clean unit.
-  p.ctx.drawImage(base.canvas, 0, 0, HERO_W, HERO_COAT_ROW, 0, bob, HERO_W, HERO_COAT_ROW);
-  // The open coat hem trails the stride by one pixel, producing a restrained
-  // flutter without turning the laboratory silhouette into a cape.
-  p.ctx.drawImage(
-    base.canvas,
-    0,
-    HERO_COAT_ROW,
-    HERO_W,
-    HERO_LEG_ROW - HERO_COAT_ROW,
-    -swing,
-    HERO_COAT_ROW + bob,
-    HERO_W,
-    HERO_LEG_ROW - HERO_COAT_ROW,
-  );
-  // Legs, swung sideways and always planted on the baseline.
-  p.ctx.drawImage(
-    base.canvas,
-    0,
-    HERO_LEG_ROW,
-    HERO_W,
-    HERO_H - HERO_LEG_ROW,
-    swing,
-    HERO_LEG_ROW,
-    HERO_W,
-    HERO_H - HERO_LEG_ROW,
-  );
-  return p;
-}
-
-export type Facing = "down" | "up" | "left" | "right";
-
-export type HeroSheet = Record<Facing, Painter[]>;
+export type { Facing, HeroSheet } from "./hero";
 
 export type NpcSpriteAppearance = {
   tint: string;
   accent: string;
   accessory: "satchel" | "helmet" | "notebook";
 };
-
-function buildHero(): HeroSheet {
-  const down = fromGrid(HERO_DOWN);
-  const up = fromGrid(HERO_UP);
-  const left = fromGrid(HERO_SIDE);
-  const right = mirrored(left);
-  const frames = (base: Painter) => [0, 1, 2, 3].map((i) => heroFrame(base, i));
-  return { down: frames(down), up: frames(up), left: frames(left), right: frames(right) };
-}
 
 // ---------------------------------------------------------------------------
 // Field contacts
@@ -875,7 +704,7 @@ let atlas: Atlas | null = null;
 export function getAtlas(): Atlas {
   if (atlas) return atlas;
   atlas = {
-    hero: buildHero(),
+    hero: getHeroSheet(),
     shadowSmall: shadowBlob(6, 2),
     shadowMedium: shadowBlob(11, 4),
     shadowLarge: shadowBlob(20, 6),

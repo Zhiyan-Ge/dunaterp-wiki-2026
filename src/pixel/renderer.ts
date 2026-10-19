@@ -6,6 +6,7 @@
 // sprite drawn on top.
 
 import { drawText, textWidth } from "./font";
+import { prepareHero, HERO_DISPLAY_W, HERO_DISPLAY_H } from "./hero";
 import { rect, surface, type Painter } from "./paint";
 import { deckSegment, getAtlas, npcPersonFrame, stationPlate, type Facing } from "./sprites";
 import type { Npc } from "./npc-data";
@@ -63,6 +64,8 @@ export class PixelRenderer {
    * the main thread for half a second on first paint.
    */
   async prepareGround(world: World, onProgress: (ratio: number) => void, cancelled: () => boolean) {
+    await prepareHero();
+    if (cancelled()) return;
     const p = surface(WORLD_W, WORLD_H);
     const at = (tx: number, ty: number) => (dx: number, dy: number): Tile => {
       const nx = tx + dx;
@@ -284,8 +287,10 @@ export class PixelRenderer {
         );
         ctx.drawImage(
           sprite.canvas,
-          Math.round(item.x - sprite.w / 2) - ox,
-          Math.round(item.y - sprite.h) - oy,
+          Math.round(item.x - HERO_DISPLAY_W / 2) - ox,
+          Math.round(item.y - HERO_DISPLAY_H) - oy,
+          HERO_DISPLAY_W,
+          HERO_DISPLAY_H,
         );
       }
     }
