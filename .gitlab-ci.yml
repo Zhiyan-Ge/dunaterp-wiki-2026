@@ -2,6 +2,9 @@ image: node:22
 
 pages:
   stage: build
+  variables:
+    FF_USE_FASTZIP: "true"
+    ARTIFACT_COMPRESSION_LEVEL: "slowest"
   cache:
     - key:
         files:
@@ -12,7 +15,9 @@ pages:
     - npm ci --cache .npm --prefer-offline
   script:
     - npm run build
-    - cp -a dist/. public/
+    - npm run deploy:prepare
+    - mv public .source-public
+    - mv dist public
     - echo '/* /index.html 200' > public/_redirects
   artifacts:
     paths:

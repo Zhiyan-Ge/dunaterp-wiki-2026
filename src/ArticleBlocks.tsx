@@ -1,3 +1,4 @@
+import { assetUrl as resolveAsset } from './asset-url';
 import { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import katex from 'katex';
@@ -10,10 +11,6 @@ import './article-blocks.css';
 
 const DockingViewer = lazy(() => import('./DockingViewer').then(module => ({ default: module.DockingViewer })));
 
-function resolveAsset(src: string) {
-  if (/^(?:https?:|data:|blob:|\/\/)/i.test(src)) return src;
-  return `${import.meta.env.BASE_URL}${src.replace(/^\/+/, '')}`;
-}
 
 function renderTableCell(text: string) {
   return text.split(/(\$[^$]+\$)/g).map((part, index) => {

@@ -1,3 +1,4 @@
+import { assetUrl as resolveFigureSrc } from "./asset-url";
 import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties } from "react";
 import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { archiveNavigation, navigation, pageOrder, pages } from "./site-data";
@@ -19,20 +20,6 @@ function normalizePath(pathname: string) {
   return normalized || "/";
 }
 
-/**
- * Resolve both local public assets and the absolute/data URLs used by the
- * published Wiki and the single-file review build. The preview inliner may
- * leave a leading slash in front of a data URI ("/data:image/…"), so strip
- * root slashes before handling data/blob URLs.
- */
-function resolveFigureSrc(src: string) {
-  const raw = src.trim();
-  if (/^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(raw)) return raw;
-  const relative = raw.replace(/^\/+/, "");
-  if (/^(?:data|blob):/i.test(relative)) return relative;
-  const base = import.meta.env.BASE_URL || "/";
-  return `${base.endsWith("/") ? base : `${base}/`}${relative}`;
-}
 
 function BrandMark() {
   return <span className="brand-mark" aria-hidden="true">

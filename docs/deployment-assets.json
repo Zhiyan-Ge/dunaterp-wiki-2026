@@ -1,0 +1,872 @@
+{
+  "sourceCommit": "c462735",
+  "scientificPngs": "Source PNGs retained; deployment WebP images are lossless, with unchanged dimensions and decoded RGBA. Duplicate source figures share one deployed WebP.",
+  "photos": "Outreach and hardware photographs use a maximum 800px edge at WebP quality 55; cover photos use 1100px at quality 60. Original photographs remain in commit c462735. Scientific figures retain source PNGs and use lossless WebP encoding with unchanged dimensions and decoded pixels.",
+  "assets": [
+    {
+      "source": "public/figures/dry-lab/01_gene_recovery.png",
+      "target": "public/figures/dry-lab/01_gene_recovery.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "d3ac58241b6451850fe19dc962f682ab3620e8fe3ba81985d715fca7aead340c",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/06_expression_qc.png",
+      "target": "public/figures/dry-lab/06_expression_qc.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "389f4f02ac547ff2eeb60cf04a8ed030d0e06a6f0b3733b3857b9c98d9aead57",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/07_differential_expression.png",
+      "target": "public/figures/dry-lab/07_differential_expression.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "49bd2329655fc0b12df007bd5d1ef8fe87bf49c21bb9c16cdf489323debe2b42",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/08_response_modules.png",
+      "target": "public/figures/dry-lab/08_response_modules.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "77493bdecffdb04e871180e67b3449dded6885f9e94af37aa5eb13fb7bc7692c",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/14_regulatory_model.png",
+      "target": "public/figures/dry-lab/14_regulatory_model.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "aedbdf4579414a88c07a3ecbb3d7ed2580134f3535884c8e83544447b8e8bef0",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/15_regulatory_response.png",
+      "target": "public/figures/dry-lab/15_regulatory_response.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "72c871e5ecdef37751fe60bb00859145704dd63993e53fb7c19180a1b5aec5e6",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/astaxanthin_tradeoff_F_H.png",
+      "target": "public/figures/dry-lab/astaxanthin_tradeoff_F_H.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "0c3f00185fbc420bf02154fd720155b0bc36ccbb0bb85b2d0d7b0ce553b176f1",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/candidate-signal-prediction.png",
+      "target": "public/figures/dry-lab/candidate-signal-prediction.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "b298b5fd1e3684751824b1572046923b9a7ad14a7c672ff7a013608fec72e450",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/carotenoid_branch_ode_v1_baseline_fluxes.png",
+      "target": "public/figures/dry-lab/carotenoid_branch_ode_v1_baseline_fluxes.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "3b0effa5d221afa181c0d3bf25dd1d26357b5937b045bafe6c95cf3d47314ce4",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/carotenoid_branch_ode_v1_baseline_pools.png",
+      "target": "public/figures/dry-lab/carotenoid_branch_ode_v1_baseline_pools.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "250ecb9a301b752b032f525e379958c38795edf77ed500bcca6fea3824bf7d7a",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/carotenoid_branch_ode_v1_scenario_products.png",
+      "target": "public/figures/dry-lab/carotenoid_branch_ode_v1_scenario_products.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "77a35f4270dee5da3500005782fed0bd32ac44e30225bba8d7066a2e48cac667",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/carotenoid_branch_ode_v1_sensitivity_heatmap.png",
+      "target": "public/figures/dry-lab/carotenoid_branch_ode_v1_sensitivity_heatmap.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "dea2fce1ae6d79403a139a1137f5621de4a4aa08605a7edf68b332d52b2bcca0",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/carotenoid_branch_ode_v1_sensitivity_ranking.png",
+      "target": "public/figures/dry-lab/carotenoid_branch_ode_v1_sensitivity_ranking.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "12680408a3ff4c7a5d142808fcffc6b0f5abdd456071b79f2fd6ec1ad20272dc",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/dna-logo.png",
+      "target": "public/figures/dry-lab/dna-logo.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "04e0f3f8babcbb98764cb091e859345c44b63a86e7ea9b0a91f41b30e739a7fc",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/lcyb_car09_forced_analysis_H.png",
+      "target": "public/figures/dry-lab/lcyb_car09_forced_analysis_H.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "58e6c364479e8bf73d6add25660d71ebfbfdb2e61dfa0d9872f2d841a21c04ed",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/platform_environment_map_heatmap.png",
+      "target": "public/figures/dry-lab/platform_environment_map_heatmap.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "685147dbb21f5e6986c0a5314e7e7c25cac9fa1767fd5140003c6d1a2af6f386",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/platform_product_tradeoffs_H.png",
+      "target": "public/figures/dry-lab/platform_product_tradeoffs_H.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "d6cc0d7708dc42b0fa96d51502e02861cffa1fd1c8b51f10bd13740ffb9c4f05",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/protein-dna-docking.png",
+      "target": "public/figures/dry-lab/protein-dna-docking.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "41ce6bab33df169ed15fef2641c8aafc6743dc43f762482172fa80267a67785e",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/zeaxanthin_car10_forced_proxies_H.png",
+      "target": "public/figures/dry-lab/zeaxanthin_car10_forced_proxies_H.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "9d28a8fe2fca8611512e1a831e7f49a805f6beef072477a071f903f508c3a086",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/zeaxanthin_car10_rerouting_H.png",
+      "target": "public/figures/dry-lab/zeaxanthin_car10_rerouting_H.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "105251edf6dc176ff61d4e5eb1cc84e67e9db8282f10a12ee6aeb672c031ad7b",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/图片4.png",
+      "target": "public/figures/dry-lab/dna-logo.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "04e0f3f8babcbb98764cb091e859345c44b63a86e7ea9b0a91f41b30e739a7fc",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/图片5.png",
+      "target": "public/figures/dry-lab/protein-dna-docking.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "41ce6bab33df169ed15fef2641c8aafc6743dc43f762482172fa80267a67785e",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/hardware/A_optical_field_heatmap_double_sided.png",
+      "target": "public/figures/hardware/A_optical_field_heatmap_double_sided.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "8e32ca44c2588484450617ef52f6fa886e763524314e45ebda05b961fee389f8",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/hardware/C_productivity_heatmap_double_sided.png",
+      "target": "public/figures/hardware/C_productivity_heatmap_double_sided.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "1c52678bcf72f01f27bf047fa1d20a1288ed19c5401a21a662db3c57ea1f6890",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/hardware/D_3D_product_surface_double_sided.png",
+      "target": "public/figures/hardware/D_3D_product_surface_double_sided.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "57bb8ecd6998efe2b3c8e873e46f8786fe3173f09f188d2e71014dd471efd827",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/protein/docking-seeds.png",
+      "target": "public/figures/protein/docking-seeds.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "d311512c5b6e4abd82da8a531399a30eca9e0d2f793020f699a0042e108ceb82",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/protein/lcyb-lycopene_detail.png",
+      "target": "public/figures/protein/lcyb-lycopene_detail.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "52e8c368b66172d9a6021d9307e46eb53f3f45c2bfaa05ba41e9e03880fc59f8",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/protein/lcyb-lycopene-detail-alt.png",
+      "target": "public/figures/protein/lcyb-lycopene-detail-alt.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "42677ec9c1beb3e1bcc66569e182868a1ef9a1e9be3ded7791da44d3c548546c",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/protein/lcyb-lycopene.png",
+      "target": "public/figures/protein/lcyb-lycopene.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "4288c02f2be92ac79f42c2314cacf49879d547ed1f406c382e461c2258dce8d0",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/protein/md-rmsd.png",
+      "target": "public/figures/protein/md-rmsd.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "01d68816256b109ee254e4a31a5a6f2d075acbdfff017e460ccbcb897c59dfb8",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/wet-lab/engineer1.png",
+      "target": "public/figures/wet-lab/engineer1.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "c56a96c98947b3b81fe658809af896bcb2df1c2c71f363b61b880fe3aadf8174",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/wet-lab/engineer2.png",
+      "target": "public/figures/wet-lab/engineer2.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "4014250dd5431655a17a9f0e9f37c921468b5f28b7d7858ccb8c133a8c7f3441",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/wet-lab/engineer3.png",
+      "target": "public/figures/wet-lab/engineer3.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "7cad7e24e1f98f1a10e00a317c6e6c793eee76c81393c9278769194810df2cec",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/wet-lab/engineer4.png",
+      "target": "public/figures/wet-lab/engineer4.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "1f4b7e31d6cdad4cdebe6361e10de0b9f2e6a237569ba00ef6f067f77b17466d",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/wet-lab/engineer5.png",
+      "target": "public/figures/wet-lab/engineer5.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "5bd2f8dcd2c9ebb8248929ec5268640db83286fc4bb30cd14ca0b8e8aa5fff01",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/wet-lab/engineer6.png",
+      "target": "public/figures/wet-lab/engineer6.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "42500c0d2cd07cf0cd89554e98588c072a1a3bb60f68774e5e2617e682cfc3ce",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/wet-lab/engineer7.png",
+      "target": "public/figures/wet-lab/engineer7.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "da57ce8bcac0cef960c4570e726f6ce7f99b0296bf73aac3143d073b09ff56c3",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/wet-lab/experiment1.png",
+      "target": "public/figures/wet-lab/engineer3.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "7cad7e24e1f98f1a10e00a317c6e6c793eee76c81393c9278769194810df2cec",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/wet-lab/experiment2.png",
+      "target": "public/figures/wet-lab/engineer4.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "1f4b7e31d6cdad4cdebe6361e10de0b9f2e6a237569ba00ef6f067f77b17466d",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/wet-lab/experiment3.png",
+      "target": "public/figures/wet-lab/engineer5.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "5bd2f8dcd2c9ebb8248929ec5268640db83286fc4bb30cd14ca0b8e8aa5fff01",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/wet-lab/experiment4.png",
+      "target": "public/figures/wet-lab/engineer6.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "42500c0d2cd07cf0cd89554e98588c072a1a3bb60f68774e5e2617e682cfc3ce",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/wet-lab/experiment5.png",
+      "target": "public/figures/wet-lab/engineer7.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "da57ce8bcac0cef960c4570e726f6ce7f99b0296bf73aac3143d073b09ff56c3",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/wet-lab/experiment6.png",
+      "target": "public/figures/wet-lab/experiment6.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "1265270519550c9564eeafa428b31c889141654080a72e118e1d6fb46f41d17f",
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/hardware-design/First_Generation_Flat_Panel_Airlift_Reactor_Single_Unit.JPG",
+      "target": "public/figures/hardware-design/First_Generation_Flat_Panel_Airlift_Reactor_Single_Unit.webp",
+      "mode": "photo-webp",
+      "originalSha256": "8c0a82d6f135649a98b1c15a35eae73c024f9a7d0d42d95543d51d5ff64d80c8",
+      "originalWidth": 2048,
+      "originalHeight": 1152,
+      "maxEdge": 800,
+      "originalBytes": 285215,
+      "bytes": 15374,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hardware-design/Reactor_V1_Initial_Prototype.JPG",
+      "target": "public/figures/hardware-design/Reactor_V1_Initial_Prototype.webp",
+      "mode": "photo-webp",
+      "originalSha256": "a05e3ed365e8ce23d04e56f35392e99035ce3d6116ca6d02de5826760cdc9ff2",
+      "originalWidth": 2055,
+      "originalHeight": 1156,
+      "maxEdge": 800,
+      "originalBytes": 137745,
+      "bytes": 7294,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hardware-design/Reactor_V2_Lab_Prototype.JPG",
+      "target": "public/figures/hardware-design/Reactor_V2_Lab_Prototype.webp",
+      "mode": "photo-webp",
+      "originalSha256": "90e5eb0846bcf67d4664a5a9010815d988242ad79a4ebb3bc98affefbd7900da",
+      "originalWidth": 2203,
+      "originalHeight": 1239,
+      "maxEdge": 800,
+      "originalBytes": 237700,
+      "bytes": 13954,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hardware-design/Reactor_V3_Plate_A_Culture_Facing_Side_Vertical.JPG",
+      "target": "public/figures/hardware-design/Reactor_V3_Plate_A_Culture_Facing_Side_Vertical.webp",
+      "mode": "photo-webp",
+      "originalSha256": "5d6ba881028e00dac15cc4e7a91ded375ea675559ec3e04a81f7fd7ca72cda2a",
+      "originalWidth": 2725,
+      "originalHeight": 2180,
+      "maxEdge": 800,
+      "originalBytes": 302991,
+      "bytes": 12066,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-1.webp",
+      "target": "public/figures/hp/figure-1.webp",
+      "mode": "photo-webp",
+      "originalSha256": "42a75c3dbd2b703d7a5458597ed909c17fb31c6be37cba9e09d65ca2f655d26d",
+      "originalWidth": 941,
+      "originalHeight": 1672,
+      "maxEdge": 800,
+      "originalBytes": 175692,
+      "bytes": 33118,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-10-1.webp",
+      "target": "public/figures/hp/figure-10-1.webp",
+      "mode": "photo-webp",
+      "originalSha256": "e3210a9526a86fc09a50b84dea0b8dab5fa465f505140ea6325ebc315847c10c",
+      "originalWidth": 865,
+      "originalHeight": 649,
+      "maxEdge": 800,
+      "originalBytes": 139648,
+      "bytes": 41264,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-10-2.webp",
+      "target": "public/figures/hp/figure-10-2.webp",
+      "mode": "photo-webp",
+      "originalSha256": "d15ddc91e2406f700e114a75c8e221e09343224252b7dd0ae42d1682ca9f57b3",
+      "originalWidth": 865,
+      "originalHeight": 649,
+      "maxEdge": 800,
+      "originalBytes": 163842,
+      "bytes": 58678,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-11.webp",
+      "target": "public/figures/hp/figure-11.webp",
+      "mode": "photo-webp",
+      "originalSha256": "078954a8b0e111ae48829ff31778eed22944b40a7fceca31322eb174e0489318",
+      "originalWidth": 2133,
+      "originalHeight": 1600,
+      "maxEdge": 800,
+      "originalBytes": 290618,
+      "bytes": 37970,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-12-1.webp",
+      "target": "public/figures/hp/figure-12-1.webp",
+      "mode": "photo-webp",
+      "originalSha256": "9a06fa5d7bdfd33103c9d99d8c7f8afff8f5e08d3ba0760ee5319bce02e2bb0c",
+      "originalWidth": 2133,
+      "originalHeight": 1600,
+      "maxEdge": 800,
+      "originalBytes": 266028,
+      "bytes": 32038,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-12-2.webp",
+      "target": "public/figures/hp/figure-12-2.webp",
+      "mode": "photo-webp",
+      "originalSha256": "caa583fc3c5032b279c73ef95bf2b5a41b32a37eb0379619dd0a60824b2c74f4",
+      "originalWidth": 2133,
+      "originalHeight": 1600,
+      "maxEdge": 800,
+      "originalBytes": 258052,
+      "bytes": 32882,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-13-1.webp",
+      "target": "public/figures/hp/figure-13-1.webp",
+      "mode": "photo-webp",
+      "originalSha256": "4675e61a31c4446ea9a3096e2cc6446674ee5c7ff63a0dd7a503ab633afdfcbd",
+      "originalWidth": 2400,
+      "originalHeight": 1600,
+      "maxEdge": 800,
+      "originalBytes": 238876,
+      "bytes": 22360,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-13-2.webp",
+      "target": "public/figures/hp/figure-13-2.webp",
+      "mode": "photo-webp",
+      "originalSha256": "3e07665aad4b997b65e3a7737ef2b782591ac9fcaeaec37b9122d163d35ed214",
+      "originalWidth": 2133,
+      "originalHeight": 1600,
+      "maxEdge": 800,
+      "originalBytes": 324384,
+      "bytes": 32474,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-14-1.webp",
+      "target": "public/figures/hp/figure-14-1.webp",
+      "mode": "photo-webp",
+      "originalSha256": "98b61b09b81871129b99f8ef493d5f91a4baa7327aed6128a592b477c5a91ccc",
+      "originalWidth": 1027,
+      "originalHeight": 2400,
+      "maxEdge": 800,
+      "originalBytes": 90172,
+      "bytes": 13918,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-14-2.webp",
+      "target": "public/figures/hp/figure-14-2.webp",
+      "mode": "photo-webp",
+      "originalSha256": "363157f1514c57713343793a4e2a89b4fc4d44ce2ddc75ff6fadb54840d1a274",
+      "originalWidth": 1200,
+      "originalHeight": 2400,
+      "maxEdge": 800,
+      "originalBytes": 100636,
+      "bytes": 16420,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-14-3.webp",
+      "target": "public/figures/hp/figure-14-3.webp",
+      "mode": "photo-webp",
+      "originalSha256": "a7fc1ac64aed216178dbf468fb25b92b17e3ccdd0fad31e2a78ed15c95a7b173",
+      "originalWidth": 1200,
+      "originalHeight": 2400,
+      "maxEdge": 800,
+      "originalBytes": 159098,
+      "bytes": 27366,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-14-4.webp",
+      "target": "public/figures/hp/figure-14-4.webp",
+      "mode": "photo-webp",
+      "originalSha256": "2ff07bacb22689ef57ab8ac711c4e296b384f4d69cf83d7e3fee90c2d287284e",
+      "originalWidth": 1200,
+      "originalHeight": 2400,
+      "maxEdge": 800,
+      "originalBytes": 69086,
+      "bytes": 11882,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-15.webp",
+      "target": "public/figures/hp/figure-15.webp",
+      "mode": "photo-webp",
+      "originalSha256": "2e4ae6936682275a3bb11ac2bfe9c9082029ae0a6a51ff87f8bd08faeb0b79fd",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 1107034,
+      "bytes": 84690,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-16-1.webp",
+      "target": "public/figures/hp/figure-16-1.webp",
+      "mode": "photo-webp",
+      "originalSha256": "66c8000da882080fc5baafbba29118cac97ab5438f7f5621e05401c6373560af",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 462760,
+      "bytes": 40968,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-16-2.webp",
+      "target": "public/figures/hp/figure-16-2.webp",
+      "mode": "photo-webp",
+      "originalSha256": "72c98898db160d5c1aced9da32e3e8d46c3dbd36abe7008e5d6b56acb5e5ac14",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 560472,
+      "bytes": 54280,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-16-3.webp",
+      "target": "public/figures/hp/figure-16-3.webp",
+      "mode": "photo-webp",
+      "originalSha256": "6fb90a214eff58c49cec8621b46437dbf3e7600b7137cb4c3a3fa4fd58d59b2e",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 404620,
+      "bytes": 30032,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-16-4.webp",
+      "target": "public/figures/hp/figure-16-4.webp",
+      "mode": "photo-webp",
+      "originalSha256": "246170a984564bc286ec37daad2af676f59735cb4f820d8a8abc4e8d94785fb7",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 189948,
+      "bytes": 18782,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-17.webp",
+      "target": "public/figures/hp/figure-17.webp",
+      "mode": "photo-webp",
+      "originalSha256": "a09c25e10eb3b6fee75519dca00a3c86af0cb8d38b6f6ba5cc9b747ba4da320e",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 278492,
+      "bytes": 20462,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-18.webp",
+      "target": "public/figures/hp/figure-18.webp",
+      "mode": "photo-webp",
+      "originalSha256": "59ab7393bae29ef8557ada92c10b047aa0dca476a8ebfdf6ab13a9e1f4e8ca90",
+      "originalWidth": 2400,
+      "originalHeight": 1354,
+      "maxEdge": 800,
+      "originalBytes": 129608,
+      "bytes": 17560,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-19.webp",
+      "target": "public/figures/hp/figure-19.webp",
+      "mode": "photo-webp",
+      "originalSha256": "ed9adf05416dabe0a73fdf4cf8a91cd5625621f2cfb664c7d6afda16ac3cc856",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 231100,
+      "bytes": 27232,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-2.webp",
+      "target": "public/figures/hp/figure-2.webp",
+      "mode": "photo-webp",
+      "originalSha256": "8850831de75744820834d48443c00f338be9fc95c29faf5897e594a37ed0b0d4",
+      "originalWidth": 1086,
+      "originalHeight": 1448,
+      "maxEdge": 800,
+      "originalBytes": 243348,
+      "bytes": 56074,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-20.webp",
+      "target": "public/figures/hp/figure-20.webp",
+      "mode": "photo-webp",
+      "originalSha256": "09443c300ab3327067ed139ef98ecb8365df09ff21a1bc845f75f12ec0d5dcef",
+      "originalWidth": 2400,
+      "originalHeight": 1593,
+      "maxEdge": 800,
+      "originalBytes": 253530,
+      "bytes": 25556,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-21-1.webp",
+      "target": "public/figures/hp/figure-21-1.webp",
+      "mode": "photo-webp",
+      "originalSha256": "d40b5543b13e4467712f494856ec8016cd7222906dc15cc8a78aaef5769224b2",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 381706,
+      "bytes": 43420,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-21-2.webp",
+      "target": "public/figures/hp/figure-21-2.webp",
+      "mode": "photo-webp",
+      "originalSha256": "8bd11568a5487355812cac0cf630a85959967d6c14a6318174aa83a5576b3593",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 321100,
+      "bytes": 36216,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-21-3.webp",
+      "target": "public/figures/hp/figure-21-3.webp",
+      "mode": "photo-webp",
+      "originalSha256": "617f0c42262c41e626324dbbd13232ea2a4bd18ee54fc7d2ed2862e50f1d5e54",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 618576,
+      "bytes": 45634,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-21-4.webp",
+      "target": "public/figures/hp/figure-21-4.webp",
+      "mode": "photo-webp",
+      "originalSha256": "d39be621229e076e88c1e33d3d4d22ae043fa16174a55b4ecdc3de2647d3c418",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 394212,
+      "bytes": 41036,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-22-1.webp",
+      "target": "public/figures/hp/figure-22-1.webp",
+      "mode": "photo-webp",
+      "originalSha256": "d4abb9ebc7ff1d5205d02952209c254e033008e6ea93c3c67fe90bbc94ee4b8d",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 399366,
+      "bytes": 43012,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-22-2.webp",
+      "target": "public/figures/hp/figure-22-2.webp",
+      "mode": "photo-webp",
+      "originalSha256": "ca6af01d3820e633afb2ac9f6e8ed31d144d7837302a911d59f7d4c78006d8e8",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 259416,
+      "bytes": 33146,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-23.webp",
+      "target": "public/figures/hp/figure-23.webp",
+      "mode": "photo-webp",
+      "originalSha256": "1ad5eeb61a337980b922f26ffb9dfcd702a69ae940c37cc1237152086eb0b346",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 371034,
+      "bytes": 40614,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-3.webp",
+      "target": "public/figures/hp/figure-3.webp",
+      "mode": "photo-webp",
+      "originalSha256": "e8726e62b387c002838a7d1f3259e2d222287a7520c1da57a29e965e835355c4",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 373394,
+      "bytes": 22668,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-4-1.webp",
+      "target": "public/figures/hp/figure-4-1.webp",
+      "mode": "photo-webp",
+      "originalSha256": "1efbd75be936aafbf320a4842c3a83bc7585249be94883b633d40550280bb7bb",
+      "originalWidth": 1697,
+      "originalHeight": 2400,
+      "maxEdge": 800,
+      "originalBytes": 354876,
+      "bytes": 43588,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-4-2.webp",
+      "target": "public/figures/hp/figure-4-2.webp",
+      "mode": "photo-webp",
+      "originalSha256": "d4508b4d10c74210f90b4f778a141a5537db95d2a3a1a069762a04b4bf6fdcca",
+      "originalWidth": 1697,
+      "originalHeight": 2400,
+      "maxEdge": 800,
+      "originalBytes": 394232,
+      "bytes": 44290,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-5.webp",
+      "target": "public/figures/hp/figure-5.webp",
+      "mode": "photo-webp",
+      "originalSha256": "378a2ee0a330ba851a9605a129f391d48edbdece1ee748719bd7d2819bbf7236",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 266586,
+      "bytes": 22322,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-6-1.webp",
+      "target": "public/figures/hp/figure-6-1.webp",
+      "mode": "photo-webp",
+      "originalSha256": "3ce28b89c6a903a6955a67692f09ab378895b39ed5f5fa3d0f3fd471e37f92ce",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 331482,
+      "bytes": 31014,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-6-2.webp",
+      "target": "public/figures/hp/figure-6-2.webp",
+      "mode": "photo-webp",
+      "originalSha256": "b096eff62a33dc9eadbcbff008f26df6936d68af0ce531230daeac3c1d6afbee",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 228950,
+      "bytes": 25228,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-7-1.webp",
+      "target": "public/figures/hp/figure-7-1.webp",
+      "mode": "photo-webp",
+      "originalSha256": "d34dff6d05df6c684adde8da03b5b0098bc04183dc5e6cbc1331d8fd4795990d",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 402406,
+      "bytes": 41032,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-7-2.webp",
+      "target": "public/figures/hp/figure-7-2.webp",
+      "mode": "photo-webp",
+      "originalSha256": "add1eabfed67a1711222ba397a4e2c78c6e40ef2f0685df9610187ba8e029652",
+      "originalWidth": 2400,
+      "originalHeight": 1800,
+      "maxEdge": 800,
+      "originalBytes": 498546,
+      "bytes": 43760,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-8.webp",
+      "target": "public/figures/hp/figure-8.webp",
+      "mode": "photo-webp",
+      "originalSha256": "20674a2e757193373a4e17c323ec3e9d4c4f079321c26a22adb40d23824c9b90",
+      "originalWidth": 865,
+      "originalHeight": 649,
+      "maxEdge": 800,
+      "originalBytes": 165052,
+      "bytes": 62198,
+      "quality": 55
+    },
+    {
+      "source": "public/figures/hp/figure-9.webp",
+      "target": "public/figures/hp/figure-9.webp",
+      "mode": "photo-webp",
+      "originalSha256": "491355374d046a2aed8e0fcba457802bac22cd267d0f12abefe094abc9ed22e3",
+      "originalWidth": 864,
+      "originalHeight": 668,
+      "maxEdge": 800,
+      "originalBytes": 120644,
+      "bytes": 54134,
+      "quality": 55
+    },
+    {
+      "source": "public/images/great-salt-lake-iss063-e-40184.jpg",
+      "target": "public/images/great-salt-lake-iss063-e-40184.webp",
+      "mode": "photo-webp",
+      "originalSha256": "479330ca4c474e5afdc3b13cbbdece24c126ce3091b7d5dccea9c0a151101c54",
+      "originalWidth": 2400,
+      "originalHeight": 1600,
+      "maxEdge": 1100,
+      "originalBytes": 1085039,
+      "bytes": 46062,
+      "quality": 60
+    },
+    {
+      "source": "public/images/heroes/dry-lab.webp",
+      "target": "public/images/heroes/dry-lab.webp",
+      "mode": "photo-webp",
+      "originalSha256": "023da6ac2ecb627cfe88c9f2491a789b1773d101ab4a04c6198d10dfc6cd185f",
+      "originalWidth": 1920,
+      "originalHeight": 1080,
+      "maxEdge": 1100,
+      "originalBytes": 265112,
+      "bytes": 62680,
+      "quality": 60
+    },
+    {
+      "source": "public/images/heroes/human-practices.webp",
+      "target": "public/images/heroes/human-practices.webp",
+      "mode": "photo-webp",
+      "originalSha256": "15dc9769a9facc92228e105a3300434388d198552d1987e06c3311382d5f6759",
+      "originalWidth": 1200,
+      "originalHeight": 380,
+      "maxEdge": 1100,
+      "originalBytes": 82818,
+      "bytes": 20918,
+      "quality": 60
+    },
+    {
+      "source": "public/images/heroes/people.webp",
+      "target": "public/images/heroes/people.webp",
+      "mode": "photo-webp",
+      "originalSha256": "81356d9e6ae9a92a1dbbb4a861351f397e8b1af53533ce710c75a20c969c0344",
+      "originalWidth": 2890,
+      "originalHeight": 1485,
+      "maxEdge": 1100,
+      "originalBytes": 507288,
+      "bytes": 95822,
+      "quality": 60
+    }
+  ]
+}

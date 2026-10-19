@@ -1,3 +1,4 @@
+import { assetUrl } from './asset-url';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -157,7 +158,7 @@ export function DockingViewer() {
       <div className="docking-title"><div><span>MOLECULAR VIEW</span><h3>LCYB × lycopene</h3></div><span>{mode==='scroll'?'Scroll-linked':mode==='play'?'Playing':'Manual control'}</span></div>
       <div className="docking-stage">
         <div ref={host} className="docking-canvas" style={{pointerEvents:mode==='scroll'?'none':'auto'}} />
-        {error && <div className="docking-fallback"><img src={fallbackImage.startsWith('data:') ? fallbackImage : `${import.meta.env.BASE_URL}${fallbackImage}`} alt="WT LCYB and corrected lycopene docking pose"/><p>3D is unavailable. The static view shows the selected pose.</p></div>}
+        {error && <div className="docking-fallback"><img src={assetUrl(fallbackImage)} alt="WT LCYB and corrected lycopene docking pose"/><p>3D is unavailable. The static view shows the selected pose.</p></div>}
         <span className="docking-phase">{progress<.78?'Approach':progress<.999?'Pose transition':'Docked pose'}</span>
         <div className="docking-legend"><span>● Pocket</span><span>● Lycopene</span>{showSite && <span>● Phe404</span>}</div>
         {!error && mode==='scroll' && <button className="docking-enter" onClick={()=>setMode('manual')}>Enter 3D controls</button>}
