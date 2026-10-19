@@ -117,10 +117,10 @@
     }
   ],
   "figure_sha256": {
-    "14_regulatory_model.png": "a12c11f467ab9df3f053b263264a97ce91b56e12d7b0ccf69dcda71678e0fcf7",
+    "14_regulatory_model.png": "bc058388a914381bcda54ceb79d600d79597aba952147dfd22cb94b70b95b820",
     "15_regulatory_response.png": "ba24b91e0c402d516fb202d3fdfe1c1846acc347569b138d73b92029c54e1271",
-    "16_regulatory_dynamics.png": "f010639419b6717537f134e7627c2c37b3d14e017ba1b6fe6e88f18d6803759f",
-    "17_regulatory_sweep.png": "686fb668fa0d12ed96387f2f9b0246a711cfd15a664f3de0b5b7f51f30784fec",
+    "16_regulatory_dynamics.png": "eab01a93ccde69e50ea3e2f2f7cafd8be6770e86d0be11062e02acc7f960d7f2",
+    "17_regulatory_sweep.png": "910bb087e3fd63b9cd0fbce659d9bca918a3530ffcc976c82edbc0f45bbb8c69",
     "18_regulatory_sensitivity.png": "123704096b0e1587c06690e015effc5505b816f09de4e91a26417769fe12948d"
   }
 }
