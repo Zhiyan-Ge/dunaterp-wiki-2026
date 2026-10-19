@@ -709,9 +709,9 @@
   gap: .5rem;
   min-height: 2.25rem;
   padding: .42rem .6rem;
-  border: 2px solid rgba(6, 34, 31, .35);
-  background: #fffaf0;
-  color: var(--px-ink);
+  border: 2px solid rgba(253, 246, 227, .28);
+  background: var(--px-mid);
+  color: var(--px-salt);
   text-align: left;
   font: 800 .68rem/1.25 ui-monospace, Menlo, monospace;
   cursor: pointer;
@@ -719,8 +719,9 @@
 .px-archive-card b { color: var(--px-accent); }
 .px-archive-card:hover,
 .px-archive-card:focus-visible {
-  border-color: var(--px-ink);
+  border-color: var(--px-accent);
   background: var(--px-accent);
+  color: var(--px-ink);
 }
 .px-archive-card:hover b,
 .px-archive-card:focus-visible b { color: var(--px-ink); }
