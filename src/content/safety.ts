@@ -1,4 +1,5 @@
 import type { WikiPage } from '../site-data';
+import { refs } from './references';
 import type { ContentBlock } from './types';
 
 const p = (text: string): ContentBlock => ({ kind: 'paragraph', text });
@@ -11,13 +12,7 @@ export const safety: WikiPage = {
   eyebrow: 'Safety & Security',
   status: 'team-draft',
   intro: 'We explore whether a change in salinity could help limit the persistence of engineered Dunaliella salina outside cultivation. Literature guides the design; a simple model tests the conditions under which it could work.',
-  references: [
-    { label: 'Chen H & Jiang J-G. Osmotic Responses of Dunaliella to the Changes of Salinity. Journal of Cellular Physiology 219:251–258 (2009).', href: 'https://doi.org/10.1002/jcp.21715' },
-    { label: 'Li J, Lu Y, Xue L & Xie H. A structurally novel salt-regulated promoter of duplicated carbonic anhydrase gene 1 from Dunaliella salina. Molecular Biology Reports 37:1143–1154 (2010).', href: 'https://doi.org/10.1007/s11033-009-9901-z' },
-    { label: 'Zhang Y et al. MazF Cleaves Cellular mRNAs Specifically at ACA to Block Protein Synthesis in Escherichia coli. Molecular Cell 12:913–923 (2003).', href: 'https://pubmed.ncbi.nlm.nih.gov/14580342/' },
-    { label: 'Farhat N et al. Optimization of salt concentrations for a higher carotenoid production in Dunaliella salina (Chlorophyceae). Journal of Phycology 47:1072–1077 (2011).', href: 'https://doi.org/10.1111/j.1529-8817.2011.01036.x' },
-    { label: 'Gómez PI & González MA. The effect of temperature and irradiance on the growth and carotenogenic capacity of seven strains of Dunaliella salina cultivated under laboratory conditions. Biological Research 38:151–162 (2005).', href: 'https://doi.org/10.4067/s0716-97602005000200005' },
-  ],
+  references: [refs.chen2009, refs.dca1, refs.mazf, refs.farhat2011, refs.gomez2005],
   sections: [
     { title: 'Why use salinity?', body: '', blocks: [
       p('DunaTerp is designed around a salt-adapted microalga. A fall in salinity offers a possible signal that cells have left their intended cultivation environment. However, Dunaliella can tolerate a broad range of salinities, so low salt cannot be treated as a reliable means of inactivation on its own. The range also varies with the organism and its acclimation history [1].'),

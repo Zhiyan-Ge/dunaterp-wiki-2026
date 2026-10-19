@@ -3,6 +3,7 @@ import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { archiveNavigation, navigation, pageOrder, pages } from "./site-data";
 import { dryLabMenuGroups } from "./content/dry-lab";
 import { ArticleBlocks } from './ArticleBlocks';
+import type { WikiReference } from './content/types';
 
 const PixelWorld = lazy(() => import("./PixelWorld").then((module) => ({ default: module.PixelWorld })));
 const MODELING_PATHS = ['/dry-lab', '/transcriptomics', '/metabolomics', '/protein', '/model'];
@@ -114,14 +115,14 @@ function Footer() {
 function pageReferences(page: (typeof pages)[string]) {
   if (page.references) return page.references;
   const seen = new Set<string>();
-  const references: Array<{ label: string; href: string }> = [];
+  const references: WikiReference[] = [];
   for (const section of page.sections) {
     for (const block of section.blocks ?? []) {
       if (block.kind !== "links") continue;
       for (const link of block.links) {
         if (!/^https?:\/\//i.test(link.href) || seen.has(link.href)) continue;
         seen.add(link.href);
-        references.push(link);
+        references.push({ ...link, kind: 'Web resource' });
       }
     }
   }
@@ -264,7 +265,7 @@ function Article({ slug }: { slug: string }) {
     <div className="article-layout"><ArticleToc slug={slug} sections={tocSections} hasReferences={references.length > 0} />
       <div className="article-body">{page.figure && <figure className="feature-figure"><img src={figureSrc} alt={page.figure.alt} loading="lazy" decoding="async" /><figcaption>{page.figure.caption}</figcaption></figure>}
         <div className="article-sections">{page.sections.map((section, i) => <section id={`section-${i + 1}`} tabIndex={-1} key={`${i}-${section.title}`}><div className="section-number">{String(i + 1).padStart(2, "0")}</div><div>{section.eyebrow && <p className="section-eyebrow">{section.eyebrow}</p>}<h2>{section.title}</h2>{section.body && <p>{renderCitations(section.body, referenceNumbers)}</p>}{section.blocks && <ArticleBlocks blocks={section.blocks} referenceNumbers={referenceNumbers} sectionId={`section-${i + 1}`} />}{section.items && <ul>{section.items.map((item) => <li key={item}>{renderCitations(item, referenceNumbers)}</li>)}</ul>}{section.note && <aside>{section.note}</aside>}</div></section>)}</div>
-        {references.length > 0 && <section id="references" tabIndex={-1} className="article-references"><div className="section-number" aria-hidden="true">↗</div><div><p className="section-eyebrow">SOURCES &amp; FURTHER READING</p><h2>References</h2><ol>{references.map((reference, index) => <li id={`reference-${index + 1}`} key={reference.href}><span>{String(index + 1).padStart(2, "0")}</span><a href={reference.href} target="_blank" rel="noreferrer">{reference.label} ↗</a></li>)}</ol></div></section>}
+        {references.length > 0 && <section id="references" tabIndex={-1} className="article-references"><div className="section-number" aria-hidden="true">↗</div><div><p className="section-eyebrow">SOURCES &amp; FURTHER READING</p><h2>References</h2><ol>{references.map((reference, index) => <li id={`reference-${index + 1}`} key={reference.href}><span>{String(index + 1).padStart(2, "0")}</span><div><span className="reference-kind">{reference.kind ?? 'Source'}</span><a href={reference.href} target="_blank" rel="noreferrer">{reference.label}<span className="reference-link-mark" aria-hidden="true">↗</span></a></div></li>)}</ol></div></section>}
       </div>
     </div>
     </>}

@@ -12,3 +12,9 @@ export type ContentBlock =
   | { kind: 'download'; src: string; label: string }
   | { kind: 'pbr-widget' | 'docking-viewer' }
   | { kind: 'safety-overview' | 'safety-results' };
+
+export type WikiReference = {
+  label: string;
+  href: string;
+  kind?: 'Article' | 'Dataset' | 'Database' | 'Software' | 'Image' | 'Web resource';
+};

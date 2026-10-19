@@ -386,7 +386,7 @@ main:focus:not(:focus-visible) { outline: none; }
   border-left: 3px solid var(--article-accent);
 }
 .article-page.article-page--wet-lab .article-hero { background-color: #d7cfb2; }
-.article-page.article-page--human-practices .article-hero { background-position: center 13%; }
+.article-page.article-page--human-practices .article-hero { background-position: center; }
 .article-page .article-layout { padding-top: 4rem; }
 .article-page .article-toc {
   position: sticky;
@@ -466,7 +466,10 @@ main:focus:not(:focus-visible) { outline: none; }
 .article-page .article-references ol { margin: 0; padding: 0; list-style: none; counter-reset: references; }
 .article-page .article-references li { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .7rem; align-items: start; padding: .8rem 0; border-top: 1px solid #bdc9b8; color: #36514c; font-size: .9rem; line-height: 1.6; scroll-margin-top: 7rem; }
 .article-page .article-references li > span { color: #607468; font: 900 .75rem/1.6 ui-monospace, Menlo, monospace; }
-.article-page .article-references li > a { color: var(--ink); text-underline-offset: .2em; }
+.article-page .article-references li > div { min-width: 0; }
+.article-page .article-references li a { display: block; color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.article-page .article-references .reference-kind { display: inline-block; margin: 0 0 .32rem; padding: .12rem .42rem; background: var(--ink); color: #fffaf0; font: 900 .62rem/1.35 ui-monospace, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; }
+.article-page .article-references .reference-link-mark { margin-left: .35rem; color: #176c82; font-family: ui-monospace, Menlo, monospace; font-weight: 900; text-decoration: none; }
 .article-page .inline-citation { color: #176c82; font-size: .82em; font-weight: 800; text-underline-offset: .15em; }
 
 /* Keep Wet Lab and Dry Lab on the same warm paper ground. The content cards

@@ -1,5 +1,6 @@
 import type { WikiPage, WikiSection } from '../site-data';
 import type { ContentBlock } from './types';
+import { refs } from './references';
 
 const p = (text: string): ContentBlock => ({ kind: 'paragraph', text });
 const h = (text: string): ContentBlock => ({ kind: 'heading', text });
@@ -28,6 +29,7 @@ export const dryLabMenuGroups = [
 export const transcriptomics: WikiPage = {
   title: 'Transcriptomics', eyebrow: 'Dry Lab / Transcriptomics', status: 'team-draft',
   intro: 'We started with the reaction sequence, matched the public Dunaliella salina transcripts to carotenoid-enzyme sequences, and then compared the nine light-acclimation samples with a replicate-aware count model. The output is a transcript-by-transcript view of which pathway steps respond to light—and which LCYB copies are worth carrying into the β-carotene model.',
+  references: [refs.transcriptomeDataset, refs.li2019, refs.grabherr2011, refs.diamond2015, refs.deseq2010],
   sections: [
     section('THE REACTIONS',
       p('The route gives the analysis its order. PSY commits geranylgeranyl diphosphate to phytoene; PDS, Z-ISO, ZDS and CRTISO convert phytoene toward lycopene. At lycopene, LCYB feeds the β-carotene branch and LCYE feeds the competing α-carotene branch. We therefore annotate transcripts by enzyme first, then read the expression changes at their position in this route.'),
@@ -35,14 +37,14 @@ export const transcriptomics: WikiPage = {
       p('The question is not whether one statistical cluster can represent the pathway. It is which sequence-supported enzyme transcripts change between the measured light conditions, and whether different copies assigned to the same enzyme show the same response.'),
     ),
     section('THE DATASET',
-      p('GSE120965 contains nine cultures: three biological replicates each at 150, 600 and 1500 µmol photons m⁻² s⁻¹, sampled after 168 h of light acclimation. In the published upstream pipeline, adapters, poly-N reads and low-quality reads were removed; Trinity assembled the clean reads, and the longest transcript in each Trinity subcomponent was retained as a unigene. We use that deposited unigene FASTA and GEO Readcount matrix. Their transcript identifiers match across all 76,875 rows, so the analysis below starts from the public processed files rather than claiming to reassemble the reads.'),
+      p('GSE120965 contains nine cultures: three biological replicates each at 150, 600 and 1500 µmol photons m⁻² s⁻¹, sampled after 168 h of light acclimation [1] [2]. In the published upstream pipeline, adapters, poly-N reads and low-quality reads were removed; Trinity assembled the clean reads, and the longest transcript in each Trinity subcomponent was retained as a unigene [3]. We use that deposited unigene FASTA and GEO Readcount matrix. Their transcript identifiers match across all 76,875 rows, so the analysis below starts from the public processed files rather than claiming to reassemble the reads.'),
       customTable('Light-acclimation design', ['Condition', 'GEO sample IDs', 'Independent cultures'], [
         ['150 · low (LL)','LL1, LL2, LL3','3'], ['600 · medium (ML)','ML1, ML2, ML3','3'], ['1500 · high (HL)','HL1, HL2, HL3','3'],
       ]),
       { kind: 'figure', src: '/figures/dry-lab/transcriptomics-workflow.svg', alt: 'Analysis workflow: public sample design branches into sequence annotation and count-based differential expression, then transcript identifiers are joined for pathway interpretation.', caption: 'Fig. 2 Transcriptomics analysis workflow' },
     ),
     section('SEQUENCE ANNOTATION',
-      p('The FASTA contains nucleotide contigs, not named genes. We translate each contig in all six reading frames with DIAMOND blastx and search two protein references: archived Swiss-Prot and the recoverable 2018 Dunaliella protein set. A hit enters the primary-annotation pass at E ≤ 10⁻⁵, ≥20% identity and ≥15% subject-protein coverage. We rank qualifying hits by bit score, then use E-value and subject ID as stable tie-breaks; only after choosing the top hit do we classify its protein name as an enzyme family. This keeps a weaker pathway hit from displacing a stronger non-pathway match just because we hoped to see that enzyme.'),
+      p('The FASTA contains nucleotide contigs, not named genes. We translate each contig in all six reading frames with DIAMOND blastx [4] and search two protein references: archived Swiss-Prot and the recoverable 2018 Dunaliella protein set. A hit enters the primary-annotation pass at E ≤ 10⁻⁵, ≥20% identity and ≥15% subject-protein coverage. We rank qualifying hits by bit score, then use E-value and subject ID as stable tie-breaks; only after choosing the top hit do we classify its protein name as an enzyme family. This keeps a weaker pathway hit from displacing a stronger non-pathway match just because we hoped to see that enzyme.'),
       { kind: 'code', label: 'Primary sequence-annotation rule · pseudocode', text: String.raw`for each Trinity transcript:
     hits = DIAMOND blastx(transcript, archived protein references, E <= 1e-5)
     hits = keep hits with identity >= 20% and subject coverage >= 15%
@@ -59,7 +61,7 @@ independently:
       p('This sequence-first union yields 20 transcript features assigned to nine enzyme families in the carotenoid route. Several families have multiple contigs. We keep those copies separate because they may represent paralogs, isoforms or fragmented de novo assemblies; they are not averaged into one “gene” measurement.'),
     ),
     section('DIFFERENTIAL EXPRESSION',
-      p('We test the GEO Readcount matrix rather than FPKM: a count model needs the replicate-level count variation. In this matrix, 200,439 of 691,875 sample-by-transcript entries (28.97%) are fractional estimates, so the rerun converts them with base R round() (nearest integer, ties to even) before fitting DESeq 1.10.1. The same nine samples and the same count matrix are used for all three pairwise contrasts; no expression-derived clustering or fold-change preselection is used.'),
+      p('We test the GEO Readcount matrix rather than FPKM: a count model needs the replicate-level count variation. In this matrix, 200,439 of 691,875 sample-by-transcript entries (28.97%) are fractional estimates, so the rerun converts them with base R round() (nearest integer, ties to even) before fitting DESeq 1.10.1 [5]. The same nine samples and the same count matrix are used for all three pairwise contrasts; no expression-derived clustering or fold-change preselection is used.'),
       eq('Library-size normalization', String.raw`s_j = \operatorname{median}_{i\in I_{+}}\left(\frac{K_{ij}}{\left(\prod_{j'=1}^{m} K_{ij'}\right)^{1/m}}\right),\qquad K^{*}_{ij}=\frac{K_{ij}}{s_j}`),
       p('For transcript i in sample j, Kᵢⱼ is the rounded read count and sⱼ is the DESeq median-of-ratios size factor. I₊ contains transcripts with a positive count in every sample, so their geometric mean is defined; the median ratio then estimates how deeply each sample was sequenced. This adjusts library depth without treating FPKM as count data.'),
       eq('Replicate-aware count model', String.raw`K_{ij}\sim\operatorname{NB}(\mu_{ij},\alpha_i),\qquad \mu_{ij}=s_jq_{ij}`),
@@ -110,6 +112,7 @@ for (pair in list(c("LL","ML"), c("LL","HL"), c("ML","HL"))) {
 export const metabolomics: WikiPage = {
   title: 'Metabolic Flow Analysis', eyebrow: 'Modeling / Metabolic Flow', status: 'team-draft',
   intro: 'We use a constraint-based chassis model and a local dynamic branch model to ask how D. salina can support four carotenoid-derived products, which conditions favour production, and where pathway intervention has the greatest leverage.',
+  references: [refs.fachet2020, refs.orth2010, refs.lan2022, refs.mialoundama2010],
   sections: [
     section('Introduction',
       p('DunaTerp treats β-carotene as a shared metabolic hub rather than a single endpoint. The metabolic analysis therefore asks four connected questions: can the reconstructed D. salina network carry each engineered product route, how do environmental constraints change attainable flux, what chassis cost accompanies stronger production, and which branch points should be prioritized for intervention?'),
@@ -122,11 +125,11 @@ export const metabolomics: WikiPage = {
       ] },
     ),
     section('Chassis model construction and validation',
-      p('The Dunaliella salina metabolic network was reconstructed and then validated under the eight A-H scenarios reported in the literature. The analysis unified the definitions of light conditions, nitrogen-source conditions and objective functions, and confirmed that the model could be solved stably under a conservative interpretation of those scenarios.'),
+      p('The Dunaliella salina metabolic network was reconstructed and then validated under the eight A-H scenarios reported in the published carbon-core reconstruction [1]. The analysis unified the definitions of light conditions, nitrogen-source conditions and objective functions, and confirmed that the model could be solved stably under a conservative interpretation of those scenarios.'),
       p('All eight A-H scenarios yielded stable feasible solutions. This established a computable metabolic chassis that provides a consistent foundation for the later product, environment and branch-point analyses.'),
     ),
     section('Method: constrained flux balance analysis',
-      p('Flux balance analysis assumes that internal metabolite pools are at quasi-steady state over the optimization interval. The stoichiometric matrix S links metabolites to reaction fluxes v; lower and upper bounds encode the environmental and reaction constraints. For each question, a stated objective c is optimized without changing the underlying mass-balance rule.'),
+      p('Flux balance analysis assumes that internal metabolite pools are at quasi-steady state over the optimization interval [2]. The stoichiometric matrix S links metabolites to reaction fluxes v; lower and upper bounds encode the environmental and reaction constraints. For each question, a stated objective c is optimized without changing the underlying mass-balance rule.'),
       eq('FBA problem', String.raw`\begin{aligned}\max_{v}\quad &c^{\mathsf T}v\\[2pt]\text{subject to}\quad &Sv=0\\&v_{\min}\le v\le v_{\max}\end{aligned}`),
       p('Product sink flux is used when comparing maximum product support. Cal01 is retained as a carbon-fixation proxy when testing the cost of product formation. These outputs are conditional model optima, not measured titres.'),
     ),
@@ -178,6 +181,7 @@ export const metabolomics: WikiPage = {
 export const modeling: WikiPage = {
   title: 'Mathematical Modeling', eyebrow: 'Dry Lab / Model', status: 'team-draft',
   intro: 'The transcriptome analysis shows that LCYB expression responds to light, but expression alone cannot tell us whether that response changes carotenoid production. We built a five-state model to make the proposed route explicit—from regulatory input, through LCYB transcript and active enzyme, to lycopene conversion and the β-carotene pool. The equations define testable relationships; absolute predictions for the engineered strain still require matched project measurements to set the parameters.',
+  references: [refs.bintu2005, refs.liang2017, refs.lan2022, refs.mialoundama2010],
   sections: [
     section('Why model the LCYB step?',
       p('LCYB catalyzes the lycopene-to-β-carotene step. We use it as the link between regulatory design and the product pool, asking how a change in regulatory activity could propagate through LCYB transcription and enzyme abundance to β-carotene formation.'),
@@ -185,8 +189,8 @@ export const modeling: WikiPage = {
       fig('14_regulatory_model','Five-state regulatory model linking an active regulatory factor, promoter occupancy, LCYB transcript, active LCYB and beta-carotene.', 'Fig. 1 Five-state regulatory model of the LCYB step'),
     ),
     section('From promoter binding to transcript output',
-      p('As a first approximation, we represent promoter binding with a one-site equilibrium model. The occupied fraction depends on active regulator concentration relative to the dissociation constant; transcription is a weighted blend of the bound and unbound promoter rates.'),
-      links(['Bintu et al. · promoter occupancy models','https://pubmed.ncbi.nlm.nih.gov/15797194/'],['Published D. bardawil lcyb promoter · KX218393','https://pubmed.ncbi.nlm.nih.gov/27657551/']),
+      p('As a first approximation, we represent promoter binding with a one-site equilibrium model [1]. The occupied fraction depends on active regulator concentration relative to the dissociation constant; transcription is a weighted blend of the bound and unbound promoter rates. A published D. bardawil LCYB promoter provides relevant sequence context, but does not establish TF2146 binding [2].'),
+      links(['Bintu et al. · promoter occupancy models','https://doi.org/10.1016/j.gde.2005.02.007'],['Liang et al. · published D. bardawil lcyb promoter','https://doi.org/10.1111/1462-2920.13539']),
       eq('Promoter input', String.raw`\theta=\frac{T}{K_d+T},\qquad u_{\mathrm{LCYB}}=u_{\mathrm{unbound}}(1-\theta)+u_{\mathrm{bound}}\theta`),
       p('When the bound-promoter transcription rate exceeds the unbound rate, binding activates LCYB transcription; the reverse ordering represents repression. Regulator production, degradation and growth dilution determine regulator abundance, while the dissociation constant describes binding affinity.'),
     ),
@@ -210,8 +214,8 @@ export const modeling: WikiPage = {
       p('Each rate has the corresponding state unit per day. The solver checks that inputs are finite and nonnegative and that binding and Michaelis constants are positive. These checks protect the calculation; they do not establish that the supplied biological parameters are correct.'),
     ),
     section('What is supported, and what still needs measuring',
-      p('Lan et al. report LCYB overexpression, light-response and pigment measurements in D. salina. These observations support studying the LCYB-to-pigment link, but they do not provide every parameter needed to calibrate this regulatory model. A matched project time course is needed to connect regulator, transcript, enzyme and pigment measurements under the same conditions.'),
-      p('Mialoundama et al. measured recombinant pepper LCYB activity and an apparent lycopene substrate-affinity constant. These values can inform provisional cross-species ranges for LCYB catalytic capacity and substrate affinity, but they are not D. salina measurements. Regulator abundance, promoter-binding affinity, bound and unbound transcription rates, degradation, substrate supply and β-carotene removal remain project-specific inputs to measure.'),
+      p('Lan et al. report LCYB overexpression, light-response and pigment measurements in D. salina [3]. These observations support studying the LCYB-to-pigment link, but they do not provide every parameter needed to calibrate this regulatory model. A matched project time course is needed to connect regulator, transcript, enzyme and pigment measurements under the same conditions.'),
+      p('Mialoundama et al. measured recombinant pepper LCYB activity and an apparent lycopene substrate-affinity constant [4]. These values can inform provisional cross-species ranges for LCYB catalytic capacity and substrate affinity, but they are not D. salina measurements. Regulator abundance, promoter-binding affinity, bound and unbound transcription rates, degradation, substrate supply and β-carotene removal remain project-specific inputs to measure.'),
       links(['Lan et al., 2022','https://doi.org/10.4014/jmb.2208.08044'],['Mialoundama et al., 2010','https://doi.org/10.1104/pp.110.155440']),
       customTable('Parameter evidence and units', ['Parameter','Meaning','Unit','Source'], [
         [math`$s_T$`,'Regulatory-factor production','µmol L⁻¹ d⁻¹','Project measurement'],
@@ -330,13 +334,14 @@ export const hardware: WikiPage = {
   title: 'Hardware Modeling',
   eyebrow: 'Dry Lab / Hardware Modeling',
   status: 'team-draft',
+  references: [refs.posten2009, refs.carvalho2011],
   intro:
     'We developed a flat-panel airlift photobioreactor with symmetric double-sided illumination, together with a reduced-order engineering model to explore how reactor design and operating conditions may influence cultivation and production.',
   sections: [
     section(
       'Photobioreactor Design for DunaTerp',
       p(
-        'The performance of a photosynthetic production system depends not only on the engineered cells, but also on the physical environment in which they grow. For Dunaliella salina, light delivery, biomass self-shading, mixing, cultivation strategy, and energy consumption are closely connected.',
+        'The performance of a photosynthetic production system depends not only on the engineered cells, but also on the physical environment in which they grow. For Dunaliella salina, light delivery, biomass self-shading, mixing, cultivation strategy, and energy consumption are closely connected [1] [2].',
       ),
       p(
         'Our hardware modeling consists of five connected components: optical transport, cultivation dynamics, two-stage optimization, light–dark cycling, and scale-up with energy consumption.',
@@ -346,7 +351,7 @@ export const hardware: WikiPage = {
     section(
       'Optical Transport',
       p(
-        'As biomass accumulates, cells absorb and scatter incident light. This creates an uneven light environment inside the reactor: regions near the illuminated surfaces receive stronger light, while deeper regions can become increasingly light-limited. To describe this effect, we modeled light propagation across the flat-panel reactor under symmetric illumination from both transparent faces.',
+        'As biomass accumulates, cells absorb and scatter incident light. This creates an uneven light environment inside the reactor: regions near the illuminated surfaces receive stronger light, while deeper regions can become increasingly light-limited [2]. To describe this effect, we modeled light propagation across the flat-panel reactor under symmetric illumination from both transparent faces.',
       ),
 
       eq(
@@ -565,7 +570,7 @@ Q_P(I_g,t_s)
     section(
       'Light–Dark Cycling',
       p(
-        'Cells inside an airlift photobioreactor continuously move through different regions of the reactor. Gas-driven circulation can carry cells from bright regions near illuminated surfaces into darker internal regions and then back again. As a result, individual cells experience changing light conditions rather than a constant irradiance.',
+        'Cells inside an airlift photobioreactor continuously move through different regions of the reactor. Gas-driven circulation can carry cells from bright regions near illuminated surfaces into darker internal regions and then back again. As a result, individual cells experience changing light conditions rather than a constant irradiance [1].',
       ),
 
       eq(
@@ -723,13 +728,14 @@ export const hardwareDesign: WikiPage = {
   title: 'Hardware Design',
   eyebrow: 'Dry Lab / Hardware Design',
   status: 'team-draft',
+  references: [refs.posten2009, refs.carvalho2011],
   intro:
     'To support Dunaliella cultivation, we designed a flat-panel airlift photobioreactor centered on a serpentine culture chamber and bubble-driven circulation of the culture medium.',
   sections: [
     section(
       'Reactor Architecture and Working Principle',
       p(
-        'For photosynthetic Dunaliella, reactor design should account for light availability, inorganic carbon supply, gas exchange, culture mixing, and the compatibility of materials and seals with saline media. For light supply, individual cells experience light according to both external illumination and their movement through the culture. We therefore designed the reactor to promote mixing through bubble-driven circulation and facilitate cell movement between well-lit regions near the transparent walls and darker regions within the culture, with the aim of creating light–dark exposure patterns that may benefit cultivation.',
+        'For photosynthetic Dunaliella, reactor design should account for light availability, inorganic carbon supply, gas exchange, culture mixing, and the compatibility of materials and seals with saline media [1] [2]. For light supply, individual cells experience light according to both external illumination and their movement through the culture. We therefore designed the reactor to promote mixing through bubble-driven circulation and facilitate cell movement between well-lit regions near the transparent walls and darker regions within the culture, with the aim of creating light–dark exposure patterns that may benefit cultivation.',
       ),
       p(
         'The reactor consists of two transparent PMMA plates designed for CNC machining. The transparent walls allow external illumination and observation of the interior, while the split construction provides access for cleaning and maintenance. The chamber integrates three functional regions: a bottom pressure-equalization and gas-distribution region, a central culture zone, and a top gas–liquid separation region. Silicone gaskets are incorporated at the plate interface, and polymer bulkhead fittings connect the gas and liquid lines.',
