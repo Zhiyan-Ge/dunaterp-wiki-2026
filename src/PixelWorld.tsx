@@ -54,20 +54,22 @@ const ROUTE_EGGS = [
 ] as const;
 
 function LoadingScreen({ ratio }: { ratio: number }) {
-  const cells = 24;
-  const filled = Math.round(ratio * cells);
+  const percent = Math.round(ratio * 100);
   return (
     <div className="px-loading" role="status" aria-live="polite">
       <div className="px-loading-crest" aria-hidden="true"><i /><i /><i /><i /><i /></div>
       <p className="px-loading-title">DUNATERP</p>
-      <div className="px-loader-scene" aria-hidden="true"><i /><b /><span /></div>
+      <div
+        className="px-loader-scene"
+        role="progressbar"
+        aria-label="Loading the salt route"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={percent}
+        style={{ "--px-load": `${percent}%` } as React.CSSProperties}
+      ><i /><b /><span /></div>
       <p className="px-loading-sub">Surveying the salt flats…</p>
-      <div className="px-meter" role="progressbar" aria-label="Loading the salt route" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(ratio * 100)}>
-        {Array.from({ length: cells }, (_, index) => (
-          <i key={index} className={index < filled ? "is-on" : undefined} />
-        ))}
-      </div>
-      <p className="px-loading-pct">{Math.round(ratio * 100)}%</p>
+      <p className="px-loading-pct">{percent}%</p>
     </div>
   );
 }

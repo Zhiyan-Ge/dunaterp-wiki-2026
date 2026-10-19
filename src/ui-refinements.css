@@ -553,11 +553,43 @@ body:has(.article-page--hardware) { background: #f3ecd0; }
   .article-page .article-toc nav { max-height: min(48svh, 26rem); }
 }
 @media (max-width: 800px) {
-  .article-page { padding-top: 0; }
+  .article-page {
+    width: calc(100% - 2.5rem);
+    max-width: calc(100vw - 2.5rem);
+    min-width: 0;
+    padding-top: 0;
+    overflow: clip;
+  }
+  .article-page .article-layout {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+  }
+  .article-page .article-toc,
+  .article-page .article-body,
+  .article-page .article-sections {
+    width: 100%;
+    min-width: 0;
+  }
   .article-page .article-hero { aspect-ratio: 16 / 7; min-height: 12rem; padding: 1.25rem; box-shadow: 6px 6px 0 color-mix(in srgb, var(--article-accent) 55%, var(--ink)); }
-  .article-page .article-hero h1 { font-size: clamp(1.55rem, 7vw, 2.5rem); overflow-wrap: anywhere; }
+  .article-page .article-hero > div { min-width: 0; }
+  .article-page .article-hero h1 {
+    max-width: 100%;
+    font-size: clamp(1.35rem, 6.5vw, 2.25rem);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
   .article-page--overview .article-hero { grid-template-columns: 1fr; gap: 1.25rem; }
-  .article-page .article-sections > section { grid-template-columns: 2.5rem minmax(0,1fr); padding: 1.25rem; box-shadow: 4px 4px 0 #b9c7b9; }
+  .article-page .article-sections > section {
+    grid-template-columns: 2.25rem minmax(0,1fr);
+    min-width: 0;
+    padding: 1.25rem;
+    box-shadow: 4px 4px 0 #b9c7b9;
+  }
+  .article-page .article-sections h2 {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
   .article-page .section-number { width: 2.25rem; height: 2.25rem; }
   .article-page .article-references { padding-top: 1.5rem; }
 }
