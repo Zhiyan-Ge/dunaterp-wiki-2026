@@ -145,26 +145,34 @@ function renderCitations(text: string, referenceNumbers: Map<string, number>) {
   });
 }
 
-function ArticleToc({ slug, titles, hasReferences }: { slug: string; titles: string[]; hasReferences: boolean }) {
+type TocSection = { id: string; title: string; children: Array<{ id: string; title: string }> };
+
+function ArticleToc({ slug, sections, hasReferences }: { slug: string; sections: TocSection[]; hasReferences: boolean }) {
   const nav = useRef<HTMLElement>(null);
   const [activeId, setActiveId] = useState("section-1");
-  const titleKey = titles.join("\u0000");
+  const items = [
+    ...sections.flatMap((section) => [{ id: section.id, title: section.title }, ...section.children]),
+    ...(hasReferences ? [{ id: "references", title: "References" }] : []),
+  ];
+  const itemKey = items.map((item) => `${item.id}\u0000${item.title}`).join("\u0001");
 
   useEffect(() => {
-    const pageTitles = titleKey ? titleKey.split("\u0000") : [];
-    const items = [...pageTitles.map((title, index) => ({ id: `section-${index + 1}`, title })), ...(hasReferences ? [{ id: "references", title: "References" }] : [])];
+    const currentItems = itemKey ? itemKey.split("\u0001").map((item) => {
+      const [id, title] = item.split("\u0000");
+      return { id, title };
+    }) : [];
     let frame = 0;
     const update = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
         // Anchor scrolling combines root scroll-padding and section scroll-margin.
         // Include that landing position so clicking a heading highlights that heading.
-        const firstSection = document.getElementById(items[0]?.id ?? '');
+        const firstSection = document.getElementById(currentItems[0]?.id ?? '');
         const anchorOffset = (parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0)
           + (firstSection ? parseFloat(getComputedStyle(firstSection).scrollMarginTop) || 0 : 0);
         const marker = Math.max(Math.min(220, window.innerHeight * 0.3), anchorOffset + 2);
-        let next = items[0]?.id ?? "";
-        for (const item of items) {
+        let next = currentItems[0]?.id ?? "";
+        for (const item of currentItems) {
           const section = document.getElementById(item.id);
           if (!section) continue;
           if (section.getBoundingClientRect().top <= marker) next = item.id;
@@ -176,8 +184,9 @@ function ArticleToc({ slug, titles, hasReferences }: { slug: string; titles: str
         if (scrollport && link) {
           const port = scrollport.getBoundingClientRect();
           const target = link.getBoundingClientRect();
-          if (target.top < port.top) scrollport.scrollTop -= port.top - target.top;
-          else if (target.bottom > port.bottom) scrollport.scrollTop += target.bottom - port.bottom;
+          const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          if (target.top < port.top) scrollport.scrollTo({ top: scrollport.scrollTop - (port.top - target.top) - 8, behavior: reduceMotion ? "auto" : "smooth" });
+          else if (target.bottom > port.bottom) scrollport.scrollTo({ top: scrollport.scrollTop + (target.bottom - port.bottom) + 8, behavior: reduceMotion ? "auto" : "smooth" });
         }
       });
     };
@@ -189,11 +198,15 @@ function ArticleToc({ slug, titles, hasReferences }: { slug: string; titles: str
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, [slug, titleKey, hasReferences]);
+  }, [slug, itemKey]);
 
-  const items = [...titles.map((title, index) => ({ id: `section-${index + 1}`, title })), ...(hasReferences ? [{ id: "references", title: "References" }] : [])];
+  const activeSection = sections.find((section) => section.id === activeId || section.children.some((child) => child.id === activeId))?.id;
   return <aside className="article-toc"><p>ON THIS PAGE</p><nav ref={nav} aria-label="On this page">
-    {items.map((item, index) => <Link key={item.id} data-toc-id={item.id} className={activeId === item.id ? "is-active" : undefined} aria-current={activeId === item.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${item.id}` }}><span>{String(index + 1).padStart(2, "0")}</span>{item.title}</Link>)}
+    {sections.map((section, index) => <div className={`toc-group${activeSection === section.id ? " is-open" : ""}`} key={section.id}>
+      <Link data-toc-id={section.id} className={`toc-parent${activeId === section.id ? " is-active" : ""}`} aria-current={activeId === section.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${section.id}` }}><span>{String(index + 1).padStart(2, "0")}</span>{section.title}{section.children.length > 0 && <b aria-hidden="true">⌄</b>}</Link>
+      {section.children.length > 0 && <div className="toc-sublist">{section.children.map((child) => <Link key={child.id} data-toc-id={child.id} className={activeId === child.id ? "is-active" : undefined} aria-current={activeId === child.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${child.id}` }}>{child.title}</Link>)}</div>}
+    </div>)}
+    {hasReferences && <Link data-toc-id="references" className={activeId === "references" ? "is-active" : undefined} aria-current={activeId === "references" ? "location" : undefined} to={{ pathname: `/${slug}`, hash: "#references" }}><span>{String(sections.length + 1).padStart(2, "0")}</span>References</Link>}
   </nav><Link className="toc-map" to="/wiki-map">All chapters ↗</Link></aside>;
 }
 
@@ -229,14 +242,24 @@ function Article({ slug }: { slug: string }) {
   const references = pageReferences(page);
   const referenceNumbers = new Map(references.map((reference, index) => [reference.href, index + 1]));
   const isWetLab = group?.label === 'Wet Lab';
+  const navigationLabel = group?.items.find(([, href]) => href === `/${slug}`)?.[0];
+  const heroTitle = isWetLab ? navigationLabel ?? page.title : page.title;
   const heroImage = resolveFigureSrc(isWetLab ? '/images/great-salt-lake-iss063-e-40184.jpg' : firstPageFigure(page));
+  const tocSections: TocSection[] = page.sections.map((section, sectionIndex) => ({
+    id: `section-${sectionIndex + 1}`,
+    title: section.tocTitle ?? section.title,
+    children: (section.blocks ?? []).flatMap((block, blockIndex) => {
+      if (block.kind === 'heading') return [{ id: `section-${sectionIndex + 1}-heading-${blockIndex + 1}`, title: block.text }];
+      if (block.kind === 'wet-lab-method') return block.headings;
+      return [];
+    }),
+  }));
   return <><Header /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${isWetLab ? ' article-page--wet-lab' : ''}${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}${slug === 'experiments' ? ' article-page--experiments' : ''}`}>
-    <nav className="breadcrumbs" aria-label="Breadcrumb"><Link to="/wiki-map">Wiki</Link><span aria-hidden="true">/</span>{group && <>{group.label === 'Dry Lab' ? <Link to="/dry-lab">Dry Lab</Link> : <span>{group.label}</span>}<span aria-hidden="true">/</span></>}<span aria-current="page">{group?.items.find(([, href]) => href === `/${slug}`)?.[0] || page.title}</span></nav>
-    <header className="article-hero"><div>{!isWetLab && <p className="page-eyebrow">{page.eyebrow}</p>}<h1>{page.title}</h1></div></header>
+    <header className="article-hero"><div>{!isWetLab && <p className="page-eyebrow">{page.eyebrow}</p>}<h1>{heroTitle}</h1></div></header>
     {hasContent && <>
-    <div className="article-layout"><ArticleToc slug={slug} titles={page.sections.map((section) => section.tocTitle ?? section.title)} hasReferences={references.length > 0} />
+    <div className="article-layout"><ArticleToc slug={slug} sections={tocSections} hasReferences={references.length > 0} />
       <div className="article-body">{page.figure && <figure className="feature-figure"><img src={figureSrc} alt={page.figure.alt} loading="lazy" decoding="async" /><figcaption>{page.figure.caption}</figcaption></figure>}
-        <div className="article-sections">{page.sections.map((section, i) => <section id={`section-${i + 1}`} tabIndex={-1} key={`${i}-${section.title}`}><div className="section-number">{String(i + 1).padStart(2, "0")}</div><div>{section.eyebrow && <p className="section-eyebrow">{section.eyebrow}</p>}<h2>{section.title}</h2>{section.body && <p>{renderCitations(section.body, referenceNumbers)}</p>}{section.blocks && <ArticleBlocks blocks={section.blocks} referenceNumbers={referenceNumbers} />}{section.items && <ul>{section.items.map((item) => <li key={item}>{renderCitations(item, referenceNumbers)}</li>)}</ul>}{section.note && <aside>{section.note}</aside>}</div></section>)}</div>
+        <div className="article-sections">{page.sections.map((section, i) => <section id={`section-${i + 1}`} tabIndex={-1} key={`${i}-${section.title}`}><div className="section-number">{String(i + 1).padStart(2, "0")}</div><div>{section.eyebrow && <p className="section-eyebrow">{section.eyebrow}</p>}<h2>{section.title}</h2>{section.body && <p>{renderCitations(section.body, referenceNumbers)}</p>}{section.blocks && <ArticleBlocks blocks={section.blocks} referenceNumbers={referenceNumbers} sectionId={`section-${i + 1}`} />}{section.items && <ul>{section.items.map((item) => <li key={item}>{renderCitations(item, referenceNumbers)}</li>)}</ul>}{section.note && <aside>{section.note}</aside>}</div></section>)}</div>
         {references.length > 0 && <section id="references" tabIndex={-1} className="article-references"><div className="section-number" aria-hidden="true">↗</div><div><p className="section-eyebrow">SOURCES &amp; FURTHER READING</p><h2>References</h2><ol>{references.map((reference, index) => <li id={`reference-${index + 1}`} key={reference.href}><span>{String(index + 1).padStart(2, "0")}</span><a href={reference.href} target="_blank" rel="noreferrer">{reference.label} ↗</a></li>)}</ol></div></section>}
         <Link className="next-page" to={`/${nextSlug}`}><span>CONTINUE EXPLORING</span><strong>{next.title}</strong><b aria-hidden="true">↗</b></Link>
       </div>
@@ -256,7 +279,8 @@ function ScrollAndTitle() {
         try { id = decodeURIComponent(id); } catch { /* Keep the raw id when a malformed URL hash is supplied. */ }
         const target = document.getElementById(id);
         if (target) {
-          target.scrollIntoView();
+          const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
           target.focus({ preventScroll: true });
         }
       } else {

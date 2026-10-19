@@ -560,33 +560,25 @@
   z-index: 1;
   top: 0;
   display: grid;
-  justify-items: center;
+  justify-items: start;
   gap: .1rem;
-  width: 9rem;
-  transform: translateX(-50%);
+  width: max-content;
+  max-width: 13rem;
   color: rgba(253, 246, 227, .82);
-  text-align: center;
-  font: 760 .64rem/1.2 ui-monospace, Menlo, monospace;
+  text-align: left;
+  font: 760 .6rem/1.2 ui-monospace, Menlo, monospace;
 }
 .px-route-stop > b { color: var(--px-accent); font-size: .68rem; }
-.px-route-stop > span { max-width: 100%; }
-.px-route-stop::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -.12rem;
+.px-route-stop__line { display: flex; align-items: center; gap: .35rem; max-width: 100%; white-space: nowrap; }
+.px-route-stop__line > i {
+  flex: 0 0 auto;
   width: 9px;
   height: 9px;
   border: 2px solid var(--px-ink);
   background: var(--px-accent);
-  transform: translate(-50%, 0);
 }
 .px-route-stop.is-on { color: var(--px-salt); }
-.px-route-stop.is-on::after { width: 12px; height: 12px; }
-.px-route-stop.is-first { transform: none; justify-items: start; text-align: left; }
-.px-route-stop.is-first::after { left: 0; transform: none; }
-.px-route-stop.is-last { transform: translateX(-100%); justify-items: end; text-align: right; }
-.px-route-stop.is-last::after { left: 100%; transform: translateX(-100%); }
+.px-route-stop.is-on .px-route-stop__line > i { width: 12px; height: 12px; }
 .px-route-traveller {
   position: absolute;
   z-index: 2;
@@ -784,7 +776,9 @@
   .px-trailhead { grid-template-columns: 2.6rem minmax(0,1fr); width: max-content; max-width: calc(100% - 2rem); bottom: 10.5rem; gap: .7rem; padding: .65rem .75rem; }
   .px-trailhead__copy h2 { white-space: normal; }
   .px-trailhead__keys { top: 5rem; left: .75rem; padding: .55rem .65rem; }
-  .px-route-stop small { max-width: 4.5rem; font-size: .48rem; white-space: normal; }
+  .px-route-stop { max-width: 5rem; font-size: .48rem; }
+  .px-route-stop__line { align-items: flex-start; white-space: normal; }
+  .px-route-stop__line > span { max-width: 4rem; }
 }
 
 @media (max-width: 520px) {
@@ -793,7 +787,8 @@
   .px-trailhead__keys span { font-size: .62rem; }
   .px-trailhead__keys span:last-child { display: none; }
   .px-route { left: .7rem; right: .7rem; }
-  .px-route-stop small { max-width: 3.8rem; font-size: .42rem; }
+  .px-route-stop { max-width: 4.4rem; font-size: .42rem; }
+  .px-route-stop__line > span { max-width: 3.4rem; }
   .px-route { bottom: .45rem; }
 }
 

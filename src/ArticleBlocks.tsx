@@ -66,11 +66,11 @@ function ResearchFigure({ figure, compact = false }: { figure: { src: string; al
   </figure>;
 }
 
-export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, number>() }: { blocks: ContentBlock[]; referenceNumbers?: Map<string, number> }) {
+export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, number>(), sectionId }: { blocks: ContentBlock[]; referenceNumbers?: Map<string, number>; sectionId?: string }) {
   return <div className="research-blocks">{blocks.map((block, i) => {
     switch (block.kind) {
       case 'paragraph': return <p key={i}>{renderCitations(block.text, referenceNumbers)}</p>;
-      case 'heading': return <h3 key={i}>{block.text}</h3>;
+      case 'heading': return <h3 id={sectionId ? `${sectionId}-heading-${i + 1}` : undefined} tabIndex={sectionId ? -1 : undefined} key={i}>{block.text}</h3>;
       case 'equation': return <Equation key={i} block={block} />;
       case 'code': return <div className="research-code" key={i}><p>{block.label}</p><pre tabIndex={0}><code>{block.text}</code></pre></div>;
       case 'figure': return <ResearchFigure key={i} figure={block} />;

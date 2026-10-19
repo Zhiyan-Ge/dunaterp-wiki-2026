@@ -475,7 +475,7 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
               style={{ left: `${station.u * 100}%`, "--px-accent": station.color } as React.CSSProperties}
             >
               <b>{station.index}</b>
-              <span>{station.short}</span>
+              <span className="px-route-stop__line"><i aria-hidden="true" /><span>{station.short}</span></span>
             </span>
           ))}
           <i className="px-route-traveller" aria-hidden="true" />
