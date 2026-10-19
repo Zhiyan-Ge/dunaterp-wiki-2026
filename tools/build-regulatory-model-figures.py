@@ -255,7 +255,6 @@ def figure_transfer() -> None:
     ax.set_ylabel("Relative transcript and active enzyme")
     ax.set_title("B   Steady-state expression transfer", loc="left", fontsize=16, fontweight="bold")
     ax.legend(frameon=False, loc="upper left")
-    ax.text(0.03, 0.08, "Activation saturates once the promoter is mostly occupied.", transform=ax.transAxes, color=MUTED)
 
     for ax in axes:
         ax.spines[["top", "right"]].set_visible(False)
