@@ -535,7 +535,12 @@
   height: 3.6rem;
   pointer-events: none;
 }
-.px-route::before {
+.px-route-meter {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.px-route-meter::before {
   content: "";
   position: absolute;
   inset: auto 0 .15rem;
@@ -564,9 +569,16 @@
   gap: .1rem;
   width: max-content;
   max-width: 13rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: rgba(253, 246, 227, .82);
   text-align: left;
   font: 760 .6rem/1.2 ui-monospace, Menlo, monospace;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: color .18s ease, transform .18s ease;
 }
 .px-route-stop > b { color: var(--px-accent); font-size: .68rem; }
 .px-route-stop__line { display: flex; align-items: center; gap: .35rem; max-width: 100%; white-space: nowrap; }
@@ -579,6 +591,9 @@
 }
 .px-route-stop.is-on { color: var(--px-salt); }
 .px-route-stop.is-on .px-route-stop__line > i { width: 12px; height: 12px; }
+.px-route-stop:hover,
+.px-route-stop:focus-visible { color: var(--px-salt); transform: translateY(-2px); }
+.px-route-stop:focus-visible { outline: 2px solid var(--px-accent); outline-offset: 4px; }
 .px-route-traveller {
   position: absolute;
   z-index: 2;

@@ -2,7 +2,7 @@
 .article-page.article-page--experiments .article-hero { padding: 2rem; gap: 2rem; }
 .article-page.article-page--experiments .article-layout { padding-top: 2.5rem; }
 .article-page--experiments .article-sections .section-eyebrow { font: 700 .75rem/1.4 ui-monospace, Menlo, monospace; letter-spacing: .16em; text-transform: uppercase; color: #688148; margin: 0 0 .7rem; }
-.article-page.article-page--experiments .article-sections h2 { max-width: 34ch; font-size: clamp(1.5rem,2.2vw,2.05rem); line-height: 1.2; margin-bottom: 1rem; }
+.article-page.article-page--experiments .article-sections h2 { max-width: none; font-size: clamp(1.5rem,2.2vw,2.05rem); line-height: 1.2; margin-bottom: 1rem; }
 .article-page--experiments .method-lead, .article-page--experiments .method-introduction p { max-width: none; font-size: 1.05rem; line-height: 1.8; margin: 0 0 1.75rem; }
 .method-lead, .method-introduction, .method-figure, .method-protocol { width: 100%; }
 .method-figure { margin: 1.75rem 0 1.5rem; }

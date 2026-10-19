@@ -201,13 +201,13 @@ function ArticleToc({ slug, sections, hasReferences }: { slug: string; sections:
   }, [slug, itemKey]);
 
   const activeSection = sections.find((section) => section.id === activeId || section.children.some((child) => child.id === activeId))?.id;
-  return <aside className="article-toc"><p>ON THIS PAGE</p><nav ref={nav} aria-label="On this page">
-    {sections.map((section, index) => <div className={`toc-group${activeSection === section.id ? " is-open" : ""}`} key={section.id}>
-      <Link data-toc-id={section.id} className={`toc-parent${activeId === section.id ? " is-active" : ""}`} aria-current={activeId === section.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${section.id}` }}><span>{String(index + 1).padStart(2, "0")}</span>{section.title}{section.children.length > 0 && <b aria-hidden="true">⌄</b>}</Link>
+  return <aside className="article-toc"><p>Contents</p><nav ref={nav} aria-label="Contents">
+    {sections.map((section) => <div className={`toc-group${activeSection === section.id ? " is-open" : ""}`} key={section.id}>
+      <Link data-toc-id={section.id} className={`toc-parent${activeId === section.id ? " is-active" : ""}`} aria-current={activeId === section.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${section.id}` }}>{section.title}{section.children.length > 0 && <b aria-hidden="true">⌄</b>}</Link>
       {section.children.length > 0 && <div className="toc-sublist">{section.children.map((child) => <Link key={child.id} data-toc-id={child.id} className={activeId === child.id ? "is-active" : undefined} aria-current={activeId === child.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${child.id}` }}>{child.title}</Link>)}</div>}
     </div>)}
-    {hasReferences && <Link data-toc-id="references" className={activeId === "references" ? "is-active" : undefined} aria-current={activeId === "references" ? "location" : undefined} to={{ pathname: `/${slug}`, hash: "#references" }}><span>{String(sections.length + 1).padStart(2, "0")}</span>References</Link>}
-  </nav><Link className="toc-map" to="/wiki-map">All chapters ↗</Link></aside>;
+    {hasReferences && <Link data-toc-id="references" className={activeId === "references" ? "is-active" : undefined} aria-current={activeId === "references" ? "location" : undefined} to={{ pathname: `/${slug}`, hash: "#references" }}>References</Link>}
+  </nav></aside>;
 }
 
 const groupDescriptions = [
@@ -243,7 +243,8 @@ function Article({ slug }: { slug: string }) {
   const referenceNumbers = new Map(references.map((reference, index) => [reference.href, index + 1]));
   const isWetLab = group?.label === 'Wet Lab';
   const navigationLabel = group?.items.find(([, href]) => href === `/${slug}`)?.[0];
-  const heroTitle = isWetLab ? navigationLabel ?? page.title : page.title;
+  const fallbackHeroTitle = page.eyebrow.split("·")[0].split("/").at(-1)?.trim();
+  const heroTitle = navigationLabel ?? fallbackHeroTitle ?? page.title;
   const heroImage = resolveFigureSrc(isWetLab ? '/images/great-salt-lake-iss063-e-40184.jpg' : firstPageFigure(page));
   const tocSections: TocSection[] = page.sections.map((section, sectionIndex) => ({
     id: `section-${sectionIndex + 1}`,
@@ -255,7 +256,7 @@ function Article({ slug }: { slug: string }) {
     }),
   }));
   return <><Header /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${isWetLab ? ' article-page--wet-lab' : ''}${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}${slug === 'experiments' ? ' article-page--experiments' : ''}`}>
-    <header className="article-hero"><div>{!isWetLab && <p className="page-eyebrow">{page.eyebrow}</p>}<h1>{heroTitle}</h1></div></header>
+    <header className="article-hero"><div><h1>{heroTitle}</h1></div></header>
     {hasContent && <>
     <div className="article-layout"><ArticleToc slug={slug} sections={tocSections} hasReferences={references.length > 0} />
       <div className="article-body">{page.figure && <figure className="feature-figure"><img src={figureSrc} alt={page.figure.alt} loading="lazy" decoding="async" /><figcaption>{page.figure.caption}</figcaption></figure>}

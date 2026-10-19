@@ -45,7 +45,7 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
   const root = useRef<HTMLElement>(null);
   const stage = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
-  const routeRef = useRef<HTMLDivElement>(null);
+  const routeRef = useRef<HTMLElement>(null);
   const engineRef = useRef<PixelEngine | null>(null);
   const scrollLock = useRef(0);
   const archiveTimer = useRef<number | null>(null);
@@ -80,8 +80,9 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
     const route = routeRef.current;
     if (route) {
       route.style.setProperty("--px-journey", `${value * 100}%`);
-      route.setAttribute("aria-valuenow", String(percent));
-      route.setAttribute("aria-valuetext", `${currentStopIndex < 0 ? "Salt Route trailhead" : STATION_COPY[currentStopIndex].title}, ${percent}%`);
+      const meter = route.querySelector<HTMLElement>('[role="progressbar"]');
+      meter?.setAttribute("aria-valuenow", String(percent));
+      meter?.setAttribute("aria-valuetext", `${currentStopIndex < 0 ? "Salt Route trailhead" : STATION_COPY[currentStopIndex].title}, ${percent}%`);
       route.querySelectorAll<HTMLElement>("[data-route-stop]").forEach((stop, index) => {
         stop.classList.toggle("is-on", index === currentStopIndex);
       });
@@ -294,6 +295,22 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
     else scroll();
   }, []);
 
+  const travelToRouteStop = useCallback((position: number) => {
+    const engine = engineRef.current;
+    const node = root.current;
+    if (!engine || !node || !ready || failed || isStory) return;
+    const wasFree = engine.mode === "free";
+    if (wasFree) engine.exitFree();
+    const scroll = () => {
+      const top = node.getBoundingClientRect().top + window.scrollY;
+      const travel = Math.max(1, node.offsetHeight - window.innerHeight);
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: top + position * travel, behavior: reduce ? "auto" : "smooth" });
+    };
+    if (wasFree) requestAnimationFrame(() => requestAnimationFrame(scroll));
+    else scroll();
+  }, [ready, failed, isStory]);
+
   const closeNpcDialogue = useCallback(() => {
     setDialogueNpc(null);
     engineRef.current?.setPaused(false);
@@ -455,31 +472,31 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
 
         {!dialogueNpc && !stationDialogue && !secretOpen && !atArchive && <button type="button" className="px-restart" onClick={restart} aria-label="Return to the trailhead">↑</button>}
 
-        <div
+        <nav
           ref={routeRef}
           className="px-route"
-          role="progressbar"
-          aria-label="Salt Route progress"
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-valuenow={1}
-          aria-valuetext="Salt Route trailhead"
+          aria-label="Salt Route stations"
           style={{ "--px-journey": "1.2%" } as React.CSSProperties}
         >
-          <span className="px-route-fill" aria-hidden="true" />
+          <div className="px-route-meter" role="progressbar" aria-label="Salt Route progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={1} aria-valuetext="Salt Route trailhead">
+            <span className="px-route-fill" aria-hidden="true" />
+            <i className="px-route-traveller" aria-hidden="true" />
+          </div>
           {STATION_COPY.map((station) => (
-            <span
+            <button
+              type="button"
               key={station.key}
               data-route-stop={station.key}
               className={`px-route-stop${station.index === "01" ? " is-first" : ""}${station.index === "04" ? " is-last" : ""}${activeChapter?.key === station.key ? " is-on" : ""}`}
               style={{ left: `${station.u * 100}%`, "--px-accent": station.color } as React.CSSProperties}
+              onClick={() => travelToRouteStop(station.u)}
+              aria-label={`Go to stop ${station.index}: ${station.short}`}
             >
               <b>{station.index}</b>
               <span className="px-route-stop__line"><i aria-hidden="true" /><span>{station.short}</span></span>
-            </span>
+            </button>
           ))}
-          <i className="px-route-traveller" aria-hidden="true" />
-        </div>
+        </nav>
         <section className="px-archive" inert={!atArchive || mode === "free"} aria-label="DunaTerp wiki index">
           <header>
             <p>FIELD ARCHIVE</p>
