@@ -172,49 +172,69 @@
 .px-world.is-free .px-trailhead__keys { display: none; }
 .story-dialogue--opening .story-text { font-size: clamp(1rem, 1.6vw, 1.2rem); }
 
-/* --- hidden field note ------------------------------------------------- */
+/* --- project-linked route discoveries --------------------------------- */
 
-.px-secret-glint {
+.px-route-egg {
   position: absolute;
   z-index: 21;
-  left: 18%;
-  top: 38%;
-  width: 2.2rem;
-  height: 2.2rem;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: #fff1a8;
-  cursor: pointer;
-  font: 900 1.7rem/1 ui-monospace, Menlo, monospace;
-  text-shadow: 2px 2px #e86f32, -2px -2px #06221f;
-  animation: pxSecretGlint 1.8s steps(2) infinite;
+  left: var(--egg-x);
+  top: var(--egg-y);
+  display: grid;
+  grid-template-columns: 2.85rem minmax(0, 11.5rem);
+  align-items: center;
+  gap: .65rem;
+  color: var(--px-cream);
+  text-decoration: none;
+  filter: drop-shadow(4px 4px 0 rgba(6, 34, 31, .55));
+  animation: pxRouteEggReveal .36s steps(4, end) both;
 }
-@keyframes pxSecretGlint { 50% { transform: scale(.75) rotate(45deg); opacity: .55; } }
-.px-secret-note {
-  position: fixed;
-  z-index: 36;
-  left: 50%;
-  top: 50%;
-  width: min(39rem, calc(100% - 2rem));
-  padding: clamp(1.5rem, 5vw, 3.2rem);
-  border: 4px solid var(--px-ink);
-  background: #fff7df;
-  color: var(--px-ink);
-  box-shadow: 10px 10px 0 rgba(6,34,31,.72);
-  transform: translate(-50%, -50%);
-  text-align: center;
+
+.px-route-egg__artifact {
+  position: relative;
+  width: 2.85rem;
+  height: 2.85rem;
+  border: 3px solid var(--px-ink);
+  background: rgba(13, 58, 51, .94);
+  box-shadow: inset 0 0 0 2px var(--egg-accent);
+  transition: transform .12s steps(2);
 }
-.px-secret-note > button { position: absolute; right: .8rem; top: .8rem; width: 2.2rem; height: 2.2rem; border: 3px solid var(--px-ink); background: #fff7df; color: var(--px-ink); box-shadow: 3px 3px var(--px-ink); cursor: pointer; font: 900 1.2rem/1 monospace; }
-.px-secret-note > p:first-of-type { margin: 0 0 1rem; color: #a45b26; font: 900 .72rem/1 monospace; letter-spacing: .16em; }
-.px-secret-note h2 { margin: 0 auto 1rem; max-width: 15ch; font: 900 clamp(1.8rem, 6vw, 3.4rem)/1 monospace; text-transform: uppercase; }
-.px-secret-note > p:last-of-type { margin: 1rem auto; max-width: 48ch; font-weight: 720; line-height: 1.7; }
-.px-secret-note > span { color: #8b5f1c; font: 900 .76rem/1.4 monospace; letter-spacing: .08em; }
-.px-secret-pigments { display: flex; justify-content: center; gap: .45rem; }
-.px-secret-pigments i { width: 2.3rem; height: 1rem; border: 2px solid var(--px-ink); background: #f5cf4c; }
-.px-secret-pigments i:nth-child(2) { background: #f7a52d; }
-.px-secret-pigments i:nth-child(3) { background: #e65c42; }
-.px-secret-pigments i:nth-child(4) { background: #d886a9; }
+
+.px-route-egg__copy {
+  display: grid;
+  gap: .18rem;
+  padding: .52rem .62rem;
+  border: 2px solid var(--px-cream);
+  border-left: 4px solid var(--egg-accent);
+  background: rgba(6, 34, 31, .9);
+  backdrop-filter: blur(4px);
+}
+
+.px-route-egg__copy small,
+.px-route-egg__copy em { color: var(--egg-accent); font: 900 .55rem/1.2 ui-monospace, Menlo, monospace; letter-spacing: .11em; font-style: normal; }
+.px-route-egg__copy strong { font: 850 .72rem/1.25 ui-monospace, Menlo, monospace; }
+.px-route-egg__copy em { opacity: .72; }
+.px-route-egg:hover .px-route-egg__artifact,
+.px-route-egg:focus-visible .px-route-egg__artifact { transform: translateY(-3px); }
+.px-route-egg:hover .px-route-egg__copy,
+.px-route-egg:focus-visible .px-route-egg__copy { background: var(--px-ink); }
+
+.px-route-egg__artifact i { position: absolute; display: block; background: var(--egg-accent); }
+.px-route-egg[data-egg="protein"] .px-route-egg__artifact i { width: .48rem; height: .48rem; }
+.px-route-egg[data-egg="protein"] .px-route-egg__artifact i:nth-child(1) { left: .45rem; top: .55rem; }
+.px-route-egg[data-egg="protein"] .px-route-egg__artifact i:nth-child(2) { right: .45rem; top: .38rem; }
+.px-route-egg[data-egg="protein"] .px-route-egg__artifact i:nth-child(3) { left: .82rem; bottom: .38rem; }
+.px-route-egg[data-egg="protein"] .px-route-egg__artifact i:nth-child(4) { right: .48rem; bottom: .68rem; }
+.px-route-egg[data-egg="model"] .px-route-egg__artifact i { bottom: .5rem; width: .4rem; }
+.px-route-egg[data-egg="model"] .px-route-egg__artifact i:nth-child(1) { left: .45rem; height: .55rem; }
+.px-route-egg[data-egg="model"] .px-route-egg__artifact i:nth-child(2) { left: 1rem; height: 1.05rem; }
+.px-route-egg[data-egg="model"] .px-route-egg__artifact i:nth-child(3) { left: 1.55rem; height: 1.48rem; }
+.px-route-egg[data-egg="model"] .px-route-egg__artifact i:nth-child(4) { left: .42rem; right: .42rem; bottom: .42rem; width: auto; height: 2px; background: var(--px-cream); }
+.px-route-egg[data-egg="hardware"] .px-route-egg__artifact i:nth-child(1) { left: .76rem; top: .42rem; width: 1.1rem; height: .28rem; }
+.px-route-egg[data-egg="hardware"] .px-route-egg__artifact i:nth-child(2) { left: .62rem; top: .8rem; width: 1.38rem; height: 1.35rem; border: 2px solid var(--egg-accent); background: transparent; }
+.px-route-egg[data-egg="hardware"] .px-route-egg__artifact i:nth-child(3) { left: .85rem; top: 1.18rem; width: .9rem; height: .55rem; background: var(--px-lime); }
+.px-route-egg[data-egg="hardware"] .px-route-egg__artifact i:nth-child(4) { left: 1.2rem; bottom: .3rem; width: .25rem; height: .42rem; }
+
+@keyframes pxRouteEggReveal { from { opacity: 0; transform: translateY(8px); } }
 
 /* --- loading ------------------------------------------------------------ */
 
@@ -777,6 +797,10 @@
   .px-route-stop { max-width: 5rem; font-size: .48rem; }
   .px-route-stop__line { align-items: flex-start; white-space: normal; }
   .px-route-stop__line > span { max-width: 4rem; }
+  .px-route-egg { left: 1rem; top: 7.5rem; grid-template-columns: 2.55rem minmax(0, 10rem); }
+  .px-route-egg[data-egg="hardware"] { left: auto; right: 1rem; top: 13rem; }
+  .px-route-egg__artifact { width: 2.55rem; height: 2.55rem; }
+  .px-route-egg__copy strong { font-size: .66rem; }
 }
 
 @media (max-width: 520px) {
