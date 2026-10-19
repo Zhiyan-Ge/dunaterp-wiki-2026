@@ -353,6 +353,14 @@ main:focus:not(:focus-visible) { outline: none; }
   box-shadow: 10px 10px 0 color-mix(in srgb, var(--article-accent) 55%, var(--ink));
 }
 .article-page .article-hero > div { width: 100%; }
+.article-page:not(.article-page--wet-lab) .article-hero::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: rgba(3, 20, 17, .46);
+  pointer-events: none;
+}
 .article-page .article-hero h1 {
   position: relative;
   z-index: 1;

@@ -6,6 +6,12 @@ import { ArticleBlocks } from './ArticleBlocks';
 
 const PixelWorld = lazy(() => import("./PixelWorld").then((module) => ({ default: module.PixelWorld })));
 const MODELING_PATHS = ['/dry-lab', '/transcriptomics', '/metabolomics', '/protein', '/model'];
+const ARTICLE_GROUP_HEROES: Record<string, string> = {
+  'Wet Lab': '/images/great-salt-lake-iss063-e-40184.jpg',
+  'Dry Lab': '/images/heroes/dry-lab.webp',
+  'Human Practices': '/images/heroes/human-practices.webp',
+  People: '/images/heroes/people.webp',
+};
 
 function normalizePath(pathname: string) {
   const normalized = pathname.replace(/\/+$/, "");
@@ -245,7 +251,7 @@ function Article({ slug }: { slug: string }) {
   const navigationLabel = group?.items.find(([, href]) => href === `/${slug}`)?.[0];
   const fallbackHeroTitle = page.eyebrow.split("·")[0].split("/").at(-1)?.trim();
   const heroTitle = navigationLabel ?? fallbackHeroTitle ?? page.title;
-  const heroImage = resolveFigureSrc(isWetLab ? '/images/great-salt-lake-iss063-e-40184.jpg' : firstPageFigure(page));
+  const heroImage = resolveFigureSrc(ARTICLE_GROUP_HEROES[group?.label ?? ''] ?? firstPageFigure(page));
   const tocSections: TocSection[] = page.sections.map((section, sectionIndex) => ({
     id: `section-${sectionIndex + 1}`,
     title: section.tocTitle ?? section.title,
