@@ -368,7 +368,12 @@ function ScrollAndTitle() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
     const slug = normalizePath(pathname).replace(/^\//, "");
-    document.title = slug && pages[slug] ? `SCU-China iGEM 2026 · ${pages[slug].title} · DunaTerp` : slug === "wiki-map" ? "SCU-China iGEM 2026 · Wiki Map · DunaTerp" : "SCU-China iGEM 2026 · DunaTerp";
+    const route = `/${slug}`;
+    const leafTitle = navigation
+      .flatMap((group) => group.items)
+      .find(([, href]) => href === route)?.[0]
+      ?? (slug === "dry-lab" ? "Dry Lab" : slug === "wiki-map" ? "Wiki Map" : slug ? pages[slug]?.eyebrow : "DunaTerp");
+    document.title = `iGEM 2026 | ${leafTitle || "DunaTerp"}`;
     const frame = requestAnimationFrame(() => {
       if (hash) {
         let id = hash.slice(1);
