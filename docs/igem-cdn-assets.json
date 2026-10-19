@@ -1,0 +1,954 @@
+[
+  {
+    "source": "favicon.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-adb0d34f1b37.svg",
+    "sha256": "adb0d34f1b370f847ae80aee12b3cb6a133ab037f73b9c6513e66bd723540f6c",
+    "sourceSha256": "adb0d34f1b370f847ae80aee12b3cb6a133ab037f73b9c6513e66bd723540f6c",
+    "bytes": 530
+  },
+  {
+    "source": "figures/dry-lab/01_gene_recovery.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-d3469451b6dd.webp",
+    "sha256": "d3469451b6ddcb385fc182c0b5b4b00ddc5946807abd05d0d87884bd606c51f0",
+    "sourceSha256": "d3ac58241b6451850fe19dc962f682ab3620e8fe3ba81985d715fca7aead340c",
+    "bytes": 57006
+  },
+  {
+    "source": "figures/dry-lab/06_expression_qc.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-85b8e15f97d7.webp",
+    "sha256": "85b8e15f97d7397371c412f09760f0b269cea2c78b1dfef0626ed4cd46e0dd77",
+    "sourceSha256": "389f4f02ac547ff2eeb60cf04a8ed030d0e06a6f0b3733b3857b9c98d9aead57",
+    "bytes": 44932
+  },
+  {
+    "source": "figures/dry-lab/07_differential_expression.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-f7cc1d1bffad.webp",
+    "sha256": "f7cc1d1bffada1786b05af6692256b1183e92db15f8c5a120549ce9e0fc3ed17",
+    "sourceSha256": "49bd2329655fc0b12df007bd5d1ef8fe87bf49c21bb9c16cdf489323debe2b42",
+    "bytes": 266768
+  },
+  {
+    "source": "figures/dry-lab/08_response_modules.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-1277fb491a0b.webp",
+    "sha256": "1277fb491a0bc33f26fea10b12bf08046bea7190c5a97556d494bb437c750b03",
+    "sourceSha256": "77493bdecffdb04e871180e67b3449dded6885f9e94af37aa5eb13fb7bc7692c",
+    "bytes": 130576
+  },
+  {
+    "source": "figures/dry-lab/14_regulatory_model.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-896bdf8593d5.webp",
+    "sha256": "896bdf8593d5f013eb1d0b778840db500aa628d37022e5dca62db0156dbcdebe",
+    "sourceSha256": "aedbdf4579414a88c07a3ecbb3d7ed2580134f3535884c8e83544447b8e8bef0",
+    "bytes": 46792
+  },
+  {
+    "source": "figures/dry-lab/14_regulatory_model.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-d379f76c1a0c.svg",
+    "sha256": "d379f76c1a0cd2a5add9353deb673e986c7a006655a123037905769439585594",
+    "sourceSha256": "d379f76c1a0cd2a5add9353deb673e986c7a006655a123037905769439585594",
+    "bytes": 56435
+  },
+  {
+    "source": "figures/dry-lab/15_regulatory_response.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-93e0ee0c20fe.webp",
+    "sha256": "93e0ee0c20feadd7a401bb2c390830cda9363fc3457120da3263d12d0569268c",
+    "sourceSha256": "72c871e5ecdef37751fe60bb00859145704dd63993e53fb7c19180a1b5aec5e6",
+    "bytes": 114334
+  },
+  {
+    "source": "figures/dry-lab/15_regulatory_response.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-440030552ac5.svg",
+    "sha256": "440030552ac5af11342bcd27148031d13c17cf862bd1cbb02c876880c0034cd2",
+    "sourceSha256": "440030552ac5af11342bcd27148031d13c17cf862bd1cbb02c876880c0034cd2",
+    "bytes": 162724
+  },
+  {
+    "source": "figures/dry-lab/astaxanthin_tradeoff_F_H.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-8454759c1503.webp",
+    "sha256": "8454759c150356b9ae4ffb093f18a372b9f47a5c4cdc82f359f96cc17f58e8b7",
+    "sourceSha256": "0c3f00185fbc420bf02154fd720155b0bc36ccbb0bb85b2d0d7b0ce553b176f1",
+    "bytes": 38040
+  },
+  {
+    "source": "figures/dry-lab/candidate-signal-prediction.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-228832c04f95.webp",
+    "sha256": "228832c04f95dd319614388b5166fd3f299aa56b4af5d4300f5ff691d5c6e438",
+    "sourceSha256": "b298b5fd1e3684751824b1572046923b9a7ad14a7c672ff7a013608fec72e450",
+    "bytes": 57604
+  },
+  {
+    "source": "figures/dry-lab/carotenoid-route.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-8503d5138716.svg",
+    "sha256": "8503d5138716029739c2702ed6a20030ba5b0cca5dd667492284373e03113241",
+    "sourceSha256": "8503d5138716029739c2702ed6a20030ba5b0cca5dd667492284373e03113241",
+    "bytes": 5169
+  },
+  {
+    "source": "figures/dry-lab/carotenoid_branch_ode_v1_baseline_fluxes.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-592a614a3d17.webp",
+    "sha256": "592a614a3d17efe54031139a4f9280bd78773b4be360fde38be62dc5f7642826",
+    "sourceSha256": "3b0effa5d221afa181c0d3bf25dd1d26357b5937b045bafe6c95cf3d47314ce4",
+    "bytes": 39812
+  },
+  {
+    "source": "figures/dry-lab/carotenoid_branch_ode_v1_baseline_pools.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-fcab8a545e13.webp",
+    "sha256": "fcab8a545e13600713c03c8ef44a97ec79008e3deadb1ef860c61469f07ee0da",
+    "sourceSha256": "250ecb9a301b752b032f525e379958c38795edf77ed500bcca6fea3824bf7d7a",
+    "bytes": 54934
+  },
+  {
+    "source": "figures/dry-lab/carotenoid_branch_ode_v1_scenario_products.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-f103f5ddf109.webp",
+    "sha256": "f103f5ddf109777b32195004f522eaebf70581779b56ad0bb6f8342671881b20",
+    "sourceSha256": "77a35f4270dee5da3500005782fed0bd32ac44e30225bba8d7066a2e48cac667",
+    "bytes": 27098
+  },
+  {
+    "source": "figures/dry-lab/carotenoid_branch_ode_v1_sensitivity_heatmap.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-f8ebb6648839.webp",
+    "sha256": "f8ebb6648839796f2c0531dd0fc1a644a98564258b67b8f52a256225a4b37c04",
+    "sourceSha256": "dea2fce1ae6d79403a139a1137f5621de4a4aa08605a7edf68b332d52b2bcca0",
+    "bytes": 52266
+  },
+  {
+    "source": "figures/dry-lab/carotenoid_branch_ode_v1_sensitivity_ranking.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-134bec34d9eb.webp",
+    "sha256": "134bec34d9ebe81dbc153efa711a6494619e8cc71479a2d3543a4c19b2ef8e5a",
+    "sourceSha256": "12680408a3ff4c7a5d142808fcffc6b0f5abdd456071b79f2fd6ec1ad20272dc",
+    "bytes": 19308
+  },
+  {
+    "source": "figures/dry-lab/dna-logo.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-8c2b1ff129fc.webp",
+    "sha256": "8c2b1ff129fc9d59cceab493a37df84391d151345245c4226ce560a08b173bba",
+    "sourceSha256": "04e0f3f8babcbb98764cb091e859345c44b63a86e7ea9b0a91f41b30e739a7fc",
+    "bytes": 27186
+  },
+  {
+    "source": "figures/dry-lab/lcyb_car09_forced_analysis_H.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-96aba4012e7b.webp",
+    "sha256": "96aba4012e7b46575da2b90d3d5d49ce7559b722444f34f5ab7e337e05bb5247",
+    "sourceSha256": "58e6c364479e8bf73d6add25660d71ebfbfdb2e61dfa0d9872f2d841a21c04ed",
+    "bytes": 31222
+  },
+  {
+    "source": "figures/dry-lab/platform_environment_map_heatmap.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-f92a67bd58be.webp",
+    "sha256": "f92a67bd58be274ea389c5949839968beffcd19f7f9b2f37a8837ab2b1ceb339",
+    "sourceSha256": "685147dbb21f5e6986c0a5314e7e7c25cac9fa1767fd5140003c6d1a2af6f386",
+    "bytes": 30150
+  },
+  {
+    "source": "figures/dry-lab/platform_product_tradeoffs_H.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-5ff7062aa678.webp",
+    "sha256": "5ff7062aa67849d34f3de3631c6d00e735069ab74cab3722aef18f92ecf07c26",
+    "sourceSha256": "d6cc0d7708dc42b0fa96d51502e02861cffa1fd1c8b51f10bd13740ffb9c4f05",
+    "bytes": 26400
+  },
+  {
+    "source": "figures/dry-lab/protein-dna-docking.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-e500178b0bba.webp",
+    "sha256": "e500178b0bba2f00f723a0fbf78b625ed259e5e20ec8fd9fa4ea9a08d24dfd67",
+    "sourceSha256": "41ce6bab33df169ed15fef2641c8aafc6743dc43f762482172fa80267a67785e",
+    "bytes": 175544
+  },
+  {
+    "source": "figures/dry-lab/tf2146-structure.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-8a0f5da62ff4.svg",
+    "sha256": "8a0f5da62ff4e1a213167f761c894dd9b3e16a4cb80072f6ac423632cb013f67",
+    "sourceSha256": "8a0f5da62ff4e1a213167f761c894dd9b3e16a4cb80072f6ac423632cb013f67",
+    "bytes": 57885
+  },
+  {
+    "source": "figures/dry-lab/transcriptomics-deseq-volcano.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-e00061f5efb3.svg",
+    "sha256": "e00061f5efb35c5356c063f813a71fe53e5d3b3d8ed7ae07b753cf4416505040",
+    "sourceSha256": "e00061f5efb35c5356c063f813a71fe53e5d3b3d8ed7ae07b753cf4416505040",
+    "bytes": 175783
+  },
+  {
+    "source": "figures/dry-lab/transcriptomics-pathway-effects.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-a11a155e3948.svg",
+    "sha256": "a11a155e39489c5fc41508c3929974458f4b8bdea469af2fe0423fcc283abb7a",
+    "sourceSha256": "a11a155e39489c5fc41508c3929974458f4b8bdea469af2fe0423fcc283abb7a",
+    "bytes": 46604
+  },
+  {
+    "source": "figures/dry-lab/transcriptomics-sample-expression.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-f8bb948af4b5.svg",
+    "sha256": "f8bb948af4b5293ac1966da0d9c0acd3db1e6ae1cf5668f817866e4b378b2c96",
+    "sourceSha256": "f8bb948af4b5293ac1966da0d9c0acd3db1e6ae1cf5668f817866e4b378b2c96",
+    "bytes": 58591
+  },
+  {
+    "source": "figures/dry-lab/transcriptomics-workflow.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-a763e22c3d24.svg",
+    "sha256": "a763e22c3d2456f3e6bc6e8b593d4f2b7c6793ec613618301ed18b0b1f615077",
+    "sourceSha256": "a763e22c3d2456f3e6bc6e8b593d4f2b7c6793ec613618301ed18b0b1f615077",
+    "bytes": 5819
+  },
+  {
+    "source": "figures/dry-lab/zeaxanthin_car10_forced_proxies_H.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-6c151dbc8747.webp",
+    "sha256": "6c151dbc874744228764344952e4b5882e6ecc48c904e3f4bb2fa4f2c9cf3856",
+    "sourceSha256": "9d28a8fe2fca8611512e1a831e7f49a805f6beef072477a071f903f508c3a086",
+    "bytes": 25908
+  },
+  {
+    "source": "figures/dry-lab/zeaxanthin_car10_rerouting_H.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-793a53248ed3.webp",
+    "sha256": "793a53248ed3a1d695067370b164e41866ab984a9937573f784e28d4773fa858",
+    "sourceSha256": "105251edf6dc176ff61d4e5eb1cc84e67e9db8282f10a12ee6aeb672c031ad7b",
+    "bytes": 47488
+  },
+  {
+    "source": "figures/dry-lab/图片4.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-8c2b1ff129fc.webp",
+    "sha256": "8c2b1ff129fc9d59cceab493a37df84391d151345245c4226ce560a08b173bba",
+    "sourceSha256": "04e0f3f8babcbb98764cb091e859345c44b63a86e7ea9b0a91f41b30e739a7fc",
+    "bytes": 27186
+  },
+  {
+    "source": "figures/dry-lab/图片5.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-e500178b0bba.webp",
+    "sha256": "e500178b0bba2f00f723a0fbf78b625ed259e5e20ec8fd9fa4ea9a08d24dfd67",
+    "sourceSha256": "41ce6bab33df169ed15fef2641c8aafc6743dc43f762482172fa80267a67785e",
+    "bytes": 175544
+  },
+  {
+    "source": "figures/hardware/A_optical_field_heatmap_double_sided.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-9bda52ff222f.webp",
+    "sha256": "9bda52ff222f1d3d6ce2613ede37252dd0f5c5577fe9a33ae954c88f66d4088d",
+    "sourceSha256": "8e32ca44c2588484450617ef52f6fa886e763524314e45ebda05b961fee389f8",
+    "bytes": 53458
+  },
+  {
+    "source": "figures/hardware/C_productivity_heatmap_double_sided.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-9d714f0bd757.webp",
+    "sha256": "9d714f0bd75791c99e6362de41426c4008c28e09fc0cda6eca401797a1188e68",
+    "sourceSha256": "1c52678bcf72f01f27bf047fa1d20a1288ed19c5401a21a662db3c57ea1f6890",
+    "bytes": 35642
+  },
+  {
+    "source": "figures/hardware/D_3D_product_surface_double_sided.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-c333d4e7ee04.webp",
+    "sha256": "c333d4e7ee041edc73218389e537eb801a8d1926871274de75b97bcd2991ff5e",
+    "sourceSha256": "57bb8ecd6998efe2b3c8e873e46f8786fe3173f09f188d2e71014dd471efd827",
+    "bytes": 354188
+  },
+  {
+    "source": "figures/hardware-design/First_Generation_Flat_Panel_Airlift_Reactor_Single_Unit.JPG",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-48c0d8144e37.webp",
+    "sha256": "48c0d8144e37b8b095647ff173e45a81825b0675789f825d470261a13afa6219",
+    "sourceSha256": "8c0a82d6f135649a98b1c15a35eae73c024f9a7d0d42d95543d51d5ff64d80c8",
+    "bytes": 101200
+  },
+  {
+    "source": "figures/hardware-design/Reactor_V1_Initial_Prototype.JPG",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-2bd2ecc6a622.webp",
+    "sha256": "2bd2ecc6a622a38e1089c69708936b4fe0aa32dd76520d096cfec0d0d4b298d6",
+    "sourceSha256": "a05e3ed365e8ce23d04e56f35392e99035ce3d6116ca6d02de5826760cdc9ff2",
+    "bytes": 129246
+  },
+  {
+    "source": "figures/hardware-design/Reactor_V2_Lab_Prototype.JPG",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-b86de4f435d0.webp",
+    "sha256": "b86de4f435d022d382b13bd879e637a325153c1f8c2c1ff5d81be63bb5668111",
+    "sourceSha256": "90e5eb0846bcf67d4664a5a9010815d988242ad79a4ebb3bc98affefbd7900da",
+    "bytes": 289440
+  },
+  {
+    "source": "figures/hardware-design/Reactor_V3_Plate_A_Culture_Facing_Side_Vertical.JPG",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-9a23f2bcda26.webp",
+    "sha256": "9a23f2bcda26265ce24063757934cbab3712a134e794d8fbb382d59348a8b6f5",
+    "sourceSha256": "5d6ba881028e00dac15cc4e7a91ded375ea675559ec3e04a81f7fd7ca72cda2a",
+    "bytes": 236412
+  },
+  {
+    "source": "figures/hp/figure-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-42a75c3dbd2b.webp",
+    "sha256": "42a75c3dbd2b703d7a5458597ed909c17fb31c6be37cba9e09d65ca2f655d26d",
+    "sourceSha256": "42a75c3dbd2b703d7a5458597ed909c17fb31c6be37cba9e09d65ca2f655d26d",
+    "bytes": 175692
+  },
+  {
+    "source": "figures/hp/figure-10-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-e3210a9526a8.webp",
+    "sha256": "e3210a9526a86fc09a50b84dea0b8dab5fa465f505140ea6325ebc315847c10c",
+    "sourceSha256": "e3210a9526a86fc09a50b84dea0b8dab5fa465f505140ea6325ebc315847c10c",
+    "bytes": 139648
+  },
+  {
+    "source": "figures/hp/figure-10-2.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-d15ddc91e240.webp",
+    "sha256": "d15ddc91e2406f700e114a75c8e221e09343224252b7dd0ae42d1682ca9f57b3",
+    "sourceSha256": "d15ddc91e2406f700e114a75c8e221e09343224252b7dd0ae42d1682ca9f57b3",
+    "bytes": 163842
+  },
+  {
+    "source": "figures/hp/figure-11.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-078954a8b0e1.webp",
+    "sha256": "078954a8b0e111ae48829ff31778eed22944b40a7fceca31322eb174e0489318",
+    "sourceSha256": "078954a8b0e111ae48829ff31778eed22944b40a7fceca31322eb174e0489318",
+    "bytes": 290618
+  },
+  {
+    "source": "figures/hp/figure-12-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-9a06fa5d7bdf.webp",
+    "sha256": "9a06fa5d7bdfd33103c9d99d8c7f8afff8f5e08d3ba0760ee5319bce02e2bb0c",
+    "sourceSha256": "9a06fa5d7bdfd33103c9d99d8c7f8afff8f5e08d3ba0760ee5319bce02e2bb0c",
+    "bytes": 266028
+  },
+  {
+    "source": "figures/hp/figure-12-2.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-caa583fc3c50.webp",
+    "sha256": "caa583fc3c5032b279c73ef95bf2b5a41b32a37eb0379619dd0a60824b2c74f4",
+    "sourceSha256": "caa583fc3c5032b279c73ef95bf2b5a41b32a37eb0379619dd0a60824b2c74f4",
+    "bytes": 258052
+  },
+  {
+    "source": "figures/hp/figure-13-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-4675e61a31c4.webp",
+    "sha256": "4675e61a31c4446ea9a3096e2cc6446674ee5c7ff63a0dd7a503ab633afdfcbd",
+    "sourceSha256": "4675e61a31c4446ea9a3096e2cc6446674ee5c7ff63a0dd7a503ab633afdfcbd",
+    "bytes": 238876
+  },
+  {
+    "source": "figures/hp/figure-13-2.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-3e07665aad4b.webp",
+    "sha256": "3e07665aad4b997b65e3a7737ef2b782591ac9fcaeaec37b9122d163d35ed214",
+    "sourceSha256": "3e07665aad4b997b65e3a7737ef2b782591ac9fcaeaec37b9122d163d35ed214",
+    "bytes": 324384
+  },
+  {
+    "source": "figures/hp/figure-14-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-98b61b09b818.webp",
+    "sha256": "98b61b09b81871129b99f8ef493d5f91a4baa7327aed6128a592b477c5a91ccc",
+    "sourceSha256": "98b61b09b81871129b99f8ef493d5f91a4baa7327aed6128a592b477c5a91ccc",
+    "bytes": 90172
+  },
+  {
+    "source": "figures/hp/figure-14-2.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-363157f1514c.webp",
+    "sha256": "363157f1514c57713343793a4e2a89b4fc4d44ce2ddc75ff6fadb54840d1a274",
+    "sourceSha256": "363157f1514c57713343793a4e2a89b4fc4d44ce2ddc75ff6fadb54840d1a274",
+    "bytes": 100636
+  },
+  {
+    "source": "figures/hp/figure-14-3.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-a7fc1ac64aed.webp",
+    "sha256": "a7fc1ac64aed216178dbf468fb25b92b17e3ccdd0fad31e2a78ed15c95a7b173",
+    "sourceSha256": "a7fc1ac64aed216178dbf468fb25b92b17e3ccdd0fad31e2a78ed15c95a7b173",
+    "bytes": 159098
+  },
+  {
+    "source": "figures/hp/figure-14-4.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-2ff07bacb226.webp",
+    "sha256": "2ff07bacb22689ef57ab8ac711c4e296b384f4d69cf83d7e3fee90c2d287284e",
+    "sourceSha256": "2ff07bacb22689ef57ab8ac711c4e296b384f4d69cf83d7e3fee90c2d287284e",
+    "bytes": 69086
+  },
+  {
+    "source": "figures/hp/figure-15.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-2e4ae6936682.webp",
+    "sha256": "2e4ae6936682275a3bb11ac2bfe9c9082029ae0a6a51ff87f8bd08faeb0b79fd",
+    "sourceSha256": "2e4ae6936682275a3bb11ac2bfe9c9082029ae0a6a51ff87f8bd08faeb0b79fd",
+    "bytes": 1107034
+  },
+  {
+    "source": "figures/hp/figure-16-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-66c8000da882.webp",
+    "sha256": "66c8000da882080fc5baafbba29118cac97ab5438f7f5621e05401c6373560af",
+    "sourceSha256": "66c8000da882080fc5baafbba29118cac97ab5438f7f5621e05401c6373560af",
+    "bytes": 462760
+  },
+  {
+    "source": "figures/hp/figure-16-2.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-72c98898db16.webp",
+    "sha256": "72c98898db160d5c1aced9da32e3e8d46c3dbd36abe7008e5d6b56acb5e5ac14",
+    "sourceSha256": "72c98898db160d5c1aced9da32e3e8d46c3dbd36abe7008e5d6b56acb5e5ac14",
+    "bytes": 560472
+  },
+  {
+    "source": "figures/hp/figure-16-3.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-6fb90a214eff.webp",
+    "sha256": "6fb90a214eff58c49cec8621b46437dbf3e7600b7137cb4c3a3fa4fd58d59b2e",
+    "sourceSha256": "6fb90a214eff58c49cec8621b46437dbf3e7600b7137cb4c3a3fa4fd58d59b2e",
+    "bytes": 404620
+  },
+  {
+    "source": "figures/hp/figure-16-4.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-246170a98456.webp",
+    "sha256": "246170a984564bc286ec37daad2af676f59735cb4f820d8a8abc4e8d94785fb7",
+    "sourceSha256": "246170a984564bc286ec37daad2af676f59735cb4f820d8a8abc4e8d94785fb7",
+    "bytes": 189948
+  },
+  {
+    "source": "figures/hp/figure-17.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-a09c25e10eb3.webp",
+    "sha256": "a09c25e10eb3b6fee75519dca00a3c86af0cb8d38b6f6ba5cc9b747ba4da320e",
+    "sourceSha256": "a09c25e10eb3b6fee75519dca00a3c86af0cb8d38b6f6ba5cc9b747ba4da320e",
+    "bytes": 278492
+  },
+  {
+    "source": "figures/hp/figure-18.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-59ab7393bae2.webp",
+    "sha256": "59ab7393bae29ef8557ada92c10b047aa0dca476a8ebfdf6ab13a9e1f4e8ca90",
+    "sourceSha256": "59ab7393bae29ef8557ada92c10b047aa0dca476a8ebfdf6ab13a9e1f4e8ca90",
+    "bytes": 129608
+  },
+  {
+    "source": "figures/hp/figure-19.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-ed9adf05416d.webp",
+    "sha256": "ed9adf05416dabe0a73fdf4cf8a91cd5625621f2cfb664c7d6afda16ac3cc856",
+    "sourceSha256": "ed9adf05416dabe0a73fdf4cf8a91cd5625621f2cfb664c7d6afda16ac3cc856",
+    "bytes": 231100
+  },
+  {
+    "source": "figures/hp/figure-2.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-8850831de757.webp",
+    "sha256": "8850831de75744820834d48443c00f338be9fc95c29faf5897e594a37ed0b0d4",
+    "sourceSha256": "8850831de75744820834d48443c00f338be9fc95c29faf5897e594a37ed0b0d4",
+    "bytes": 243348
+  },
+  {
+    "source": "figures/hp/figure-20.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-09443c300ab3.webp",
+    "sha256": "09443c300ab3327067ed139ef98ecb8365df09ff21a1bc845f75f12ec0d5dcef",
+    "sourceSha256": "09443c300ab3327067ed139ef98ecb8365df09ff21a1bc845f75f12ec0d5dcef",
+    "bytes": 253530
+  },
+  {
+    "source": "figures/hp/figure-21-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-d40b5543b13e.webp",
+    "sha256": "d40b5543b13e4467712f494856ec8016cd7222906dc15cc8a78aaef5769224b2",
+    "sourceSha256": "d40b5543b13e4467712f494856ec8016cd7222906dc15cc8a78aaef5769224b2",
+    "bytes": 381706
+  },
+  {
+    "source": "figures/hp/figure-21-2.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-8bd11568a548.webp",
+    "sha256": "8bd11568a5487355812cac0cf630a85959967d6c14a6318174aa83a5576b3593",
+    "sourceSha256": "8bd11568a5487355812cac0cf630a85959967d6c14a6318174aa83a5576b3593",
+    "bytes": 321100
+  },
+  {
+    "source": "figures/hp/figure-21-3.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-617f0c42262c.webp",
+    "sha256": "617f0c42262c41e626324dbbd13232ea2a4bd18ee54fc7d2ed2862e50f1d5e54",
+    "sourceSha256": "617f0c42262c41e626324dbbd13232ea2a4bd18ee54fc7d2ed2862e50f1d5e54",
+    "bytes": 618576
+  },
+  {
+    "source": "figures/hp/figure-21-4.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-d39be621229e.webp",
+    "sha256": "d39be621229e076e88c1e33d3d4d22ae043fa16174a55b4ecdc3de2647d3c418",
+    "sourceSha256": "d39be621229e076e88c1e33d3d4d22ae043fa16174a55b4ecdc3de2647d3c418",
+    "bytes": 394212
+  },
+  {
+    "source": "figures/hp/figure-22-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-d4abb9ebc7ff.webp",
+    "sha256": "d4abb9ebc7ff1d5205d02952209c254e033008e6ea93c3c67fe90bbc94ee4b8d",
+    "sourceSha256": "d4abb9ebc7ff1d5205d02952209c254e033008e6ea93c3c67fe90bbc94ee4b8d",
+    "bytes": 399366
+  },
+  {
+    "source": "figures/hp/figure-22-2.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-ca6af01d3820.webp",
+    "sha256": "ca6af01d3820e633afb2ac9f6e8ed31d144d7837302a911d59f7d4c78006d8e8",
+    "sourceSha256": "ca6af01d3820e633afb2ac9f6e8ed31d144d7837302a911d59f7d4c78006d8e8",
+    "bytes": 259416
+  },
+  {
+    "source": "figures/hp/figure-23.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-1ad5eeb61a33.webp",
+    "sha256": "1ad5eeb61a337980b922f26ffb9dfcd702a69ae940c37cc1237152086eb0b346",
+    "sourceSha256": "1ad5eeb61a337980b922f26ffb9dfcd702a69ae940c37cc1237152086eb0b346",
+    "bytes": 371034
+  },
+  {
+    "source": "figures/hp/figure-3.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-e8726e62b387.webp",
+    "sha256": "e8726e62b387c002838a7d1f3259e2d222287a7520c1da57a29e965e835355c4",
+    "sourceSha256": "e8726e62b387c002838a7d1f3259e2d222287a7520c1da57a29e965e835355c4",
+    "bytes": 373394
+  },
+  {
+    "source": "figures/hp/figure-4-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-1efbd75be936.webp",
+    "sha256": "1efbd75be936aafbf320a4842c3a83bc7585249be94883b633d40550280bb7bb",
+    "sourceSha256": "1efbd75be936aafbf320a4842c3a83bc7585249be94883b633d40550280bb7bb",
+    "bytes": 354876
+  },
+  {
+    "source": "figures/hp/figure-4-2.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-d4508b4d10c7.webp",
+    "sha256": "d4508b4d10c74210f90b4f778a141a5537db95d2a3a1a069762a04b4bf6fdcca",
+    "sourceSha256": "d4508b4d10c74210f90b4f778a141a5537db95d2a3a1a069762a04b4bf6fdcca",
+    "bytes": 394232
+  },
+  {
+    "source": "figures/hp/figure-5.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-378a2ee0a330.webp",
+    "sha256": "378a2ee0a330ba851a9605a129f391d48edbdece1ee748719bd7d2819bbf7236",
+    "sourceSha256": "378a2ee0a330ba851a9605a129f391d48edbdece1ee748719bd7d2819bbf7236",
+    "bytes": 266586
+  },
+  {
+    "source": "figures/hp/figure-6-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-3ce28b89c6a9.webp",
+    "sha256": "3ce28b89c6a903a6955a67692f09ab378895b39ed5f5fa3d0f3fd471e37f92ce",
+    "sourceSha256": "3ce28b89c6a903a6955a67692f09ab378895b39ed5f5fa3d0f3fd471e37f92ce",
+    "bytes": 331482
+  },
+  {
+    "source": "figures/hp/figure-6-2.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-b096eff62a33.webp",
+    "sha256": "b096eff62a33dc9eadbcbff008f26df6936d68af0ce531230daeac3c1d6afbee",
+    "sourceSha256": "b096eff62a33dc9eadbcbff008f26df6936d68af0ce531230daeac3c1d6afbee",
+    "bytes": 228950
+  },
+  {
+    "source": "figures/hp/figure-7-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-d34dff6d05df.webp",
+    "sha256": "d34dff6d05df6c684adde8da03b5b0098bc04183dc5e6cbc1331d8fd4795990d",
+    "sourceSha256": "d34dff6d05df6c684adde8da03b5b0098bc04183dc5e6cbc1331d8fd4795990d",
+    "bytes": 402406
+  },
+  {
+    "source": "figures/hp/figure-7-2.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-add1eabfed67.webp",
+    "sha256": "add1eabfed67a1711222ba397a4e2c78c6e40ef2f0685df9610187ba8e029652",
+    "sourceSha256": "add1eabfed67a1711222ba397a4e2c78c6e40ef2f0685df9610187ba8e029652",
+    "bytes": 498546
+  },
+  {
+    "source": "figures/hp/figure-8.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-20674a2e7571.webp",
+    "sha256": "20674a2e757193373a4e17c323ec3e9d4c4f079321c26a22adb40d23824c9b90",
+    "sourceSha256": "20674a2e757193373a4e17c323ec3e9d4c4f079321c26a22adb40d23824c9b90",
+    "bytes": 165052
+  },
+  {
+    "source": "figures/hp/figure-9.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-491355374d04.webp",
+    "sha256": "491355374d046a2aed8e0fcba457802bac22cd267d0f12abefe094abc9ed22e3",
+    "sourceSha256": "491355374d046a2aed8e0fcba457802bac22cd267d0f12abefe094abc9ed22e3",
+    "bytes": 120644
+  },
+  {
+    "source": "figures/project/01_product_routes.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-c756c7546eff.svg",
+    "sha256": "c756c7546effe85f1718dc703af7986b4d1e8b764297e0eb2823f546e2c42b71",
+    "sourceSha256": "c756c7546effe85f1718dc703af7986b4d1e8b764297e0eb2823f546e2c42b71",
+    "bytes": 6937
+  },
+  {
+    "source": "figures/project/salt-strata.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-9e09a80d273c.svg",
+    "sha256": "9e09a80d273c26d8b3849e476e3785047835ef97d8f5c5e647c2c28df039dfbf",
+    "sourceSha256": "9e09a80d273c26d8b3849e476e3785047835ef97d8f5c5e647c2c28df039dfbf",
+    "bytes": 1828
+  },
+  {
+    "source": "figures/protein/docking-seeds.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-3bdc4e6f38d1.webp",
+    "sha256": "3bdc4e6f38d1a8b8d3bcad699a5769629390bb3e4aab367af7f2ebe9195fb72c",
+    "sourceSha256": "d311512c5b6e4abd82da8a531399a30eca9e0d2f793020f699a0042e108ceb82",
+    "bytes": 14928
+  },
+  {
+    "source": "figures/protein/lcyb-lycopene-detail-alt.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-af1678437c2b.webp",
+    "sha256": "af1678437c2b0dac8a4db39fb9f691846f5e6d5a9c705c1394b7874cd96a3e5a",
+    "sourceSha256": "42677ec9c1beb3e1bcc66569e182868a1ef9a1e9be3ded7791da44d3c548546c",
+    "bytes": 947004
+  },
+  {
+    "source": "figures/protein/lcyb-lycopene.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-e5ba04710283.webp",
+    "sha256": "e5ba04710283ae15131d756aad5cd24b245dac3232c2cc8fa2671255007c63dd",
+    "sourceSha256": "4288c02f2be92ac79f42c2314cacf49879d547ed1f406c382e461c2258dce8d0",
+    "bytes": 725400
+  },
+  {
+    "source": "figures/protein/lcyb-lycopene_detail.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-2a9903e0d58b.webp",
+    "sha256": "2a9903e0d58bfcf758c13d346f05d3dfe35522bbe47791f1db7cc51929908ff6",
+    "sourceSha256": "52e8c368b66172d9a6021d9307e46eb53f3f45c2bfaa05ba41e9e03880fc59f8",
+    "bytes": 962886
+  },
+  {
+    "source": "figures/protein/md-rmsd.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-0cb3708323e6.webp",
+    "sha256": "0cb3708323e68d5ecfe706545cdbe5f8820039284fa92b4071a4139522a4ceaf",
+    "sourceSha256": "01d68816256b109ee254e4a31a5a6f2d075acbdfff017e460ccbcb897c59dfb8",
+    "bytes": 126150
+  },
+  {
+    "source": "figures/wet-lab/chromatography-mobile.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-32e23b9ba974.svg",
+    "sha256": "32e23b9ba9742fe03cb9d31ddc5d4e4545e05a912c694c5fd39ac6f7ff16a092",
+    "sourceSha256": "32e23b9ba9742fe03cb9d31ddc5d4e4545e05a912c694c5fd39ac6f7ff16a092",
+    "bytes": 3225
+  },
+  {
+    "source": "figures/wet-lab/chromatography.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-314f736f314b.svg",
+    "sha256": "314f736f314bf3ccc24f54e4078e4a0d4b0163cb819879c793488eefaad47284",
+    "sourceSha256": "314f736f314bf3ccc24f54e4078e4a0d4b0163cb819879c793488eefaad47284",
+    "bytes": 3279
+  },
+  {
+    "source": "figures/wet-lab/cloning-mobile.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-16bf6268e190.svg",
+    "sha256": "16bf6268e190d96ee59827cce71265fa9f537f91bb0f2f1209caee400ef06472",
+    "sourceSha256": "16bf6268e190d96ee59827cce71265fa9f537f91bb0f2f1209caee400ef06472",
+    "bytes": 2905
+  },
+  {
+    "source": "figures/wet-lab/cloning.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-f1cde3de5e60.svg",
+    "sha256": "f1cde3de5e6018249cd169f38f79a04a5dd61a5725822513c7ea2a1bfdb47889",
+    "sourceSha256": "f1cde3de5e6018249cd169f38f79a04a5dd61a5725822513c7ea2a1bfdb47889",
+    "bytes": 2959
+  },
+  {
+    "source": "figures/wet-lab/dna-extraction-mobile.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-c2440aca8152.svg",
+    "sha256": "c2440aca8152d7bc1918ca603c0b0fbd16321b5ba10b877c4ae32244a2906f08",
+    "sourceSha256": "c2440aca8152d7bc1918ca603c0b0fbd16321b5ba10b877c4ae32244a2906f08",
+    "bytes": 3111
+  },
+  {
+    "source": "figures/wet-lab/dna-extraction.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-204e48bdbb27.svg",
+    "sha256": "204e48bdbb278c5d2ff5f3f9f861ff3581162ea2b2e989dfe2c065b3c66d2b6a",
+    "sourceSha256": "204e48bdbb278c5d2ff5f3f9f861ff3581162ea2b2e989dfe2c065b3c66d2b6a",
+    "bytes": 3165
+  },
+  {
+    "source": "figures/wet-lab/engineer1.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-828f61a2d17d.webp",
+    "sha256": "828f61a2d17da91bee54da0451598330c150472626bac33d499e04806b25424e",
+    "sourceSha256": "c56a96c98947b3b81fe658809af896bcb2df1c2c71f363b61b880fe3aadf8174",
+    "bytes": 11068
+  },
+  {
+    "source": "figures/wet-lab/engineer2.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-6082ff2b008b.webp",
+    "sha256": "6082ff2b008b5d08192a5764a8a29d8962906a79dc5ed9360488ff3c62c1644c",
+    "sourceSha256": "4014250dd5431655a17a9f0e9f37c921468b5f28b7d7858ccb8c133a8c7f3441",
+    "bytes": 10298
+  },
+  {
+    "source": "figures/wet-lab/engineer3.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-4a8fb1444337.webp",
+    "sha256": "4a8fb1444337c96ffdb34ff891eb760cb2b02e76dd4826c8e3f7af9e63196770",
+    "sourceSha256": "7cad7e24e1f98f1a10e00a317c6e6c793eee76c81393c9278769194810df2cec",
+    "bytes": 90356
+  },
+  {
+    "source": "figures/wet-lab/engineer4.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-60bc3ad45453.webp",
+    "sha256": "60bc3ad4545348884c4837c4347fb17ef2b6b83aa63f32b93cc0e3dc7a409b38",
+    "sourceSha256": "1f4b7e31d6cdad4cdebe6361e10de0b9f2e6a237569ba00ef6f067f77b17466d",
+    "bytes": 541036
+  },
+  {
+    "source": "figures/wet-lab/engineer5.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-b8946afadd22.webp",
+    "sha256": "b8946afadd22f48c505a03fa7da137d2e1d437a7ea8968803ab4e874f94bd328",
+    "sourceSha256": "5bd2f8dcd2c9ebb8248929ec5268640db83286fc4bb30cd14ca0b8e8aa5fff01",
+    "bytes": 11260
+  },
+  {
+    "source": "figures/wet-lab/engineer6.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-960afbc933d3.webp",
+    "sha256": "960afbc933d3dccfcac9001d5c086b8b29cea94869407e77d650db6e4cbbf5ad",
+    "sourceSha256": "42500c0d2cd07cf0cd89554e98588c072a1a3bb60f68774e5e2617e682cfc3ce",
+    "bytes": 79940
+  },
+  {
+    "source": "figures/wet-lab/engineer7.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-ce39fe99cb22.webp",
+    "sha256": "ce39fe99cb22a682a6e52868db6986807d2a0761f12d395b418ffae5771ab7ee",
+    "sourceSha256": "da57ce8bcac0cef960c4570e726f6ce7f99b0296bf73aac3143d073b09ff56c3",
+    "bytes": 1420314
+  },
+  {
+    "source": "figures/wet-lab/experiment1.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-4a8fb1444337.webp",
+    "sha256": "4a8fb1444337c96ffdb34ff891eb760cb2b02e76dd4826c8e3f7af9e63196770",
+    "sourceSha256": "7cad7e24e1f98f1a10e00a317c6e6c793eee76c81393c9278769194810df2cec",
+    "bytes": 90356
+  },
+  {
+    "source": "figures/wet-lab/experiment2.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-60bc3ad45453.webp",
+    "sha256": "60bc3ad4545348884c4837c4347fb17ef2b6b83aa63f32b93cc0e3dc7a409b38",
+    "sourceSha256": "1f4b7e31d6cdad4cdebe6361e10de0b9f2e6a237569ba00ef6f067f77b17466d",
+    "bytes": 541036
+  },
+  {
+    "source": "figures/wet-lab/experiment3.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-b8946afadd22.webp",
+    "sha256": "b8946afadd22f48c505a03fa7da137d2e1d437a7ea8968803ab4e874f94bd328",
+    "sourceSha256": "5bd2f8dcd2c9ebb8248929ec5268640db83286fc4bb30cd14ca0b8e8aa5fff01",
+    "bytes": 11260
+  },
+  {
+    "source": "figures/wet-lab/experiment4.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-960afbc933d3.webp",
+    "sha256": "960afbc933d3dccfcac9001d5c086b8b29cea94869407e77d650db6e4cbbf5ad",
+    "sourceSha256": "42500c0d2cd07cf0cd89554e98588c072a1a3bb60f68774e5e2617e682cfc3ce",
+    "bytes": 79940
+  },
+  {
+    "source": "figures/wet-lab/experiment5.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-ce39fe99cb22.webp",
+    "sha256": "ce39fe99cb22a682a6e52868db6986807d2a0761f12d395b418ffae5771ab7ee",
+    "sourceSha256": "da57ce8bcac0cef960c4570e726f6ce7f99b0296bf73aac3143d073b09ff56c3",
+    "bytes": 1420314
+  },
+  {
+    "source": "figures/wet-lab/experiment6.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-a6d792c95b69.webp",
+    "sha256": "a6d792c95b69ef668eb0aadf094e355e8d707991eda07e4eaa6cb5c2ffa97839",
+    "sourceSha256": "1265270519550c9564eeafa428b31c889141654080a72e118e1d6fb46f41d17f",
+    "bytes": 91628
+  },
+  {
+    "source": "figures/wet-lab/experimental-workflow-mobile.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-08460ddf51db.svg",
+    "sha256": "08460ddf51db2295e384d5cacb55544e8348ce79998a18d8b9d426794659cdfd",
+    "sourceSha256": "08460ddf51db2295e384d5cacb55544e8348ce79998a18d8b9d426794659cdfd",
+    "bytes": 3569
+  },
+  {
+    "source": "figures/wet-lab/experimental-workflow.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-7090386f29ea.svg",
+    "sha256": "7090386f29ead1d0e3023b36d2b4eecaacfa24f36a562a9b48743789987bc7aa",
+    "sourceSha256": "7090386f29ead1d0e3023b36d2b4eecaacfa24f36a562a9b48743789987bc7aa",
+    "bytes": 4459
+  },
+  {
+    "source": "figures/wet-lab/qpcr-mobile.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-d71d15690add.svg",
+    "sha256": "d71d15690add251830d5bfcc730dc8418fa93f4f615cbf7bb90d27121503e634",
+    "sourceSha256": "d71d15690add251830d5bfcc730dc8418fa93f4f615cbf7bb90d27121503e634",
+    "bytes": 2603
+  },
+  {
+    "source": "figures/wet-lab/qpcr.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-27a0b3e4798b.svg",
+    "sha256": "27a0b3e4798b78273beefc9a7ad9e9f51550300731b1ecec9f3a1af240d8566d",
+    "sourceSha256": "27a0b3e4798b78273beefc9a7ad9e9f51550300731b1ecec9f3a1af240d8566d",
+    "bytes": 3422
+  },
+  {
+    "source": "figures/wet-lab/transformation-mobile.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-9197f0e34be1.svg",
+    "sha256": "9197f0e34be16bdf0400e7e0743ae6888a4e348cc2d59af3a5ff4d73b306a404",
+    "sourceSha256": "9197f0e34be16bdf0400e7e0743ae6888a4e348cc2d59af3a5ff4d73b306a404",
+    "bytes": 3011
+  },
+  {
+    "source": "figures/wet-lab/transformation.svg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-5d6d1e7f8aa4.svg",
+    "sha256": "5d6d1e7f8aa4f7f80312d0ef2a097e4c2394d1c764f0c77f5171b7bcc361367c",
+    "sourceSha256": "5d6d1e7f8aa4f7f80312d0ef2a097e4c2394d1c764f0c77f5171b7bcc361367c",
+    "bytes": 3065
+  },
+  {
+    "source": "images/great-salt-lake-iss063-e-40184.jpg",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-9b336114bb95.webp",
+    "sha256": "9b336114bb9599936bf0956773d324b485d5f42497ad8582de20db269c6765e4",
+    "sourceSha256": "479330ca4c474e5afdc3b13cbbdece24c126ce3091b7d5dccea9c0a151101c54",
+    "bytes": 2827230
+  },
+  {
+    "source": "images/heroes/dry-lab.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-023da6ac2ecb.webp",
+    "sha256": "023da6ac2ecb627cfe88c9f2491a789b1773d101ab4a04c6198d10dfc6cd185f",
+    "sourceSha256": "023da6ac2ecb627cfe88c9f2491a789b1773d101ab4a04c6198d10dfc6cd185f",
+    "bytes": 265112
+  },
+  {
+    "source": "images/heroes/human-practices.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-15dc9769a9fa.webp",
+    "sha256": "15dc9769a9facc92228e105a3300434388d198552d1987e06c3311382d5f6759",
+    "sourceSha256": "15dc9769a9facc92228e105a3300434388d198552d1987e06c3311382d5f6759",
+    "bytes": 82818
+  },
+  {
+    "source": "images/heroes/people.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-81356d9e6ae9.webp",
+    "sha256": "81356d9e6ae9a92a1dbbb4a861351f397e8b1af53533ce710c75a20c969c0344",
+    "sourceSha256": "81356d9e6ae9a92a1dbbb4a861351f397e8b1af53533ce710c75a20c969c0344",
+    "bytes": 507288
+  },
+  {
+    "source": "protocols/Experiment_CPP2146_EN.pdf",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-caccb1bbcebd.pdf",
+    "sha256": "caccb1bbcebdc2fc82766d121f9877854b79c1f872b19406790de63408217373",
+    "sourceSha256": "caccb1bbcebdc2fc82766d121f9877854b79c1f872b19406790de63408217373",
+    "bytes": 274587
+  },
+  {
+    "source": "protocols/Experiment_Team_EN.pdf",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-58e2d2dedb67.pdf",
+    "sha256": "58e2d2dedb67a730583d3f309bb556c1103fe594f8c5a0f06f81793da12dcce4",
+    "sourceSha256": "58e2d2dedb67a730583d3f309bb556c1103fe594f8c5a0f06f81793da12dcce4",
+    "bytes": 162326
+  },
+  {
+    "source": "researcher-sheet.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-d0e06b99186b.webp",
+    "sha256": "d0e06b99186b846015da629b5742376e3a8e5d961ad907b293cd4aa02a471ca8",
+    "sourceSha256": "315dc16514ee60d308ff53bbc679b30d14688e9d322bd7c1d435e10e9d9b2a4f",
+    "bytes": 37216
+  },
+  {
+    "source": "fonts/KaTeX_AMS-Regular.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-0cdd387c9590.woff2",
+    "sha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+    "sourceSha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+    "bytes": 28076
+  },
+  {
+    "source": "fonts/KaTeX_Caligraphic-Bold.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-de7701e42cf1.woff2",
+    "sha256": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c",
+    "sourceSha256": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c",
+    "bytes": 6912
+  },
+  {
+    "source": "fonts/KaTeX_Caligraphic-Regular.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-5d53e70ad607.woff2",
+    "sha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b",
+    "sourceSha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b",
+    "bytes": 6908
+  },
+  {
+    "source": "fonts/KaTeX_Fraktur-Bold.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-74444efd593c.woff2",
+    "sha256": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f",
+    "sourceSha256": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f",
+    "bytes": 11348
+  },
+  {
+    "source": "fonts/KaTeX_Fraktur-Regular.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-51814d270d06.woff2",
+    "sha256": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc",
+    "sourceSha256": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc",
+    "bytes": 11316
+  },
+  {
+    "source": "fonts/KaTeX_Main-Bold.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-0f60d1b89793.woff2",
+    "sha256": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021",
+    "sourceSha256": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021",
+    "bytes": 25324
+  },
+  {
+    "source": "fonts/KaTeX_Main-BoldItalic.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-99cd42a3c072.woff2",
+    "sha256": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b",
+    "sourceSha256": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b",
+    "bytes": 16780
+  },
+  {
+    "source": "fonts/KaTeX_Main-Italic.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-97479ca6cce9.woff2",
+    "sha256": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267",
+    "sourceSha256": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267",
+    "bytes": 16988
+  },
+  {
+    "source": "fonts/KaTeX_Main-Regular.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-c2342cd8b869.woff2",
+    "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+    "sourceSha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+    "bytes": 26272
+  },
+  {
+    "source": "fonts/KaTeX_Math-BoldItalic.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-dc47344dbb6c.woff2",
+    "sha256": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1",
+    "sourceSha256": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1",
+    "bytes": 16400
+  },
+  {
+    "source": "fonts/KaTeX_Math-Italic.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-7af58c5ec8f1.woff2",
+    "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+    "sourceSha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+    "bytes": 16440
+  },
+  {
+    "source": "fonts/KaTeX_SansSerif-Bold.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-e99ae51144bf.woff2",
+    "sha256": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62",
+    "sourceSha256": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62",
+    "bytes": 12216
+  },
+  {
+    "source": "fonts/KaTeX_SansSerif-Italic.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-00b26ac825e2.woff2",
+    "sha256": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a",
+    "sourceSha256": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a",
+    "bytes": 12028
+  },
+  {
+    "source": "fonts/KaTeX_SansSerif-Regular.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-68e8c73ef42a.woff2",
+    "sha256": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342",
+    "sourceSha256": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342",
+    "bytes": 10344
+  },
+  {
+    "source": "fonts/KaTeX_Script-Regular.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-036d4e95149b.woff2",
+    "sha256": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b",
+    "sourceSha256": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b",
+    "bytes": 9644
+  },
+  {
+    "source": "fonts/KaTeX_Size1-Regular.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-6b47c40166b6.woff2",
+    "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+    "sourceSha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+    "bytes": 5468
+  },
+  {
+    "source": "fonts/KaTeX_Size2-Regular.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-d04c54219f9e.woff2",
+    "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+    "sourceSha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+    "bytes": 5208
+  },
+  {
+    "source": "fonts/KaTeX_Size3-Regular.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-73d591271b16.woff2",
+    "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+    "sourceSha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+    "bytes": 3624
+  },
+  {
+    "source": "fonts/KaTeX_Size4-Regular.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-a4af7d414440.woff2",
+    "sha256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0",
+    "sourceSha256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0",
+    "bytes": 4928
+  },
+  {
+    "source": "fonts/KaTeX_Typewriter-Regular.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-71d517d67827.woff2",
+    "sha256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
+    "sourceSha256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
+    "bytes": 13568
+  }
+]

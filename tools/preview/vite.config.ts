@@ -6,7 +6,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "./",
   plugins: [react()],
-  define: { "import.meta.env.VITE_HASH_ROUTER": JSON.stringify("1") },
+  define: { "import.meta.env.VITE_LOCAL_ASSETS": JSON.stringify("1"), "import.meta.env.VITE_HASH_ROUTER": JSON.stringify("1") },
   build: {
     target: "es2022",
     outDir: "tools/preview/.out",

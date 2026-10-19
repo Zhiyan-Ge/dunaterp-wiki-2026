@@ -1,4 +1,5 @@
-import sheetUrl from "../assets/researcher-sheet.png?inline";
+import localSheetUrl from "../assets/researcher-sheet.png?inline";
+import { assetUrl } from "../asset-url";
 import { surface, type Painter } from "./paint";
 
 // Four 32×64 frames per row: front, back, left, right. The first column is
@@ -13,12 +14,15 @@ const DIRECTIONS: Facing[] = ["down", "up", "left", "right"];
 let sheet: HeroSheet | null = null;
 let pending: Promise<void> | null = null;
 
-/** Embedded by Vite so GitHub/iGEM base paths and the offline preview agree. */
+const sheetUrl = import.meta.env.VITE_LOCAL_ASSETS === "1" ? localSheetUrl : assetUrl("researcher-sheet.png");
+
+/** Load the official CDN atlas, or an embedded PNG for offline review. */
 export function prepareHero(): Promise<void> {
   if (sheet) return Promise.resolve();
   if (pending) return pending;
   pending = new Promise<void>((resolve, reject) => {
     const image = new Image();
+    if (sheetUrl.startsWith("https://")) image.crossOrigin = "anonymous";
     image.onload = () => {
       try {
         if (image.naturalWidth !== HERO_W * 4 || image.naturalHeight !== HERO_H * 4) {
