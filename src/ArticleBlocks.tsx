@@ -66,6 +66,17 @@ function ResearchFigure({ figure, compact = false }: { figure: { src: string; al
   </figure>;
 }
 
+function ProtocolPdf({ block }: { block: Extract<ContentBlock, { kind: 'pdf' }> }) {
+  const src = resolveAsset(block.src);
+  return <div className="protocol-pdf">
+    <div className="protocol-pdf__actions">
+      <a href={src} target="_blank" rel="noreferrer">Open PDF ↗</a>
+      <a href={resolveAsset(block.downloadSrc)} download>Download original DOCX ↧</a>
+    </div>
+    <iframe src={`${src}#view=FitH`} title={block.label} loading="lazy" />
+  </div>;
+}
+
 export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, number>(), sectionId }: { blocks: ContentBlock[]; referenceNumbers?: Map<string, number>; sectionId?: string }) {
   return <div className="research-blocks">{blocks.map((block, i) => {
     switch (block.kind) {
@@ -89,6 +100,7 @@ export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, numbe
       case 'wet-lab-overview': return <WetLabOverview key={i} />;
       case 'wet-lab-method': return <WetLabMethod key={i} block={block} />;
       case 'download': return <p className="protocol-download" key={i}><a href={resolveAsset(block.src)} download>{block.label} ↧</a></p>;
+      case 'pdf': return <ProtocolPdf key={i} block={block} />;
       case 'docking-viewer': return <Suspense key={i} fallback={<p>Loading 3D docking view…</p>}><DockingViewer /></Suspense>;
       case 'pbr-widget': return <PBRWidget key={i} />;
       case 'safety-overview': return <SafetyOverview key={i} />;

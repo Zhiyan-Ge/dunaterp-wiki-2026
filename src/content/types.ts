@@ -10,6 +10,7 @@ export type ContentBlock =
   | { kind: 'wet-lab-overview' }
   | { kind: 'wet-lab-method'; id: string; introHtml: string; html: string; protocolTitle: string; headings: { id: string; title: string }[] }
   | { kind: 'download'; src: string; label: string }
+  | { kind: 'pdf'; src: string; downloadSrc: string; label: string }
   | { kind: 'pbr-widget' | 'docking-viewer' }
   | { kind: 'safety-overview' | 'safety-results' };
 

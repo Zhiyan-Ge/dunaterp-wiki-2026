@@ -47,6 +47,7 @@ jobs:
             project-description \
             engineering \
             experiments \
+            notebook \
             results \
             dry-lab \
             transcriptomics \
@@ -56,10 +57,8 @@ jobs:
             hardware \
             hardware-design \
             contribution \
-            human-practices \
             safety-and-security \
             alternative-platform \
-            sustainability \
             education \
             cooperation \
             team \

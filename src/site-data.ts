@@ -26,9 +26,9 @@ export type WikiPage = {
 };
 
 export const navigation: Array<{ label: string; items: ReadonlyArray<readonly [string, string]> }> = [
-  { label: "Wet Lab", items: [["Description", "/project-description"], ["Engineering", "/engineering"], ["Experiments", "/experiments"], ["Results", "/results"], ["Safety", "/safety-and-security"]] },
+  { label: "Wet Lab", items: [["Description", "/project-description"], ["Engineering", "/engineering"], ["Experiments", "/experiments"], ["Protocols", "/notebook"], ["Results", "/results"], ["Safety", "/safety-and-security"]] },
   { label: "Dry Lab", items: dryLabNavigation },
-  { label: "Human Practices", items: [["Integrated Human Practices", "/human-practices"], ["Education", "/education"], ["Cooperation", "/cooperation"], ["Sustainability", "/sustainability"]] },
+  { label: "Human Practices", items: [["Education", "/education"], ["Cooperation", "/cooperation"]] },
   { label: "People", items: [["Team", "/team"], ["Attributions", "/attributions"], ["Responsible AI", "/responsible-ai"]] },
 ];
 
@@ -190,6 +190,26 @@ export const pages: Record<string, WikiPage> = {
       },
     ],
   },
+  notebook: {
+    title: "Protocols",
+    eyebrow: "Wet Lab",
+    intro: "The team-authored experimental protocols are provided below in their original document layout.",
+    status: "review-ready",
+    sections: [
+      {
+        title: "CPP2146 Experimental Protocols",
+        tocTitle: "CPP2146",
+        body: "",
+        blocks: [{ kind: "pdf", src: "/protocols/Experiment_CPP2146_EN.pdf", downloadSrc: "/protocols/Experiment_CPP2146_EN.docx", label: "CPP2146 experimental protocols" }],
+      },
+      {
+        title: "Team Experimental Protocols",
+        tocTitle: "Team experiments",
+        body: "",
+        blocks: [{ kind: "pdf", src: "/protocols/Experiment_Team_EN.pdf", downloadSrc: "/protocols/Experiment_Team_EN.docx", label: "Team experimental protocols" }],
+      },
+    ],
+  },
   results: {
     title: "What the evidence shows", eyebrow: "Results", intro: "Light changes carotenoid-pathway transcript abundance, but the pathway does not rise or fall as one synchronized unit. The models identify LCYB and the β-carotene entry split as useful control points, while protein, pigment and flux measurements remain necessary to test the proposed mechanism.", status: "team-draft",
     references: [refs.transcriptomeDataset, refs.li2019, refs.fachet2020, refs.lan2022, refs.alphafold3],
@@ -211,15 +231,6 @@ export const pages: Record<string, WikiPage> = {
   model: modeling,
   hardware,
   "hardware-design": hardwareDesign,
-  "human-practices": {
-    title: "From a biological idea to a usable system", eyebrow: "Human Practices", intro: "DunaTerp connects metabolic engineering with saline cultivation, downstream processing and environmental containment. Its practical value depends on how those parts fit the needs and limits of the people who would build, operate, regulate and use the system.", status: "team-draft",
-    references: [refs.borowitzka2013, refs.posten2009, refs.humanPracticesHero],
-    sections: [
-      { title: "Cultivation", body: "A salt-tolerant photosynthetic chassis changes the operating assumptions of microbial production. Growers and bioprocess engineers must balance salinity, illumination, gas transfer, contamination control, biomass productivity and reactor maintenance; a biological improvement is useful only if the culture remains operable at scale [2]." },
-      { title: "Recovery and product use", body: "The four target products differ in chemistry, market use and downstream purification. Product identity, titre and conversion efficiency therefore need to be considered together with extraction solvent, energy demand, purity requirements and the value of the recovered compound [1]." },
-      { title: "Containment and environmental responsibility", body: "Hypersaline cultivation does not remove the need for containment. The proposed salt-responsive circuit, physical reactor barriers, waste treatment and monitoring form separate layers. Regulators and environmental experts need evidence for each layer before an engineered strain could move beyond controlled research." },
-    ],
-  },
   "safety-and-security": safety,
   "alternative-platform": {
     title: "Engineering beyond the usual chassis", eyebrow: "Alternative Platform", intro: "Dunaliella salina combines extreme halotolerance, photosynthetic carbon fixation and native carotenoid accumulation. DunaTerp uses those traits as functional parts of the engineering strategy rather than treating the alga as an interchangeable host.", status: "team-draft",
@@ -228,15 +239,6 @@ export const pages: Record<string, WikiPage> = {
       { title: "A metabolism already oriented toward carotenoids", body: "D. salina contains the MEP-to-carotenoid pathway and can accumulate β-carotene under environmental stress [2]. The project therefore begins with an established pigment network and asks how regulation and branch competition can be reshaped around its native β-carotene pool." },
       { title: "Salt tolerance changes cultivation", body: "Growth in seawater and hypersaline media can reduce freshwater demand and suppress many common contaminants [1]. At the same time, high salinity affects materials, sensors, fluid handling and downstream recovery, so the chassis choice directly informs the reactor and process design." },
       { title: "Engineering the chassis", body: "Osmotic transformation provides a route for introducing genetic constructs into D. salina. The containment work tests MazF toxicity and weak-promoter control, while the central platform design proposes TF2146 as a regulatory input. These interventions must be evaluated with construct verification, expression measurements and matched pigment or flux data." },
-    ],
-  },
-  sustainability: {
-    title: "Resource use across the whole process", eyebrow: "Sustainability", intro: "Saline photosynthetic cultivation may reduce dependence on freshwater, arable land and organic carbon feedstocks, but those advantages must be considered alongside lighting, mixing, nutrients, harvesting, extraction and waste treatment.", status: "team-draft",
-    references: [refs.oren2005, refs.borowitzka2013, refs.posten2009, refs.carvalho2011],
-    sections: [
-      { title: "Water and land", body: "D. salina can grow in seawater or hypersaline media and does not require arable soil [1]. This creates a route that may avoid competition with freshwater agriculture, although medium preparation, evaporation control and cleaning still consume water and must be included in any process comparison." },
-      { title: "Energy and materials", body: "Photosynthesis supplies carbon fixation, but artificial illumination, gas transfer, circulation, temperature control and biomass harvesting can dominate energy demand [3] [4]. The PMMA reactor, seals and fittings also have manufacturing and replacement impacts that increase with scale." },
-      { title: "Recovery and waste", body: "Product extraction determines whether the biological advantage survives downstream processing. Solvent choice, pigment recovery, residual biomass, saline effluent and containment treatment must therefore be evaluated per unit of purified product rather than per unit of culture alone [2]." },
     ],
   },
   education,
@@ -270,10 +272,10 @@ export const pages: Record<string, WikiPage> = {
 };
 
 export const pageOrder = [...new Set([
-  'project-description', 'engineering', 'experiments', 'results',
+  'project-description', 'engineering', 'experiments', 'notebook', 'results',
   'dry-lab', 'transcriptomics', 'metabolomics', 'protein', 'model', 'hardware', 'hardware-design',
   ...Object.keys(pages).filter((key) => ![
-    'project-description', 'engineering', 'experiments', 'results',
+    'project-description', 'engineering', 'experiments', 'notebook', 'results',
     'dry-lab', 'transcriptomics', 'metabolomics', 'protein',
     'model', 'hardware', 'hardware-design',
   ].includes(key)),

@@ -134,7 +134,7 @@ export const NPCS: Record<ExpeditionNpcId, ExpeditionNpc> = {
     initials: "AO",
     intro:
       "Whenever a design looks complete, I look for the person whose question is missing. I listen for practical worries that never appear in a pathway diagram, then ask whether the project changed because someone trusted us with them.",
-    chapterHint: "Field trail: Human Practices → Human Practices and Sustainability",
+    chapterHint: "Field trail: Human Practices → Education and Cooperation",
     prompts: [
       {
         id: "listen",

@@ -50,6 +50,10 @@
 .wet-lab-protocol .research-table-scroll { overflow-wrap: normal; }
 .article-page .article-sections > section:has(.wet-lab-protocol) h2 { max-width: none; font-size: clamp(1.5rem, 2.2vw, 2.05rem); line-height: 1.25; }
 .protocol-download { padding-top: 1rem; border-top: 1px solid var(--line); font-size: .875rem; }
+.protocol-pdf { width: 100%; min-width: 0; margin: 1.5rem 0 3rem; }
+.protocol-pdf__actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .7rem; margin-bottom: .8rem; }
+.protocol-pdf__actions a { padding: .65rem .9rem; border: 2px solid var(--ink); background: #fffaf0; color: var(--ink); font: 800 .75rem/1.2 ui-monospace,Menlo,monospace; text-decoration: none; text-transform: uppercase; box-shadow: 3px 3px 0 var(--article-accent); }
+.protocol-pdf iframe { display: block; box-sizing: border-box; width: 100%; max-width: 100%; min-width: 0; height: min(1000px,78vh); min-height: 720px; border: 3px solid var(--ink); background: #fff; box-shadow: 7px 7px 0 var(--article-accent); }
 .article-toc { max-height: calc(100vh - 9rem); overflow-y: auto; }
 .related-wiki-pages { display: flex; flex-wrap: wrap; gap: 1rem 2rem; padding: 1rem 0 2rem; }
 .related-wiki-pages a { color: #176c82; }
@@ -61,6 +65,9 @@
   .research-equation { margin: 1.8rem 0; padding: 1.45rem 1rem; }
   .research-figure-grid,.research-chapter-grid { grid-template-columns: 1fr; }
   .research-figure-grid .research-figure a { min-height: 14rem; }
+  .article-page--notebook .article-sections h2 { font-size: clamp(1.35rem, 7vw, 1.8rem); overflow-wrap: anywhere; }
+  .article-page--notebook .protocol-pdf__actions { justify-content: flex-start; }
+  .protocol-pdf iframe { min-height: 68vh; }
 }
 @media print {
   .research-table-details .research-table-scroll { max-height: none; overflow: visible; }
