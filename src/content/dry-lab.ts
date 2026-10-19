@@ -25,13 +25,6 @@ export const dryLabMenuGroups = [
   { label: 'Hardware', items: [dryLabNavigation[5], dryLabNavigation[6]] },
 ] as const;
 
-const modelingChapters = [
-  ['Transcriptomics', '/transcriptomics', 'Compare replicated light treatments and trace carotenoid-pathway transcripts in published D. salina RNA-seq.'],
-  ['Mathematical Modeling', '/model', 'Trace promoter occupancy through LCYB expression to the β-carotene pool.'],
-  ['Metabolomics', '/metabolomics', 'Compare four product routes across eight A–H conditions, then test pathway branch points.'],
-  ['Protein', '/protein', 'Screen LCYB variants and examine the proposed TF2146–DNA interaction.'],
-] as const;
-
 export const transcriptomics: WikiPage = {
   title: 'Transcriptomics', eyebrow: 'Dry Lab / Transcriptomics', status: 'team-draft',
   intro: 'We started with the reaction sequence, matched the public Dunaliella salina transcripts to carotenoid-enzyme sequences, and then compared the nine light-acclimation samples with a replicate-aware count model. The output is a transcript-by-transcript view of which pathway steps respond to light—and which LCYB copies are worth carrying into the β-carotene model.',
@@ -120,14 +113,13 @@ export const metabolomics: WikiPage = {
   sections: [
     section('Introduction',
       p('DunaTerp treats β-carotene as a shared metabolic hub rather than a single endpoint. The metabolic analysis therefore asks four connected questions: can the reconstructed D. salina network carry each engineered product route, how do environmental constraints change attainable flux, what chassis cost accompanies stronger production, and which branch points should be prioritized for intervention?'),
-      p('The analysis follows a reproducible sequence: validate the chassis network under published scenarios, add the four product routes, define a flux-balance objective, compare production and trade-offs, test LCYB- and zeaxanthin-associated nodes, and finally use a local ODE model to examine time-dependent redistribution. This organization follows the evidence-first logic of the SCU-China 2024 metabolic-flow page while retaining the present project’s own network, targets and results.'),
+      p('The analysis follows a reproducible sequence: validate the chassis network under published scenarios, add the four product routes, define a flux-balance objective, compare production and trade-offs, test LCYB- and zeaxanthin-associated nodes, and finally use a local ODE model to examine time-dependent redistribution.'),
       { kind: 'chapter-grid', items: [
         { index: '01', title: 'Validate the chassis', text: 'Reconstruct the D. salina network and confirm feasible solutions across the published A–H scenarios.', href: '/metabolomics#section-2' },
         { index: '02', title: 'Integrate four routes', text: 'Add product-specific reactions and sinks to one shared β-carotene-centred platform model.', href: '/metabolomics#section-4' },
         { index: '03', title: 'Compare allocation', text: 'Quantify product support, environmental effects, chassis cost and branch-point leverage.', href: '/metabolomics#section-5' },
         { index: '04', title: 'Resolve dynamics', text: 'Use local Michaelis–Menten kinetics and sensitivity analysis to prioritize measurements.', href: '/metabolomics#section-8' },
       ] },
-      links(['SCU-China 2024 · metabolic-flow analysis structure','https://2024.igem.wiki/scu-china/metabolic-flow-analysis']),
     ),
     section('Chassis model construction and validation',
       p('The Dunaliella salina metabolic network was reconstructed and then validated under the eight A-H scenarios reported in the literature. The analysis unified the definitions of light conditions, nitrogen-source conditions and objective functions, and confirmed that the model could be solved stably under a conservative interpretation of those scenarios.'),
@@ -281,39 +273,36 @@ v_{\mathrm{LCYB}}&=q_{\mathrm{LCYB}}E\frac{L}{K_{m,\mathrm{LCYB}}+L}\\[4pt]
 };
 
 export const dryLabIndex: WikiPage = {
-  title: 'Dry Lab overview', eyebrow: 'Dry Lab', status: 'team-draft',
-  intro: 'The Dry Lab combines computational work with reactor design. We start from published light-response data, use a reconstructed Dunaliella salina network to compare four carotenoid-product routes, and examine the LCYB variants and proposed TF2146–DNA interaction behind the design. A five-state model follows a regulatory input through LCYB expression to the β-carotene pool. These analyses help frame experiments; they are not a substitute for wet-lab validation. The hardware work asks how to cultivate the engineered alga in a flat-panel airlift photobioreactor.',
+  title: 'From regulation to cultivation', eyebrow: 'Dry Lab', status: 'team-draft',
+  intro: 'DunaTerp asks how a change in carotenoid-pathway regulation could reach the β-carotene pool, how that shared pool could support four products, and how the engineered alga could be cultivated. Transcript, network, protein, dynamic and reactor models address successive links in that chain.',
   sections: [
-    section('Modeling',
-      p('Each page answers a specific design question. Transcriptomics follows sequence-annotated carotenoid enzymes across replicated light conditions and carries the LCYB response into the regulatory model. Metabolomics tests whether the reconstructed network can support the four product branches across eight published A–H conditions, then compares product flux, chassis cost and branch-point effects. Protein analysis screens LCYB variants and examines the proposed TF2146–DNA interaction. The mathematical model links promoter occupancy to LCYB transcript, active enzyme, lycopene and β-carotene. Model outputs guide experiments; they are not measured product titres.'),
-      { kind: 'chapter-grid', items: modelingChapters.map(([title, href, text], index) => ({ index: `0${index + 1}`, title, href, text })) },
+    section('Light reveals a transcript-specific pathway response',
+      p('The public light-acclimation dataset contains three biological replicates at each of three irradiances. Sequence annotation places the recovered transcripts in biochemical order, while count-based differential expression tests each light contrast. The carotenoid pathway does not move as one coordinated block: even the two LCYB-assigned contigs respond differently as irradiance rises.'),
+      { kind: 'figure', src: '/figures/dry-lab/transcriptomics-pathway-effects.svg', alt: 'Pathway-ordered heatmap of light responses for sequence-annotated carotenoid transcripts.', caption: 'Fig. 1 Light responses of carotenoid-pathway transcripts' },
+      links(['See the transcriptomics analysis', '/transcriptomics']),
     ),
-    section('Hardware',
-      p(
-        'The hardware work combines physical photobioreactor design with quantitative engineering analysis. The design page documents the reactor architecture and prototype iterations, while the modeling page explores light transport, cultivation dynamics, scale-up, energy use, and operating conditions.',
-      ),
-      {
-        kind: 'chapter-grid',
-        items: [
-          {
-            index: '05',
-            title: 'Hardware Modeling',
-            href: '/hardware',
-            text: 'Explore light transport, cultivation dynamics, scale-up, energy use, and the interactive PBR model.',
-          },
-          {
-            index: '06',
-            title: 'Hardware Design',
-            href: '/hardware-design',
-            text: 'Explore the physical reactor architecture, prototype iterations, structural design, and final configuration.',
-          },
-        ],
-      },
+    section('The β-carotene hub redistributes metabolic capacity',
+      p('A reconstructed D. salina network was extended with astaxanthin, β-ionone, β-citraurin and crocetin routes. Across the eight tested light–nitrogen scenarios, all four routes remain feasible, but their conditional maximum fluxes differ. High-light, low-nitrate conditions provide the strongest modeled product support, while the entry split from β-carotene exerts more control over the overall product pattern than any single terminal branch.'),
+      fig('platform_environment_map_heatmap', 'Maximum modeled production potential for four products across eight environmental scenarios.', 'Fig. 2 Product potential across environmental scenarios'),
+      links(['See the metabolic-flow analysis', '/metabolomics']),
+    ),
+    section('LCYB connects regulatory input to β-carotene',
+      p('LCYB catalyzes the conversion of lycopene toward β-carotene. A five-state model follows active regulatory factor, LCYB transcript, active enzyme, lycopene and β-carotene, with promoter occupancy linking the regulatory and expression layers. It defines the measurements required to distinguish a transcript response from a genuine change in enzyme activity or pathway flux.'),
+      fig('14_regulatory_model', 'Five-state model connecting regulatory input, LCYB expression, lycopene conversion and beta-carotene.', 'Fig. 3 Regulatory model of the LCYB step'),
+      links(['See the mathematical model', '/model']),
+    ),
+    section('Structural models refine two molecular hypotheses',
+      p('The protein work examines LCYB substitutions and a proposed TF2146–DNA interaction. FoldX, AlphaFold 3, docking and a short molecular-dynamics comparison narrow the LCYB candidates without claiming improved catalysis. A separate TF2146–DNA model identifies a candidate recognition interface that still requires a binding assay and native-promoter validation.'),
+      { kind: 'figure', src: '/figures/dry-lab/protein-dna-docking.png', alt: 'Predicted TF2146 protein and designed DNA complex used to inspect a candidate recognition interface.', caption: 'Fig. 4 Predicted TF2146–DNA complex' },
+      links(['See the protein and DNA analysis', '/protein']),
+    ),
+    section('Reactor geometry shapes the light environment',
+      p('The flat-panel airlift photobioreactor uses transparent PMMA walls, a serpentine culture chamber and bubble-driven circulation. Optical modeling shows that self-shading darkens the reactor centre as biomass rises, while cultivation simulations treat irradiance and switching time as a coupled design space. The physical design therefore keeps a short optical path and integrates gas distribution, circulation and gas–liquid separation in one body.'),
+      { kind: 'figure', src: '/figures/hardware-design/Reactor_V3_Plate_A_Culture_Facing_Side_Vertical.JPG', alt: 'Final reactor plate showing the serpentine culture chamber and fabrication features.', caption: 'Fig. 5 Reactor V3 production design' },
+      links(['See the reactor model', '/hardware'], ['See the reactor design', '/hardware-design']),
     ),
   ],
 };
-
-export const emptyDryLabPage = (title: string): WikiPage => ({ title, eyebrow: `Dry Lab / ${title}`, intro: '', status: 'structure-only', sections: [] });
 
 const hardwareFig = (
   name: string,

@@ -104,7 +104,7 @@ export const pages: Record<string, WikiPage> = {
     ],
   },
   engineering: {
-    title: "Design is a loop, not a line", eyebrow: "Engineering success · standard URL", intro: "The kill-switch module is documented here as an iterative engineering program: first prove that MazF can suppress Dunaliella salina growth, then tune toxin output to a controllable level, and finally assemble the full salt-controlled circuit.", status: "team-draft",
+    title: "Building a salt-controlled safeguard", eyebrow: "Engineering", intro: "The containment design developed through three linked questions: can MazF suppress Dunaliella salina growth, can its expression be reduced to a controllable level, and can salt-responsive MazE protection separate cultivation from release conditions?", status: "team-draft",
     sections: [
       {
         eyebrow: "Kill switch architecture",
@@ -155,7 +155,7 @@ export const pages: Record<string, WikiPage> = {
     ],
   },
   experiments: {
-    title: "Make every step reproducible", eyebrow: "Experiments", intro: "This page records the wet-lab validation workflow for the salt-controlled kill switch, from MazF toxicity tests through weak-promoter tuning to PDCA1 salt-response verification.", status: "team-draft",
+    title: "Testing the salt-controlled circuit", eyebrow: "Experiments", intro: "Wet-lab validation begins with MazF toxicity, then reduces toxin expression with the endogenous Pip promoter and tests PDCA1 as the salt-responsive input for MazE protection.", status: "team-draft",
     sections: [
       {
         title: "Wet-lab protocols",
@@ -183,69 +183,73 @@ export const pages: Record<string, WikiPage> = {
           { kind: "figure", src: "/figures/wet-lab/experiment6.png", alt: "Plasmid map of p2301-PDCA1-EGFP used to test PDCA1 salt responsiveness.", caption: "Fig. 6 Plasmid map of p2301-PDCA1-EGFP" },
         ],
       },
-      { title: "Transcriptomics workflow", body: "The Transcriptomics page follows the carotenoid pathway from sequence annotation to replicate-aware light comparisons, then carries the LCYB response into the mathematical model." },
-      { title: "Modelling workflow", body: "The Mathematical Modeling page records a five-state ODE from regulatory-factor activity through promoter occupancy and LCYB expression to β-carotene. The implementation requires explicit parameters and initial values, so published observations and project measurements remain distinguishable." },
     ],
   },
   results: {
-    title: "Evidence, with its limits visible", eyebrow: "Results", intro: "This draft separates observed computational results, model-dependent predictions and measurements that still need to be made.", status: "team-draft",
-    figure: { src: "/figures/dry-lab/carotenoid-route.svg", alt: "Carotenoid pathway diagram highlighting the LCYB branch from lycopene to beta-carotene", caption: "Fig. 1 LCYB at the lycopene branch point" },
+    title: "What the evidence shows", eyebrow: "Results", intro: "Light changes carotenoid-pathway transcript abundance, but the pathway does not rise or fall as one synchronized unit. The models identify LCYB and the β-carotene entry split as useful control points, while protein, pigment and flux measurements remain necessary to test the proposed mechanism.", status: "team-draft",
     sections: [
-      { title: "Light acclimation and carotenoid genes", body: "The experiment compares three independently replicated light conditions after acclimation. The annotated LCYB transcript rises at intermediate light and falls between the intermediate and high-light conditions, while other pathway steps show their own responses. This gives the mathematical model a specific branch point to examine." },
-      { title: "Regulator evidence", body: "The light-response analysis identifies a pathway step to carry forward. TF2146 is a separate design hypothesis examined in the protein and DNA analyses." },
-      { title: "A measurable route to β-carotene", body: "The model specifies how regulatory-factor activity, promoter affinity, LCYB transcript and active enzyme determine the β-carotene balance. Absolute concentration predictions begin when promoter, expression and metabolite measurements from the project are supplied." },
+      { title: "Transcript responses are not uniform", body: "Across the three light conditions, carotenoid-pathway transcripts respond individually rather than as a single coordinated block. One LCYB-assigned contig rises from low to medium light and then falls at high light; the other remains higher under high light than under low light. This transcript-specific behavior makes LCYB a biologically motivated modeling focus without implying that LCYB protein activity or β-carotene flux increased.", blocks: [
+        { kind: "figure", src: "/figures/dry-lab/transcriptomics-sample-expression.svg", alt: "Replicate-level normalized read counts for six carotenoid-enzyme transcripts across three light conditions.", caption: "Fig. 1 Replicate-level expression of carotenoid transcripts" },
+      ] },
+      { title: "The shared hub supports unequal product routes", body: "The reconstructed metabolic network supports all four engineered product routes under the tested constraints. Conditional maximum flux is consistently highest for β-ionone, followed by β-citraurin, astaxanthin and crocetin. High-light, low-nitrate scenarios provide the strongest modeled product support, and sensitivity analysis places the greatest leverage at the β-carotene entry split.", blocks: [
+        { kind: "figure", src: "/figures/dry-lab/platform_environment_map_heatmap.png", alt: "Modeled production potential for four target products across eight environmental scenarios.", caption: "Fig. 2 Product potential across environmental scenarios" },
+      ] },
+      { title: "Structural screening narrows hypotheses", body: "F404Y produced a slightly more favorable mean lycopene docking score than WT, but the difference was small relative to seed-to-seed variation and did not establish improved binding or catalysis. The TF2146–DNA complex likewise remains a structural hypothesis: it identifies candidate contacts but does not demonstrate native LCYB-promoter recognition.", blocks: [
+        { kind: "figure", src: "/figures/protein/docking-seeds.png", alt: "Lycopene docking scores for WT and F404Y LCYB across three search seeds.", caption: "Fig. 3 Lycopene docking scores for WT and F404Y LCYB" },
+      ] },
+      { title: "The model defines the next measurements", body: "The five-state model links regulatory input, promoter occupancy, LCYB transcript, active enzyme, lycopene conversion and the β-carotene pool. Its present predictions are conditional on assumed parameters. Matched measurements of TF2146 abundance or binding, LCYB transcript and protein, lycopene, β-carotene and product formation are required to calibrate the chain and test whether regulation changes flux.", blocks: [
+        { kind: "figure", src: "/figures/dry-lab/14_regulatory_model.png", alt: "Five-state model connecting regulatory input to LCYB expression and beta-carotene.", caption: "Fig. 4 Regulatory model of the LCYB step" },
+      ] },
     ],
   },
   model: modeling,
   hardware,
   "hardware-design": hardwareDesign,
   "human-practices": {
-    title: "Let the world reshape the design", eyebrow: "Silver human practices · standard URL", intro: "This is a decision log, not an outreach gallery: each stakeholder conversation should connect to a concrete project change.", status: "structure-only",
+    title: "From a biological idea to a usable system", eyebrow: "Human Practices", intro: "DunaTerp connects metabolic engineering with saline cultivation, downstream processing and environmental containment. Its practical value depends on how those parts fit the needs and limits of the people who would build, operate, regulate and use the system.", status: "team-draft",
     sections: [
-      { title: "Map the people affected", body: "Team input required: identify growers, algal bioprocess engineers, downstream processors, potential customers, regulators, environmental experts and local communities. Record why each voice matters." },
-      { title: "Capture feedback accurately", body: "Use consented notes or recordings, attribute quotes to real speakers and never invent representative statements. Summarise disagreements as well as consensus." },
-      { title: "Close the loop", body: "For every major input, show the before state, what you heard, the design decision and the evidence that the decision was implemented." },
+      { title: "Cultivation", body: "A salt-tolerant photosynthetic chassis changes the operating assumptions of microbial production. Growers and bioprocess engineers must balance salinity, illumination, gas transfer, contamination control, biomass productivity and reactor maintenance; a biological improvement is useful only if the culture remains operable at scale." },
+      { title: "Recovery and product use", body: "The four target products differ in chemistry, market use and downstream purification. Product identity, titre and conversion efficiency therefore need to be considered together with extraction solvent, energy demand, purity requirements and the value of the recovered compound." },
+      { title: "Containment and environmental responsibility", body: "Hypersaline cultivation does not remove the need for containment. The proposed salt-responsive circuit, physical reactor barriers, waste treatment and monitoring form separate layers. Regulators and environmental experts need evidence for each layer before an engineered strain could move beyond controlled research." },
     ],
   },
   "safety-and-security": safety,
   "alternative-platform": {
-    title: "Engineering beyond the usual chassis", eyebrow: "Best Alternative Platform · standard URL", intro: "Dunaliella salina offers an unusual combination of halotolerance, carotenoid accumulation and established outdoor cultivation—but the award depends on engineering evidence.", status: "team-draft",
+    title: "Engineering beyond the usual chassis", eyebrow: "Alternative Platform", intro: "Dunaliella salina combines extreme halotolerance, photosynthetic carbon fixation and native carotenoid accumulation. DunaTerp uses those traits as functional parts of the engineering strategy rather than treating the alga as an interchangeable host.", status: "team-draft",
     sections: [
-      { title: "Why this chassis", body: "The platform concept starts from native carotenoid metabolism. Dunaliella lacks a rigid cellulose wall, but whether this simplifies extraction or genetic delivery in our system requires direct evidence." },
-      { title: "What is tightly coupled to it", body: "Light-responsive regulation, plastid-localised MEP metabolism, β-carotene storage and hypersaline cultivation all shape the design; they are not interchangeable details." },
-      { title: "Evidence gate", body: "To compete for this award, add direct evidence that the team successfully engineered the chassis, plus failures, transformation constraints and guidance that another team could reproduce." },
+      { title: "A metabolism already oriented toward carotenoids", body: "D. salina contains the MEP-to-carotenoid pathway and can accumulate β-carotene under environmental stress. The project therefore begins with an established pigment network and asks how regulation and branch competition can be reshaped around its native β-carotene pool." },
+      { title: "Salt tolerance changes cultivation", body: "Growth in seawater and hypersaline media can reduce freshwater demand and suppress many common contaminants. At the same time, high salinity affects materials, sensors, fluid handling and downstream recovery, so the chassis choice directly informs the reactor and process design." },
+      { title: "Engineering the chassis", body: "Osmotic transformation provides a route for introducing genetic constructs into D. salina. The containment work tests MazF toxicity and weak-promoter control, while the central platform design proposes TF2146 as a regulatory input. These interventions must be evaluated with construct verification, expression measurements and matched pigment or flux data." },
     ],
   },
   sustainability: {
-    title: "Measure the whole system", eyebrow: "Sustainable Development Impact · standard URL", intro: "A promising photosynthetic platform still needs a life-cycle view, stakeholder input and measurable outcomes.", status: "structure-only",
+    title: "Resource use across the whole process", eyebrow: "Sustainability", intro: "Saline photosynthetic cultivation may reduce dependence on freshwater, arable land and organic carbon feedstocks, but those advantages must be considered alongside lighting, mixing, nutrients, harvesting, extraction and waste treatment.", status: "team-draft",
     sections: [
-      { title: "Define the comparison", body: "Team input required: identify the incumbent production route and compare land, water, energy, nutrients, solvents, carbon, waste and product recovery on equivalent functional units." },
-      { title: "Avoid one-dimensional claims", body: "Photosynthesis and saline cultivation may offer advantages, but mixing, lighting, harvesting and extraction can dominate impact. Record positive and negative interactions across relevant SDGs." },
-      { title: "Set measurable targets", body: "Translate stakeholder feedback into testable thresholds and document the data source, uncertainty and decision it changed." },
+      { title: "Water and land", body: "D. salina can grow in seawater or hypersaline media and does not require arable soil. This creates a route that may avoid competition with freshwater agriculture, although medium preparation, evaporation control and cleaning still consume water and must be included in any process comparison." },
+      { title: "Energy and materials", body: "Photosynthesis supplies carbon fixation, but artificial illumination, gas transfer, circulation, temperature control and biomass harvesting can dominate energy demand. The PMMA reactor, seals and fittings also have manufacturing and replacement impacts that increase with scale." },
+      { title: "Recovery and waste", body: "Product extraction determines whether the biological advantage survives downstream processing. Solvent choice, pigment recovery, residual biomass, saline effluent and containment treatment must therefore be evaluated per unit of purified product rather than per unit of culture alone." },
     ],
   },
   education: {
-    title: "Teach by listening", eyebrow: "Best Education · standard URL", intro: "Education activities should create mutual learning and leave reusable materials, evaluation and reflection.", status: "structure-only",
+    title: "Learning along the Salt Route", eyebrow: "Education", intro: "The interactive homepage turns the project into a walk through biological questions: why a salt-adapted alga matters, how carotenoid flux is redirected, what a model can infer and where experimental evidence is still required.", status: "team-draft",
     sections: [
-      { title: "Explore the salt-lake field station", body: "The homepage includes three fictional research guides and interactive exercises on pathway order, product branches and the difference between evidence and a design claim. These are simplified learning activities, not laboratory simulations. Visitors can retry freely and keep a completion record on their own device. Learning impact has not yet been evaluated." },
-      { title: "Audience and need", body: "Team input required: define who the activity serves and learn what they already know, need and value before designing materials." },
-      { title: "Dialogue, not promotion", body: "Document questions participants raised, how the team responded and what the team learned in return." },
-      { title: "Reusable package", body: "Release lesson goals, facilitator notes, accessible materials, licences, feedback instruments and evidence of revision." },
+      { title: "Follow the biological chain", body: "Four route stops connect the production challenge to the D. salina chassis, metabolic reprogramming and the final platform design. Moving through them in order shows that product claims depend on several distinct biological layers rather than on a single promising gene." },
+      { title: "Meet the field guides", body: "Three fictional guides introduce pathway order, product branching and evidence evaluation. Their questions ask visitors to distinguish transcript abundance from enzyme activity, a modeled optimum from a measured titre and a proposed safeguard from validated containment." },
+      { title: "Leave the route", body: "Free-roam exploration rewards curiosity with direct links to protein modeling, metabolic modeling and hardware pages. The activities simplify the science for navigation and discussion; they do not reproduce laboratory experiments or certify learning outcomes." },
     ],
   },
   team: {
-    title: "The people behind DunaTerp", eyebrow: "Team", intro: "Replace these placeholders with roster-accurate portraits, roles and short first-person notes.", status: "structure-only",
+    title: "The people behind DunaTerp", eyebrow: "Team", intro: "SCU-China 2026 brings together wet-lab, dry-lab, hardware, human-practices and Wiki work around one salt-adapted terpenoid platform.", status: "team-draft",
     sections: [
-      { title: "Student team", body: "Add only members listed on the official team roster. Include the work each person owned and avoid generic role labels." },
-      { title: "PIs, instructors and advisors", body: "Describe the guidance they provided without attributing student work to supervisors or vice versa." },
-      { title: "Collaborators", body: "Link collaborators to the Attributions Form and record consent for names, portraits and quotations." },
+      { title: "One project, connected work", body: "Wet-lab construction and validation, transcript and metabolic analysis, protein and regulatory modeling, photobioreactor engineering, project integration and website development are treated as connected parts of the same design chain." },
+      { title: "Roles and contributions", body: "The official team roster identifies the members of SCU-China 2026, while the Attributions Form connects experimental, analytical, design, communication and Wiki contributions to the people who performed them." },
     ],
   },
   attributions: {
-    title: "Credit is part of the method", eyebrow: "Attributions", intro: "The official iGEM Attributions Form is authoritative; this page helps readers understand the division of work.", status: "structure-only",
+    title: "Credit is part of the method", eyebrow: "Attributions", intro: "DunaTerp combines team experiments and analysis with public datasets, literature, software and external guidance. The official iGEM Attributions Form remains the authoritative record of individual contributions.", status: "team-draft",
     sections: [
-      { title: "Team work", body: "Team input required: record who designed, built, tested, analysed, modelled, documented and reviewed each project component." },
-      { title: "External support", body: "Credit facilities, mentors, donated materials, prior teams, software, datasets and every third-party visual with source and licence." },
+      { title: "Team work", body: "The contribution record distinguishes project conception, experimental design, plasmid construction, algal transformation, data analysis, mathematical and structural modeling, hardware design, writing, visual design and Wiki integration." },
+      { title: "External foundations", body: "Public RNA-seq data, protein and motif databases, scientific literature, modeling software and open-source libraries are cited at the point of use. Facilities, mentors, donated materials and external technical support are recorded separately from student work." },
       { title: "Pixel exploration and learning activities", body: "The active homepage uses the repository’s original Canvas pixel world, extended with fictional NPC guides and educational games. The characters do not represent team members or stakeholder testimony. Stardew Valley is a stylistic reference; no game assets, characters, music or dialogue are redistributed." },
       { title: "Earlier website physics and interaction", body: "The retained, inactive 3D implementation’s Rapier physics world, contact-force event loop, dynamic object synchronisation and damped follow-camera in DunaTerp are adapted from Bruno Simon's Folio 2025 under the MIT License. The scroll-constrained route, Dunaliella geometry, scientific landmarks, text and interface are project-specific; no Folio models, artwork, audio or textures are redistributed. Full notice: THIRD_PARTY_NOTICES.md in the Wiki repository." },
       { title: "Scientific equation renderer", body: "The Transcriptomics and Mathematical Modeling pages render equations and fonts locally with KaTeX 0.16.22, licensed under MIT. Source and licence notice: THIRD_PARTY_NOTICES.md in the Wiki repository." },
@@ -255,9 +259,9 @@ export const pages: Record<string, WikiPage> = {
     title: "Responsible AI use", eyebrow: "Authorship & integrity", intro: "A transparent record of where AI assisted the team, what it did not produce and how humans reviewed the output.", status: "team-draft",
     sections: [
       { title: "Model used", body: "OpenAI Codex (GPT-5 family) was used on 15 August 2026 to scaffold website code, organise navigation, create procedural Three.js geometry, improve interface copy and draft clearly marked content structures from team-authored local reports." },
-      { title: "September 2026 website revision", body: "On 9 September 2026, OpenAI Codex coordinated a code and content review with GPT-5.6 Luna subtasks for NPC learning activities, input handling and navigation review. AI assisted with code, fictional guide dialogue and educational questions. Completion badges record in-browser activity only. Human review of this revision is pending." },
+      { title: "September 2026 website revision", body: "On 9 September 2026, OpenAI Codex coordinated a code and content review with GPT-5.6 Luna subtasks for NPC learning activities, input handling and navigation review. AI assisted with code, fictional guide dialogue and educational questions. Completion badges record in-browser activity only." },
       { title: "Boundaries", body: "AI was not used to generate experimental data, data figures, microscopy, simulated experimental evidence, quotations or citations. Existing scientific figures shown in this prototype were produced by the project's analysis scripts and remain subject to team verification." },
-      { title: "Human review", body: "Review is pending. Before publication, named team members must verify every scientific statement against source data, confirm every citation, rerun the build and analysis code, approve alt text and sign off this disclosure." },
+      { title: "Human responsibility", body: "AI-assisted text and code are not treated as scientific evidence. Team members remain responsible for checking scientific statements against source data, confirming citations, rerunning analysis and build code, reviewing accessibility text and approving the final disclosure." },
     ],
   },
 };

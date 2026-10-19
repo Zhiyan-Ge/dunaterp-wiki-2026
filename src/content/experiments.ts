@@ -40,8 +40,7 @@ export const wetLabSections: WikiSection[] = [
     title: 'Protocols & related work', tocTitle: 'Original protocols', body: '',
     blocks: [
       ...protocols.map(document => ({ kind: 'download' as const, src: document.file, label: `${document.label} — original protocol (DOCX)` })),
-      { kind: 'paragraph', text: 'The Transcriptomics page follows the carotenoid pathway from sequence annotation to replicate-aware light comparisons, then carries the LCYB response into the mathematical model.' },
-      { kind: 'paragraph', text: 'The Mathematical Modeling page records a five-state ODE from regulatory-factor activity through promoter occupancy and LCYB expression to β-carotene. The implementation requires explicit parameters and initial values, so published observations and project measurements remain distinguishable.' },
+      { kind: 'paragraph', text: 'Sequence-supported transcript annotation and replicate-aware light comparisons identify LCYB as a branch point for further testing. The regulatory model then links LCYB transcript, active enzyme, lycopene and β-carotene, defining the matched measurements needed to test whether expression changes reach pathway flux.' },
       { kind: 'links', links: [{ label: 'Transcriptomics', href: '/transcriptomics' }, { label: 'Mathematical Modeling', href: '/model' }] },
     ],
   },

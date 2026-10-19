@@ -89,7 +89,7 @@ export const safety: WikiPage = {
     { title: 'Implications for the project', body: '', blocks: [
       p('The model identifies three priorities for evaluation: how quickly the full circuit responds to a fall in salinity, whether the response causes recoverable growth arrest or loss of viability, and whether residual activity affects cultivation. These questions matter more to the present design than refining a single predicted clearance time.'),
       p('A practical assessment must also account for weakly responding cells, genetic failure and recovery after conditions change. The present average-cell model does not estimate those outcomes or extinction probability. Its strongest use is to identify the conditions a safeguard would have to meet and the observations that would most change our design decisions.'),
-      p('This page documents the biological-containment design and modeling work. Project-specific strain and construct records, laboratory controls, waste procedures and approved safety documentation will provide the operational part of the safety assessment.'),
+      p('Biological containment is only one layer of risk control. Construct verification, strain-specific response measurements, laboratory controls, closed-reactor operation, waste treatment and incident procedures remain necessary alongside the proposed circuit.'),
     ] },
   ],
 };
