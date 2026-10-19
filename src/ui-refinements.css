@@ -386,6 +386,7 @@ main:focus:not(:focus-visible) { outline: none; }
   border-left: 3px solid var(--article-accent);
 }
 .article-page.article-page--wet-lab .article-hero { background-color: #d7cfb2; }
+.article-page.article-page--human-practices .article-hero { background-position: center 13%; }
 .article-page .article-layout { padding-top: 4rem; }
 .article-page .article-toc {
   position: sticky;
