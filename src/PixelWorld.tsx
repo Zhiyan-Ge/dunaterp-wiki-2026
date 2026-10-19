@@ -65,10 +65,6 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
   const [started, setStarted] = useState(false);
   const [story, dispatchStory] = useReducer(storyReducer, false, initialStory);
   const isStory = story.phase !== "WORLD" && !failed;
-  const promptStation = useMemo(
-    () => STATION_COPY.find((item) => item.key === promptKey) ?? null,
-    [promptKey],
-  );
   const stationDialogue = useMemo(
     () => STATION_COPY.find((item) => item.key === stationDialogueKey) ?? null,
     [stationDialogueKey],
@@ -401,21 +397,6 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
           <span className="px-prompt-key">E</span>
           <div><p>{npcPrompt.role} · OFF-ROUTE FIELD GUIDE</p><button type="button" onClick={() => engineRef.current?.talkToNpc()}>Talk to {npcPrompt.name}</button></div>
         </div>}
-
-        {promptStation && !dialogueNpc && !stationDialogue && !secretOpen && (
-          <button
-            type="button"
-            className="px-prompt px-station-prompt"
-            onClick={() => engineRef.current?.interact()}
-            style={{ "--px-accent": promptStation.color } as React.CSSProperties}
-          >
-            <span className="px-prompt-key">E</span>
-            <div>
-              <p>{promptStation.index} · ROUTE NOTE</p>
-              <strong>View {promptStation.title}</strong>
-            </div>
-          </button>
-        )}
 
         {mode === "free" && !dialogueNpc && !stationDialogue && !secretOpen && <div className="px-dpad" role="group" aria-label="Movement controls">
           {([['w', '↑', 'Move up'], ['a', '←', 'Move left'], ['s', '↓', 'Move down'], ['d', '→', 'Move right']] as const).map(([key, symbol, label]) => (

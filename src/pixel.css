@@ -457,23 +457,6 @@
   text-underline-offset: .25rem;
 }
 
-.px-station-prompt {
-  border: var(--px-edge) solid var(--px-ink);
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-
-.px-station-prompt strong {
-  font: 900 1rem/1.25 ui-monospace, Menlo, monospace;
-}
-
-.px-station-prompt:hover,
-.px-station-prompt:focus-visible {
-  border-color: var(--px-accent);
-  transform: translate(-50%, -2px);
-}
-
 /* --- mode controls ------------------------------------------------------ */
 
 .px-controls {
