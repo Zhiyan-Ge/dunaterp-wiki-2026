@@ -460,9 +460,11 @@ main:focus:not(:focus-visible) { outline: none; }
 .article-page .article-references li > a { color: var(--ink); text-underline-offset: .2em; }
 .article-page .inline-citation { color: #176c82; font-size: .82em; font-weight: 800; text-underline-offset: .15em; }
 
-/* Modeling reads as a sequence of white laboratory sheets on warm paper.
-   Most exported plots already use white canvases, so this avoids the previous
-   dark-frame/white-image mismatch while keeping the pixel editorial system. */
+/* Keep Wet Lab and Dry Lab on the same warm paper ground. The content cards
+   remain white laboratory sheets, so the two branches now meet the footer on
+   one consistent surface instead of switching between white and cream. */
+body:has(.article-page--wet-lab),
+body:has(.article-page--dry-lab),
 body:has(.article-page--modeling),
 body:has(.article-page--hardware) { background: #f3ecd0; }
 .article-page--modeling .article-sections > section,
