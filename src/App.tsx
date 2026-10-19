@@ -235,9 +235,6 @@ function WikiMap() {
 function Article({ slug }: { slug: string }) {
   const page = pages[slug];
   if (!page) return <Navigate to="/wiki-map" replace />;
-  const index = pageOrder.indexOf(slug);
-  const nextSlug = pageOrder[(index + 1) % pageOrder.length];
-  const next = pages[nextSlug];
   const group = navigation.find((item) => item.items.some(([, href]) => href === `/${slug}`))
     ?? (MODELING_PATHS.includes(`/${slug}`) ? navigation.find((item) => item.label === 'Dry Lab') : undefined);
   const groupIndex = Math.max(0, navigation.findIndex((item) => item === group));
@@ -268,7 +265,6 @@ function Article({ slug }: { slug: string }) {
       <div className="article-body">{page.figure && <figure className="feature-figure"><img src={figureSrc} alt={page.figure.alt} loading="lazy" decoding="async" /><figcaption>{page.figure.caption}</figcaption></figure>}
         <div className="article-sections">{page.sections.map((section, i) => <section id={`section-${i + 1}`} tabIndex={-1} key={`${i}-${section.title}`}><div className="section-number">{String(i + 1).padStart(2, "0")}</div><div>{section.eyebrow && <p className="section-eyebrow">{section.eyebrow}</p>}<h2>{section.title}</h2>{section.body && <p>{renderCitations(section.body, referenceNumbers)}</p>}{section.blocks && <ArticleBlocks blocks={section.blocks} referenceNumbers={referenceNumbers} sectionId={`section-${i + 1}`} />}{section.items && <ul>{section.items.map((item) => <li key={item}>{renderCitations(item, referenceNumbers)}</li>)}</ul>}{section.note && <aside>{section.note}</aside>}</div></section>)}</div>
         {references.length > 0 && <section id="references" tabIndex={-1} className="article-references"><div className="section-number" aria-hidden="true">↗</div><div><p className="section-eyebrow">SOURCES &amp; FURTHER READING</p><h2>References</h2><ol>{references.map((reference, index) => <li id={`reference-${index + 1}`} key={reference.href}><span>{String(index + 1).padStart(2, "0")}</span><a href={reference.href} target="_blank" rel="noreferrer">{reference.label} ↗</a></li>)}</ol></div></section>}
-        <Link className="next-page" to={`/${nextSlug}`}><span>CONTINUE EXPLORING</span><strong>{next.title}</strong><b aria-hidden="true">↗</b></Link>
       </div>
     </div>
     </>}
