@@ -48,11 +48,12 @@ owns is unambiguously team-generated.
 | `paint.ts` | the drawing helper — rects, ellipses, lines, dither screens, grid decoding |
 | `font.ts` | a 5×7 bitmap typeface, authored glyph by glyph, for in-world signage |
 | `tiles.ts` | per-tile painters, the salt-plate Voronoi field, shoreline resolution |
-| `sprites.ts` | the hero grids and every prop and station, painted procedurally |
+| `sprites.ts` | sprite atlas, procedural NPCs, props and stations |
+| `hero.ts` | embedded PNG loader, four directions and four animation frames per direction |
 | `world-map.ts` | terrain generation, the route spline, station placement, prop scatter |
 | `renderer.ts` | ground pre-render, camera, y-sorted sprite pass, daylight wash |
 | `engine.ts` | input, the two modes, collision, the frame loop |
-| `station-copy.ts` | the six chapters and the archive — read by both canvas and DOM |
+| `station-copy.ts` | the four project-story chapters and the archive — read by both canvas and DOM |
 
 Four rules the art depends on, worth keeping if anyone edits it:
 

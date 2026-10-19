@@ -1,6 +1,6 @@
 // The salt lake.
 //
-// Terrain, the guided boardwalk route, the six chapter stations and every
+// Terrain, the guided boardwalk route, the four project-story stations and every
 // scattered prop are generated here from a fixed seed, so the world is
 // identical for every visitor while still avoiding hand-placing 400 objects.
 
@@ -86,8 +86,8 @@ export class RoutePath {
     return { x: a.x + dx * t, y: a.y + dy * t, dx: dx / len, dy: dy / len };
   }
 
-  /** Closest point on the route — used to hand control back after free roam. */
-  nearestU(x: number, y: number): number {
+  /** Closest point on the route, keeping continuity through nearby switchbacks. */
+  nearestU(x: number, y: number, referenceU?: number): number {
     let best = 0;
     let bestDistance = Infinity;
     for (let i = 0; i < this.points.length; i += 1) {
@@ -98,7 +98,28 @@ export class RoutePath {
         best = i;
       }
     }
-    return this.cumulative[best] / this.length;
+    if (referenceU === undefined) return this.cumulative[best] / this.length;
+
+    // The route folds back close to itself. First find the geometric nearest
+    // point, then keep the current route position when another nearby stretch
+    // is within a small tolerance. This prevents free-roam from snapping to a
+    // previous station when the visitor returns to the boardwalk.
+    const closestDistance = Math.sqrt(bestDistance);
+    const continuityDistance = closestDistance + TILE * 1.5;
+    const continuityDistanceSquared = continuityDistance * continuityDistance;
+    let closestProgress = best;
+    let closestProgressDelta = Math.abs(this.cumulative[best] / this.length - referenceU);
+    for (let i = 0; i < this.points.length; i += 1) {
+      const point = this.points[i];
+      const distance = (point.x - x) ** 2 + (point.y - y) ** 2;
+      if (distance > continuityDistanceSquared) continue;
+      const progressDelta = Math.abs(this.cumulative[i] / this.length - referenceU);
+      if (progressDelta < closestProgressDelta) {
+        closestProgress = i;
+        closestProgressDelta = progressDelta;
+      }
+    }
+    return this.cumulative[closestProgress] / this.length;
   }
 }
 
@@ -348,6 +369,28 @@ export function buildWorld(): World {
   const stations = STATION_COPY.map(place);
   const archive = place(ARCHIVE_COPY);
 
+  const head = path.sample(0.012);
+  const pointFromHead = (along: number, across: number) => ({
+    x: head.x + head.dx * along - head.dy * across,
+    y: head.y + head.dy * along + head.dx * across,
+  });
+
+  // Use the same tile-based shoreline and colour bands as every other pond.
+  // The previous entrance pool was a floating oval sprite and therefore read
+  // differently from the salt lakes elsewhere in the world.
+  const trailheadPool = pointFromHead(30, -112);
+  stampEllipse(
+    tiles,
+    trailheadPool.x / TILE,
+    trailheadPool.y / TILE,
+    7,
+    4,
+    Tile.Brine,
+    Tile.BrineDeep,
+    167,
+  );
+  stampBands(tiles);
+
   // Station 01 reads the bloom directly, so put the bloom where it stands.
   {
     const brine = stations[0];
@@ -565,13 +608,38 @@ export function buildWorld(): World {
     });
   });
 
-  // Signposts at the trailhead and the archive approach.
-  const head = path.sample(0.012);
-  props.push({ sprite: "signStart", x: head.x - 34, y: head.y + 10, shadow: "small" });
-  props.push({ sprite: "signFree", x: head.x + 34, y: head.y + 22, shadow: "small" });
-  const gate = path.sample(0.94);
-  props.push({ sprite: "signArchive", x: gate.x - 40, y: gate.y + 12, shadow: "small" });
+  // The route begins at an open field-lab bench rather than another building.
+  // Every item stays outside the boardwalk corridor so the traveller remains
+  // visible and the first movement is unobstructed.
+  const sign = pointFromHead(8, 66);
+  const labBench = path.sample(0);
 
+  props.push({ sprite: "trailheadLabBench", x: labBench.x, y: labBench.y + 16, shadow: "none" });
+  props.push({
+    sprite: "signScroll",
+    x: sign.x,
+    y: sign.y,
+    shadow: "small",
+  });
+  const headLamp = pointFromHead(34, 72);
+  const headCrate = pointFromHead(-3, -55);
+  props.push({ sprite: "lamp", x: headLamp.x, y: headLamp.y, shadow: "small" });
+  props.push({ sprite: "crate", x: headCrate.x, y: headCrate.y, shadow: "small" });
+
+  // The archive is a destination rather than another loose end of timber.
+  // A paired light and mineral marker create a small arrival court around its
+  // doorway while keeping the final boardwalk corridor clear.
+  const end = path.sample(0.994);
+  const pointFromEnd = (along: number, across: number) => ({
+    x: end.x + end.dx * along - end.dy * across,
+    y: end.y + end.dy * along + end.dx * across,
+  });
+  for (const across of [-70, 70]) {
+    const light = pointFromEnd(-18, across);
+    const crystal = pointFromEnd(18, across * 0.9);
+    props.push({ sprite: "lamp", x: light.x, y: light.y, shadow: "small" });
+    props.push({ sprite: across < 0 ? "crystal6" : "crystal7", x: crystal.x, y: crystal.y, shadow: "small" });
+  }
   // A moored boat or two on the open water.
   for (const [bx, by] of [[17, 35], [14, 76], [19, 100]] as Array<[number, number]>) {
     props.push({ sprite: "boat", x: bx * TILE, y: by * TILE, shadow: "none" });

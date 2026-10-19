@@ -12,6 +12,8 @@ const engine = new PixelEngine(document.createElement('canvas'), { clientWidth: 
   onEnter() { entries++; }, onNpcInteract() { talks++; },
 });
 const key = (value, interactive = false, repeat = false) => ({ key: value, repeat, target: new Element(interactive), preventDefault() {} });
+assert.equal(engine.world.props.some((prop) => prop.sprite === 'trailheadOutpost'), false, 'redundant FIELD outpost is absent');
+assert.ok(engine.world.props.some((prop) => prop.sprite === 'trailheadLodge'), 'TRAIL lodge remains at the route entrance');
 engine.enterFree();
 for (const npc of createNpcs(engine.world)) {
   assert.equal(isBlockedAt(engine.world, npc.x, npc.y), false, `${npc.id} must be reachable`);
@@ -35,7 +37,7 @@ for (const npc of createNpcs(engine.world)) {
   assert.equal(talks, before + 1, 'E talks to the nearest NPC');
 }
 const startPositions = engine.npcs.map((npc) => ({ x: npc.x, y: npc.y }));
-const trailhead = engine.world.path.sample(0.001);
+const trailhead = engine.world.path.sample(0.012);
 Object.assign(engine.hero, { x: trailhead.x, y: trailhead.y });
 engine.updateProximity();
 for (let frame = 0; frame < 40; frame++) engine.stepNpcs(0.05);
@@ -63,10 +65,17 @@ engine.setMoveKey('d', true);
 engine.onBlur();
 assert.equal(engine.keys.size, 0, 'blur releases movement');
 assert.equal(engine.travelToStation('missing'), false);
+for (const [reference, offset] of [[0.582, 220], [0.802, -250]]) {
+  const sample = engine.world.path.sample(reference);
+  const x = sample.x - sample.dy * offset;
+  const y = sample.y + sample.dx * offset;
+  const continuous = engine.world.path.nearestU(x, y, reference);
+  assert.ok(Math.abs(continuous - reference) < 0.06, 'free-roam progress stays on its current route segment');
+}
 assert.equal(engine.travelToStation('archive'), true);
 const station = engine.world.archive;
 Object.assign(engine.hero, { x: station.x, y: station.y + 6 });
 engine.updateProximity();
 engine.interact();
 assert.equal(entries, 1, 'archive remains reachable');
-console.log('PASS: NPC activity areas, patrol, interaction priority, keyboard ownership, pause, multitouch, blur, travel and archive');
+console.log('PASS: NPC activity, interaction, keyboard ownership, switchback continuity, travel and archive');

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" fill="none">
+  <defs>
+    <pattern id="salt" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M0 0h24v24H0z" fill="#eee9d8"/>
+      <path d="M2 3h5v5H2zM15 15h4v4h-4z" fill="#c9c4ae" opacity=".7"/>
+    </pattern>
+    <pattern id="water" width="18" height="18" patternUnits="userSpaceOnUse">
+      <path d="M0 0h9v9H0zM9 9h9v9H9z" fill="#f2eee0" opacity=".42"/>
+    </pattern>
+  </defs>
+  <path fill="#d4ccb2" d="M0 0h1200v500H0z"/>
+  <path fill="url(#salt)" d="M0 0h1200v500H0z"/>
+  <path fill="#d6a243" d="M818 0h382v500H818z" opacity=".76"/>
+  <path fill="#d58391" d="M990 0h210v500H990z" opacity=".78"/>
+  <path fill="url(#water)" d="M990 0h210v500H990z"/>
+  <path fill="#e9b852" d="M0 363h254v137H0z" opacity=".7"/>
+  <path fill="#c8d1c1" d="M120 0h266v134H120z" opacity=".58"/>
+  <path fill="#99b9b3" d="M260 56h164v102H260z" opacity=".72"/>
+  <path d="M0 252h202v-38h126v-42h172v-42h145v-42h142" stroke="#c2bba5" stroke-width="18" stroke-dasharray="2 17"/>
+  <path d="M145 504 487 238l178-138 118-92" stroke="#5d4630" stroke-width="76" stroke-linejoin="bevel"/>
+  <path d="M145 504 487 238l178-138 118-92" stroke="#a8794f" stroke-width="62" stroke-linejoin="bevel"/>
+  <path d="M145 504 487 238l178-138 118-92" stroke="#d0a374" stroke-width="12" stroke-dasharray="4 25" stroke-linejoin="bevel"/>
+  <ellipse cx="917" cy="125" rx="118" ry="51" fill="#d8818c"/>
+  <ellipse cx="917" cy="125" rx="82" ry="26" fill="#e5b34f"/>
+  <path d="M884 120h16v9h-16zM922 107h18v10h-18zM950 131h13v8h-13zM891 143h11v7h-11z" fill="#f3d77f"/>
+  <path d="M101 49h98v7h-98zM99 56h7v82h-7zM193 56h7v82h-7zM86 137h124v8H86z" fill="#16483f" opacity=".8"/>
+  <path d="M91 61h18v18H91zM116 61h18v18h-18zM141 61h18v18h-18zM166 61h18v18h-18z" fill="#f1e2bb"/>
+</svg>

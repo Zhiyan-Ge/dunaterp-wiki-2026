@@ -12,29 +12,59 @@ try {
   const { pages, navigation, pageOrder } = await server.ssrLoadModule('/src/site-data.ts');
   const { ArticleBlocks } = await server.ssrLoadModule('/src/ArticleBlocks.tsx');
   const items = navigation.find(g => g.label === 'Dry Lab').items;
-  assert.deepEqual(items.map(([label]) => label), ['Transcriptomics','Metabolomics','Protein','Mathematical Modeling','Hardware']);
+  assert.deepEqual(items, [
+    ['Overview', '/dry-lab'],
+    ['Transcriptomics', '/transcriptomics'],
+    ['Mathematical Modeling', '/model'],
+    ['Metabolomics', '/metabolomics'],
+    ['Protein', '/protein'],
+    ['Hardware Modeling', '/hardware'],
+    ['Hardware Design', '/hardware-design'],
+  ]);
   assert.equal(new Set(pageOrder).size, pageOrder.length);
   for (const [, href] of items) assert(pages[href.slice(1)], `Missing route ${href}`);
-  for (const slug of ['metabolomics','protein','hardware']) {
-    assert.equal(pages[slug].sections.length, 0);
-    assert.equal(pages[slug].intro, '');
+  for (const slug of ['metabolomics','protein','hardware','hardware-design','safety-and-security']) {
+    assert(pages[slug].sections.length > 0, `Missing content: ${slug}`);
+    assert(pages[slug].intro, `Missing introduction: ${slug}`);
   }
+  const transcriptomicsText = JSON.stringify(pages.transcriptomics);
+  assert(!/K-means|module M[1-5]|moderated t|peak_at_600|trough_at_600|FPKM ≥ 1|TF_RANKING|integrated MR/i.test(transcriptomicsText), 'Retired exploratory statistics remain in the active transcriptomics page');
+  assert(transcriptomicsText.includes('168 h') && transcriptomicsText.includes('three biological replicates each'), 'Biological sample design must be explicit');
+  assert(transcriptomicsText.includes('76,875 rows') && transcriptomicsText.includes('20 transcript features'), 'Input assembly and pathway annotation scope must be explicit');
+  assert(transcriptomicsText.includes('DIAMOND blastx') && transcriptomicsText.includes('subject coverage >= 15%') && transcriptomicsText.includes('reciprocal-best-hit'), 'Transcript annotation algorithm must be explicit');
+  assert(transcriptomicsText.includes('DESeq 1.10.1') && transcriptomicsText.includes('median-of-ratios') && transcriptomicsText.includes('nbinomTest') && transcriptomicsText.includes('28.97%'), 'Count-based replicate-aware model and count conversion must be explicit');
+  assert(transcriptomicsText.includes('600 → 1500') && transcriptomicsText.includes('Benjamini–Hochberg') && transcriptomicsText.includes('76,875 deposited transcript rows'), 'All three planned contrasts and multiple-testing procedure must be explicit');
+  assert(transcriptomicsText.includes('transcript abundance—not enzyme activity or β-carotene flux') && transcriptomicsText.includes('necessary validation'), 'Transcriptomics conclusion must distinguish expression evidence from flux and state the validation need');
+  assert(!transcriptomicsText.includes('TF2146'), 'TF2146 should not be introduced in the transcriptomics section');
+  const pathwaySection = pages.transcriptomics.sections.find(section => section.title === 'THE REACTIONS');
+  assert(pathwaySection?.blocks.some(block => block.kind === 'figure' && block.src.endsWith('carotenoid-route.svg')), 'Biological pathway map is missing');
+  const workflowSection = pages.transcriptomics.sections.find(section => section.title === 'THE DATASET');
+  assert(workflowSection?.blocks.some(block => block.kind === 'figure' && block.src.endsWith('transcriptomics-workflow.svg')), 'Transcriptomics workflow figure is missing');
+  const responseSection = pages.transcriptomics.sections.find(section => section.title === 'TRANSCRIPT-LEVEL RESPONSE');
+  assert(responseSection?.blocks.some(block => block.kind === 'figure' && block.src.endsWith('transcriptomics-sample-expression.svg')), 'Replicate-level expression plot is missing');
+  assert(responseSection?.blocks.some(block => block.kind === 'figure' && block.src.endsWith('transcriptomics-deseq-volcano.svg')), 'Genome-wide DESeq contrast plots are missing');
+  assert(responseSection?.blocks.some(block => block.kind === 'figure' && block.src.endsWith('transcriptomics-pathway-effects.svg')), 'Pathway-ordered transcript effect plot is missing');
+  const examplesTable = responseSection?.blocks.find(block => block.kind === 'table');
+  assert(examplesTable && examplesTable.rows.length === 6, 'The selected examples should include pathway steps and both LCYB transcript copies');
+  assert(examplesTable.rows.some(row => row[0].includes('Cluster-5009.34218 · LCYB')) && examplesTable.rows.some(row => row[0].includes('Cluster-5009.36796 · LCYB')), 'Both LCYB copies must remain distinct');
   let figures = 0;
   let tables = 0;
-  for (const slug of ['dry-lab','transcriptomics','model']) {
+  for (const slug of ['dry-lab','transcriptomics','model','protein','safety-and-security']) {
     const page = pages[slug];
     assert(!/[\u3400-\u9fff]/u.test(JSON.stringify(page)), `Non-English content: ${slug}`);
     for (const section of page.sections) {
       for (const block of section.blocks ?? []) {
-        if (block.kind === 'figure') {
+        const figureBlocks = block.kind === 'figure' ? [block] : block.kind === 'figure-row' || block.kind === 'figure-grid' ? block.figures : [];
+        for (const figure of figureBlocks) {
           figures++;
-          assert(fs.existsSync(path.join('public', block.src)), `Missing ${block.src}`);
-          assert(block.alt && block.caption);
+          assert(fs.existsSync(path.join('public', figure.src)), `Missing ${figure.src}`);
+          assert(figure.alt && figure.caption);
         }
         if (block.kind === 'table') {
           tables++;
           assert(block.rows.every(row => row.length === block.columns.length), block.caption);
         }
+        if (block.kind === 'chapter-grid') for (const item of block.items) assert(pages[item.href.split('#')[0].slice(1)], item.href);
         if (block.kind === 'links') for (const link of block.links) {
           if (link.href.startsWith('/')) assert(pages[link.href.slice(1)], link.href);
           else assert.equal(new URL(link.href).protocol, 'https:');
@@ -44,24 +74,50 @@ try {
         React.createElement(ArticleBlocks, { blocks: section.blocks ?? [] })));
       assert(!html.includes('undefined'), section.title);
       assert(!html.includes('src="/figures/'), 'Figure omitted deployment base');
+      assert(!html.includes('research-equation-error'), `Equation failed to render: ${section.title}`);
     }
   }
+  const proteinText = JSON.stringify(pages.protein);
+  for (const stale of ['−10.790','−10.473','0.140 ± 0.010','37–68','122–154']) assert(!proteinText.includes(stale), `Obsolete protein content: ${stale}`);
+  assert(proteinText.includes('TSO1') && proteinText.includes('pDCA1'), 'Both DNA studies must remain explicit');
+  assert(proteinText.includes('32–72') && proteinText.includes('117–158'), 'Complete CXC boundaries required');
+  const structure = JSON.parse(fs.readFileSync('src/content/structures/lycopene-wt.json','utf8'));
+  assert.equal(structure.identity.cid, 446925);
+  assert.equal(structure.ligand.length,40); assert.equal(structure.bonds.length,39);
+  const connected = new Set([0]);
+  for(let i=0;i<40;i++) for(const [a,b] of structure.bonds) { if(connected.has(a)) connected.add(b); if(connected.has(b)) connected.add(a); }
+  assert.equal(connected.size,40, 'Lycopene must be one connected, acyclic heavy-atom graph');
+  const renderSources = JSON.parse(fs.readFileSync('docs/reviews/lycopene-render-provenance.json','utf8')).sources;
+  for(const [file,hash] of Object.entries(structure.sha256)) assert.equal(hash,renderSources[`wt/${file}`], '3D and static render inputs must match');
   const data = JSON.parse(fs.readFileSync('src/content/dry-lab-tables.json','utf8'));
-  assert.equal(data.TF_RANKING.rows.length,333);
-  data.TF_RANKING.rows.forEach((row,i)=>assert.equal(Number(row[0]), i+1));
   assert.equal(data.RECOVERY.rows.length,16);
-  assert.equal(data.PARAMETERS.rows.length,31);
-  assert.equal(data.ELASTICITY.rows.length,29);
-  const ode = pages.model.sections.flatMap(s=>s.blocks ?? []).find(b=>b.kind==='equation' && b.label==='Nine-state ODE system');
-  assert.equal(ode.text.split('\n').length,9);
+  for (const obsolete of ['PARAMETERS','FIT','ENDPOINTS','ELASTICITY','ROBUSTNESS','BOUNDS']) {
+    assert(!data[obsolete], `Obsolete model table remains: ${obsolete}`);
+  }
+  const ode = pages.model.sections.flatMap(s=>s.blocks ?? []).find(b=>b.kind==='equation' && b.label==='Regulatory LCYB model');
+  assert.equal((ode.text.match(/\\frac\{d/g) ?? []).length,5);
+  assert.deepEqual(pages.model.sections.map(section => section.title), [
+    'Why model the LCYB step?','From promoter binding to transcript output','Tracking the five model states',
+    'What is supported, and what still needs measuring','What the model can currently tell us','Passing the output to the product models','Model conclusion and experimental handoff',
+  ]);
+  assert(!/day-7|2\.0988|10\.9518|Car09|nine-state|FBA/i.test(JSON.stringify(pages.model)), 'Obsolete quantitative claim remains');
+  for (const slug of ['transcriptomics','model','protein']) {
+    const captions = pages[slug].sections.flatMap(s => s.blocks ?? []).flatMap(block => block.kind === 'figure' ? [block.caption] : block.kind === 'figure-row' || block.kind === 'figure-grid' ? block.figures.map(figure => figure.caption) : []);
+    captions.forEach((caption, i) => assert(caption.startsWith('Fig. ' + (i + 1) + ' '), 'Figure numbering in ' + slug + ': ' + caption));
+  }
+  assert(!pages.model.sections.some(section => /CPP/i.test(JSON.stringify(section))), 'Unverified CPP regulator remains in modeling');
+  assert(!pages.transcriptomics.sections.some(section => section.title.startsWith('CPP')), 'CPP-only chapter remains');
+  for (const oldFigure of ['branch-allocation.png','light-intensity-pca.png','dry-lab/02_tf_candidates.png']) {
+    assert(!fs.existsSync(path.join('public/figures', oldFigure)), 'Obsolete figure remains: ' + oldFigure);
+  }
   const provenance = JSON.parse(fs.readFileSync('src/content/dry-lab-provenance.json','utf8'));
   for (const [file, hash] of Object.entries(provenance.figure_sha256)) {
     assert.equal(createHash('sha256').update(fs.readFileSync(`public/figures/dry-lab/${file}`)).digest('hex'), hash);
   }
-  assert.equal(figures,11);
+  assert.equal(figures,15);
   const workflow = fs.readFileSync('.github/workflows/pages.yml','utf8');
-  for(const slug of ['dry-lab','transcriptomics','metabolomics','protein','model','hardware']) assert(workflow.includes(`            ${slug} \\`));
-  console.log(`Dry Lab checks passed: 5 ordered chapters, 3 empty pages, ${figures} unchanged figures, ${tables} tables, 333 ranked transcripts and 9 ODEs.`);
+  for(const slug of ['dry-lab','transcriptomics','metabolomics','protein','model','hardware','hardware-design']) assert(workflow.includes(`            ${slug} \\`));
+  console.log(`Dry Lab checks passed: complete seven-entry navigation, populated protein and safety pages, ${figures} figures, ${tables} tables, three explicit transcriptomics contrasts and 5 core ODEs.`);
 } finally {
   await server.close();
 }

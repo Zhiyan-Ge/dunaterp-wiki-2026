@@ -1,4 +1,5 @@
 name: Deploy wiki to GitHub Pages
+run-name: Publish wiki preview
 
 on:
   push:
@@ -46,6 +47,7 @@ jobs:
             project-description \
             engineering \
             experiments \
+            notebook \
             results \
             dry-lab \
             transcriptomics \
@@ -53,12 +55,12 @@ jobs:
             protein \
             model \
             hardware \
+            hardware-design \
             contribution \
-            human-practices \
             safety-and-security \
             alternative-platform \
-            sustainability \
             education \
+            cooperation \
             team \
             attributions \
             responsible-ai

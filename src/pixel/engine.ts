@@ -7,6 +7,7 @@
 
 import { PixelRenderer, type Camera, type Drawable } from "./renderer";
 import type { Facing } from "./sprites";
+import { HERO_DISPLAY_H } from "./hero";
 import { createNpcs, type Npc } from "./npc-data";
 import { TILE, drag } from "./tiles";
 import {
@@ -27,9 +28,15 @@ export type EngineEvents = {
   onMode: (mode: Mode) => void;
   /** Index into world.stations, or -1 between chapters. */
   onChapter: (index: number) => void;
+  /** Current normalised position along the route. */
+  onJourney?: (u: number) => void;
   onPrompt: (station: Station | null) => void;
   /** Fired when the visitor confirms an interaction. */
   onEnter: (station: Station) => void;
+  /** Keep station labels in the world while reserving interaction for NPCs. */
+  stationInteractions?: boolean;
+  /** Restrict interactions to selected route stops while leaving scenery intact. */
+  interactableStationKeys?: readonly string[];
   /** Optional free-roam NPC prompt and journal interaction hooks. */
   onNpcPrompt?: (npc: Npc | null) => void;
   onNpcInteract?: (npc: Npc) => void;
@@ -45,10 +52,13 @@ const FOLLOW_STIFFNESS = 70;
 const FOLLOW_DAMPING = 15;
 const MAX_FOLLOW_SPEED = 0.48;
 
-const INTERACT_RADIUS = 62;
+const STATION_INTERACT_RADIUS = 108;
+const NPC_INTERACT_RADIUS = 62;
 /** Hero collision box at the feet, in pixels. */
 const BODY_HALF_W = 5;
 const BODY_HALF_H = 3;
+const TRAILHEAD_U = 0.012;
+const INTRO_HANDOFF_SECONDS = 0.9;
 
 export class PixelEngine {
   readonly world: World;
@@ -67,8 +77,8 @@ export class PixelEngine {
 
   mode: Mode = "guided";
   /** Normalised position along the route. */
-  u = 0.001;
-  private targetU = 0.001;
+  u = TRAILHEAD_U;
+  private targetU = TRAILHEAD_U;
   private uVelocity = 0;
 
   private hero = { x: 0, y: 0, vx: 0, vy: 0 };
@@ -101,6 +111,7 @@ export class PixelEngine {
   private activeNpc: Npc | null = null;
   private paused = false;
   private chapter = -1;
+  private lastReportedJourney = TRAILHEAD_U;
   private resizeObserver: ResizeObserver | null = null;
   /** Stable scene entries; only the hero's position/frame changes per tick. */
   private readonly drawables: Drawable[] = [];
@@ -115,7 +126,7 @@ export class PixelEngine {
     this.host = host;
     this.events = events;
 
-    const start = this.world.path.sample(0.001);
+    const start = this.world.path.sample(TRAILHEAD_U);
     this.hero.x = start.x;
     this.hero.y = start.y;
     this.camera.x = start.x;
@@ -203,21 +214,16 @@ export class PixelEngine {
     this.setPaused(true);
     this.mode = "guided";
     this.events.onMode(this.mode);
-    this.u = this.targetU = 0.001;
+    this.u = this.targetU = TRAILHEAD_U;
     this.uVelocity = 0;
     this.introReturn = null;
-    const guide = this.npcs[0];
-    // Place the traveller on a safe patch beside the guide, off the boardwalk.
-    for (const dx of [24, -24, 32, -32, 0]) {
-      const x = guide.homeX + dx, y = guide.homeY + 10;
-      if (!isBlockedAt(this.world, x - BODY_HALF_W, y - BODY_HALF_H)
-        && !isBlockedAt(this.world, x + BODY_HALF_W, y + BODY_HALF_H)
-        && !isOnDeck(this.world, x, y)) {
-        this.hero.x = x; this.hero.y = y; break;
-      }
-    }
-    this.facing = "left";
-    this.setIntroShot(0.085, -65, -30);
+    // The traveller waits on the marked trailhead, already facing the route.
+    // This makes the handoff from prologue to exploration spatially legible.
+    const start = this.world.path.sample(TRAILHEAD_U);
+    this.hero.x = start.x;
+    this.hero.y = start.y;
+    this.updateFacing(start.dx, start.dy);
+    this.setIntroShot(0.12, -52, -26);
     this.camera = { ...this.introShot! };
   }
 
@@ -233,14 +239,28 @@ export class PixelEngine {
     this.introReturn = { elapsed: 0, camera: { ...this.camera }, hero: { x: this.hero.x, y: this.hero.y } };
   }
 
+  /** Immediate handoff for skip/final actions: never leave an empty transition frame. */
+  finishIntro() {
+    const start = this.world.path.sample(TRAILHEAD_U);
+    this.u = this.targetU = TRAILHEAD_U;
+    this.uVelocity = 0;
+    this.hero.x = start.x;
+    this.hero.y = start.y;
+    this.updateFacing(start.dx, start.dy);
+    this.camera = { x: start.x, y: start.y };
+    this.introReturn = null;
+    this.introShot = null;
+    this.setPaused(false);
+  }
+
   private stepIntro(delta: number) {
     if (!this.introShot) return;
     const handoff = this.introReturn;
     if (handoff) {
       handoff.elapsed += delta;
-      const t = Math.min(1, handoff.elapsed / (this.reducedMotion ? 0.2 : 1.6));
+      const t = Math.min(1, handoff.elapsed / (this.reducedMotion ? 0.2 : INTRO_HANDOFF_SECONDS));
       const eased = t * t * (3 - 2 * t);
-      const start = this.world.path.sample(0.001);
+      const start = this.world.path.sample(TRAILHEAD_U);
       this.hero.x = handoff.hero.x + (start.x - handoff.hero.x) * eased;
       this.hero.y = handoff.hero.y + (start.y - handoff.hero.y) * eased;
       this.camera.x = handoff.camera.x + (start.x - handoff.camera.x) * eased;
@@ -250,7 +270,7 @@ export class PixelEngine {
         this.camera.x = start.x; this.camera.y = start.y;
       }
       if (t >= 1) {
-        this.u = this.targetU = 0.001;
+        this.u = this.targetU = TRAILHEAD_U;
         this.uVelocity = 0;
         this.introReturn = null;
         this.introShot = null;
@@ -269,7 +289,7 @@ export class PixelEngine {
 
   /** Called from the scroll handler while in guided mode. */
   setScrollProgress(value: number) {
-    this.targetU = Math.max(0.001, Math.min(0.999, value));
+    this.targetU = Math.max(TRAILHEAD_U, Math.min(0.999, value));
   }
 
   enterFree() {
@@ -285,7 +305,7 @@ export class PixelEngine {
 
   exitFree() {
     if (this.mode !== "free") return;
-    this.u = this.world.path.nearestU(this.hero.x, this.hero.y);
+    this.u = this.world.path.nearestU(this.hero.x, this.hero.y, this.u);
     this.targetU = this.u;
     this.uVelocity = 0;
     this.returnFrom = { x: this.hero.x, y: this.hero.y };
@@ -572,7 +592,7 @@ export class PixelEngine {
     this.walkDistance += Math.hypot(this.hero.vx, this.hero.vy) * delta;
     this.updateFacing(this.hero.vx, this.hero.vy);
     // Keep the page scroll roughly in step so leaving free mode never jumps.
-    this.u = this.world.path.nearestU(this.hero.x, this.hero.y);
+    this.u = this.world.path.nearestU(this.hero.x, this.hero.y, this.u);
     this.stepNpcs(delta);
   }
 
@@ -713,13 +733,16 @@ export class PixelEngine {
   private updateProximity() {
     let nearestStation: Station | null = null;
     let nearestNpc: Npc | null = null;
-    let nearestStationDistance = INTERACT_RADIUS;
-    let nearestNpcDistance = INTERACT_RADIUS;
-    for (const station of [...this.world.stations, this.world.archive]) {
-      const distance = Math.hypot(station.x - this.hero.x, station.y + 6 - this.hero.y);
-      if (distance < nearestStationDistance) {
-        nearestStationDistance = distance;
-        nearestStation = station;
+    let nearestStationDistance = STATION_INTERACT_RADIUS;
+    let nearestNpcDistance = NPC_INTERACT_RADIUS;
+    if (this.events.stationInteractions !== false) {
+      for (const station of [...this.world.stations, this.world.archive]) {
+        if (this.events.interactableStationKeys && !this.events.interactableStationKeys.includes(station.key)) continue;
+        const distance = Math.hypot(station.x - this.hero.x, station.y + 6 - this.hero.y);
+        if (distance < nearestStationDistance) {
+          nearestStationDistance = distance;
+          nearestStation = station;
+        }
       }
     }
     if (this.mode === "free") {
@@ -784,6 +807,10 @@ export class PixelEngine {
     }
 
     if (!this.introShot) this.updateProximity();
+    if (Math.abs(this.u - this.lastReportedJourney) >= 0.0015) {
+      this.lastReportedJourney = this.u;
+      this.events.onJourney?.(this.u);
+    }
 
     // Camera leads slightly in the direction of travel, and on the guided
     // route it drifts toward whichever station is coming up so the landmark is
@@ -810,10 +837,11 @@ export class PixelEngine {
     }
     this.renderer.clampCamera(this.camera);
 
+    const moving = Math.hypot(this.hero.x - this.heroDrawable.x, this.hero.y - this.heroDrawable.y) > 0.01;
     this.heroDrawable.x = this.hero.x;
     this.heroDrawable.y = this.hero.y;
     this.heroDrawable.facing = this.facing;
-    this.heroDrawable.frame = this.reducedMotion ? 0 : Math.floor(this.walkDistance / 7) % 4;
+    this.heroDrawable.frame = this.reducedMotion || !moving ? 0 : Math.floor(this.walkDistance / 7) % 4;
 
     this.renderer.render({
       world: this.world,
@@ -821,24 +849,27 @@ export class PixelEngine {
       drawables: this.drawables,
       time: this.reducedMotion ? 0 : now / 1000,
       daylight: this.introReturn
-        ? 0.82 * (1 - Math.min(1, this.introReturn.elapsed / (this.reducedMotion ? 0.2 : 1.6)))
+        ? 0.82 * (1 - Math.min(1, this.introReturn.elapsed / (this.reducedMotion ? 0.2 : INTRO_HANDOFF_SECONDS)))
         : this.introShot ? 0.82 : this.u,
       prompt: this.introShot ? null : this.activeNpc
         ? {
           x: this.activeNpc.x,
-          y: this.activeNpc.y - 26,
+          // Stack the interaction prompt above the NPC's marker and name.
+          y: this.activeNpc.y - 49,
           text: "E  TALK",
           accent: this.activeNpc.paletteKey,
         }
         : this.activeStation
         ? {
           x: this.hero.x,
-          y: this.hero.y - 26,
-          text: this.mode === "free" ? "E  ENTER" : this.activeStation.index,
+          y: this.hero.y - HERO_DISPLAY_H - 7,
+          text: "E  VIEW",
           accent: this.activeStation.accent,
         }
         : null,
-      showNpcLabels: this.mode === "free",
+      // The guides remain visible during the guided walk; interaction still
+      // requires free roam so they read as optional side conversations.
+      showNpcLabels: this.introShot === null,
       hideStationLabels: this.introShot !== null,
     });
   };

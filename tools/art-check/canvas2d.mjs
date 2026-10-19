@@ -206,10 +206,56 @@ class FakeCanvas {
   removeEventListener() {}
 }
 
+// Decode the embedded 8-bit RGBA PNG used by the hero without adding a native
+// image dependency to the offline art checker. Supports all PNG row filters.
+class FakeImage {
+  set src(url) {
+    queueMicrotask(() => {
+      try {
+        if (!url.startsWith('data:image/png;base64,')) throw new Error('Expected an embedded PNG');
+        const png = Buffer.from(url.split(',')[1], 'base64');
+        const chunks = [];
+        for (let at = 8; at < png.length;) {
+          const size = png.readUInt32BE(at);
+          const type = png.toString('ascii', at + 4, at + 8);
+          const body = png.subarray(at + 8, at + 8 + size);
+          if (type === 'IHDR') {
+            this._w = this.naturalWidth = body.readUInt32BE(0);
+            this._h = this.naturalHeight = body.readUInt32BE(4);
+            if (body[8] !== 8 || body[9] !== 6 || body[12] !== 0) throw new Error('Expected non-interlaced 8-bit RGBA');
+          }
+          if (type === 'IDAT') chunks.push(body);
+          at += size + 12;
+        }
+        const raw = zlib.inflateSync(Buffer.concat(chunks));
+        const stride = this._w * 4;
+        this.data = new Uint8ClampedArray(stride * this._h);
+        for (let y = 0; y < this._h; y++) {
+          const filter = raw[y * (stride + 1)];
+          if (filter > 4) throw new Error('Unsupported PNG filter');
+          for (let x = 0; x < stride; x++) {
+            const i = y * stride + x;
+            const a = x >= 4 ? this.data[i - 4] : 0;
+            const b = y ? this.data[i - stride] : 0;
+            const c = y && x >= 4 ? this.data[i - stride - 4] : 0;
+            const p = a + b - c;
+            const pa = Math.abs(p - a), pb = Math.abs(p - b), pc = Math.abs(p - c);
+            const predictor = filter === 1 ? a : filter === 2 ? b : filter === 3
+              ? Math.floor((a + b) / 2) : filter === 4 ? (pa <= pb && pa <= pc ? a : pb <= pc ? b : c) : 0;
+            this.data[i] = (raw[y * (stride + 1) + 1 + x] + predictor) & 255;
+          }
+        }
+        this.onload?.();
+      } catch (error) { this.onerror?.(error); }
+    });
+  }
+}
+
 export function installShim() {
   globalThis.document = { createElement: (tag) => (tag === "canvas" ? new FakeCanvas() : { style: {} }), hidden: false };
   globalThis.window = { devicePixelRatio: 1, innerWidth: 1280, innerHeight: 720 };
   globalThis.HTMLCanvasElement = FakeCanvas;
+  globalThis.Image = FakeImage;
 }
 
 export function writePng(canvas) {

@@ -59,7 +59,7 @@ const chapters = [
     n: "04",
     kicker: "MATHEMATICAL MODEL",
     title: "Find where control moves",
-    body: "Expression, branch kinetics and network capacity ask when more LCYB stops producing a useful gain.",
+    body: "A five-state model connects regulator abundance and promoter occupancy to LCYB transcription, enzyme abundance and the β-carotene pool. Quantitative prediction begins after the listed kinetic inputs are measured.",
     link: "/model",
     c: "#f8cb54",
   },
@@ -78,7 +78,7 @@ const chapters = [
     kicker: "RESPONSIBLE ENGINEERING",
     title: "The world changes the design",
     body: "Safety, stakeholder feedback and reproducibility determine whether the platform should move beyond the lab.",
-    link: "/human-practices",
+    link: "/education",
     c: "#c4a8ff",
   },
 ] as const;
@@ -95,6 +95,7 @@ const panelGroups: PanelGroup[] = [
       { label: "Project Description", href: "/project-description", note: "The biological idea and product routes" },
       { label: "Engineering", href: "/engineering", note: "Design · Build · Test · Learn" },
       { label: "Experiments", href: "/experiments", note: "Protocols, controls and records" },
+      { label: "Protocols", href: "/notebook", note: "Full team-authored protocol documents" },
       { label: "Results", href: "/results", note: "Evidence and its limits" },
       { label: "Safety", href: "/safety-and-security", note: "Containment and risk design" },
     ],
@@ -113,12 +114,11 @@ const panelGroups: PanelGroup[] = [
     index: "03",
     label: "Human Practices",
     short: "HP",
-    summary: "Let stakeholders, safety and sustainability change what the team builds.",
+    summary: "Share synthetic biology through education, exchange and open cooperation.",
     accent: "#f8cb54",
     links: [
-      { label: "Human Practices", href: "/human-practices", note: "People, feedback and design decisions" },
-      { label: "Sustainability", href: "/sustainability", note: "Whole-system impact" },
       { label: "Education", href: "/education", note: "Dialogue and reusable learning" },
+      { label: "Cooperation", href: "/cooperation", note: "Exchange across teams and communities" },
     ],
   },
   {
@@ -684,32 +684,6 @@ function createProductDepot() {
   return group;
 }
 
-function createSustainabilityStation() {
-  const group = new THREE.Group();
-  const frameMaterial = new THREE.MeshToonMaterial({ color: 0x17463e });
-  const solarMaterial = new THREE.MeshToonMaterial({ color: 0x386a78 });
-
-  [-1.8, 0, 1.8].forEach((x) => {
-    const panel = new THREE.Mesh(new THREE.BoxGeometry(1.45, 0.12, 2.25), solarMaterial);
-    panel.position.set(x, 1.55, 0);
-    panel.rotation.x = -0.42;
-    panel.castShadow = true;
-    group.add(panel);
-    const post = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.1, 1.45, 10), frameMaterial);
-    post.position.set(x, 0.75, 0.3);
-    group.add(post);
-  });
-
-  const waterLoop = new THREE.Mesh(
-    new THREE.TorusGeometry(1.2, 0.16, 10, 36),
-    new THREE.MeshToonMaterial({ color: 0x7de2ff }),
-  );
-  waterLoop.position.set(0, 2.35, -2.15);
-  waterLoop.rotation.y = Math.PI / 2;
-  group.add(waterLoop);
-  return group;
-}
-
 function addProp(
   scene: THREE.Scene,
   curve: THREE.CatmullRomCurve3,
@@ -1143,7 +1117,6 @@ export function DunaWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
       { t: 0.49, offset: 12.9, object: createWetLabBench(), scale: 0.71, turn: -0.1 },
       { t: 0.665, offset: -13.1, object: createCarotenoidHub(), scale: 0.74, turn: 0.12 },
       { t: 0.815, offset: -13, object: createProductDepot(), scale: 0.76, turn: -0.1 },
-      { t: 0.935, offset: 13.3, object: createSustainabilityStation(), scale: 0.74, turn: 0.12 },
     ];
     scenicFeatures.forEach((feature) => {
       addProp(scene, curve, feature.t, feature.offset, feature.object, feature.scale);

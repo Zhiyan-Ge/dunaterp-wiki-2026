@@ -4,7 +4,17 @@
 .research-blocks a { color: #176c82; text-underline-offset: .2em; }
 .research-blocks .research-figure { margin: 2rem auto; padding: .75rem; border-radius: .4rem; }
 .research-figure a, .research-figure img { display: block; width: 100%; }
-.figure-credit { display: block; margin-top: .6rem; font-size: .8125rem; }
+.research-figure-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: 2rem 0; }
+.research-figure-grid .research-figure { display: flex; flex-direction: column; margin: 0; min-width: 0; }
+.research-figure-grid .research-figure a { display: grid; place-items: center; flex: 1; min-height: 20rem; }
+.research-figure-grid .research-figure img { max-height: 30rem; object-fit: contain; }
+.research-chapter-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: 2rem 0; }
+.research-chapter-card { position: relative; display: grid; grid-template-columns: 2.4rem 1fr auto; gap: .8rem; min-height: 12rem; padding: 1.4rem; border: 3px solid var(--ink); background: #fff; color: var(--ink)!important; box-shadow: 5px 5px 0 #b8f24b; text-decoration: none; }
+.research-chapter-card>span { font: 900 .75rem/1 ui-monospace,Menlo,monospace; color: #426057; }
+.research-chapter-card h3 { margin: 0 0 .65rem; font: 900 1.15rem/1.2 ui-monospace,Menlo,monospace; text-transform: uppercase; }
+.research-chapter-card p { margin: 0; font-size: .9rem!important; line-height: 1.6!important; color: #4d625a!important; }
+.research-chapter-card>b { font-size: 1.2rem; }
+.research-chapter-card:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 #b8f24b; }
 .research-table-scroll { width: 100%; overflow-x: auto; margin: 1.8rem 0; border: 1px solid var(--line); border-radius: .35rem; }
 .research-table-scroll table { width: 100%; border-collapse: collapse; font-size: .875rem; line-height: 1.55; font-variant-numeric: tabular-nums; }
 .research-table-scroll caption { text-align: left; font-weight: 650; padding: 1rem; color: var(--ink); }
@@ -17,20 +27,56 @@
 .research-table-details summary span { font-weight: 400; }
 .research-table-details .research-table-scroll { max-height: 38rem; margin-bottom: 0; }
 .research-table-details thead { position: sticky; top: 0; }
-.research-equation, .research-code pre { max-width: 100%; overflow-x: auto; padding: 1.2rem; background: #edf3f1; border-left: 3px solid #26797d; margin: 1.6rem 0; }
-.research-equation pre { margin: 0; font-family: 'Cambria Math', 'STIX Two Math', Georgia, serif; font-size: 1.05rem; line-height: 2; white-space: pre; }
+.research-equation, .research-code pre { max-width: 100%; overflow-x: auto; background: #edf3f1; border-left: 3px solid #26797d; }
+.research-equation { margin: 2.2rem 0; padding: 1.8rem 1.4rem; }
+.research-code pre { margin: 1.6rem 0; padding: 1.2rem; }
+.research-equation .katex-display { margin: .35rem 0; min-width: max-content; }
+.research-equation .katex { font-size: 1.08em; }
+.research-equation pre { margin: 0; white-space: pre; }
 .research-code pre { font-size: .875rem; line-height: 1.8; }
 .research-code>p { font-size: .875rem; margin-bottom: -.75rem; font-weight: 600; }
 .research-links { padding: 0; list-style: none; }
 .research-links li { margin: .45rem 0; }
+.wet-lab-protocol h3 { padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.wet-lab-protocol h4 { margin: 2rem 0 1rem; font-size: 1.125rem; line-height: 1.5; color: var(--ink); }
+.wet-lab-protocol h4 em { font-style: normal; }
+.wet-lab-protocol ol, .wet-lab-protocol ul { padding-left: 1.6rem; margin: 1.25rem 0; }
+.wet-lab-protocol li { padding-left: .3rem; margin: .85rem 0; }
+.wet-lab-protocol li::marker { color: var(--ink); font-weight: 650; }
+.wet-lab-protocol li > ol, .wet-lab-protocol li > ul { margin: .75rem 0; }
+.wet-lab-protocol .research-table-scroll { background: #fff; }
+.wet-lab-protocol .research-table-scroll th, .wet-lab-protocol .research-table-scroll td { text-align: left; }
+.wet-lab-protocol .research-table-scroll table:has(th:nth-child(3)) { min-width: 30rem; }
+.wet-lab-protocol .research-table-scroll { overflow-wrap: normal; }
+.article-page .article-sections > section:has(.wet-lab-protocol) h2 { max-width: none; font-size: clamp(1.5rem, 2.2vw, 2.05rem); line-height: 1.25; }
+.protocol-download { padding-top: 1rem; border-top: 1px solid var(--line); font-size: .875rem; }
+.protocol-pdf { width: 100%; min-width: 0; margin: 1.5rem 0 3rem; }
+.protocol-pdf__actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .7rem; margin-bottom: .8rem; }
+.protocol-pdf__actions a { padding: .65rem .9rem; border: 2px solid var(--ink); background: #fffaf0; color: var(--ink); font: 800 .75rem/1.2 ui-monospace,Menlo,monospace; text-decoration: none; text-transform: uppercase; box-shadow: 3px 3px 0 var(--article-accent); }
+.protocol-pdf iframe { display: block; box-sizing: border-box; width: 100%; max-width: 100%; min-width: 0; height: min(1000px,78vh); min-height: 720px; border: 3px solid var(--ink); background: #fff; box-shadow: 7px 7px 0 var(--article-accent); }
 .article-toc { max-height: calc(100vh - 9rem); overflow-y: auto; }
 .related-wiki-pages { display: flex; flex-wrap: wrap; gap: 1rem 2rem; padding: 1rem 0 2rem; }
 .related-wiki-pages a { color: #176c82; }
 @media (max-width: 800px) {
+  .article-page .article-sections > section:has(.wet-lab-protocol) { grid-template-columns: minmax(0,1fr); gap: 1rem; }
   .article-toc { max-height: none; }
   .research-table-scroll th, .research-table-scroll td { padding: .6rem; }
   .research-table-details { padding: .75rem; }
+  .research-equation { margin: 1.8rem 0; padding: 1.45rem 1rem; }
+  .research-figure-grid,.research-chapter-grid { grid-template-columns: 1fr; }
+  .research-figure-grid .research-figure a { min-height: 14rem; }
+  .article-page--notebook .article-sections h2 { font-size: clamp(1.35rem, 7vw, 1.8rem); overflow-wrap: anywhere; }
+  .article-page--notebook .protocol-pdf__actions { justify-content: flex-start; }
+  .protocol-pdf iframe { min-height: 68vh; }
 }
 @media print {
   .research-table-details .research-table-scroll { max-height: none; overflow: visible; }
+}
+.pbr-widget-shell {
+  width: 100%;
+  margin: 1.75rem 0 2rem;
+}
+
+.pbr-widget-shell > div {
+  width: 100%;
 }

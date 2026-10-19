@@ -6,8 +6,9 @@
 // sprite drawn on top.
 
 import { drawText, textWidth } from "./font";
+import { prepareHero, HERO_DISPLAY_W, HERO_DISPLAY_H } from "./hero";
 import { rect, surface, type Painter } from "./paint";
-import { deckSegment, getAtlas, stationPlate, type Facing } from "./sprites";
+import { deckSegment, getAtlas, npcPersonFrame, stationPlate, type Facing } from "./sprites";
 import type { Npc } from "./npc-data";
 import { TILE, Tile, paintTile } from "./tiles";
 import {
@@ -39,7 +40,7 @@ export class PixelRenderer {
   private buffer: Painter;
   private ground: HTMLCanvasElement | null = null;
   private plates = new Map<string, Painter>();
-  /** Tinted/accessoried hero frames, cached so render never allocates canvases. */
+  /** Opening-story-style contact frames, cached so render never allocates canvases. */
   private npcSprites = new Map<string, Painter>();
   scale = 3;
 
@@ -63,6 +64,8 @@ export class PixelRenderer {
    * the main thread for half a second on first paint.
    */
   async prepareGround(world: World, onProgress: (ratio: number) => void, cancelled: () => boolean) {
+    await prepareHero();
+    if (cancelled()) return;
     const p = surface(WORLD_W, WORLD_H);
     const at = (tx: number, ty: number) => (dx: number, dy: number): Tile => {
       const nx = tx + dx;
@@ -70,7 +73,9 @@ export class PixelRenderer {
       if (nx < 0 || ny < 0 || nx >= MAP_W || ny >= MAP_H) return Tile.Salt;
       return world.tiles[ny * MAP_W + nx] as Tile;
     };
-    const band = 6;
+    // Fewer, slightly larger bands keep the loading screen brief without
+    // blocking the first paint for the full terrain pass.
+    const band = 18;
     for (let ty = 0; ty < MAP_H; ty += band) {
       if (cancelled()) return;
       for (let y = ty; y < Math.min(MAP_H, ty + band); y += 1) {
@@ -154,43 +159,7 @@ export class PixelRenderer {
     const cached = this.npcSprites.get(key);
     if (cached) return cached;
 
-    const base = getAtlas().hero[facing][frame % 4];
-    const sprite = surface(base.w, base.h);
-    const ctx = sprite.ctx;
-    ctx.drawImage(base.canvas, 0, 0);
-
-    // Keep the original hero's palette and linework, then add a restrained
-    // source-atop tint so each NPC is readable at a glance without introducing
-    // a second art style.
-    ctx.save();
-    ctx.globalCompositeOperation = "source-atop";
-    ctx.globalAlpha = 0.34;
-    ctx.fillStyle = npc.tint;
-    ctx.fillRect(0, 0, sprite.w, sprite.h);
-    ctx.restore();
-
-    ctx.fillStyle = npc.accent;
-    ctx.strokeStyle = "#06221f";
-    ctx.lineWidth = 1;
-    if (npc.accessory === "helmet") {
-      // Hard, one-pixel helmet brim and crown.
-      ctx.fillRect(2, 1, 10, 2);
-      ctx.fillRect(4, 0, 6, 1);
-      ctx.fillStyle = "#06221f";
-      ctx.fillRect(2, 3, 10, 1);
-    } else if (npc.accessory === "satchel") {
-      // Satchel over one shoulder, plus a bright sample vial in hand.
-      ctx.fillRect(1, 10, 3, 6);
-      ctx.fillStyle = "#06221f";
-      ctx.fillRect(1, 10, 3, 1);
-      ctx.fillStyle = npc.accent;
-      ctx.fillRect(facing === "left" ? 10 : 1, 13, 2, 3);
-    } else {
-      // Research notebook held low; the pale edge survives the tint wash.
-      ctx.fillRect(facing === "left" ? 2 : 10, 12, 3, 4);
-      ctx.fillStyle = "#06221f";
-      ctx.fillRect(facing === "left" ? 2 : 10, 12, 3, 1);
-    }
+    const sprite = npcPersonFrame(npc, facing, frame);
     this.npcSprites.set(key, sprite);
     return sprite;
   }
@@ -203,7 +172,7 @@ export class PixelRenderer {
     /** 0 at the trailhead, 1 at the archive — drives the light. */
     daylight: number;
     prompt: { x: number; y: number; text: string; accent: string } | null;
-    /** NPC names and overhead markers are intentionally shown in free mode. */
+    /** NPC names and overhead markers keep optional guides visible on the route. */
     showNpcLabels?: boolean;
     hideStationLabels?: boolean;
   }) {
@@ -283,12 +252,16 @@ export class PixelRenderer {
           Math.round(item.station.y - shadow.h / 2) - oy,
         );
         ctx.drawImage(sprite.canvas, x, y);
-        if (!hideStationLabels) {
+        if (!hideStationLabels && item.station.key !== "archive") {
           const plate = this.plateFor(item.station);
+          const route = world.path.sample(item.station.u);
+          const side = Math.sign(item.station.offset) || 1;
+          const plateX = item.station.x - route.dy * side * 58 + (item.station.plateNudge?.x ?? 0);
+          const plateY = item.station.y + route.dx * side * 58 - sprite.h / 2 + (item.station.plateNudge?.y ?? 0);
           ctx.drawImage(
             plate.canvas,
-            Math.round(item.station.x - plate.w / 2) - ox,
-            y - plate.h - 4,
+            Math.round(plateX - plate.w / 2) - ox,
+            Math.round(plateY - plate.h / 2) - oy,
           );
         }
       } else if (item.kind === "npc") {
@@ -314,8 +287,10 @@ export class PixelRenderer {
         );
         ctx.drawImage(
           sprite.canvas,
-          Math.round(item.x - sprite.w / 2) - ox,
-          Math.round(item.y - sprite.h) - oy,
+          Math.round(item.x - HERO_DISPLAY_W / 2) - ox,
+          Math.round(item.y - HERO_DISPLAY_H) - oy,
+          HERO_DISPLAY_W,
+          HERO_DISPLAY_H,
         );
       }
     }

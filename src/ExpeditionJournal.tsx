@@ -7,7 +7,8 @@ import {
   type CSSProperties,
 } from "react";
 import "./expedition.css";
-import { getAtlas } from "./pixel/sprites";
+import { NPC_DEFINITIONS } from "./pixel/npc-data";
+import { npcPersonFrame } from "./pixel/sprites";
 
 /** IDs used by the world engine when an explorer meets a field contact. */
 // Shared with the compact in-world dialogue component.
@@ -52,6 +53,7 @@ export type ExpeditionNpc = {
   accent: string;
   initials: string;
   intro: string;
+  chapterHint: string;
   prompts: NpcPrompt[];
 };
 
@@ -67,25 +69,26 @@ export const NPCS: Record<ExpeditionNpcId, ExpeditionNpc> = {
     accent: "#7cc45a",
     initials: "MC",
     intro:
-      "Dunaliella salina is a wall-less, motile green alga that can live in hypersaline water. That biology gives us a useful chassis, while every engineered outcome still has to be measured.",
+      "The first orange salt pond I saw looked almost lifeless, and that contradiction stayed with me. I want to know what Dunaliella can build here—but I still ask whether every bright colour is really the molecule we hoped for.",
+    chapterHint: "Field trail: Wet Lab → Description, Experiments and Results",
     prompts: [
       {
         id: "why-alga",
-        label: "Why begin with this alga?",
+        label: "Why follow this salt dweller?",
         response:
-          "Its native salt adaptation and flexible carotenoid biology make it an interesting design context. They do not guarantee that a new construct will behave as intended.",
+          "Follow the salt and the clue appears: this wall-less, motile alga already thrives in hypersaline water and builds carotenoids. That gives our expedition a living chassis and a native metabolic trail to explore.",
       },
       {
         id: "cell-evidence",
-        label: "What counts as a cell note?",
+        label: "What belongs in the field notes?",
         response:
-          "Record what was observed, how it was compared, and what remains uncertain. A coloured culture is a clue; it is not by itself a product identification.",
+          "Write down what we saw, what we compared and how we measured it. A coloured culture is an exciting footprint; chromatography or spectroscopy tells us which molecule actually left it.",
       },
       {
         id: "careful-claim",
-        label: "How should I phrase a result?",
+        label: "How far can a claim travel?",
         response:
-          "Keep the claim close to the evidence: say what the data show, include the comparison, and avoid promising an effect that has not been tested.",
+          "Only as far as the evidence trail. Name the observation, the comparison and the uncertainty, then stop at the last confirmed marker. That is how another explorer can retrace our route.",
       },
     ],
   },
@@ -98,25 +101,26 @@ export const NPCS: Record<ExpeditionNpcId, ExpeditionNpc> = {
     accent: "#e9c43a",
     initials: "IP",
     intro:
-      "The design uses a shared β-carotene hub and considers separate product routes. A map helps us ask where control could move; it cannot substitute for a characterized enzyme or a measured readout.",
+      "A natural pigment pool is useful, but a platform begins only when we can steer it. I keep asking whether TF2146 truly redirects flux toward the β-carotene hub—and what that change costs elsewhere in the pathway.",
+    chapterHint: "Field trail: Wet Lab → Engineering; Dry Lab → Mathematical Modeling",
     prompts: [
       {
         id: "hub",
-        label: "What does the hub mean?",
+        label: "Why build around one hub?",
         response:
-          "It is a pathway junction in the design sketch. A shared intermediate lets us compare branch questions, but the actual flux and product identity need evidence.",
+          "Think of β-carotene as the busiest roundabout on the map. TF2146 is our regulatory lever for reprogramming traffic toward that hub; LCYB is the enzymatic gate that converts lycopene into it.",
       },
       {
         id: "branch",
-        label: "How do I choose a branch?",
+        label: "Which route comes first?",
         response:
-          "Start with the product definition, then check the proposed conversion and the evidence behind it. Treat each branch as a hypothesis until the measurements support it.",
+          "Choose the destination, trace every conversion backward, then check the enzyme, substrate and analytical readout at each turn. Astaxanthin, β-ionone, crocetin and β-citraurin each need their own strain and route card.",
       },
       {
         id: "model",
-        label: "What can a model tell us?",
+        label: "What does the model reveal?",
         response:
-          "A model can expose assumptions and suggest useful comparisons. It does not establish that a strain makes a product, especially when parameters are uncertain.",
+          "A model is our compass: it follows control from promoter occupancy to LCYB transcript, active enzyme and β-carotene. Sensitivity analysis then points to the measurements most likely to change our direction.",
       },
     ],
   },
@@ -124,30 +128,31 @@ export const NPCS: Record<ExpeditionNpcId, ExpeditionNpc> = {
     id: "researcher",
     name: "Ari",
     role: "Community researcher",
-    stationKey: "commons",
-    stationLabel: "Commons",
+    stationKey: "model-station",
+    stationLabel: "Process checkpoint",
     accent: "#c4a8ff",
     initials: "AO",
     intro:
-      "A promising design still belongs in a wider conversation. Stakeholder questions can change what we build, what we measure, and whether a route should move beyond a contained lab setting.",
+      "Whenever a design looks complete, I look for the person whose question is missing. I listen for practical worries that never appear in a pathway diagram, then ask whether the project changed because someone trusted us with them.",
+    chapterHint: "Field trail: Human Practices → Education and Cooperation",
     prompts: [
       {
         id: "listen",
-        label: "What should we ask first?",
+        label: "Whose map are we missing?",
         response:
-          "Ask who may be affected, what they value, and what risks or benefits they see. A recorded perspective is evidence about that conversation, not a universal verdict.",
+          "Start with the people who grow, operate, regulate, process or live beside the system. Ask what they value, what worries them and what evidence would earn their trust; each answer adds a landmark we could not see alone.",
       },
       {
         id: "safety",
-        label: "When is a design ready?",
+        label: "What opens the next gate?",
         response:
-          "Readiness is a decision with defined criteria, not a feeling. Safety, containment, reproducibility, and stakeholder concerns all need explicit review.",
+          "The gate opens when the criteria are visible: containment, reproducibility, product evidence and stakeholder concerns all receive a documented answer. Readiness is a checkpoint the whole team can inspect.",
       },
       {
         id: "change-design",
-        label: "Can feedback change the route?",
+        label: "Can feedback reroute us?",
         response:
-          "Yes. A concern can lead to a new constraint or experiment. Keeping that change in the record makes the design more accountable.",
+          "Absolutely. A concern can become a design constraint, a new control or a different experiment. We mark every turn in the journal so the final route shows who helped shape it.",
       },
     ],
   },
@@ -156,12 +161,10 @@ export const NPCS: Record<ExpeditionNpcId, ExpeditionNpc> = {
 const NPC_LIST = EXPEDITION_NPC_IDS.map((id) => NPCS[id]);
 
 const STATION_LABELS: Record<string, string> = {
-  "brine-edge": "Brine edge",
-  "the-cell": "The cell",
-  "light-array": "Light array",
-  "model-station": "Model station",
-  "product-yards": "Product yards",
-  commons: "Commons",
+  "brine-edge": "Background & challenge",
+  "the-cell": "Salt-adapted chassis",
+  "product-yards": "Metabolic reprogramming",
+  "model-station": "Programmable product platform",
   archive: "Archive",
 };
 
@@ -180,6 +183,7 @@ type JournalProgress = {
 };
 
 const STORAGE_KEY = "dunaterp.expedition-journal.v1";
+const PROGRESS_EVENT = "dunaterp:journal-progress";
 
 function emptyProgress(): JournalProgress {
   return {
@@ -233,6 +237,18 @@ function writeProgress(progress: JournalProgress) {
   }
 }
 
+// Shared by the compact world dialogue and the full journal so its 0/3 counter
+// changes as soon as a real conversation begins.
+// eslint-disable-next-line react-refresh/only-export-components
+export function recordNpcVisit(npcId: ExpeditionNpcId) {
+  if (typeof window === "undefined") return;
+  const current = readProgress();
+  if (current.visited[npcId]) return;
+  const next = { ...current, visited: { ...current.visited, [npcId]: true } };
+  writeProgress(next);
+  window.dispatchEvent(new CustomEvent<JournalProgress>(PROGRESS_EVENT, { detail: next }));
+}
+
 type Feedback = { tone: "hint" | "correct" | "try"; text: string };
 
 export function PixelPortrait({ npc }: { npc: ExpeditionNpc }) {
@@ -240,16 +256,13 @@ export function PixelPortrait({ npc }: { npc: ExpeditionNpc }) {
   useEffect(() => {
     const ctx = portrait.current?.getContext("2d");
     if (!ctx) return;
-    const sprite = getAtlas().hero.down[0];
+    const appearance = NPC_DEFINITIONS.find((definition) => definition.id === npc.id);
+    if (!appearance) return;
+    const sprite = npcPersonFrame(appearance, "down", 0);
     ctx.clearRect(0, 0, 28, 28);
-    ctx.drawImage(sprite.canvas, 7, 4);
-    ctx.globalCompositeOperation = "source-atop";
-    ctx.globalAlpha = .24;
-    ctx.fillStyle = npc.accent;
-    ctx.fillRect(0, 0, 28, 28);
-    ctx.globalAlpha = 1;
-    ctx.globalCompositeOperation = "source-over";
-  }, [npc.accent]);
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(sprite.canvas, 6, 4);
+  }, [npc.id]);
   return <canvas ref={portrait} width={28} height={28} className="ej-portrait" aria-hidden="true" />;
 }
 
@@ -606,6 +619,15 @@ export function ExpeditionJournal({
     writeProgress(progress);
   }, [progress]);
 
+  useEffect(() => {
+    const syncProgress = (event: Event) => {
+      const update = (event as CustomEvent<JournalProgress>).detail;
+      if (update) setProgress(update);
+    };
+    window.addEventListener(PROGRESS_EVENT, syncProgress);
+    return () => window.removeEventListener(PROGRESS_EVENT, syncProgress);
+  }, []);
+
   const markNpcVisited = useCallback((npcId: ExpeditionNpcId) => {
     setProgress((current) => {
       if (current.visited[npcId]) return current;
@@ -666,6 +688,7 @@ export function ExpeditionJournal({
   const activeNpc = NPCS[selectedNpc];
   const nearbyStation = currentStationKey ? STATION_LABELS[currentStationKey] : null;
   const completedGames = GAME_IDS.filter((gameId) => progress.games[gameId]).length;
+  const visitedNpcs = Object.values(progress.visited).filter(Boolean).length;
   const completionPercent = Math.round((completedGames / GAME_IDS.length) * 100);
 
   const completeGame = useCallback((gameId: GameId) => {
@@ -697,7 +720,7 @@ export function ExpeditionJournal({
       >
         <span className="ej-launcher__icon" aria-hidden="true">▤</span>
         <span>Expedition journal</span>
-        <span className="ej-launcher__key" aria-hidden="true">{completedGames}/3</span>
+        <span className="ej-launcher__key" aria-label={`${visitedNpcs} of 3 guides met`}>{visitedNpcs}/3</span>
       </button>
 
       <dialog
@@ -733,7 +756,7 @@ export function ExpeditionJournal({
             <aside className="ej-contacts" aria-label="Field contacts">
               <div className="ej-section-heading">
                 <p className="ej-eyebrow">FIELD CONTACTS</p>
-                <p>{Object.values(progress.visited).filter(Boolean).length}/3 met</p>
+                <p>{visitedNpcs}/3 met</p>
               </div>
               <div className="ej-npc-list">
                 {NPC_LIST.map((npc) => {
@@ -759,7 +782,7 @@ export function ExpeditionJournal({
                   );
                 })}
               </div>
-              <p className="ej-contact-note">A conversation can add a question to your notes. It does not replace the evidence behind an answer.</p>
+              <p className="ej-contact-note">A conversation can add a question to your notes.</p>
             </aside>
 
             <div className="ej-journal-main">
