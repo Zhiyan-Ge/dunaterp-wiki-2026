@@ -3,7 +3,7 @@ import type { ContentBlock } from './types';
 
 const p = (text: string): ContentBlock => ({ kind: 'paragraph', text });
 const h = (text: string): ContentBlock => ({ kind: 'heading', text });
-const fig = (name: string, alt: string, caption: string): ContentBlock => ({
+const fig = (name: string, alt: string, caption: string): Extract<ContentBlock, { kind: 'figure' }> => ({
   kind: 'figure',
   src: `/figures/hp/figure-${name}.webp`,
   alt,
