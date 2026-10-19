@@ -3,6 +3,7 @@ import { refs } from './content/references';
 import { safety } from './content/safety';
 import { protein } from './content/protein';
 import { dryLabNavigation, dryLabIndex, hardware, hardwareDesign, metabolomics, modeling, transcriptomics } from './content/dry-lab';
+import { cooperation, education } from './content/human-practices';
 
 export type WikiSection = {
   title: string;
@@ -27,7 +28,7 @@ export type WikiPage = {
 export const navigation: Array<{ label: string; items: ReadonlyArray<readonly [string, string]> }> = [
   { label: "Wet Lab", items: [["Description", "/project-description"], ["Engineering", "/engineering"], ["Experiments", "/experiments"], ["Results", "/results"], ["Safety", "/safety-and-security"]] },
   { label: "Dry Lab", items: dryLabNavigation },
-  { label: "Human Practices", items: [["Human Practices", "/human-practices"], ["Sustainability", "/sustainability"], ["Education", "/education"]] },
+  { label: "Human Practices", items: [["Integrated Human Practices", "/human-practices"], ["Education", "/education"], ["Cooperation", "/cooperation"], ["Sustainability", "/sustainability"]] },
   { label: "People", items: [["Team", "/team"], ["Attributions", "/attributions"], ["Responsible AI", "/responsible-ai"]] },
 ];
 
@@ -238,14 +239,8 @@ export const pages: Record<string, WikiPage> = {
       { title: "Recovery and waste", body: "Product extraction determines whether the biological advantage survives downstream processing. Solvent choice, pigment recovery, residual biomass, saline effluent and containment treatment must therefore be evaluated per unit of purified product rather than per unit of culture alone [2]." },
     ],
   },
-  education: {
-    title: "Learning along the Salt Route", eyebrow: "Education", intro: "The interactive homepage turns the project into a walk through biological questions: why a salt-adapted alga matters, how carotenoid flux is redirected, what a model can infer and where experimental evidence is still required.", status: "team-draft",
-    sections: [
-      { title: "Follow the biological chain", body: "Four route stops connect the production challenge to the D. salina chassis, metabolic reprogramming and the final platform design. Moving through them in order shows that product claims depend on several distinct biological layers rather than on a single promising gene." },
-      { title: "Meet the field guides", body: "Three fictional guides introduce pathway order, product branching and evidence evaluation. Their questions ask visitors to distinguish transcript abundance from enzyme activity, a modeled optimum from a measured titre and a proposed safeguard from validated containment." },
-      { title: "Leave the route", body: "Free-roam exploration rewards curiosity with direct links to protein modeling, metabolic modeling and hardware pages. The activities simplify the science for navigation and discussion; they do not reproduce laboratory experiments or certify learning outcomes." },
-    ],
-  },
+  education,
+  cooperation,
   team: {
     title: "The people behind DunaTerp", eyebrow: "Team", intro: "SCU-China 2026 brings together wet-lab, dry-lab, hardware, human-practices and Wiki work around one salt-adapted terpenoid platform.", status: "team-draft",
     sections: [

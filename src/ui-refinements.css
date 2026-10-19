@@ -420,6 +420,7 @@ main:focus:not(:focus-visible) { outline: none; }
   font-size: .83rem;
   font-weight: 760;
   line-height: 1.35;
+  overflow-wrap: anywhere;
   transition: color .22s ease, background-color .22s ease, border-color .22s ease, transform .22s ease;
 }
 .article-page .article-toc nav a.is-active { border-left-color: var(--article-accent); background: color-mix(in srgb, var(--article-accent) 44%, #fffaf0); color: var(--ink); }
@@ -445,6 +446,7 @@ main:focus:not(:focus-visible) { outline: none; }
   box-shadow: 6px 6px 0 #b9c7b9;
 }
 .article-page .article-sections > section:first-child { padding-top: clamp(1.4rem, 4vw, 3rem); }
+.article-page .article-sections > section > div:last-child { min-width: 0; }
 .article-page .section-number { display: grid; place-items: center; align-self: start; width: 2.7rem; height: 2.7rem; padding: 0; border: 3px solid var(--ink); background: var(--article-accent); color: var(--ink); font: 900 .78rem/1 ui-monospace, Menlo, monospace; box-shadow: 3px 3px 0 var(--ink); }
 .article-page .section-eyebrow { color: #536c62; font-family: ui-monospace, Menlo, monospace; font-weight: 900; }
 .article-page .article-sections h2 { width: 100%; max-width: none; color: var(--ink); font-family: ui-monospace, Menlo, monospace; font-weight: 900; letter-spacing: -.045em; text-transform: uppercase; }
@@ -514,6 +516,35 @@ body:has(.article-page--hardware) { background: #f3ecd0; }
 .article-page--hardware .feature-figure figcaption { color: #53675f; }
 .article-page--modeling .research-equation,
 .article-page--hardware .research-equation { border: 3px solid var(--ink); border-left: 6px solid var(--article-accent); background: #fff; box-shadow: 5px 5px 0 #d8cc9e; }
+
+/* Human Practices follows the 2025 page rhythm: a compact contents panel,
+   broad narrative copy and documentary images placed directly beside the
+   activity they evidence. Portrait posters stay readable without taking over
+   the full page height. */
+.article-page--human-practices .article-sections p,
+.article-page--human-practices .article-sections li { max-width: none; }
+.article-page--human-practices .research-blocks h3 {
+  margin-top: clamp(2.6rem, 5vw, 4.4rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid #c7c0a7;
+  color: var(--ink);
+  font: 800 clamp(1.28rem, 2vw, 1.75rem)/1.32 Georgia, "Times New Roman", serif;
+}
+.article-page--human-practices .research-figure > a {
+  display: grid;
+  place-items: center;
+}
+.article-page--human-practices .research-figure img {
+  width: auto;
+  max-width: 100%;
+  max-height: 52rem;
+  object-fit: contain;
+}
+.article-page--human-practices .research-figure-grid .research-figure img { max-height: 34rem; }
+.article-page--human-practices .research-figure figcaption {
+  text-align: center;
+  color: #53675f;
+}
 
 .article-page--overview .article-intro > p { margin: 0; line-height: 1.6; }
 
