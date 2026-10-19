@@ -46,8 +46,6 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
   const stage = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const routeRef = useRef<HTMLDivElement>(null);
-  const routeTitleRef = useRef<HTMLSpanElement>(null);
-  const routePercentRef = useRef<HTMLSpanElement>(null);
   const engineRef = useRef<PixelEngine | null>(null);
   const scrollLock = useRef(0);
   const archiveTimer = useRef<number | null>(null);
@@ -88,8 +86,6 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
         stop.classList.toggle("is-on", index === currentStopIndex);
       });
     }
-    if (routeTitleRef.current) routeTitleRef.current.textContent = currentStopIndex < 0 ? "Salt Route · Trailhead" : STATION_COPY[currentStopIndex].title;
-    if (routePercentRef.current) routePercentRef.current.textContent = `${percent}%`;
   }, []);
 
   useEffect(() => {
@@ -484,8 +480,6 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
           ))}
           <i className="px-route-traveller" aria-hidden="true" />
         </div>
-        <p className="px-route-current" aria-live="off"><span ref={routeTitleRef}>Salt Route · Trailhead</span><span ref={routePercentRef}>1%</span></p>
-
         <section className="px-archive" inert={!atArchive || mode === "free"} aria-label="DunaTerp wiki index">
           <header>
             <p>FIELD ARCHIVE</p>
