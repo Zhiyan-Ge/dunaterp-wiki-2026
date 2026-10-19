@@ -379,11 +379,8 @@ function saltPile(): Painter {
   return p;
 }
 
-function trailheadLodge(): Painter {
-  const p = surface(96, 85);
-  // Leave room for the rear ridge above the front gable without clipping it.
-  // The extra canvas height and this offset preserve the lodge's ground anchor.
-  p.ctx.translate(0, 9);
+function trailheadLabBench(): Painter {
+  const p = surface(96, 68);
   const polygon = (points: Array<[number, number]>, key: string) => {
     const minY = Math.min(...points.map(([, y]) => y));
     const maxY = Math.max(...points.map(([, y]) => y));
@@ -407,60 +404,68 @@ function trailheadLodge(): Painter {
     }
   };
 
-  // Show two wall planes and a roof that recedes to the right, so the
-  // trailhead reads as a small pixel-art building rather than a flat sign.
-  polygon([[66, 28], [82, 19], [82, 59], [66, 67]], "c");
-  line(p, 66, 28, 82, 19, "1");
-  line(p, 82, 19, 82, 59, "1");
-  line(p, 82, 59, 66, 67, "1");
-  for (let y = 34; y < 61; y += 7) line(p, 68, y, 80, y - 6, "d");
+  // Raised backsplash and instrument rail: open above, so this landmark reads
+  // as a working bench rather than another building on the salt flat.
+  block(p, 8, 8, 72, 26, "b", "d", "a");
+  for (let x = 12; x < 78; x += 8) rect(p, x, 11, 1, 20, "c");
+  for (let y = 15; y < 31; y += 8) rect(p, 10, y, 68, 1, "c");
+  frame(p, 8, 8, 72, 26, "1");
+  block(p, 5, 4, 78, 6, "C", "1", "F");
+  rect(p, 7, 5, 74, 2, "8");
 
-  block(p, 8, 28, 59, 37, "b", "d", "a");
-  for (let y = 32; y < 62; y += 5) {
-    for (let x = 10; x < 65; x += 10) {
-      rect(p, x + ((y / 5) % 2 === 0 ? 0 : 5), y, 8, 3, "c");
-    }
+  // Data display with a small rising trace.
+  block(p, 12, 13, 21, 16, "2", "1", "3");
+  rect(p, 15, 16, 15, 9, "E");
+  line(p, 16, 23, 20, 21, "x");
+  line(p, 20, 21, 23, 22, "x");
+  line(p, 23, 22, 29, 17, "8");
+  rect(p, 19, 29, 7, 2, "1");
+
+  // Four samples sit in a rack at the centre of the bench.
+  block(p, 38, 24, 25, 5, "C", "G", "F");
+  const samples = ["x", "8", "t", "s"];
+  samples.forEach((tint, index) => {
+    const x = 41 + index * 5;
+    block(p, x, 15, 4, 11, "F", "1", "a");
+    rect(p, x + 1, 20, 2, 5, tint);
+  });
+
+  // A culture flask makes the wet-lab function legible even at map scale.
+  block(p, 68, 10, 7, 5, "F", "1", "a");
+  rect(p, 70, 8, 3, 3, "x");
+  polygon([[67, 15], [76, 15], [80, 27], [63, 27]], "F");
+  polygon([[66, 18], [77, 18], [80, 29], [63, 29]], "1");
+  polygon([[68, 19], [75, 19], [77, 27], [66, 27]], "9");
+  rect(p, 66, 24, 11, 3, "7");
+
+  // Deep counter with a receding right edge, followed by front cabinets.
+  block(p, 4, 32, 78, 8, "C", "1", "F");
+  rect(p, 7, 33, 72, 3, "a");
+  polygon([[82, 32], [93, 27], [93, 34], [82, 40]], "d");
+  line(p, 82, 32, 93, 27, "1");
+  line(p, 93, 27, 93, 34, "1");
+  line(p, 93, 34, 82, 40, "1");
+
+  block(p, 8, 40, 72, 23, "b", "d", "a");
+  frame(p, 8, 40, 72, 23, "1");
+  rect(p, 34, 41, 3, 21, "1");
+  rect(p, 58, 41, 3, 21, "1");
+  for (const [x, w] of [[10, 23], [38, 19], [62, 16]] as const) {
+    rect(p, x, 45, w, 1, "c");
+    rect(p, x + Math.floor(w / 2) - 2, 42, 4, 2, "3");
   }
-  frame(p, 8, 28, 59, 37, "1");
+  block(p, 38, 49, 19, 10, "2", "1", "3");
+  drawText(p, "LAB", 42, 52, "8", { shadow: "1" });
 
-  // Match the roof's depth to the right wall exactly: both recede 16 px right
-  // and 9 px up, so the ridge and eaves converge in the same perspective.
-  polygon([[38, 3], [54, -6], [84, 19], [68, 28]], "3");
-  polygon([[4, 28], [38, 3], [68, 28]], "5");
-  line(p, 4, 28, 38, 3, "1");
-  line(p, 38, 3, 54, -6, "1");
-  line(p, 54, -6, 84, 19, "1");
-  line(p, 84, 19, 68, 28, "1");
-  line(p, 68, 28, 4, 28, "1");
-  rect(p, 4, 27, 64, 3, "1");
-  polygon([[68, 27], [84, 18], [84, 24], [68, 33]], "1");
-  rect(p, 7, 25, 60, 2, "8");
-
-  // The receding wall gets one narrow sampling window.
-  block(p, 72, 36, 7, 11, "2", "1", "3");
-  rect(p, 74, 38, 3, 7, "x");
-
-  // Front sign, paired windows, and a warm doorway onto the boardwalk.
-  block(p, 25, 31, 29, 8, "2", "1", "3");
-  drawText(p, "TRAIL", 28, 33, "8", { shadow: "1" });
-  for (const x of [14, 56]) {
-    block(p, x, 42, 10, 10, "2", "1", "3");
-    rect(p, x + 2, 44, 6, 6, "x");
-    line(p, x + 5, 44, x + 5, 49, "1");
-  }
-  block(p, 33, 41, 18, 24, "2", "1", "3");
-  for (let y = 0; y < 19; y += 1) rect(p, 36, 44 + y, 12, 1, y < 6 ? "D" : y < 13 ? "i" : "j");
-  px(p, 46, 53, "y");
-
-  // A hard-edged sill anchors the building without an oval ground shadow.
-  rect(p, 7, 65, 61, 2, "1");
-  line(p, 68, 66, 82, 59, "1");
-  line(p, 12, 69, 69, 69, "d");
-  line(p, 69, 69, 82, 62, "d");
-
-  line(p, 77, 20, 77, 8, "C");
-  rect(p, 78, 9, 9, 5, "8");
-  rect(p, 78, 14, 6, 3, "7");
+  // Cabinet side plane completes the same restrained perspective used by the
+  // other route equipment, without introducing a roof or a ground ellipse.
+  polygon([[80, 40], [93, 34], [93, 56], [80, 63]], "c");
+  line(p, 80, 40, 93, 34, "1");
+  line(p, 93, 34, 93, 56, "1");
+  line(p, 93, 56, 80, 63, "1");
+  for (let y = 44; y < 60; y += 6) line(p, 82, y, 91, y - 4, "d");
+  rect(p, 10, 63, 7, 4, "1");
+  rect(p, 70, 63, 7, 4, "1");
   return p;
 }
 
@@ -831,7 +836,7 @@ export function getAtlas(): Atlas {
       crystal6: saltCrystal(6),
       crystal7: saltCrystal(7),
       pile: saltPile(),
-      trailheadLodge: trailheadLodge(),
+      trailheadLabBench: trailheadLabBench(),
       postShort: post(14),
       postTall: post(24, "7"),
       postLime: post(18, "8"),

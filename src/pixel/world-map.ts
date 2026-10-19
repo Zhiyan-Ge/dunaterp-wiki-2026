@@ -608,13 +608,13 @@ export function buildWorld(): World {
     });
   });
 
-  // The route begins at a small field outpost rather than an empty salt flat.
+  // The route begins at an open field-lab bench rather than another building.
   // Every item stays outside the boardwalk corridor so the traveller remains
   // visible and the first movement is unobstructed.
   const sign = pointFromHead(8, 66);
-  const lodge = path.sample(0);
+  const labBench = path.sample(0);
 
-  props.push({ sprite: "trailheadLodge", x: lodge.x, y: lodge.y + 16, shadow: "none" });
+  props.push({ sprite: "trailheadLabBench", x: labBench.x, y: labBench.y + 16, shadow: "none" });
   props.push({
     sprite: "signScroll",
     x: sign.x,
