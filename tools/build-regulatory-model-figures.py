@@ -144,8 +144,6 @@ def figure_diagnostics(times: np.ndarray, traces: dict[str, np.ndarray], baselin
     """Summarise response magnitude, response time and numerical convergence."""
     fig = plt.figure(figsize=(15.6, 5.8))
     grid = fig.add_gridspec(1, 3, width_ratios=(1.45, 1.0, 1.0), wspace=0.38)
-    fig.suptitle("MODEL DIAGNOSTICS · RESPONSE MAGNITUDE, TIMING AND NUMERICAL RELIABILITY", x=0.025, y=0.98, ha="left", fontsize=15, fontweight="bold")
-    fig.text(0.025, 0.925, "Illustrative scenarios · all endpoint gains are relative to the low-input equilibrium", color=MUTED, fontsize=10)
 
     # A — endpoint response matrix.
     ax = fig.add_subplot(grid[0, 0])
@@ -218,7 +216,7 @@ def figure_diagnostics(times: np.ndarray, traces: dict[str, np.ndarray], baselin
     ax.spines[["top", "right"]].set_visible(False)
     ax.text(0.03, 0.95, f"Even Δt = 0.5 d: {errors.max():.2e}% error", transform=ax.transAxes, va="top", color=MUTED, fontsize=9)
 
-    fig.subplots_adjust(left=0.055, right=0.985, bottom=0.16, top=0.83)
+    fig.subplots_adjust(left=0.055, right=0.985, bottom=0.16, top=0.94)
     save(fig, "14_regulatory_model")
 
 
@@ -313,7 +311,6 @@ def figure_dynamics(times: np.ndarray, traces: dict[str, np.ndarray], baseline: 
         ax.spines[["top", "right"]].set_visible(False)
     handles, labels = axes[0].get_legend_handles_labels()
     fig.legend(handles, labels, loc="upper center", ncol=3, frameon=False, bbox_to_anchor=(0.5, 1.015))
-    fig.text(0.01, 0.01, "All trajectories start from the same low-input equilibrium and use the illustrative parameter set.", color=MUTED, fontsize=9)
     save(fig, "16_regulatory_dynamics")
 
 
@@ -344,7 +341,6 @@ def figure_sweep() -> None:
         ax.spines[["top", "right"]].set_visible(False)
     for ax in axes[1]:
         ax.set_xlabel(r"Steady regulator level relative to affinity,  $T^*/K_d$")
-    fig.text(0.01, 0.01, "Values are normalized to the lowest simulated regulator input; curves are illustrative model scenarios, not measured fold changes.", color=MUTED, fontsize=9)
     save(fig, "17_regulatory_sweep")
 
 
