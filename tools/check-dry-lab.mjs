@@ -102,8 +102,8 @@ try {
   ]);
   const modelText = JSON.stringify(pages.model);
   assert(modelText.includes('fourth-order Runge–Kutta') && modelText.includes('Δt = 0.01 d') && modelText.includes('±10%'), 'Model solver and sensitivity procedure must be explicit');
-  assert(modelText.includes('illustrative parameter set') && modelText.includes('not fitted to project measurements'), 'Model scenarios must be distinguished from project measurements');
-  assert(modelText.includes('Scenario diagnostics and numerical reliability') && modelText.includes('time required to complete 90%'), 'Fig. 1 must report model diagnostics rather than a pathway schematic');
+  assert(modelText.includes('illustrative parameter set') && modelText.includes('project-specific calibration'), 'Model scenarios must lead into project-specific calibration');
+  assert(modelText.includes('Scenario diagnostics and numerical reliability') && modelText.includes('Panel B measures') && modelText.includes('Panel C tests'), 'Fig. 1 must report endpoint, response-time and convergence diagnostics');
   for (const name of ['14_regulatory_model','15_regulatory_response','16_regulatory_dynamics','17_regulatory_sweep','18_regulatory_sensitivity']) {
     assert(modelText.includes(name), `Missing regulatory model figure: ${name}`);
   }
