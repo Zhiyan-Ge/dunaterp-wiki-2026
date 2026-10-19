@@ -92,7 +92,12 @@ main:focus:not(:focus-visible) { outline: none; }
 .article-sections aside { background: #edf3e5; color: #365047; border: 0; border-left: 3px solid #789447; border-radius: 0 .75rem .75rem 0; font-size: .9375rem; line-height: 1.75; padding: 1.2rem 1.5rem; }
 .feature-figure { margin: 0 0 3rem; padding: 1rem; background: white; border: 1px solid var(--line); border-radius: 1rem; }
 .feature-figure img { width: 100%; height: auto; border: 0; border-radius: .5rem; }
-.feature-figure figcaption { font-size: .875rem; line-height: 1.65; color: var(--muted); padding: 1rem .5rem 0; }
+.feature-figure figcaption {
+  padding: 1rem .5rem 0;
+  color: var(--ink);
+  font: 700 clamp(.95rem, 1.35vw, 1.15rem)/1.35 Georgia, serif;
+  text-align: center;
+}
 .review-banner { display: block; margin-top: 2rem; border: 1px solid var(--line); border-radius: .75rem; padding: 1.3rem 1.5rem; background: transparent; }
 .review-banner span { font-size: .8125rem; color: var(--ink); }
 .review-banner p { font-size: .875rem; color: var(--muted); margin: .5rem 0 0; line-height: 1.7; }

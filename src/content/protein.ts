@@ -47,12 +47,12 @@ export const protein: WikiPage = {
     ] },
     { title: 'Docking with lycopene', body: '', blocks: [
       p('The ligand was all-trans lycopene, PubChem CID 446925. Its identity checks confirmed C40H56, 40 heavy atoms, 39 heavy-atom bonds, no rings and E geometry at all 11 stereochemically definable double bonds. WT and F404Y were docked using the same search settings and three shared random seeds.'),
-      fig('docking-seeds', 'Three lycopene docking scores for WT and F404Y, with their means and seed-to-seed standard deviations.', 'Figure 1. Open circles show the best score from each search seed. Squares and horizontal intervals show the mean ± sample SD across three seeds. These intervals describe docking-search variability, not biological uncertainty.'),
+      fig('docking-seeds', 'Three lycopene docking scores for WT and F404Y, with their means and seed-to-seed standard deviations.', 'Fig. 1 Lycopene docking scores for WT and F404Y LCYB'),
       { kind: 'docking-viewer' },
-      fig('lcyb-lycopene', 'Coordinate-based overview of the WT LCYB C-alpha trace and selected lycopene docking pose.', 'Figure 2. WT residues 71–555 as a smoothed C-alpha trace (teal), all-trans lycopene heavy atoms (amber), and Phe404 (purple). Blender rendering from the corrected docking inputs; not an experimental structure or an MD snapshot.'),
+      fig('lcyb-lycopene', 'Coordinate-based overview of the WT LCYB C-alpha trace and selected lycopene docking pose.', 'Fig. 2 WT LCYB with the selected lycopene docking pose'),
       { kind: 'figure-grid', figures: [
-        { src: figures['lcyb-lycopene_detail'], alt: 'Close-up of the corrected all-trans lycopene docking pose in WT LCYB.', caption: 'Figure 3. Close-up of the selected WT pose; the displayed pose does not establish affinity or catalysis.' },
-        { src: figures['lcyb-lycopene-detail-alt'], alt: 'Alternate orientation of the same WT lycopene docking pose.', caption: 'Figure 4. Alternate camera view of the same coordinates, not an independent model or replicate.' },
+        { src: figures['lcyb-lycopene_detail'], alt: 'Close-up of the corrected all-trans lycopene docking pose in WT LCYB.', caption: 'Fig. 3 Close-up of the selected WT docking pose' },
+        { src: figures['lcyb-lycopene-detail-alt'], alt: 'Alternate orientation of the same WT lycopene docking pose.', caption: 'Fig. 4 Alternate view of the selected WT docking pose' },
       ] },
       table('Lycopene docking results', ['System', 'Mean ± seed SD (kcal/mol)', 'Seeds'], [
         ['WT','−9.434 ± 0.213','3'], ['F404Y','−9.701 ± 0.477','3'],
@@ -61,7 +61,7 @@ export const protein: WikiPage = {
     ] },
     { title: 'A short dynamics comparison', body: '', blocks: [
       p('Each complex was simulated for 5 ns in water, with 501 saved frames at 10 ps intervals. The trajectories completed without a LINCS warning or fatal error in the MD logs. The plots show the entire trajectory; the summary values use 1–5 ns. Excluding the first nanosecond from the average does not by itself demonstrate equilibration.'),
-      fig('md-rmsd', 'WT and F404Y protein-backbone and protein-fitted lycopene RMSD time series from 0 to 5 ns.', 'Figure 5. WT is shown as a solid green line and F404Y as a dashed ochre line. The shaded 0–1 ns interval is excluded from the reported means. Ligand RMSD includes all 96 atoms, including hydrogens, after protein-backbone fitting.'),
+      fig('md-rmsd', 'WT and F404Y protein-backbone and protein-fitted lycopene RMSD time series from 0 to 5 ns.', 'Fig. 5 RMSD time series for WT and F404Y systems'),
       table('Trajectory means over 1–5 ns', ['Metric', 'WT', 'F404Y'], [
         ['Protein backbone RMSD (nm)','0.156','0.188'],
         ['Protein-fitted ligand RMSD (nm; includes H)','0.208','0.236'],

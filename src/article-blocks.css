@@ -15,7 +15,6 @@
 .research-chapter-card p { margin: 0; font-size: .9rem!important; line-height: 1.6!important; color: #4d625a!important; }
 .research-chapter-card>b { font-size: 1.2rem; }
 .research-chapter-card:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 #b8f24b; }
-.figure-credit { display: block; margin-top: .6rem; font-size: .8125rem; }
 .research-table-scroll { width: 100%; overflow-x: auto; margin: 1.8rem 0; border: 1px solid var(--line); border-radius: .35rem; }
 .research-table-scroll table { width: 100%; border-collapse: collapse; font-size: .875rem; line-height: 1.55; font-variant-numeric: tabular-nums; }
 .research-table-scroll caption { text-align: left; font-weight: 650; padding: 1rem; color: var(--ink); }

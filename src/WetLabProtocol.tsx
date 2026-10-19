@@ -2,7 +2,7 @@ import type { ContentBlock } from './content/types';
 import './wet-lab.css';
 
 const visuals: Record<string, { alt: string; caption: string }> = {
-  qpcr: { alt: 'qPCR assay design using genomic DNA and the programmed amplification temperatures; this is not a measured amplification curve.', caption: 'The assay uses genomic DNA. This schematic shows the sample groups and thermal program specified in the protocol; amplification and melt curves are collected during the run.' },
+  qpcr: { alt: 'qPCR assay design using genomic DNA and the programmed amplification temperatures; this is not a measured amplification curve.', caption: 'Fig. 2 qPCR assay design' },
 };
 
 function MethodFigure({ name, alt, caption }: { name: string; alt: string; caption: string }) {
@@ -11,7 +11,7 @@ function MethodFigure({ name, alt, caption }: { name: string; alt: string; capti
   const mobileHeight = name === 'experimental-workflow' ? 890 : name === 'qpcr' ? 700 : 770;
   return <figure className="method-figure">
     <picture><source media="(max-width: 600px)" srcSet={`${base}-mobile.svg`} width={520} height={mobileHeight} /><img src={`${base}.svg`} width={960} height={height} alt={alt} loading="lazy" decoding="async" /></picture>
-    <figcaption><span>Method schematic</span>{caption}</figcaption>
+    <figcaption>{caption}</figcaption>
   </figure>;
 }
 
@@ -19,7 +19,7 @@ export function WetLabOverview() {
   return <div className="wet-lab-overview">
     <p className="method-lead">Plasmid construction and algal transformation lead into two strands of experimental work: genetic characterisation and product separation.</p>
     <MethodFigure name="experimental-workflow" alt="Experimental workflow from plasmid construction to algal transformation, branching into genomic DNA characterisation and pigment separation."
-      caption="The methods are arranged by their role in the experiment. Genetic characterisation and product separation are shown as separate branches." />
+      caption="Fig. 1 Experimental workflow" />
   </div>;
 }
 

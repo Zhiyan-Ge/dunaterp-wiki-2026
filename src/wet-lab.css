@@ -9,8 +9,7 @@
 .method-figure picture, .method-figure img { display: block; width: 100%; }
 .method-figure img { height: auto; }
 .method-figure picture { border-radius: .5rem; overflow: hidden; }
-.method-figure figcaption { display: block; padding: 1rem 0 0; color: #617267; font-size: .82rem; line-height: 1.7; }
-.method-figure figcaption > span { display: inline; margin-right: .7rem; color: #42604f; font-weight: 750; }
+.method-figure figcaption { display: block; padding: 1rem .5rem 0; color: var(--ink); font: 700 clamp(.95rem, 1.35vw, 1.15rem)/1.35 Georgia, serif; text-align: center; }
 .method-protocol { margin-top: 1.75rem; }
 .article-page--experiments .method-protocol > h3 { font-size: 1.2rem; line-height: 1.5; margin: 0 0 1rem; }
 .wet-lab-protocol h4 { scroll-margin-top: 2rem; padding-top: 1rem; }

@@ -62,7 +62,7 @@ function Equation({ block }: { block: Extract<ContentBlock, { kind: 'equation' }
 function ResearchFigure({ figure, compact = false }: { figure: { src: string; alt: string; caption: string }; compact?: boolean }) {
   return <figure className={`feature-figure research-figure${compact ? ' research-figure--compact' : ''}`}>
     <a href={resolveAsset(figure.src)} aria-label={`Open full-size figure: ${figure.alt}`}><img src={resolveAsset(figure.src)} alt={figure.alt} loading="lazy" decoding="async" /></a>
-    <figcaption>{figure.caption}<span className="figure-credit">Team analysis figure · CC BY 4.0</span></figcaption>
+    <figcaption>{figure.caption}</figcaption>
   </figure>;
 }
 

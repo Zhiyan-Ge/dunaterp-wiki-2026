@@ -38,7 +38,7 @@ export const transcriptomics: WikiPage = {
   sections: [
     section('THE REACTIONS',
       p('The route gives the analysis its order. PSY commits geranylgeranyl diphosphate to phytoene; PDS, Z-ISO, ZDS and CRTISO convert phytoene toward lycopene. At lycopene, LCYB feeds the β-carotene branch and LCYE feeds the competing α-carotene branch. We therefore annotate transcripts by enzyme first, then read the expression changes at their position in this route.'),
-      { kind: 'figure', src: '/figures/dry-lab/carotenoid-route.svg', alt: 'Carotenoid pathway from MEP-derived precursors through phytoene and lycopene, branching at LCYB to beta-carotene and at LCYE to alpha-carotene.', caption: 'Figure 1. The biochemical route used to organize transcript annotations. LCYB is the branch connecting this analysis to the β-carotene model.' },
+      { kind: 'figure', src: '/figures/dry-lab/carotenoid-route.svg', alt: 'Carotenoid pathway from MEP-derived precursors through phytoene and lycopene, branching at LCYB to beta-carotene and at LCYE to alpha-carotene.', caption: 'Fig. 1 Carotenoid pathway and the LCYB branch' },
       p('The question is not whether one statistical cluster can represent the pathway. It is which sequence-supported enzyme transcripts change between the measured light conditions, and whether different copies assigned to the same enzyme show the same response.'),
     ),
     section('THE DATASET',
@@ -46,7 +46,7 @@ export const transcriptomics: WikiPage = {
       customTable('Light-acclimation design', ['Condition', 'GEO sample IDs', 'Independent cultures'], [
         ['150 · low (LL)','LL1, LL2, LL3','3'], ['600 · medium (ML)','ML1, ML2, ML3','3'], ['1500 · high (HL)','HL1, HL2, HL3','3'],
       ]),
-      { kind: 'figure', src: '/figures/dry-lab/transcriptomics-workflow.svg', alt: 'Analysis workflow: public sample design branches into sequence annotation and count-based differential expression, then transcript identifiers are joined for pathway interpretation.', caption: 'Figure 2. Sequence evidence assigns a transcript to a biochemical step; replicate counts estimate how that transcript responds. The two tracks meet only at the Trinity transcript ID.' },
+      { kind: 'figure', src: '/figures/dry-lab/transcriptomics-workflow.svg', alt: 'Analysis workflow: public sample design branches into sequence annotation and count-based differential expression, then transcript identifiers are joined for pathway interpretation.', caption: 'Fig. 2 Transcriptomics analysis workflow' },
     ),
     section('SEQUENCE ANNOTATION',
       p('The FASTA contains nucleotide contigs, not named genes. We translate each contig in all six reading frames with DIAMOND blastx and search two protein references: archived Swiss-Prot and the recoverable 2018 Dunaliella protein set. A hit enters the primary-annotation pass at E ≤ 10⁻⁵, ≥20% identity and ≥15% subject-protein coverage. We rank qualifying hits by bit score, then use E-value and subject ID as stable tie-breaks; only after choosing the top hit do we classify its protein name as an enzyme family. This keeps a weaker pathway hit from displacing a stronger non-pathway match just because we hoped to see that enzyme.'),
@@ -93,11 +93,11 @@ for (pair in list(c("LL","ML"), c("LL","HL"), c("ML","HL"))) {
     ),
     section('TRANSCRIPT-LEVEL RESPONSE',
       p('The first view keeps all three biological replicates visible for six sequence-annotated examples. Counts are divided by the DESeq size factors and shown as log₂(normalized count + 1); points are samples, not technical repeats. The panels use separate y-scales because transcript abundance differs by orders of magnitude.'),
-      { kind: 'figure', src: '/figures/dry-lab/transcriptomics-sample-expression.svg', alt: 'Six small-multiple plots of normalized read counts for CRTISO, two LCYB contigs, LCYE, PDS and ZEP across three light conditions, with each biological replicate shown.', caption: 'Figure 3. Replicate-level expression for six enzyme-annotated transcripts. The LCYB contigs have distinct response shapes, so they are interpreted separately.' },
+      { kind: 'figure', src: '/figures/dry-lab/transcriptomics-sample-expression.svg', alt: 'Six small-multiple plots of normalized read counts for CRTISO, two LCYB contigs, LCYE, PDS and ZEP across three light conditions, with each biological replicate shown.', caption: 'Fig. 3 Replicate-level expression of six carotenoid transcripts' },
       p('The volcano panels show the count-model results across the transcriptome for each planned contrast. Each point is one Trinity transcript; color marks q < 0.05 after Benjamini–Hochberg correction. These genome-wide plots show where the count model detects a response, but they do not rank pathway importance.'),
-      { kind: 'figure', src: '/figures/dry-lab/transcriptomics-deseq-volcano.svg', alt: 'Three volcano plots from DESeq 1.10.1 comparing 600 versus 150, 1500 versus 150 and 1500 versus 600 light conditions across Trinity transcripts.', caption: 'Figure 4. Differential-expression results for the three pairwise contrasts. The x-axis is log₂ fold change for the second condition relative to the first; colored points have BH-adjusted q < 0.05.' },
+      { kind: 'figure', src: '/figures/dry-lab/transcriptomics-deseq-volcano.svg', alt: 'Three volcano plots from DESeq 1.10.1 comparing 600 versus 150, 1500 versus 150 and 1500 versus 600 light conditions across Trinity transcripts.', caption: 'Fig. 4 Differential expression across three light contrasts' },
       p('For pathway interpretation, we return to the sequence-defined enzyme set and retain its biochemical order rather than clustering rows by expression. Each cell below shows the transcript’s log₂ fold change; a dark dot marks q < 0.05. Repeated transcript IDs under one enzyme label are kept as separate sequence features.'),
-      { kind: 'figure', src: '/figures/dry-lab/transcriptomics-pathway-effects.svg', alt: 'Heatmap of all 20 sequence-annotated carotenoid pathway transcripts across three DESeq contrasts, grouped in biochemical enzyme order, with fold changes printed and significant contrasts marked.', caption: 'Figure 5. Pathway-ordered effect map for all 20 annotated transcripts. Rows are grouped by enzyme family—not by a data-driven cluster—and each dot marks q < 0.05.' },
+      { kind: 'figure', src: '/figures/dry-lab/transcriptomics-pathway-effects.svg', alt: 'Heatmap of all 20 sequence-annotated carotenoid pathway transcripts across three DESeq contrasts, grouped in biochemical enzyme order, with fold changes printed and significant contrasts marked.', caption: 'Fig. 5 Light responses of carotenoid-pathway transcripts' },
       customTable('Examples that shape the model question', ['Transcript · enzyme assignment', '600 vs 150 · log₂FC; q', '1500 vs 150 · log₂FC; q', '1500 vs 600 · log₂FC; q'], [
         ['Cluster-5009.34218 · LCYB','+0.576; 1.30 × 10⁻¹³','+0.261; 3.10 × 10⁻³','−0.315; 1.11 × 10⁻⁴'],
         ['Cluster-5009.36796 · LCYB','+1.746; 9.38 × 10⁻⁶','−0.310; 0.901','−2.056; 8.48 × 10⁻⁸'],
@@ -145,36 +145,36 @@ export const metabolomics: WikiPage = {
     section('Product-production simulation and chassis cost',
       p('After pathway integration, the model was used to compare the maximum potential of each target product. Cal01 was used as a proxy for carbon fixation so that product output could be evaluated against chassis metabolic cost.'),
       p('This analysis asks which pathway is most easily favored for flux redirection, which pathway imposes the least burden on the chassis, and at what point increased product output begins to compete strongly with core chassis function. Within the current framework, the ranking is consistently beta-ionone > beta-citraurin > astaxanthin > crocetin. Most pathways retain substantial output under low-to-moderate constraints, while product flux declines clearly only when the carbon-fixation requirement is forced into a high range.'),
-      fig('platform_product_tradeoffs_H', 'Trade-off comparison of four target products in scenario H, showing that beta-ionone has the highest yield, followed by beta-citraurin, astaxanthin and crocetin under different Cal01 constraints.', 'Figure 1. This figure compares the maximum yields of the four target product pathways under different Cal01 constraints in scenario H. The results show a stable difference in platform support for different products, with the overall ranking beta-ionone > beta-citraurin > astaxanthin > crocetin, and most pathways declining clearly only under high carbon-fixation requirements.'),
-      fig('astaxanthin_tradeoff_F_H', 'Relationship between astaxanthin production and Cal01 constraint in scenarios F and H, showing that maximum astaxanthin production decreases as carbon-fixation demand increases.', 'Figure 2. This figure shows how astaxanthin production changes in the representative scenarios F and H. As the Cal01 requirement increases, the maximum astaxanthin flux gradually decreases, indicating a quantifiable trade-off between product formation and chassis carbon-fixation capacity.'),
+      fig('platform_product_tradeoffs_H', 'Trade-off comparison of four target products in scenario H, showing that beta-ionone has the highest yield, followed by beta-citraurin, astaxanthin and crocetin under different Cal01 constraints.', 'Fig. 1 Product-yield trade-offs under Cal01 constraints'),
+      fig('astaxanthin_tradeoff_F_H', 'Relationship between astaxanthin production and Cal01 constraint in scenarios F and H, showing that maximum astaxanthin production decreases as carbon-fixation demand increases.', 'Fig. 2 Astaxanthin production in scenarios F and H'),
     ),
     section('Environmental scenario comparison',
       p('To test whether the product ranking depended on one specific condition, the four pathways were compared across all eight A-H scenarios. This provides a unified view of how light and nitrogen conditions shape the maximum attainable product fluxes.'),
       p('The platform is most favorable for redirecting flux toward target-product synthesis under high-light and low-nitrate conditions, with scenarios D and H performing best. At the same time, the relative ranking of the four products remains consistent across all scenarios, indicating that the ranking reflects a stable platform tendency rather than an isolated result from one environment.'),
-      fig('platform_environment_map_heatmap', 'Heatmap of maximum production potential for four target products across scenarios A-H, showing that high-light and low-nitrate conditions are most favorable and that beta-ionone remains the best-performing product.', 'Figure 3. This heatmap compares the maximum potential of the four target product pathways across the eight A-H scenarios. The results show that high-light and low-nitrate conditions are the most favorable for product-flux redirection, while the relative ranking of the four products remains consistent across scenarios.'),
+      fig('platform_environment_map_heatmap', 'Heatmap of maximum production potential for four target products across scenarios A-H, showing that high-light and low-nitrate conditions are most favorable and that beta-ionone remains the best-performing product.', 'Fig. 3 Product potential across environmental scenarios'),
     ),
     section('Key-node and flux-redistribution analysis',
       p('Beyond final product comparison, the analysis also focused on key nodes in the carotenoid backbone, especially Car09, the LCYB-related node, and Car10, the zeaxanthin-producing node. Forced-flux analysis was used to test how increasing these nodes affects proxies for carbon fixation, chlorophyll and membrane lipids.'),
       p('Increasing Car09 or Car10 does not immediately impose severe metabolic stress on the chassis in the low-to-moderate range, but the burden becomes clearer at higher forcing levels. Zeaxanthin was then examined as a branch-point metabolite by sequentially blocking the three major engineered outlets Car26, Car23 and Car17. The additional zeaxanthin is not split evenly across all downstream branches; instead, it follows the leakage priority Car26 > Car23 > Car17.'),
-      fig('lcyb_car09_forced_analysis_H', 'Forced-flux analysis of Car09 in scenario H, showing that increasing the LCYB-related node begins to reduce chassis metabolic performance at high forcing levels.', 'Figure 4. This figure shows how key chassis indicators change in scenario H when Car09, the LCYB-related node, is progressively increased. The results indicate that low-to-moderate enhancement does not immediately impose strong metabolic stress, while higher forcing levels gradually introduce a metabolic burden.'),
-      fig('zeaxanthin_car10_forced_proxies_H', 'Relationship between forced Car10 flux and multiple chassis proxy indicators in scenario H, showing that stronger zeaxanthin production leads to noticeable metabolic burden mainly at high forcing levels.', 'Figure 5. This figure shows the responses of Cal01, chlorophyll-related proxies and membrane-lipid proxies when Car10, the zeaxanthin-producing node, is progressively increased in scenario H. The results indicate that increasing zeaxanthin does not immediately impose severe chassis stress in the low-to-moderate range, but gradually introduces metabolic cost at higher forcing levels.'),
-      fig('zeaxanthin_car10_rerouting_H', 'Downstream rerouting of zeaxanthin in scenario H, showing that under different outlet-blocking conditions, zeaxanthin is preferentially redirected to Car26, then Car23 and then Car17.', 'Figure 6. By sequentially blocking Car26, Car23 and Car17, this figure shows how zeaxanthin is redistributed when different downstream branches are available. The results indicate that additional zeaxanthin is not split evenly, but instead follows the priority Car26 > Car23 > Car17.'),
+      fig('lcyb_car09_forced_analysis_H', 'Forced-flux analysis of Car09 in scenario H, showing that increasing the LCYB-related node begins to reduce chassis metabolic performance at high forcing levels.', 'Fig. 4 LCYB-related Car09 forced-flux analysis'),
+      fig('zeaxanthin_car10_forced_proxies_H', 'Relationship between forced Car10 flux and multiple chassis proxy indicators in scenario H, showing that stronger zeaxanthin production leads to noticeable metabolic burden mainly at high forcing levels.', 'Fig. 5 Chassis responses to forced Car10 flux'),
+      fig('zeaxanthin_car10_rerouting_H', 'Downstream rerouting of zeaxanthin in scenario H, showing that under different outlet-blocking conditions, zeaxanthin is preferentially redirected to Car26, then Car23 and then Car17.', 'Fig. 6 Zeaxanthin rerouting among downstream branches'),
     ),
     section('Dynamic branch model',
       p('To move beyond steady-state FBA, a local ODE model was constructed around the branch β-carotene -> zeaxanthin -> four target products. The model includes the BCAR, ZEA and VIO pools together with the four target product pools, and uses a simplified Michaelis-Menten formulation to describe the main branching processes.'),
       p('The first ODE version reproduces the same broad trend seen in the FBA analyses: beta-ionone is more easily favored, while zeaxanthin occupies a central branching position. This allows the analysis to begin asking how flux is redistributed over time rather than only whether a steady state exists.'),
       eq('Local branch kinetics', String.raw`v_i(S)=V_{\max,i}\frac{S}{K_{m,i}+S},\qquad \frac{dS}{dt}=v_{\mathrm{in}}-\sum_i v_i(S)-k_SS`),
       { kind: 'figure-grid', figures: [
-        { src: '/figures/dry-lab/carotenoid_branch_ode_v1_baseline_pools.png', alt: 'Time-course plot of key metabolite pools in the ODE baseline scenario.', caption: 'Figure 7. Baseline metabolite-pool trajectories for BCAR, ZEA, VIO and the four product pools.' },
-        { src: '/figures/dry-lab/carotenoid_branch_ode_v1_baseline_fluxes.png', alt: 'Time-course plot of key reaction fluxes in the ODE baseline scenario.', caption: 'Figure 8. Baseline flux trajectories showing the BCAR entry split and downstream distribution from ZEA.' },
+        { src: '/figures/dry-lab/carotenoid_branch_ode_v1_baseline_pools.png', alt: 'Time-course plot of key metabolite pools in the ODE baseline scenario.', caption: 'Fig. 7 Baseline metabolite-pool trajectories' },
+        { src: '/figures/dry-lab/carotenoid_branch_ode_v1_baseline_fluxes.png', alt: 'Time-course plot of key reaction fluxes in the ODE baseline scenario.', caption: 'Fig. 8 Baseline reaction-flux trajectories' },
       ] },
-      fig('carotenoid_branch_ode_v1_scenario_products', 'Comparison of final accumulated levels of the four target products across different ODE perturbation scenarios, showing how parameter changes alter astaxanthin, beta-ionone, beta-citraurin and crocetin outputs.', 'Figure 9. This figure compares the final accumulated levels of the four target products under different ODE perturbation scenarios, including enhanced Car10, enhanced beta-ionone branching and partial blocking of downstream zeaxanthin branches. The results illustrate how different engineering interventions reshape the final product pattern.'),
+      fig('carotenoid_branch_ode_v1_scenario_products', 'Comparison of final accumulated levels of the four target products across different ODE perturbation scenarios, showing how parameter changes alter astaxanthin, beta-ionone, beta-citraurin and crocetin outputs.', 'Fig. 9 Product accumulation under ODE perturbations'),
     ),
     section('Sensitivity analysis and dynamic results',
       p('A local sensitivity analysis was then applied to the first ODE version to identify which control parameters matter most. We perturbed the β-carotene-to-zeaxanthin and β-carotene-to-β-ionone entry rates, followed by the three zeaxanthin-to-product branch rates.'),
       p('The strongest control layer over the overall product pattern lies mainly at the β-carotene entry-point split, especially BCAR -> BION and BCAR -> ZEA. These two entry parameters influence the global outcome more strongly than the single downstream branch parameters ZEA -> ASTA, ZEA -> CITR and ZEA -> CROC. In practice, this means that changing the entry-point branching nodes is likely to be more effective than only fine-tuning the terminal branches when the goal is to reshape overall platform allocation.'),
-      fig('carotenoid_branch_ode_v1_sensitivity_heatmap', 'ODE parameter sensitivity heatmap showing the relative effects of key parameter changes on Peak ZEA, astaxanthin, beta-ionone, beta-citraurin and crocetin.', 'Figure 10. This heatmap shows the relative influence of perturbed key parameters on multiple output indicators in the first ODE model. The results indicate that the most sensitive control parameters governing the overall product pattern are located at the β-carotene entry-point branching layer rather than within the final downstream branches themselves.'),
-      fig('carotenoid_branch_ode_v1_sensitivity_ranking', 'Ranking plot of key parameter influence in the ODE model, showing that entry-point branching parameters are more important than downstream single-branch parameters for determining the overall product pattern.', 'Figure 11. This figure ranks the overall influence strength of key parameters in the first ODE model. The results show that parameters associated with BCAR -> BION and BCAR -> ZEA have the strongest effects on overall product distribution, indicating that the entry-point branching layer is the most important control level in the current dynamic model.'),
+      fig('carotenoid_branch_ode_v1_sensitivity_heatmap', 'ODE parameter sensitivity heatmap showing the relative effects of key parameter changes on Peak ZEA, astaxanthin, beta-ionone, beta-citraurin and crocetin.', 'Fig. 10 ODE parameter-sensitivity heatmap'),
+      fig('carotenoid_branch_ode_v1_sensitivity_ranking', 'Ranking plot of key parameter influence in the ODE model, showing that entry-point branching parameters are more important than downstream single-branch parameters for determining the overall product pattern.', 'Fig. 11 Ranking of ODE parameter influence'),
     ),
     section('Conclusions and experimental guidance',
       p('The metabolomics work now forms a comparatively complete workflow: reconstruction of the Dunaliella salina chassis network, integration of multi-product pathways, scenario-feasibility validation, product-potential comparison, environmental adaptation analysis, key-node mechanistic analysis, and finally local dynamic modeling with sensitivity analysis.'),
@@ -190,7 +190,7 @@ export const modeling: WikiPage = {
     section('Why model the LCYB step?',
       p('LCYB catalyzes the lycopene-to-β-carotene step. We use it as the link between regulatory design and the product pool, asking how a change in regulatory activity could propagate through LCYB transcription and enzyme abundance to β-carotene formation.'),
       p('The model ends at the β-carotene pool; it does not simulate the four downstream products. Their product-specific reactions are handled in the metabolomics workstream, with separate enzyme parameters and measurements.'),
-      fig('14_regulatory_model','Five-state regulatory model linking an active regulatory factor, promoter occupancy, LCYB transcript, active LCYB and beta-carotene.', 'Figure 1. The five dynamic states are active regulatory factor T, LCYB transcript m, active LCYB E, lycopene L and β-carotene B. Promoter occupancy θ and the two reaction rates are algebraic functions. Colors distinguish regulatory, expression and metabolic layers.'),
+      fig('14_regulatory_model','Five-state regulatory model linking an active regulatory factor, promoter occupancy, LCYB transcript, active LCYB and beta-carotene.', 'Fig. 1 Five-state regulatory model of the LCYB step'),
     ),
     section('From promoter binding to transcript output',
       p('As a first approximation, we represent promoter binding with a one-site equilibrium model. The occupied fraction depends on active regulator concentration relative to the dissociation constant; transcription is a weighted blend of the bound and unbound promoter rates.'),
@@ -241,7 +241,7 @@ export const modeling: WikiPage = {
       p('The equations make the proposed design chain explicit: regulator production and stability determine regulator abundance; abundance and binding affinity set promoter occupancy; occupancy changes LCYB transcription; translation changes active enzyme; and LCYB changes the lycopene-to-β-carotene flux. This is a testable mechanism, not evidence that each link has already been demonstrated in the engineered strain.'),
       eq('Steady-state regulatory chain', String.raw`T^*=\frac{s_T}{\delta_T+\mu},\quad m^*=\frac{u_{\mathrm{LCYB}}(T^*)}{\delta_m+\mu},\quad E^*=\frac{k_{\mathrm{tl}}m^*}{\delta_E+\mu}`),
       p('With a stated parameter set, the implementation returns conditional trajectories for T, m, E, L and B and compares defined regulator variants. A matched project time course supplies the parameter set for an absolute project-yield prediction.'),
-      fig('15_regulatory_response','Promoter occupancy and steady-state transfer from regulatory input to LCYB transcript and active enzyme.', 'Figure 2. A: promoter occupancy rises with regulator abundance relative to binding affinity and reaches one half when abundance equals the dissociation constant. B: the relative transcription rates and occupancy determine the steady-state expression transfer. Values above one indicate activation and values below one indicate repression. Axes show parameter ratios; absolute trajectories use the measured parameters listed above.'),
+      fig('15_regulatory_response','Promoter occupancy and steady-state transfer from regulatory input to LCYB transcript and active enzyme.', 'Fig. 2 Regulatory input and steady-state expression response'),
       h('Illustrative parameter scenarios'),
       p('These dimensionless points show how the assumed promoter response changes across low, intermediate and near-saturating regulator levels. They are illustrative calculations, not measurements from the engineered strain.'),
       eq('Relative transcript and active-enzyme response', String.raw`r=\frac{u_{\mathrm{bound}}}{u_{\mathrm{unbound}}},\qquad \frac{m^*}{m^*_{\mathrm{unbound}}}=\frac{E^*}{E^*_{\mathrm{unbound}}}=1+(r-1)\theta`),
@@ -416,7 +416,7 @@ G(z,t)&=I^+(z,t)+I^-(z,t)\\[4pt]
       hardwareFig(
         'A_optical_field_heatmap_double_sided',
         'Simulated light field across a flat-panel photobioreactor under symmetric double-sided illumination at different biomass concentrations.',
-        'Figure 1. Simulated optical field under symmetric double-sided illumination. Increasing biomass concentration strengthens self-shading and reduces irradiance in the central region of the reactor.',
+        'Fig. 1 Simulated optical field under double-sided illumination',
       ),
 
       p(
@@ -555,7 +555,7 @@ Q_P(I_g,t_s)
       hardwareFig(
         'C_productivity_heatmap_double_sided',
         'Heat map of predicted product productivity across growth-stage irradiance and switching time under double-sided illumination.',
-        'Figure 2. Predicted productivity across different combinations of growth-stage per-face irradiance and switching time.',
+        'Fig. 2 Productivity across irradiance and switching time',
       ),
 
       p(
@@ -565,7 +565,7 @@ Q_P(I_g,t_s)
       hardwareFig(
         'D_3D_product_surface_double_sided',
         'Three-dimensional response surface showing predicted productivity as a function of growth-stage irradiance and switching time.',
-        'Figure 3. Three-dimensional representation of the predicted productivity landscape.',
+        'Fig. 3 Predicted productivity landscape',
       ),
 
       p(
@@ -758,7 +758,7 @@ export const hardwareDesign: WikiPage = {
       hardwareDesignFig(
         'First_Generation_Flat_Panel_Airlift_Reactor_Single_Unit.JPG',
         'Simplified single-unit flat-panel airlift reactor geometry developed for preliminary CFD analysis.',
-        'Figure 1. First-generation single-unit concept used to establish the basic bubble-driven circulation geometry.',
+        'Fig. 1 First-generation single-unit reactor concept',
       ),
     ),
 
@@ -770,7 +770,7 @@ export const hardwareDesign: WikiPage = {
       hardwareDesignFig(
         'Reactor_V1_Initial_Prototype.JPG',
         'Initial full-panel prototype showing the connected serpentine cultivation chamber and functional reactor regions.',
-        'Figure 2. Reactor V1 initial prototype extending the single-unit circulation concept into a complete flat-panel architecture.',
+        'Fig. 2 Reactor V1 initial prototype',
       ),
     ),
 
@@ -782,7 +782,7 @@ export const hardwareDesign: WikiPage = {
       hardwareDesignFig(
         'Reactor_V2_Lab_Prototype.JPG',
         'Laboratory prototype showing the split-plate construction, fastening layout, and sealing features.',
-        'Figure 3. Reactor V2 laboratory prototype integrating assembly, sealing, and maintainability into the flat-panel design.',
+        'Fig. 3 Reactor V2 laboratory prototype',
       ),
     ),
 
@@ -794,7 +794,7 @@ export const hardwareDesign: WikiPage = {
       hardwareDesignFig(
         'Reactor_V3_Plate_A_Culture_Facing_Side_Vertical.JPG',
         'Final Plate A design showing the culture-facing serpentine geometry, fastening layout, and machining refinements.',
-        'Figure 4. Reactor V3 production design integrating the circulation geometry with CNC fabrication, sealing, fastening, and connection requirements.',
+        'Fig. 4 Reactor V3 production design',
       ),
     ),
   ],
