@@ -154,6 +154,92 @@ function renderCitations(text: string, referenceNumbers: Map<string, number>) {
 
 type TocSection = { id: string; title: string; children: Array<{ id: string; title: string }> };
 
+type TocChapterDefinition = { title: string; start: number; end: number };
+
+/**
+ * Long technical pages read more clearly when the contents panel describes a
+ * few real chapters instead of repeating every on-page heading at the same
+ * level. These ranges only affect the contents panel: every section and anchor
+ * remains present in the article.
+ */
+const TOC_CHAPTERS: Record<string, TocChapterDefinition[]> = {
+  "project-description": [
+    { title: "Background & Chassis", start: 0, end: 1 },
+    { title: "Reprogramming & Modeling", start: 2, end: 3 },
+    { title: "Products & Validation", start: 4, end: 5 },
+  ],
+  experiments: [
+    { title: "Experimental Workflow", start: 0, end: 0 },
+    { title: "Molecular Construction", start: 1, end: 2 },
+    { title: "Characterisation", start: 3, end: 4 },
+    { title: "Separation & Protocols", start: 5, end: 6 },
+  ],
+  transcriptomics: [
+    { title: "Pathway & Dataset", start: 0, end: 1 },
+    { title: "Sequence & Count Analysis", start: 2, end: 3 },
+    { title: "Results & Model Handoff", start: 4, end: 5 },
+  ],
+  metabolomics: [
+    { title: "Chassis & Method", start: 0, end: 2 },
+    { title: "Product Pathways", start: 3, end: 5 },
+    { title: "Branch Dynamics", start: 6, end: 8 },
+    { title: "Conclusions", start: 9, end: 9 },
+  ],
+  model: [
+    { title: "Regulatory Question", start: 0, end: 2 },
+    { title: "Evidence & Interpretation", start: 3, end: 4 },
+    { title: "Model Handoff", start: 5, end: 6 },
+  ],
+  protein: [
+    { title: "LCYB Design & Screening", start: 0, end: 6 },
+    { title: "TF2146–DNA Recognition", start: 7, end: 10 },
+    { title: "Constructs & Docking Scope", start: 11, end: 12 },
+  ],
+  hardware: [
+    { title: "Overview & Optics", start: 0, end: 1 },
+    { title: "Cultivation Strategy", start: 2, end: 3 },
+    { title: "Light, Scale & Energy", start: 4, end: 5 },
+    { title: "Interactive Tool & Scope", start: 6, end: 7 },
+  ],
+  "safety-and-security": [
+    { title: "Concept & Response", start: 0, end: 1 },
+    { title: "Results & Assumptions", start: 2, end: 3 },
+    { title: "Parameters & Formulation", start: 4, end: 5 },
+    { title: "Project Implications", start: 6, end: 6 },
+  ],
+};
+
+type TocChapter = {
+  id: string;
+  title: string;
+  links: Array<{ id: string; title: string; activeIds: Set<string> }>;
+  activeIds: Set<string>;
+};
+
+function tocChapters(slug: string, sections: TocSection[]): TocChapter[] {
+  const configured = TOC_CHAPTERS[slug];
+  const definitions = configured ?? (sections.length > 6
+    ? Array.from({ length: Math.ceil(sections.length / 3) }, (_, index) => {
+        const start = index * 3;
+        return { title: sections[start].title, start, end: Math.min(start + 2, sections.length - 1) };
+      })
+    : sections.map((section, index) => ({ title: section.title, start: index, end: index })));
+
+  return definitions.flatMap((definition) => {
+    const members = sections.slice(definition.start, definition.end + 1);
+    if (members.length === 0) return [];
+    const allIds = new Set(members.flatMap((section) => [section.id, ...section.children.map((child) => child.id)]));
+    const links = members.length === 1
+      ? members[0].children.map((child) => ({ ...child, activeIds: new Set([child.id]) }))
+      : members.map((section) => ({
+          id: section.id,
+          title: section.title,
+          activeIds: new Set([section.id, ...section.children.map((child) => child.id)]),
+        }));
+    return [{ id: members[0].id, title: definition.title, links, activeIds: allIds }];
+  });
+}
+
 function ArticleToc({ slug, sections, hasReferences }: { slug: string; sections: TocSection[]; hasReferences: boolean }) {
   const nav = useRef<HTMLElement>(null);
   const [activeId, setActiveId] = useState("section-1");
@@ -207,13 +293,19 @@ function ArticleToc({ slug, sections, hasReferences }: { slug: string; sections:
     };
   }, [slug, itemKey]);
 
-  const activeSection = sections.find((section) => section.id === activeId || section.children.some((child) => child.id === activeId))?.id;
+  const chapters = tocChapters(slug, sections);
   return <aside className="article-toc"><p>Contents</p><nav ref={nav} aria-label="Contents">
-    {sections.map((section) => <div className={`toc-group${activeSection === section.id ? " is-open" : ""}`} key={section.id}>
-      <Link data-toc-id={section.id} className={`toc-parent${activeId === section.id ? " is-active" : ""}`} aria-current={activeId === section.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${section.id}` }}>{section.title}{section.children.length > 0 && <b aria-hidden="true">⌄</b>}</Link>
-      {section.children.length > 0 && <div className="toc-sublist">{section.children.map((child) => <Link key={child.id} data-toc-id={child.id} className={activeId === child.id ? "is-active" : undefined} aria-current={activeId === child.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${child.id}` }}>{child.title}</Link>)}</div>}
-    </div>)}
-    {hasReferences && <Link data-toc-id="references" className={activeId === "references" ? "is-active" : undefined} aria-current={activeId === "references" ? "location" : undefined} to={{ pathname: `/${slug}`, hash: "#references" }}>References</Link>}
+    {chapters.map((chapter) => {
+      const isOpen = chapter.activeIds.has(activeId);
+      return <div className={`toc-group${isOpen ? " is-open" : ""}`} key={chapter.id}>
+        <Link data-toc-id={chapter.id} className={`toc-parent${activeId === chapter.id ? " is-active" : ""}`} aria-current={activeId === chapter.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${chapter.id}` }}>{chapter.title}{chapter.links.length > 0 && <b aria-hidden="true">⌄</b>}</Link>
+        {chapter.links.length > 0 && <div className="toc-sublist">{chapter.links.map((link) => {
+          const isActive = link.activeIds.has(activeId);
+          return <Link key={link.id} data-toc-id={link.id} className={isActive ? "is-active" : undefined} aria-current={isActive ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${link.id}` }}>{link.title}</Link>;
+        })}</div>}
+      </div>;
+    })}
+    {hasReferences && <Link data-toc-id="references" className={`toc-references${activeId === "references" ? " is-active" : ""}`} aria-current={activeId === "references" ? "location" : undefined} to={{ pathname: `/${slug}`, hash: "#references" }}>References</Link>}
   </nav></aside>;
 }
 
@@ -265,7 +357,7 @@ function Article({ slug }: { slug: string }) {
     <div className="article-layout"><ArticleToc slug={slug} sections={tocSections} hasReferences={references.length > 0} />
       <div className="article-body">{page.figure && <figure className="feature-figure"><img src={figureSrc} alt={page.figure.alt} loading="lazy" decoding="async" /><figcaption>{page.figure.caption}</figcaption></figure>}
         <div className="article-sections">{page.sections.map((section, i) => <section id={`section-${i + 1}`} tabIndex={-1} key={`${i}-${section.title}`}><div className="section-number">{String(i + 1).padStart(2, "0")}</div><div>{section.eyebrow && <p className="section-eyebrow">{section.eyebrow}</p>}<h2>{section.title}</h2>{section.body && <p>{renderCitations(section.body, referenceNumbers)}</p>}{section.blocks && <ArticleBlocks blocks={section.blocks} referenceNumbers={referenceNumbers} sectionId={`section-${i + 1}`} />}{section.items && <ul>{section.items.map((item) => <li key={item}>{renderCitations(item, referenceNumbers)}</li>)}</ul>}{section.note && <aside>{section.note}</aside>}</div></section>)}</div>
-        {references.length > 0 && <section id="references" tabIndex={-1} className="article-references"><div className="section-number" aria-hidden="true">↗</div><div><p className="section-eyebrow">SOURCES &amp; FURTHER READING</p><h2>References</h2><ol>{references.map((reference, index) => <li id={`reference-${index + 1}`} key={reference.href}><span>{String(index + 1).padStart(2, "0")}</span><div><span className="reference-kind">{reference.kind ?? 'Source'}</span><a href={reference.href} target="_blank" rel="noreferrer">{reference.label}<span className="reference-link-mark" aria-hidden="true">↗</span></a></div></li>)}</ol></div></section>}
+        {references.length > 0 && <section id="references" tabIndex={-1} className="article-references"><h2>References</h2><div className="reference-list">{references.map((reference, index) => <p id={`reference-${index + 1}`} key={reference.href}><a href={reference.href} target="_blank" rel="noreferrer">{reference.label}</a></p>)}</div></section>}
       </div>
     </div>
     </>}

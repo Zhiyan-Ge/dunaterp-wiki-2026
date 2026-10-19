@@ -461,15 +461,40 @@ main:focus:not(:focus-visible) { outline: none; }
 .article-page .next-page > span,
 .article-page .next-page strong { font-family: ui-monospace, Menlo, monospace; font-weight: 900; }
 .article-page .next-page strong { text-transform: uppercase; }
-.article-page .article-references { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: clamp(1rem, 3vw, 2rem); margin-top: 1.4rem; padding: clamp(1.4rem, 4vw, 3rem); border: 3px solid var(--ink); background: #e8eddc; box-shadow: 6px 6px 0 var(--article-accent); scroll-margin-top: 7rem; }
-.article-page .article-references h2 { margin: 0 0 1.2rem; color: var(--ink); font: 900 clamp(1.45rem, 2.1vw, 2.05rem)/1.2 ui-monospace, Menlo, monospace; text-transform: uppercase; }
-.article-page .article-references ol { margin: 0; padding: 0; list-style: none; counter-reset: references; }
-.article-page .article-references li { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: .7rem; align-items: start; padding: .8rem 0; border-top: 1px solid #bdc9b8; color: #36514c; font-size: .9rem; line-height: 1.6; scroll-margin-top: 7rem; }
-.article-page .article-references li > span { color: #607468; font: 900 .75rem/1.6 ui-monospace, Menlo, monospace; }
-.article-page .article-references li > div { min-width: 0; }
-.article-page .article-references li a { display: block; color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: .2em; overflow-wrap: anywhere; }
-.article-page .article-references .reference-kind { display: inline-block; margin: 0 0 .32rem; padding: .12rem .42rem; background: var(--ink); color: #fffaf0; font: 900 .62rem/1.35 ui-monospace, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; }
-.article-page .article-references .reference-link-mark { margin-left: .35rem; color: #176c82; font-family: ui-monospace, Menlo, monospace; font-weight: 900; text-decoration: none; }
+.article-page .article-references {
+  margin-top: clamp(2.6rem, 6vw, 4.8rem);
+  padding: clamp(1.8rem, 4vw, 2.8rem) 0 0;
+  border: 0;
+  border-top: 1px solid #b9b6a7;
+  background: transparent;
+  box-shadow: none;
+  scroll-margin-top: 7rem;
+}
+.article-page .article-references h2 {
+  margin: 0 0 clamp(1.4rem, 3vw, 2.2rem);
+  color: color-mix(in srgb, var(--article-accent) 72%, #355229);
+  font: 700 clamp(1.75rem, 2.5vw, 2.4rem)/1.2 Georgia, "Times New Roman", serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.article-page .article-references .reference-list { display: grid; gap: 1rem; }
+.article-page .article-references .reference-list p {
+  margin: 0;
+  color: var(--ink);
+  font: 500 clamp(1rem, 1.3vw, 1.16rem)/1.72 Georgia, "Times New Roman", serif;
+  scroll-margin-top: 7rem;
+}
+.article-page .article-references .reference-list a {
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.article-page .article-references .reference-list a:hover,
+.article-page .article-references .reference-list a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+}
 .article-page .inline-citation { color: #176c82; font-size: .82em; font-weight: 800; text-underline-offset: .15em; }
 
 /* Keep Wet Lab and Dry Lab on the same warm paper ground. The content cards
@@ -503,5 +528,5 @@ body:has(.article-page--hardware) { background: #f3ecd0; }
   .article-page--overview .article-hero { grid-template-columns: 1fr; gap: 1.25rem; }
   .article-page .article-sections > section { grid-template-columns: 2.5rem minmax(0,1fr); padding: 1.25rem; box-shadow: 4px 4px 0 #b9c7b9; }
   .article-page .section-number { width: 2.25rem; height: 2.25rem; }
-  .article-page .article-references { grid-template-columns: 2.5rem minmax(0,1fr); padding: 1.25rem; box-shadow: 4px 4px 0 var(--article-accent); }
+  .article-page .article-references { padding-top: 1.5rem; }
 }

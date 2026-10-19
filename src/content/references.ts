@@ -28,7 +28,7 @@ export const refs = {
     'https://doi.org/10.1104/pp.110.155440',
   ),
   transcriptomeDataset: dataset(
-    'Li, Y. & Wang, G. (2018; public release 2020). GSE120965: Transcriptome analysis reveals regulation of gene expression during photoacclimation to high irradiance levels in Dunaliella salina (Chlorophyceae). NCBI Gene Expression Omnibus. BioProject PRJNA495151.',
+    'Li, Y. & Wang, G. (2018; public release 2020). GSE120965: Transcriptome analysis reveals regulation of gene expression during photoacclimation to high irradiance levels in Dunaliella salina (Chlorophyceae). NCBI Gene Expression Omnibus. BioProject PRJNA495151. https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE120965',
     'https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE120965',
   ),
   li2019: article(
@@ -64,7 +64,7 @@ export const refs = {
     'https://doi.org/10.1111/1462-2920.13539',
   ),
   pubchemLycopene: database(
-    'National Center for Biotechnology Information. (2026). PubChem Compound Summary for CID 446925, Lycopene. Retrieved 19 October 2026.',
+    'National Center for Biotechnology Information. (2026). PubChem Compound Summary for CID 446925, Lycopene. Retrieved 19 October 2026. https://pubchem.ncbi.nlm.nih.gov/compound/446925',
     'https://pubchem.ncbi.nlm.nih.gov/compound/446925',
   ),
   alphafold3: article(
@@ -116,7 +116,7 @@ export const refs = {
     'https://doi.org/10.1007/s00253-010-3047-8',
   ),
   humanPracticesHero: image(
-    'Freeman, M. L. (2017). Great Salt Lake, USGS boat at work [Photograph]. Utah Water Science Center, U.S. Geological Survey. Public domain.',
+    'Freeman, M. L. (2017). Great Salt Lake, USGS boat at work [Photograph]. Utah Water Science Center, U.S. Geological Survey. Public domain. https://www.usgs.gov/media/images/great-salt-lake-usgs-boat-work',
     'https://www.usgs.gov/media/images/great-salt-lake-usgs-boat-work',
   ),
 } as const satisfies Record<string, WikiReference>;
