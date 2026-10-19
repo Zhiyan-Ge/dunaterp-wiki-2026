@@ -1,0 +1,126 @@
+{
+  "scope": "Illustrative five-state LCYB regulatory-model scenarios; not project measurements",
+  "solver": {
+    "method": "fixed-step classical RK4",
+    "step_days": 0.01,
+    "duration_days": 12.0
+  },
+  "initial_condition": "Equilibrium under the low regulator-production input",
+  "parameters": {
+    "delta_T": 0.45,
+    "mu": 0.08,
+    "Kd": 1.0,
+    "u_unbound": 0.4,
+    "u_bound": 1.6,
+    "delta_m": 0.65,
+    "k_tl": 0.55,
+    "delta_E": 0.18,
+    "v_supply": 0.8,
+    "q_LCYB": 0.5,
+    "Km_LCYB": 0.7,
+    "k_L": 0.08,
+    "V_out": 0.55,
+    "Km_out": 0.5,
+    "k_B": 0.06
+  },
+  "regulator_production_scenarios": {
+    "Low input": 0.053,
+    "Intermediate input": 0.53,
+    "High input": 5.3
+  },
+  "day_12_endpoints_relative_to_low_equilibrium": {
+    "Low input": {
+      "T_over_low": 1.0,
+      "m_over_low": 1.0,
+      "E_over_low": 1.0,
+      "L_over_low": 1.0,
+      "B_over_low": 1.0,
+      "v_LCYB_over_low": 1.0
+    },
+    "Intermediate input": {
+      "T_over_low": 9.984435699592632,
+      "m_over_low": 1.9609888541409555,
+      "E_over_low": 1.8588368691342378,
+      "L_over_low": 0.4424860285013933,
+      "B_over_low": 1.7417649732391143,
+      "v_LCYB_over_low": 1.3626618195791225
+    },
+    "High input": {
+      "T_over_low": 99.82879269551901,
+      "m_over_low": 2.927037063195598,
+      "E_over_low": 2.7730559852066943,
+      "L_over_low": 0.2336345972158035,
+      "B_over_low": 2.0225052726333534,
+      "v_LCYB_over_low": 1.4235702783438458
+    }
+  },
+  "sensitivity": [
+    {
+      "parameter": "v_supply",
+      "elasticity": 1.3443080859712362,
+      "central_B": 1.8623702345464295
+    },
+    {
+      "parameter": "V_out",
+      "elasticity": -1.0225104469904607,
+      "central_B": 1.8623702345464295
+    },
+    {
+      "parameter": "mu",
+      "elasticity": -0.7070796813903656,
+      "central_B": 1.8623702345464295
+    },
+    {
+      "parameter": "q_LCYB",
+      "elasticity": 0.5803134591846296,
+      "central_B": 1.8623702345464295
+    },
+    {
+      "parameter": "k_tl",
+      "elasticity": 0.5737301399429614,
+      "central_B": 1.8623702345464295
+    },
+    {
+      "parameter": "delta_m",
+      "elasticity": -0.4736402783479667,
+      "central_B": 1.8623702345464295
+    },
+    {
+      "parameter": "u_bound",
+      "elasticity": 0.44016378296835207,
+      "central_B": 1.8623702345464295
+    },
+    {
+      "parameter": "delta_E",
+      "elasticity": -0.33538879211481887,
+      "central_B": 1.8623702345464295
+    },
+    {
+      "parameter": "Km_LCYB",
+      "elasticity": -0.26352519747609593,
+      "central_B": 1.8623702345464295
+    },
+    {
+      "parameter": "k_B",
+      "elasticity": -0.2396775812653591,
+      "central_B": 1.8623702345464295
+    },
+    {
+      "parameter": "Kd",
+      "elasticity": -0.16962323230092405,
+      "central_B": 1.8623702345464295
+    },
+    {
+      "parameter": "s_T",
+      "elasticity": 0.16879571532529106,
+      "central_B": 1.8623702345464295
+    }
+  ],
+  "figure_sha256": {
+    "14_regulatory_model.png": "8aa52541210831147bb8c11e9eaca120070bfda332cf133a266d8755c2469892",
+    "15_regulatory_response.png": "ba24b91e0c402d516fb202d3fdfe1c1846acc347569b138d73b92029c54e1271",
+    "16_regulatory_dynamics.png": "f010639419b6717537f134e7627c2c37b3d14e017ba1b6fe6e88f18d6803759f",
+    "17_regulatory_sweep.png": "686fb668fa0d12ed96387f2f9b0246a711cfd15a664f3de0b5b7f51f30784fec",
+    "18_regulatory_sensitivity.png": "123704096b0e1587c06690e015effc5505b816f09de4e91a26417769fe12948d"
+  }
+}

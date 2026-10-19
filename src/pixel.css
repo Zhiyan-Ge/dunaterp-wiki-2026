@@ -252,14 +252,15 @@
   animation: pxLoadingReveal .25s steps(4, end) both;
 }
 .px-loading--boot { position: fixed; --px-ink: #06221f; --px-cream: #f0e4c8; --px-lime: #cdf558; --px-edge: 3px; }
-.px-loading--boot .px-meter i { animation: pxBootCell 1.2s steps(1, end) infinite; animation-delay: calc(var(--px-cell-index, 0) * 55ms); }
+.px-loading--boot .px-loader-scene::after { animation: pxBootTrack 1.4s steps(8, end) infinite; }
 
 .px-loader-scene {
+  --px-load: 0%;
   position: relative;
   width: min(19rem, 72vw);
   height: 4.2rem;
   overflow: hidden;
-  border-bottom: 4px solid var(--px-cream);
+  border-bottom: 4px solid rgba(240, 228, 200, .22);
   background: linear-gradient(180deg, transparent 0 66%, #17544a 66% 100%);
   image-rendering: pixelated;
 }
@@ -270,6 +271,16 @@
   height: 1.15rem;
   background: repeating-linear-gradient(90deg, #9b704c 0 1.15rem, #e2b477 1.15rem 1.35rem, #755637 1.35rem 1.55rem);
   border-block: 3px solid var(--px-ink);
+}
+.px-loader-scene::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  bottom: 0;
+  width: var(--px-load);
+  height: 4px;
+  background: var(--px-lime);
 }
 .px-loader-scene > i {
   position: absolute;
@@ -303,10 +314,10 @@
   animation: pxLoaderSpark 1.3s steps(2, end) infinite;
 }
 @keyframes pxLoadingReveal { from { opacity: 0; } to { opacity: 1; } }
-@keyframes pxBootCell { 0%, 100% { background: rgba(240, 228, 200, .16); } 50% { background: var(--px-lime); } }
 @keyframes pxLoaderWalk { 50% { transform: translateX(13rem); } }
 @keyframes pxLoaderSalt { 50% { transform: translateY(.22rem); filter: brightness(1.15); } }
 @keyframes pxLoaderSpark { 50% { opacity: .25; transform: translateY(-.25rem); } }
+@keyframes pxBootTrack { 0% { width: 8%; } 100% { width: 92%; } }
 
 .px-loading-crest { display: flex; align-items: end; gap: .35rem; height: 2.5rem; }
 .px-loading-crest i { display: block; width: .65rem; height: .65rem; background: var(--px-lime); animation: pxLoadingPulse .7s steps(2, end) infinite alternate; }
@@ -331,10 +342,6 @@
   letter-spacing: .16em;
   text-transform: uppercase;
 }
-
-.px-meter { display: flex; gap: 3px; padding: 4px; border: var(--px-edge) solid var(--px-cream); }
-.px-meter i { width: 9px; height: 18px; background: rgba(240, 228, 200, .16); }
-.px-meter i.is-on { background: var(--px-lime); }
 
 /* --- intro -------------------------------------------------------------- */
 
@@ -828,7 +835,8 @@
   .px-button, .px-route-traveller, .px-archive { transition: none; }
   .px-loading, .px-loading-crest i { animation: none; }
   .px-route-fill { transition: none; }
-  .px-loading, .px-loader-scene > i, .px-loader-scene > b, .px-loader-scene > span, .px-loading--boot .px-meter i { animation: none; }
+  .px-loading, .px-loader-scene::after, .px-loader-scene > i, .px-loader-scene > b, .px-loader-scene > span { animation: none; }
+  .px-loading--boot .px-loader-scene::after { width: 92%; }
 }
 
 /* Expedition usability: keep the lake reachable beneath quiet story panels. */
@@ -836,7 +844,21 @@
 .px-world.is-free .px-sticky { position: fixed; inset: 0; }
 .px-world button:disabled { opacity: .55; cursor: wait; }
 .px-world :is(button, a, canvas):focus-visible { outline: 3px solid #7de2ff; outline-offset: 4px; }
-.px-world.is-free .px-controls { bottom: 1.7rem; }
+.px-world.is-free .px-controls {
+  bottom: 1.7rem;
+  grid-template-columns: auto auto auto;
+  align-items: stretch;
+}
+.px-world.is-free .px-controls .story-replay,
+.px-world.is-free .px-controls .px-mode { height: 100%; }
+.px-world.is-free .px-controls .px-mode-help {
+  display: flex;
+  align-items: center;
+}
+.px-world.is-free .px-controls .px-touch-help {
+  grid-column: 1 / -1;
+  justify-self: end;
+}
 .px-world.is-free .px-prompt { bottom: 7rem; max-width: calc(100% - 2rem); }
 .px-world.is-free .px-route { bottom: max(5.4rem, calc(env(safe-area-inset-bottom) + 5.4rem)); }
 .px-world.has-dialogue .ej-launcher,
@@ -858,9 +880,17 @@
 .px-world.has-failed .px-loading { position: fixed; }
 @media (pointer: coarse), (max-width: 800px) {
   .px-world.is-free .px-route { bottom: max(6rem, calc(env(safe-area-inset-bottom) + 6rem)); }
-  .px-world.is-free .px-controls { left: auto; right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); max-width: calc(100% - 11rem); }
-  .px-controls .px-mode-help { display: none; }
-  .px-controls .px-touch-help { display: block; margin: 0; max-width: 15rem; padding: .35rem; background: #06221fe8; font-size: .875rem; }
+  .px-world.is-free .px-controls {
+    left: auto;
+    right: .75rem;
+    top: 9rem;
+    bottom: auto;
+    grid-template-columns: 1fr;
+    max-width: 11rem;
+  }
+  .px-world.is-free .px-controls .story-replay { display: none; }
+  .px-world.is-free .px-controls .px-mode-help { display: none; }
+  .px-controls .px-touch-help { display: none; }
   .px-dpad { position: absolute; z-index: 25; display: grid; grid-template-columns: repeat(3, 44px); grid-template-rows: repeat(2, 44px); gap: 5px; left: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); }
   .px-world.is-free .px-route { bottom: max(6.1rem, calc(env(safe-area-inset-bottom) + 6rem)); }
   .px-dpad button { border: 3px solid #06221f; background: #f0e4c8; color: #06221f; font-size: 1.4rem; font-weight: 900; touch-action: none; user-select: none; box-shadow: 3px 3px 0 #06221f; }
@@ -870,7 +900,7 @@
   .px-world.is-free .px-prompt { bottom: 8rem; width: auto; }
 }
 @media (max-width: 420px) {
-  .px-world.is-free .px-controls { max-width: calc(100% - 10.5rem); }
+  .px-world.is-free .px-controls { max-width: 10rem; }
   .px-world.is-free .px-mode { font-size: .875rem; letter-spacing: 0; padding: .7rem .5rem; }
 }
 

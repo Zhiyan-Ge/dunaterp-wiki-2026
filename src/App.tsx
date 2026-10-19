@@ -37,7 +37,6 @@ function BootLoadingScreen() {
     <p className="px-loading-title">DUNATERP</p>
     <div className="px-loader-scene" aria-hidden="true"><i /><b /><span /></div>
     <p className="px-loading-sub">Surveying the salt flats…</p>
-    <div className="px-meter" aria-hidden="true">{Array.from({ length: 16 }, (_, index) => <i key={index} style={{ "--px-cell-index": index } as CSSProperties} />)}</div>
   </main>;
 }
 
@@ -173,9 +172,9 @@ const TOC_CHAPTERS: Record<string, TocChapterDefinition[]> = {
     { title: "Conclusions", start: 9, end: 9 },
   ],
   model: [
-    { title: "Regulatory Question", start: 0, end: 2 },
-    { title: "Evidence & Interpretation", start: 3, end: 4 },
-    { title: "Model Handoff", start: 5, end: 6 },
+    { title: "Model Construction", start: 0, end: 2 },
+    { title: "Simulation & Results", start: 3, end: 4 },
+    { title: "Sensitivity & Validation", start: 5, end: 6 },
   ],
   protein: [
     { title: "LCYB Design & Screening", start: 0, end: 6 },

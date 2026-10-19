@@ -97,9 +97,19 @@ try {
   const ode = pages.model.sections.flatMap(s=>s.blocks ?? []).find(b=>b.kind==='equation' && b.label==='Regulatory LCYB model');
   assert.equal((ode.text.match(/\\frac\{d/g) ?? []).length,5);
   assert.deepEqual(pages.model.sections.map(section => section.title), [
-    'Why model the LCYB step?','From promoter binding to transcript output','Tracking the five model states',
-    'What is supported, and what still needs measuring','What the model can currently tell us','Passing the output to the product models','Model conclusion and experimental handoff',
+    'Biological question and model scope','Promoter-to-enzyme transfer','Five-state dynamic model',
+    'Parameterisation and numerical method','Scenario results','Sensitivity and downstream handoff','Conclusions and experimental validation',
   ]);
+  const modelText = JSON.stringify(pages.model);
+  assert(modelText.includes('fourth-order Runge–Kutta') && modelText.includes('Δt = 0.01 d') && modelText.includes('±10%'), 'Model solver and sensitivity procedure must be explicit');
+  assert(modelText.includes('illustrative parameter set') && modelText.includes('not fitted to project measurements'), 'Model scenarios must be distinguished from project measurements');
+  for (const name of ['14_regulatory_model','15_regulatory_response','16_regulatory_dynamics','17_regulatory_sweep','18_regulatory_sensitivity']) {
+    assert(modelText.includes(name), `Missing regulatory model figure: ${name}`);
+  }
+  const modelScenarioData = JSON.parse(fs.readFileSync('public/data/regulatory-model-scenarios.json','utf8'));
+  assert.equal(modelScenarioData.solver.method, 'fixed-step classical RK4');
+  assert.equal(modelScenarioData.solver.step_days, 0.01);
+  assert.equal(modelScenarioData.sensitivity.length, 12);
   assert(!/day-7|2\.0988|10\.9518|Car09|nine-state|FBA/i.test(JSON.stringify(pages.model)), 'Obsolete quantitative claim remains');
   for (const slug of ['transcriptomics','model','protein']) {
     const captions = pages[slug].sections.flatMap(s => s.blocks ?? []).flatMap(block => block.kind === 'figure' ? [block.caption] : block.kind === 'figure-row' || block.kind === 'figure-grid' ? block.figures.map(figure => figure.caption) : []);
@@ -114,7 +124,7 @@ try {
   for (const [file, hash] of Object.entries(provenance.figure_sha256)) {
     assert.equal(createHash('sha256').update(fs.readFileSync(`public/figures/dry-lab/${file}`)).digest('hex'), hash);
   }
-  assert.equal(figures,15);
+  assert.equal(figures,18);
   const workflow = fs.readFileSync('.github/workflows/pages.yml','utf8');
   for(const slug of ['dry-lab','transcriptomics','metabolomics','protein','model','hardware','hardware-design']) assert(workflow.includes(`            ${slug} \\`));
   console.log(`Dry Lab checks passed: complete seven-entry navigation, populated protein and safety pages, ${figures} figures, ${tables} tables, three explicit transcriptomics contrasts and 5 core ODEs.`);

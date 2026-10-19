@@ -3,7 +3,6 @@ import type { ContentBlock } from './types';
 import { refs } from './references';
 
 const p = (text: string): ContentBlock => ({ kind: 'paragraph', text });
-const h = (text: string): ContentBlock => ({ kind: 'heading', text });
 const eq = (label: string, text: string): ContentBlock => ({ kind: 'equation', label, text });
 const fig = (name: string, alt: string, caption: string): ContentBlock => ({ kind: 'figure', src: `/figures/dry-lab/${name}.png`, alt, caption });
 const customTable = (caption: string, columns: string[], rows: string[][]): ContentBlock => ({ kind: 'table', caption, columns, rows });
@@ -180,22 +179,23 @@ export const metabolomics: WikiPage = {
 
 export const modeling: WikiPage = {
   title: 'Mathematical Modeling', eyebrow: 'Dry Lab / Model', status: 'team-draft',
-  intro: 'The transcriptome analysis shows that LCYB expression responds to light, but expression alone cannot tell us whether that response changes carotenoid production. We built a five-state model to make the proposed route explicit—from regulatory input, through LCYB transcript and active enzyme, to lycopene conversion and the β-carotene pool. The equations define testable relationships; absolute predictions for the engineered strain still require matched project measurements to set the parameters.',
+  intro: 'The transcriptome analysis shows that LCYB expression responds to light, but RNA abundance alone cannot establish a change in carotenoid production. We therefore built a five-state dynamic model that follows a regulatory input through promoter occupancy, LCYB transcript and active enzyme to lycopene conversion and the β-carotene pool. The model is used here to compare mechanisms and prioritize measurements; it does not claim a calibrated product yield for the engineered strain.',
   references: [refs.bintu2005, refs.liang2017, refs.lan2022, refs.mialoundama2010],
   sections: [
-    section('Why model the LCYB step?',
-      p('LCYB catalyzes the lycopene-to-β-carotene step. We use it as the link between regulatory design and the product pool, asking how a change in regulatory activity could propagate through LCYB transcription and enzyme abundance to β-carotene formation.'),
-      p('The model ends at the β-carotene pool; it does not simulate the four downstream products. Their product-specific reactions are handled in the metabolomics workstream, with separate enzyme parameters and measurements.'),
-      fig('14_regulatory_model','Five-state regulatory model linking an active regulatory factor, promoter occupancy, LCYB transcript, active LCYB and beta-carotene.', 'Fig. 1 Five-state regulatory model of the LCYB step'),
+    section('Biological question and model scope',
+      p('LCYB catalyzes the cyclisation of lycopene toward β-carotene. It therefore provides a concrete place to test whether an upstream regulatory change can travel through expression and enzyme activity to a metabolic pool. The model separates those links instead of treating an RNA fold change as a flux measurement.'),
+      p('The boundary is deliberately narrow. Five dynamic states are followed: active regulatory factor T, LCYB transcript m, active LCYB enzyme E, lycopene L and β-carotene B. Promoter occupancy θ is an algebraic function of T. The four downstream product routes are not folded into this model; they receive the LCYB flux through a shared boundary and remain part of the metabolic-flow analysis.'),
+      fig('14_regulatory_model','Mechanistic architecture of the five-state LCYB model, showing regulatory input, promoter occupancy, transcript, active enzyme, lycopene conversion, beta-carotene, loss terms and the matched measurements required for calibration.', 'Fig. 1 Architecture and measurement plan for the LCYB model'),
     ),
-    section('From promoter binding to transcript output',
-      p('As a first approximation, we represent promoter binding with a one-site equilibrium model [1]. The occupied fraction depends on active regulator concentration relative to the dissociation constant; transcription is a weighted blend of the bound and unbound promoter rates. A published D. bardawil LCYB promoter provides relevant sequence context, but does not establish TF2146 binding [2].'),
+    section('Promoter-to-enzyme transfer',
+      p('As a first approximation, promoter binding is represented by a one-site equilibrium model [1]. Occupancy depends on active regulator concentration relative to the dissociation constant, and transcription is the weighted average of the bound and unbound promoter rates. A published D. bardawil LCYB promoter provides sequence context for a salt-regulated LCYB promoter, but it does not establish TF2146 binding to the project promoter [2].'),
       links(['Bintu et al. · promoter occupancy models','https://doi.org/10.1016/j.gde.2005.02.007'],['Liang et al. · published D. bardawil lcyb promoter','https://doi.org/10.1111/1462-2920.13539']),
-      eq('Promoter input', String.raw`\theta=\frac{T}{K_d+T},\qquad u_{\mathrm{LCYB}}=u_{\mathrm{unbound}}(1-\theta)+u_{\mathrm{bound}}\theta`),
-      p('When the bound-promoter transcription rate exceeds the unbound rate, binding activates LCYB transcription; the reverse ordering represents repression. Regulator production, degradation and growth dilution determine regulator abundance, while the dissociation constant describes binding affinity.'),
+      eq('Promoter input', String.raw`\theta=\frac{T}{K_d+T},\qquad u_{\mathrm{LCYB}}(T)=u_{\mathrm{unbound}}(1-\theta)+u_{\mathrm{bound}}\theta`),
+      p('If the bound-promoter rate exceeds the unbound rate, binding activates LCYB transcription; reversing that ordering represents repression. The transfer curve also exposes a limit: once T is much larger than Kd, occupancy approaches one and additional regulator produces progressively smaller expression gains.'),
+      fig('15_regulatory_response','Promoter occupancy across regulator-to-affinity ratios and the corresponding steady-state transcript and enzyme response for activating, neutral and repressing bound-promoter rates.', 'Fig. 2 Promoter occupancy and steady-state expression transfer'),
     ),
-    section('Tracking the five model states',
-      p('The ordinary differential equations track production, conversion and loss in each state. Growth dilution appears alongside degradation or outflow, so all five balances use the same culture-growth term.'),
+    section('Five-state dynamic model',
+      p('The ordinary differential equations track production, conversion and loss in every state. Growth dilution appears alongside molecular degradation or metabolite removal, so the model can distinguish a regulatory response from the slower accumulation of an enzyme or pigment pool.'),
       eq('Regulatory LCYB model', String.raw`\begin{aligned}
 \frac{dT}{dt}&=s_T-(\delta_T+\mu)T\\
 \frac{dm}{dt}&=u_{\mathrm{LCYB}}-(\delta_m+\mu)m\\
@@ -211,61 +211,70 @@ export const modeling: WikiPage = {
         ['L','Lycopene','µmol L⁻¹'],
         ['B','β-carotene','µmol L⁻¹'],
       ]),
-      p('Each rate has the corresponding state unit per day. The solver checks that inputs are finite and nonnegative and that binding and Michaelis constants are positive. These checks protect the calculation; they do not establish that the supplied biological parameters are correct.'),
+      p('The lycopene-to-β-carotene rate depends on both active LCYB and substrate availability. β-carotene is removed by a saturable downstream term plus first-order loss. This prevents the model from equating a larger enzyme pool with an unlimited product increase.'),
     ),
-    section('What is supported, and what still needs measuring',
-      p('Lan et al. report LCYB overexpression, light-response and pigment measurements in D. salina [3]. These observations support studying the LCYB-to-pigment link, but they do not provide every parameter needed to calibrate this regulatory model. A matched project time course is needed to connect regulator, transcript, enzyme and pigment measurements under the same conditions.'),
-      p('Mialoundama et al. measured recombinant pepper LCYB activity and an apparent lycopene substrate-affinity constant [4]. These values can inform provisional cross-species ranges for LCYB catalytic capacity and substrate affinity, but they are not D. salina measurements. Regulator abundance, promoter-binding affinity, bound and unbound transcription rates, degradation, substrate supply and β-carotene removal remain project-specific inputs to measure.'),
+    section('Parameterisation and numerical method',
+      p('Lan et al. report LCYB overexpression, light response and pigment measurements in D. salina [3]. Mialoundama et al. measured recombinant pepper LCYB activity and an apparent lycopene-affinity constant [4]. These studies support the model structure and provisional parameter ranges, but neither supplies a complete, matched parameter set for the engineered project strain. Regulator abundance, binding affinity, transcription, decay, substrate supply and β-carotene removal therefore remain project-specific measurements.'),
       links(['Lan et al., 2022','https://doi.org/10.4014/jmb.2208.08044'],['Mialoundama et al., 2010','https://doi.org/10.1104/pp.110.155440']),
-      customTable('Parameter evidence and units', ['Parameter','Meaning','Unit','Source'], [
-        [math`$s_T$`,'Regulatory-factor production','µmol L⁻¹ d⁻¹','Project measurement'],
-        [math`$\delta_T$`,'Regulatory-factor degradation','d⁻¹','Decay experiment or half-life'],
-        [math`$K_d$`,'Regulator–promoter dissociation constant','µmol L⁻¹','Binding experiment'],
-        [math`$u_{\mathrm{unbound}},\;u_{\mathrm{bound}}$`,'Unbound and bound promoter transcription','nmol transcript L⁻¹ d⁻¹','Promoter reporter experiment'],
-        [math`$\delta_m$`,'LCYB RNA degradation','d⁻¹','RNA half-life'],
-        [math`$k_{\mathrm{tl}}$`,'Active-enzyme formation per transcript','mg nmol⁻¹ d⁻¹','Protein abundance and translation rate'],
-        [math`$\delta_E$`,'Active-LCYB degradation','d⁻¹','Protein half-life'],
-        [math`$v_{\mathrm{supply}}$`,'Lycopene supply','µmol L⁻¹ d⁻¹','Metabolite time course or flux estimate'],
-        [math`$q_{\mathrm{LCYB}}$`,'Maximum rate per active LCYB','µmol mg⁻¹ d⁻¹','Dunaliella assay; plant LCYB prior range'],
-        [math`$K_{m,\mathrm{LCYB}}$`,'LCYB Michaelis constant for lycopene','µmol L⁻¹','Enzyme assay'],
-        [math`$k_L,\;k_B$`,'First-order pool losses','d⁻¹','Metabolite time course'],
-        [math`$V_{\mathrm{out}},\;K_{m,\mathrm{out}}$`,'β-carotene outflow capacity and constant','µmol L⁻¹ d⁻¹; µmol L⁻¹','Metabolomics workstream'],
-        [math`$\mu$`,'Growth dilution','d⁻¹','Growth curve'],
+      { kind: 'table', collapsed: true, caption: 'Illustrative parameter set, units and evidence needed', columns: ['Parameter','Illustrative value','Unit','Evidence needed'], rows: [
+        [math`$s_T$`,'0.053; 0.530; 5.300','µmol L⁻¹ d⁻¹','Project measurement'],
+        [math`$\delta_T$`,'0.45','d⁻¹','Decay experiment or half-life'],
+        [math`$K_d$`,'1.00','µmol L⁻¹','Binding experiment'],
+        [math`$u_{\mathrm{unbound}},\;u_{\mathrm{bound}}$`,'0.40; 1.60','nmol transcript L⁻¹ d⁻¹','Promoter reporter experiment'],
+        [math`$\delta_m$`,'0.65','d⁻¹','RNA half-life'],
+        [math`$k_{\mathrm{tl}}$`,'0.55','mg nmol⁻¹ d⁻¹','Protein abundance and translation rate'],
+        [math`$\delta_E$`,'0.18','d⁻¹','Protein half-life'],
+        [math`$v_{\mathrm{supply}}$`,'0.80','µmol L⁻¹ d⁻¹','Metabolite time course or flux estimate'],
+        [math`$q_{\mathrm{LCYB}}$`,'0.50','µmol mg⁻¹ d⁻¹','Dunaliella assay; plant LCYB prior range'],
+        [math`$K_{m,\mathrm{LCYB}}$`,'0.70','µmol L⁻¹','Enzyme assay'],
+        [math`$k_L,\;k_B$`,'0.08; 0.06','d⁻¹','Metabolite time course'],
+        [math`$V_{\mathrm{out}},\;K_{m,\mathrm{out}}$`,'0.55; 0.50','µmol L⁻¹ d⁻¹; µmol L⁻¹','Metabolomics workstream'],
+        [math`$\mu$`,'0.08','d⁻¹','Growth curve'],
+      ] },
+      p('For the scenario analysis below, we use one dimensionally consistent illustrative parameter set. It is not fitted to project measurements. The low-input equilibrium is used as the common initial condition; regulator production is then stepped to low, intermediate or high input and the five balances are integrated for 12 days with a fixed-step fourth-order Runge–Kutta solver (Δt = 0.01 d).'),
+      { kind: 'code', label: 'Numerical experiment · reproducible pseudocode', text: String.raw`parameters = illustrative_parameter_set
+y0 = integrate_to_equilibrium(low_regulator_input)
+
+for input in [low, intermediate, high]:
+    y[0] = y0
+    for t from 0 to 12 days in steps of 0.01 day:
+        theta = T / (Kd + T)
+        calculate transcription, LCYB flux and beta-carotene outflow
+        advance [T, m, E, L, B] with classical RK4
+    normalize each trajectory to y0
+
+for each parameter:
+    sensitivity = central_log_difference(output at +10%, output at -10%)` },
+      customTable('Regulator-input scenarios · illustrative values only', ['Scenario', math`$s_T$ (µmol L⁻¹ d⁻¹)`, math`$T^*/K_d$`, 'Purpose'], [
+        ['Low input','0.053','0.10','Common initial equilibrium'],
+        ['Intermediate input','0.530','1.00','Half-occupied promoter regime'],
+        ['High input','5.300','10.00','Near-saturated promoter regime'],
       ]),
+      { kind: 'download', src: '/data/regulatory-model-scenarios.json', label: 'Download the model parameters, solver settings and sensitivity results (JSON)' },
     ),
-    section('What the model can currently tell us',
-      p('The equations make the proposed design chain explicit: regulator production and stability determine regulator abundance; abundance and binding affinity set promoter occupancy; occupancy changes LCYB transcription; translation changes active enzyme; and LCYB changes the lycopene-to-β-carotene flux. This is a testable mechanism, not evidence that each link has already been demonstrated in the engineered strain.'),
-      eq('Steady-state regulatory chain', String.raw`T^*=\frac{s_T}{\delta_T+\mu},\quad m^*=\frac{u_{\mathrm{LCYB}}(T^*)}{\delta_m+\mu},\quad E^*=\frac{k_{\mathrm{tl}}m^*}{\delta_E+\mu}`),
-      p('With a stated parameter set, the implementation returns conditional trajectories for T, m, E, L and B and compares defined regulator variants. A matched project time course supplies the parameter set for an absolute project-yield prediction.'),
-      fig('15_regulatory_response','Promoter occupancy and steady-state transfer from regulatory input to LCYB transcript and active enzyme.', 'Fig. 2 Regulatory input and steady-state expression response'),
-      h('Illustrative parameter scenarios'),
-      p('These dimensionless points show how the assumed promoter response changes across low, intermediate and near-saturating regulator levels. They are illustrative calculations, not measurements from the engineered strain.'),
-      eq('Relative transcript and active-enzyme response', String.raw`r=\frac{u_{\mathrm{bound}}}{u_{\mathrm{unbound}}},\qquad \frac{m^*}{m^*_{\mathrm{unbound}}}=\frac{E^*}{E^*_{\mathrm{unbound}}}=1+(r-1)\theta`),
-      customTable('Illustrative steady-state response · model scenarios only', ['Regulator level relative to Kd','Promoter occupancy','r = 0.5','r = 2','r = 4'], [
-        ['0.111','10%','0.95-fold','1.10-fold','1.30-fold'],
-        ['1','50%','0.75-fold','1.50-fold','2.50-fold'],
-        ['10','90.9%','0.55-fold','1.91-fold','3.73-fold'],
+    section('Scenario results',
+      p('The step-response simulation separates the timescales of the chain. Regulator abundance changes first, transcript follows, and active enzyme responds more slowly. Increased enzyme initially raises LCYB flux, but lycopene falls as conversion draws on the finite substrate supply. β-carotene therefore rises less than regulator abundance and approaches a new balance rather than increasing without limit.'),
+      fig('16_regulatory_dynamics','Six-panel time-course comparison of active regulator, LCYB transcript, active enzyme, lycopene, beta-carotene and LCYB flux after low, intermediate and high regulator-input steps from a common low-input equilibrium.', 'Fig. 3 Dynamic response to three regulator-input scenarios'),
+      customTable('Day-12 model response · relative to the low-input equilibrium', ['Scenario', 'Regulator T', 'Transcript m', 'Active enzyme E', 'Lycopene L', 'β-carotene B', 'LCYB flux'], [
+        ['Low input','1.00','1.00','1.00','1.00','1.00','1.00'],
+        ['Intermediate input','9.98','1.96','1.86','0.44','1.74','1.36'],
+        ['High input','99.83','2.93','2.77','0.23','2.02','1.42'],
       ]),
-      p('Occupancy is most sensitive to proportional changes in regulator abundance when it is near the dissociation constant. At much higher abundance, the promoter is nearly saturated and expression approaches the ceiling or floor set by the bound-to-unbound transcription-rate ratio. If lycopene and enzyme-kinetic parameters are held fixed, instantaneous LCYB flux changes in proportion to active enzyme; the β-carotene pool also depends on substrate supply, substrate affinity, outflow and loss.'),
-      eq('Core implementation', String.raw`\begin{aligned}
-\theta&=\frac{T}{K_d+T}\\
-u_{\mathrm{LCYB}}&=u_{\mathrm{unbound}}(1-\theta)+u_{\mathrm{bound}}\theta\\
-v_{\mathrm{LCYB}}&=q_{\mathrm{LCYB}}E\frac{L}{K_{m,\mathrm{LCYB}}+L}\\[4pt]
-\frac{dT}{dt}&=s_T-(\delta_T+\mu)T\\
-\frac{dm}{dt}&=u_{\mathrm{LCYB}}-(\delta_m+\mu)m\\
-\frac{dE}{dt}&=k_{\mathrm{tl}}m-(\delta_E+\mu)E\\
-\frac{dL}{dt}&=v_{\mathrm{supply}}-v_{\mathrm{LCYB}}-(k_L+\mu)L\\
-\frac{dB}{dt}&=v_{\mathrm{LCYB}}-v_{\mathrm{out}}-(k_B+\mu)B
-\end{aligned}`),
+      p('The difference between intermediate and high input is much smaller at the β-carotene pool than at the regulator itself. A continuous steady-state sweep shows why: promoter occupancy saturates, and the finite lycopene supply further compresses the change that reaches LCYB flux. Across the selected low-to-high scenarios, a 100-fold regulator change produces less than a three-fold expression change and only about a two-fold β-carotene change.'),
+      fig('17_regulatory_sweep','Four steady-state response curves showing LCYB transcript, active enzyme, LCYB flux and beta-carotene across regulator abundance relative to promoter affinity.', 'Fig. 4 Steady-state propagation from regulator to β-carotene'),
     ),
-    section('Passing the output to the product models',
-      p('The downstream metabolomics model takes β-carotene input flux as its starting point. We use the LCYB rate as the shared boundary, while keeping the four product-specific reaction schemes and parameters in that workstream.'),
+    section('Sensitivity and downstream handoff',
+      p('A local sensitivity analysis asks which parameters most change the simulated β-carotene pool around the intermediate-input scenario. Each parameter is perturbed by ±10%, the system is integrated from the same low-input equilibrium, and the normalized central log-difference is calculated at day 12.'),
+      eq('Normalized local sensitivity', String.raw`S_p^{B}=\frac{\ln B(1.1p)-\ln B(0.9p)}{\ln(1.1p)-\ln(0.9p)}`),
+      fig('18_regulatory_sensitivity','Horizontal bar chart of normalized local sensitivities of the day-12 beta-carotene pool to regulatory, expression, kinetic, substrate-supply, downstream-capacity and growth-dilution parameters.', 'Fig. 5 Local sensitivity of the β-carotene pool'),
+      p('In this scenario, lycopene supply has the largest positive sensitivity, while downstream removal capacity and growth dilution have the largest negative sensitivities. LCYB catalytic capacity and translation remain influential, but regulator production and binding affinity rank lower once the promoter response begins to saturate. This ranking is conditional on the illustrative baseline; it identifies measurements to prioritize, not universal biological control coefficients.'),
+      p('The downstream metabolic-flow model takes the LCYB rate as its β-carotene input boundary. Product-specific reactions remain outside this five-state system so that their enzyme parameters and evidence can be evaluated separately.'),
       eq('Shared boundary', String.raw`v_{\mathrm{in,BCAR}}(t)=v_{\mathrm{LCYB}}(t)`),
-      p('Numerical coupling uses downstream maximum rates, substrate-affinity constants, loss rates and initial concentrations from that workstream. The shared boundary assigns each parameter to the measurements that define it.'),
+      links(['Continue to the metabolic-flow analysis','/metabolomics']),
     ),
-    section('Model conclusion and experimental handoff',
-      p('The model connects promoter occupancy to LCYB transcript, active enzyme, lycopene consumption and the β-carotene pool. Its current output is conditional: it shows how a specified regulatory input and parameter set would propagate through those steps, rather than reporting a measured increase in β-carotene.'),
-      p('The next experiment should measure the links in the same cultures and time course: TF2146 abundance or promoter binding, LCYB transcript, LCYB protein or activity, lycopene and β-carotene. Those measurements can replace the assumed regulatory and kinetic inputs, test the predicted sequence of changes, and provide a calibrated β-carotene flux for the downstream product models.'),
+    section('Conclusions and experimental validation',
+      p('The model’s main result is mechanistic rather than a yield claim. Stronger regulatory input can raise LCYB transcript and active enzyme, but promoter saturation, finite lycopene supply, growth dilution and β-carotene removal determine how much of that change reaches the pigment pool. The scenario analysis therefore argues against using transcript abundance alone as evidence of successful pathway redirection.'),
+      p('The next test should measure the full chain in matched cultures and at matched time points. Those data can replace the illustrative inputs, allow parameter fitting and uncertainty analysis, and determine whether the simulated sequence of regulator → transcript → enzyme → pigment is observed in the engineered strain.'),
       customTable('Measurements that close the model loop', ['Measurement','Model quantity informed','Why it matters'], [
         ['TF2146 abundance and promoter-binding assay',math`$T,\;K_d$`,'Sets the regulatory input and promoter occupancy'],
         ['LCYB transcript time course',math`$m,\;u_{\mathrm{LCYB}}$`,'Tests the predicted transcriptional response'],
