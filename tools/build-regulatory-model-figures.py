@@ -15,7 +15,7 @@ from pathlib import Path
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.patches import Circle, FancyArrowPatch, FancyBboxPatch, Polygon
+from matplotlib.colors import TwoSlopeNorm
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -45,6 +45,7 @@ mpl.rcParams.update({
     "figure.facecolor": PAPER,
     "savefig.facecolor": PAPER,
     "savefig.bbox": "tight",
+    "svg.hashsalt": "dunaterp-regulatory-model",
 })
 
 
@@ -120,7 +121,7 @@ def equilibrium(p: dict[str, float], s_t: float) -> np.ndarray:
 
 
 def save(fig: plt.Figure, stem: str) -> None:
-    for suffix, kwargs in ((".png", {"dpi": 180}), (".svg", {})):
+    for suffix, kwargs in ((".png", {"dpi": 180}), (".svg", {"metadata": {"Date": None}})):
         target = OUT / f"{stem}{suffix}"
         fig.savefig(target, **kwargs)
         if suffix == ".svg":
@@ -129,102 +130,95 @@ def save(fig: plt.Figure, stem: str) -> None:
     plt.close(fig)
 
 
-def add_arrow(ax: plt.Axes, start: tuple[float, float], end: tuple[float, float], color: str = INK, width: float = 2.0, style: str = "-|>") -> None:
-    ax.add_patch(FancyArrowPatch(start, end, arrowstyle=style, mutation_scale=13, linewidth=width, color=color, shrinkA=2, shrinkB=2))
+def time_to_fraction(times: np.ndarray, values: np.ndarray, fraction: float = 0.9) -> float:
+    initial = values[0]
+    final = values[-1]
+    if np.isclose(initial, final):
+        return float("nan")
+    target = initial + fraction * (final - initial)
+    reached = np.flatnonzero(values >= target) if final > initial else np.flatnonzero(values <= target)
+    return float(times[reached[0]]) if len(reached) else float("nan")
 
 
-def rounded(ax: plt.Axes, xy: tuple[float, float], width: float, height: float, color: str, title: str, subtitle: str, symbol: str | None = None) -> None:
-    x, y = xy
-    ax.add_patch(FancyBboxPatch((x, y), width, height, boxstyle="round,pad=0.016,rounding_size=0.025", facecolor=color, edgecolor=INK, linewidth=1.7))
-    if symbol:
-        ax.text(x + width * 0.16, y + height * 0.57, symbol, ha="center", va="center", fontsize=20, fontweight="bold")
-        text_x = x + width * 0.30
-        ha = "left"
-    else:
-        text_x = x + width / 2
-        ha = "center"
-    ax.text(text_x, y + height * 0.61, title, ha=ha, va="center", fontsize=12, fontweight="bold")
-    ax.text(text_x, y + height * 0.33, subtitle, ha=ha, va="center", fontsize=9.5, color=MUTED)
+def figure_diagnostics(times: np.ndarray, traces: dict[str, np.ndarray], baseline: np.ndarray) -> None:
+    """Summarise response magnitude, response time and numerical convergence."""
+    fig = plt.figure(figsize=(15.6, 5.8))
+    grid = fig.add_gridspec(1, 3, width_ratios=(1.45, 1.0, 1.0), wspace=0.38)
+    fig.suptitle("MODEL DIAGNOSTICS · RESPONSE MAGNITUDE, TIMING AND NUMERICAL RELIABILITY", x=0.025, y=0.98, ha="left", fontsize=15, fontweight="bold")
+    fig.text(0.025, 0.925, "Illustrative scenarios · all endpoint gains are relative to the low-input equilibrium", color=MUTED, fontsize=10)
 
+    # A — endpoint response matrix.
+    ax = fig.add_subplot(grid[0, 0])
+    baseline_flux = rates(baseline, BASE, SCENARIOS["Low input"])[2]
+    endpoint_folds = []
+    for label, values in traces.items():
+        endpoint = values[-1]
+        flux_fold = rates(endpoint, BASE, SCENARIOS[label])[2] / baseline_flux
+        endpoint_folds.append([*(endpoint / baseline), flux_fold])
+    endpoint_folds = np.asarray(endpoint_folds)
+    log_folds = np.log10(endpoint_folds)
+    image = ax.imshow(log_folds, cmap="PuOr_r", norm=TwoSlopeNorm(vmin=-0.7, vcenter=0.0, vmax=2.05), aspect="auto")
+    ax.set_xticks(np.arange(6), [r"$T$", r"$m$", r"$E$", r"$L$", r"$B$", r"$v_{LCYB}$"])
+    ax.set_yticks(np.arange(3), ["Low", "Intermediate", "High"])
+    ax.set_title("A   Day-12 endpoint gain", loc="left", fontsize=12.5, fontweight="bold", pad=14)
+    for row in range(endpoint_folds.shape[0]):
+        for column in range(endpoint_folds.shape[1]):
+            value = endpoint_folds[row, column]
+            text_color = "white" if abs(log_folds[row, column]) > 1.15 else INK
+            if value >= 10:
+                value_label = f"×{value:.0f}"
+            elif value >= 1:
+                value_label = f"×{value:.1f}".replace(".0", "")
+            else:
+                value_label = f"×{value:.2f}"
+            ax.text(column, row, value_label, ha="center", va="center", fontsize=9, fontweight="bold", color=text_color)
+    colorbar = fig.colorbar(image, ax=ax, fraction=0.048, pad=0.03)
+    colorbar.set_label(r"$\log_{10}$(fold change)", color=MUTED)
+    colorbar.ax.tick_params(labelsize=8)
+    ax.tick_params(length=0)
+    ax.spines[:].set_visible(False)
 
-def figure_architecture() -> None:
-    fig, ax = plt.subplots(figsize=(15.6, 6.7))
-    ax.set_xlim(0, 1)
-    ax.set_ylim(0, 1)
-    ax.axis("off")
+    # B — time needed to complete 90% of the simulated day-12 response.
+    ax = fig.add_subplot(grid[0, 1])
+    state_indices = (0, 1, 2, 3, 4)
+    state_labels = [r"Regulator  $T$", r"Transcript  $m$", r"Enzyme  $E$", r"Lycopene  $L$", r"β-carotene  $B$"]
+    positions = np.arange(len(state_indices))
+    height = 0.34
+    for offset, (label, color) in zip((-height / 2, height / 2), (("Intermediate input", ORANGE), ("High input", "#8b66d8"))):
+        response_times = [time_to_fraction(times, traces[label][:, index]) for index in state_indices]
+        ax.barh(positions + offset, response_times, height=height, color=color, label=label.replace(" input", ""))
+        for y, value in zip(positions + offset, response_times):
+            ax.text(value + 0.16, y, f"{value:.1f}", va="center", fontsize=8.5, color=INK)
+    ax.set_yticks(positions, state_labels)
+    ax.invert_yaxis()
+    ax.set_xlim(0, 11.6)
+    ax.set_xlabel("Time to 90% of day-12 response (d)")
+    ax.set_title("B   Response-time metric", loc="left", fontsize=12.5, fontweight="bold", pad=14)
+    ax.legend(frameon=False, fontsize=8.5, loc="upper right")
+    ax.grid(axis="x", color=GRID, lw=0.8)
+    ax.spines[["top", "right", "left"]].set_visible(False)
+    ax.tick_params(axis="y", length=0)
 
-    ax.text(0.03, 0.94, "REGULATORY INPUT", fontsize=11, fontweight="bold")
-    ax.text(0.38, 0.94, "EXPRESSION", fontsize=11, fontweight="bold")
-    ax.text(0.72, 0.94, "CAROTENOID CONVERSION", fontsize=11, fontweight="bold")
-    ax.plot([0.03, 0.31], [0.905, 0.905], color=PURPLE, lw=5, solid_capstyle="round")
-    ax.plot([0.38, 0.64], [0.905, 0.905], color=CYAN, lw=5, solid_capstyle="round")
-    ax.plot([0.72, 0.97], [0.905, 0.905], color=LIME, lw=5, solid_capstyle="round")
+    # C — fixed-step RK4 convergence for the reported beta-carotene endpoint.
+    ax = fig.add_subplot(grid[0, 2])
+    step_sizes = np.array([0.50, 0.25, 0.10, 0.05, 0.02, 0.01])
+    reference = rk4(baseline, BASE, SCENARIOS["Intermediate input"], 12.0, 0.002)[1][-1, 4]
+    errors = []
+    for step in step_sizes:
+        estimate = rk4(baseline, BASE, SCENARIOS["Intermediate input"], 12.0, float(step))[1][-1, 4]
+        errors.append(abs(estimate - reference) / abs(reference) * 100.0)
+    errors = np.asarray(errors)
+    ax.loglog(step_sizes, errors, "o-", color=CYAN, lw=2.5, markersize=7, markeredgecolor=INK, markeredgewidth=1)
+    ax.axvline(0.01, color=ORANGE, lw=1.4, ls="--")
+    ax.annotate("reported step\nΔt = 0.01 d", xy=(0.01, errors[-1]), xytext=(0.018, errors[2]), arrowprops={"arrowstyle": "->", "color": ORANGE}, fontsize=9, color=INK)
+    ax.set_xlabel("RK4 step size, Δt (d)")
+    ax.set_ylabel("Relative error in B(12 d) (%)")
+    ax.set_title("C   Step-size convergence", loc="left", fontsize=12.5, fontweight="bold", pad=14)
+    ax.grid(which="both", color=GRID, lw=0.8)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.text(0.03, 0.95, f"Even Δt = 0.5 d: {errors.max():.2e}% error", transform=ax.transAxes, va="top", color=MUTED, fontsize=9)
 
-    # Production and active regulator.
-    ax.text(0.025, 0.67, r"$s_T$", fontsize=14, fontweight="bold")
-    add_arrow(ax, (0.065, 0.68), (0.11, 0.68), PURPLE)
-    ax.add_patch(Circle((0.16, 0.68), 0.054, facecolor=PURPLE, edgecolor=INK, lw=1.8))
-    ax.text(0.16, 0.69, r"$T$", ha="center", va="center", fontsize=19, fontweight="bold")
-    ax.text(0.16, 0.585, "active regulator", ha="center", fontsize=9.5, color=MUTED)
-    ax.text(0.16, 0.53, r"loss $(\delta_T+\mu)T$", ha="center", fontsize=9, color=MUTED)
-    add_arrow(ax, (0.16, 0.62), (0.16, 0.56), MUTED, 1.3)
-
-    # Promoter occupancy.
-    add_arrow(ax, (0.215, 0.68), (0.275, 0.68), INK)
-    ax.text(0.245, 0.80, "binding", ha="center", fontsize=9, color=MUTED)
-    ax.add_patch(FancyBboxPatch((0.28, 0.60), 0.18, 0.16, boxstyle="round,pad=0.016,rounding_size=0.025", facecolor="#eee9fb", edgecolor=INK, linewidth=1.7))
-    ax.text(0.37, 0.708, "LCYB promoter", ha="center", va="center", fontsize=12, fontweight="bold")
-    ax.text(0.37, 0.651, r"occupancy  $\theta=T/(K_d+T)$", ha="center", va="center", fontsize=9.5, color=MUTED)
-    ax.plot([0.315, 0.425], [0.622, 0.622], color=INK, lw=1.8)
-    for x in np.linspace(0.322, 0.414, 6):
-        ax.plot([x, x + 0.008], [0.613, 0.631], color=PURPLE, lw=1.1)
-
-    # Transcript and protein.
-    add_arrow(ax, (0.46, 0.68), (0.49, 0.68), INK)
-    ax.text(0.475, 0.80, "transcription", ha="center", fontsize=9, color=MUTED)
-    rounded(ax, (0.495, 0.61), 0.13, 0.14, "#dff4f2", "LCYB RNA", r"state $m$", "m")
-    ax.text(0.56, 0.53, r"loss $(\delta_m+\mu)m$", ha="center", fontsize=9, color=MUTED)
-    add_arrow(ax, (0.56, 0.61), (0.56, 0.56), MUTED, 1.3)
-    add_arrow(ax, (0.625, 0.68), (0.65, 0.68), INK)
-    ax.text(0.638, 0.80, "translation", ha="center", fontsize=9, color=MUTED)
-    ax.add_patch(Circle((0.69, 0.68), 0.048, facecolor=CYAN, edgecolor=INK, lw=1.8))
-    ax.text(0.69, 0.69, r"$E$", ha="center", va="center", fontsize=19, fontweight="bold")
-    ax.text(0.69, 0.585, "active LCYB", ha="center", fontsize=9.5, color=MUTED)
-    ax.text(0.69, 0.53, r"loss $(\delta_E+\mu)E$", ha="center", fontsize=9, color=MUTED)
-    add_arrow(ax, (0.69, 0.63), (0.69, 0.56), MUTED, 1.3)
-
-    # Metabolite pools and enzyme-mediated reaction.
-    ax.text(0.735, 0.79, r"$v_{supply}$", fontsize=10, color=MUTED)
-    add_arrow(ax, (0.76, 0.77), (0.78, 0.72), YELLOW, 2)
-    ax.add_patch(Circle((0.80, 0.68), 0.048, facecolor=YELLOW, edgecolor=INK, lw=1.8))
-    ax.text(0.80, 0.69, r"$L$", ha="center", va="center", fontsize=19, fontweight="bold")
-    ax.text(0.80, 0.585, "lycopene", ha="center", fontsize=9.5, color=MUTED)
-    add_arrow(ax, (0.848, 0.68), (0.895, 0.68), INK)
-    ax.text(0.871, 0.755, r"$v_{LCYB}$", ha="center", fontsize=10, fontweight="bold")
-    ax.text(0.871, 0.615, r"$q_{LCYB}E\,L/(K_m+L)$", ha="center", fontsize=8.2, color=MUTED)
-    ax.add_patch(Circle((0.94, 0.68), 0.048, facecolor=LIME, edgecolor=INK, lw=1.8))
-    ax.text(0.94, 0.69, r"$B$", ha="center", va="center", fontsize=19, fontweight="bold")
-    ax.text(0.94, 0.585, r"$\beta$-carotene", ha="center", fontsize=9.5, color=MUTED)
-    ax.add_patch(FancyArrowPatch((0.69, 0.63), (0.872, 0.66), arrowstyle="-|>", mutation_scale=12, linewidth=1.5, linestyle="--", color=CYAN, connectionstyle="arc3,rad=0.28"))
-    ax.text(0.80, 0.475, r"enzyme abundance scales $v_{LCYB}$", ha="center", fontsize=9, color=MUTED)
-    add_arrow(ax, (0.94, 0.63), (0.94, 0.55), MUTED, 1.3)
-    ax.text(0.94, 0.52, r"outflow + $(k_B+\mu)B$", ha="center", fontsize=8.8, color=MUTED)
-
-    # Measurement handoff.
-    ax.plot([0.03, 0.97], [0.39, 0.39], color=GRID, lw=1.4)
-    ax.text(0.03, 0.335, "MATCHED MEASUREMENTS NEEDED TO CALIBRATE THE CHAIN", fontsize=10.5, fontweight="bold")
-    measurements = [
-        (0.03, 0.105, 0.205, "01", "Regulator", "abundance + binding"),
-        (0.255, 0.105, 0.205, "02", "Transcript", "LCYB RNA time course"),
-        (0.48, 0.105, 0.205, "03", "Active enzyme", "protein + activity"),
-        (0.705, 0.105, 0.265, "04", "Pigment pools", "lycopene + β-carotene"),
-    ]
-    for x, y, width, number, title, detail in measurements:
-        ax.add_patch(FancyBboxPatch((x, y), width, 0.15, boxstyle="round,pad=0.012,rounding_size=0.018", facecolor="#f2f5ef", edgecolor=GRID, linewidth=1.2))
-        ax.text(x + 0.018, y + 0.102, number, fontsize=9.5, fontweight="bold", color=ORANGE)
-        ax.text(x + 0.06, y + 0.102, title, fontsize=10.5, fontweight="bold")
-        ax.text(x + 0.06, y + 0.052, detail, fontsize=9, color=MUTED)
-
+    fig.subplots_adjust(left=0.055, right=0.985, bottom=0.16, top=0.83)
     save(fig, "14_regulatory_model")
 
 
@@ -416,9 +410,9 @@ def figure_sensitivity(results: list[dict[str, float | str]]) -> None:
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     SUMMARY.parent.mkdir(parents=True, exist_ok=True)
-    figure_architecture()
-    figure_transfer()
     times, traces, baseline = build_scenarios()
+    figure_diagnostics(times, traces, baseline)
+    figure_transfer()
     figure_dynamics(times, traces, baseline)
     figure_sweep()
     sensitivity_results = sensitivity()
