@@ -373,7 +373,7 @@ function ScrollAndTitle() {
       .flatMap((group) => group.items)
       .find(([, href]) => href === route)?.[0]
       ?? (slug === "dry-lab" ? "Dry Lab" : slug === "wiki-map" ? "Wiki Map" : slug ? pages[slug]?.eyebrow : "DunaTerp");
-    document.title = `iGEM 2026 | ${leafTitle || "DunaTerp"}`;
+    document.title = `SCU-China 2026 | ${leafTitle || "DunaTerp"}`;
     const frame = requestAnimationFrame(() => {
       if (hash) {
         let id = hash.slice(1);
