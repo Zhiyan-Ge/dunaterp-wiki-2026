@@ -57,7 +57,7 @@ main:focus:not(:focus-visible) { outline: none; }
 .breadcrumbs a { text-decoration: none; }
 .breadcrumbs a:hover { text-decoration: underline; }
 .breadcrumbs span[aria-current] { color: var(--ink); }
-.article-hero { grid-template-columns: minmax(0,1.25fr) minmax(0,.8fr); gap: 4rem; padding-bottom: 3.5rem; align-items: center; }
+.article-hero { grid-template-columns: minmax(0,1fr); gap: 0; padding-bottom: 3.5rem; align-items: center; }
 .article-hero h1, .map-page h1 { font-size: clamp(2.9rem,6vw,6.5rem); font-weight: 400; line-height: 1.04; letter-spacing: -.05em; overflow-wrap: anywhere; }
 .article-intro>p { font-size: 1.125rem; line-height: 1.75; color: var(--muted); }
 .status { font-size: .75rem; letter-spacing: .04em; padding: .5rem .75rem; font-weight: 700; }
@@ -362,6 +362,28 @@ main:focus:not(:focus-visible) { outline: none; }
   padding-left: clamp(1rem, 2.2vw, 1.5rem);
   border-left: 3px solid var(--article-accent);
 }
+.article-page.article-page--wet-lab .article-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  min-height: clamp(22rem, 43vw, 34rem);
+  padding: clamp(2rem, 5vw, 4rem);
+  background-color: #d7cfb2;
+  background-image: var(--article-hero-image);
+  background-position: center;
+  background-size: cover;
+}
+.article-page.article-page--wet-lab .article-hero::after { display: none; }
+.article-page.article-page--wet-lab .article-hero > div { width: 100%; }
+.article-page.article-page--wet-lab .article-hero h1 {
+  max-width: none;
+  margin: 0;
+  color: #fffaf0;
+  font-size: clamp(4rem, 9vw, 8rem);
+  line-height: .9;
+  text-align: center;
+  text-shadow: 5px 5px 0 #06221f;
+}
 .article-page .article-layout { padding-top: 4rem; }
 .article-page .article-toc {
   position: sticky;
@@ -438,8 +460,8 @@ body:has(.article-page--hardware) { background: #f3ecd0; }
    compact so the real modeling and hardware routes are visible immediately. */
 .article-page--overview .breadcrumbs { margin-bottom: 1.1rem; }
 .article-page--overview .article-hero {
-  grid-template-columns: minmax(0, .8fr) minmax(20rem, 1.2fr);
-  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   min-height: 0;
   padding: clamp(1.5rem, 2.8vw, 2.4rem);
 }
@@ -457,6 +479,7 @@ body:has(.article-page--hardware) { background: #f3ecd0; }
 @media (max-width: 800px) {
   .article-page .article-hero { padding: 1.5rem; box-shadow: 6px 6px 0 color-mix(in srgb, var(--article-accent) 55%, var(--ink)); }
   .article-page .article-hero h1 { font-size: clamp(2.25rem, 10vw, 4rem); }
+  .article-page.article-page--wet-lab .article-hero h1 { font-size: clamp(2.25rem, 11vw, 3.25rem); overflow-wrap: anywhere; }
   .article-page--overview .article-hero { grid-template-columns: 1fr; gap: 1.25rem; }
   .article-page .article-sections > section { grid-template-columns: 2.5rem minmax(0,1fr); padding: 1.25rem; box-shadow: 4px 4px 0 #b9c7b9; }
   .article-page .section-number { width: 2.25rem; height: 2.25rem; }

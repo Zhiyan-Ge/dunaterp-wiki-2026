@@ -1,5 +1,15 @@
 # Third-party notices
 
+## NASA — Great Salt Lake salt ponds
+
+- Asset: `public/images/great-salt-lake-iss063-e-40184.jpg`
+- Original frame: ISS063-E-40184
+- Source: https://eol.jsc.nasa.gov/SearchPhotos/photo.pl?mission=ISS063&roll=E&frame=40184
+- Credit: NASA, ISS Expedition 63
+
+The local copy is resized from the original NASA astronaut photograph for use
+as the Wet Lab chapter header image.
+
 ## Bruno Simon — Folio 2025
 
 Source: https://github.com/brunosimon/folio-2025
