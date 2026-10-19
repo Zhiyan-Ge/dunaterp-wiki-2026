@@ -388,7 +388,7 @@ main:focus:not(:focus-visible) { outline: none; }
   overflow: hidden;
   padding: 1.35rem 1.2rem;
   border: 3px solid var(--ink);
-  background: #e8eddc;
+  background: #f4ead3;
   box-shadow: 5px 5px 0 var(--ink);
 }
 .article-page .article-toc nav { min-height: 0; overflow-y: auto; overscroll-behavior: contain; scroll-behavior: smooth; scrollbar-color: #849777 transparent; scrollbar-width: thin; }
@@ -413,9 +413,9 @@ main:focus:not(:focus-visible) { outline: none; }
   line-height: 1.35;
   transition: color .22s ease, background-color .22s ease, border-color .22s ease, transform .22s ease;
 }
-.article-page .article-toc nav a.is-active { border-left-color: var(--article-accent); background: color-mix(in srgb, var(--article-accent) 30%, #fffaf0); color: var(--ink); }
+.article-page .article-toc nav a.is-active { border-left-color: var(--article-accent); background: color-mix(in srgb, var(--article-accent) 44%, #fffaf0); color: var(--ink); }
 .article-page .article-toc nav a:hover,
-.article-page .article-toc nav a:focus-visible { border-left-color: var(--article-accent); background: color-mix(in srgb, var(--article-accent) 24%, #fffaf0); }
+.article-page .article-toc nav a:focus-visible { border-left-color: var(--article-accent); background: color-mix(in srgb, var(--article-accent) 30%, #fffaf0); }
 .article-page .toc-group { display: grid; }
 .article-page .toc-parent { position: relative; }
 .article-page .toc-parent > b { align-self: center; transition: transform .24s ease; }
