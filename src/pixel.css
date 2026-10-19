@@ -676,7 +676,8 @@
   padding: .8rem;
   border: 2px solid var(--px-ink);
   border-top: 5px solid var(--px-accent);
-  background: #f2f8f2;
+  background: var(--px-deep);
+  color: var(--px-salt);
   box-shadow: 4px 4px 0 var(--px-ink);
 }
 .px-archive-index {
