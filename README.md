@@ -1,91 +1,74 @@
-# Team SCU-China 2026 Wiki
+# DunaTerp — SCU-China 2026 Wiki
 
-This repository uses `TypeScript` and `React` to manage the wikis.
+Source-built React/Vite Wiki for the SCU-China 2026 iGEM project on a modular *Dunaliella salina* carotenoid-derivative platform.
 
-This repository **MUST** contain all coding assets to generate your team's wiki
-(HTML, CSS, JavaScript, TypeScript, Python, etc).
+## Local development
 
-Images, photos, icons and fonts **MUST** be stored on `static.igem.wiki` using
-[the uploads tool](https://teams.igem.org/go/deliverables/wiki/uploads), and Videos **must** be embedded
-from [iGEM Video Universe](https://video.igem.org); see [the Video & Audio page](https://teams.igem.org/go/deliverables/wiki/videos-and-audios) for guidance on adding video and audio.
+Requires Node.js 20.19 or newer.
 
-**Everything your wiki loads (CSS, JavaScript, fonts, images) must be served from
-iGEM infrastructure.** Do not link to external or third-party CDNs (for example
-Google Fonts, jsDelivr, cdnjs) — upload the files you need via
-[the uploads tool](https://teams.igem.org/go/deliverables/wiki/uploads) and reference them from `static.igem.wiki`
-instead.
+```bash
+npm ci
+npm run dev
+npm run lint
+npm run build
+npm run art:check   # render the pixel world to tools/art-check/shots/
+```
 
-For up-to-date requirements, resources, help and guidance, visit
-[teams.igem.org/go/deliverables/wiki](https://teams.igem.org/go/deliverables/wiki).
+The local URL includes the official team slug: `http://localhost:5173/scu-china/`.
 
-> **Using an AI assistant (e.g. Claude Code)?** Please read
-> [.claude/RESPONSIBLE_AI_USE.md](.claude/RESPONSIBLE_AI_USE.md) first. You remain
-> fully responsible for everything you publish: never fabricate scientific
-> results, data, or citations.
+## GitHub preview
 
-## Getting Started
+This folder is an independent Git repository. It can be pushed to a public GitHub repository so teammates and friends can open a live preview without affecting the official iGEM repository.
 
-Before refactoring the code of this template to suit your wiki needs, please make sure you have the ability to use React
-for web development.
+After the first push, open **Settings → Pages → Build and deployment → Source** and select **GitHub Actions**. Every push to `main` will then rebuild and publish the site at:
 
-1. Clone the repository:
-   ```bash
-   git clone https://gitlab.igem.org/2026/scu-china
-   cd scu-china
-   ```
-2. Install the dependencies:
+```text
+https://<github-username>.github.io/<repository-name>/
+```
 
-   ```bash
-   yarn install
-   ```
+The GitHub workflow supplies its own base path and creates an SPA fallback for direct links. The regular iGEM build keeps using `/scu-china/`, so the two deployments can be maintained from the same source.
 
-   ### Important:
+## Structure
 
-   Ensure you are using Node.js version `>=20.19.0` (Node 22 LTS recommended) to avoid compatibility issues.
-   You can check your Node version by running `node -v` in your terminal.
+- `src/App.tsx` — routes and reusable page layouts
+- `src/PixelWorld.tsx` — the pixel-art homepage: scroll journey, free roam, chapter overlays
+- `src/pixel/` — the pixel engine: palette, drawing helper, bitmap font, tiles, sprites, world, renderer
+- `src/pixel/hero.ts` and `src/assets/researcher-sheet.png` — playable researcher; see `docs/researcher-sprite.md`
+- `tools/art-check/` — renders the world to PNG without a browser (`npm run art:check`)
+- `src/site-data.ts` — all current page copy and review states
+- `src/styles.css` — responsive visual system and reduced-motion fallback
+- `public/figures` — local development copies of team-generated figures
+- `ATTRIBUTION.md` — asset, inspiration and AI-assistance register
+- `.gitlab-ci.yml` — source build and iGEM Pages deployment
+- `.github/workflows/pages.yml` — GitHub Pages preview deployment
 
-3. Start the development server:
-   ```bash
-   yarn run dev
-   ```
-4. Navigate to the files you wish to edit:
-   - The main App component can be found under `src/containers/App`
-   - Pre-built components are located under `src/components`
-   - Individual pages can be modified in the `src/pages.ts`
-   - Content pages can be updated in the `src/contents`
-5. Once you are done, save the changes by **committing** them to the _main branch_ of the repository
-6. An automated script will build, test and deploy your wiki to the iGEM server
+## Before publishing
 
-## About This Template
+1. Confirm `VITE_TEAM_NAME` and the GitLab footer URL match the official team slug.
+2. Upload images and other static assets through the iGEM Uploads tool, replace local development paths with the resulting `static.igem.wiki` URLs, and add inline source/licence credits.
+3. Replace every `Team input required` section with team-authored, human-reviewed work.
+4. Verify all scientific claims, parameters, citations, figures and quotations against primary records.
+5. Keep the official `LICENSE` file and visible CC BY 4.0 footer link.
+6. Update `/responsible-ai` with every model, use and named human reviewer.
 
-### Files
+See `PIXEL-WORLD.md` for the homepage design, the rules the pixel art depends on, and what still needs browser acceptance.
 
-Below is the structure of important files and directories in this project:
+The immersive homepage is optional navigation. All judging-relevant pages remain directly reachable at predictable routes such as `/contribution`, `/engineering`, `/human-practices`, `/model`, `/alternative-platform`, `/hardware`, and `/safety-and-security`.
 
-    ├── README.md            -> The file you are currently reading
-    ├── index.html           -> Single HTML file for the wiki
-    ├── package.json         -> Manages project metadata and dependencies
-    ├── src/
-    │   ├── components/      -> Pre-built components(like Navbar, Footer, etc.)
-    │   ├── containers/
-    │   │   └── App/         -> Main React application container
-    │   ├── contents/
-    │   │   └── *.tsx        -> Page components for the wiki
-    │   ├── main.tsx         -> Entry point of the wiki application
-    │   ├── pages.ts         -> Page definition and path mapping
-    │   ├── utils/           -> Utility functions
-    │   └── vite-env.d.ts    -> TypeScript definitions for Vite
-    ├── tsconfig.json        -> Configures TypeScript options
-    ├── tsconfig.node.json   -> TypeScript settings for Node.js
-    ├── vite.config.ts       -> Configuration for the Vite tool
-    └── yarn.lock            -> Yarn lock file for dependency management
 
-### Technologies
+## Pixel expedition (September 2026)
 
-- [React](https://reactjs.org): A JavaScript library for building user interfaces
-- [TypeScript](https://www.typescriptlang.org): Extends JavaScript by adding types
-- [Vite](https://vitejs.dev): Frontend tooling that provides faster and leaner development builds
-- [Bootstrap](https://getbootstrap.com): Framework for building responsive, mobile-first sites
-- [React Bootstrap](https://react-bootstrap.github.io): Bootstrap components built with React
-- [React Router](https://reactrouter.com): Declarative routing for React applications
-- (Optional) [Prettier](https://prettier.io): Code formatter
+Choose **Explore freely** on the homepage. Move with WASD / arrow keys, hold
+Shift to run, and use E near a guide or station. Touch users can hold the
+directional buttons or drag the lake. Escape returns to the guided route.
+The field journal contains three fictional research guides and educational
+activities; it also provides station travel. Progress is saved on the current
+device when browser storage is available. It is never uploaded.
+
+The educational activities simplify pathway concepts and evidence review; they
+are not laboratory protocols, experimental validation or measured learning
+outcomes. See `src/site-data.ts` for team-review project copy.
+
+For an offline review copy, run `npm run preview:single` and open
+`tools/preview/dunaterp-preview.html`. This file uses hash routing; the production
+Wiki continues to use normal paths.

@@ -5,15 +5,13 @@ pages:
   cache:
     - key:
         files:
-          - yarn.lock
+          - package-lock.json
       paths:
-        - .yarn-cache/
+        - .npm/
   before_script:
-    - echo 'yarn-offline-mirror ".yarn-cache/"' >> .yarnrc
-    - echo 'yarn-offline-mirror-pruning true' >> .yarnrc
-    - yarn install --frozen-lockfile
+    - npm ci --cache .npm --prefer-offline
   script:
-    - yarn build
+    - npm run build
     - cp -a dist/. public/
     - echo '/* /index.html 200' > public/_redirects
   artifacts:
@@ -21,6 +19,6 @@ pages:
       - public
   rules:
     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
-      when: never # No runners will run on branches other than main
+      when: never
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: always

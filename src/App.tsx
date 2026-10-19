@@ -1,0 +1,405 @@
+import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties } from "react";
+import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { archiveNavigation, navigation, pageOrder, pages } from "./site-data";
+import { dryLabMenuGroups } from "./content/dry-lab";
+import { ArticleBlocks } from './ArticleBlocks';
+import type { WikiReference } from './content/types';
+
+const PixelWorld = lazy(() => import("./PixelWorld").then((module) => ({ default: module.PixelWorld })));
+const MODELING_PATHS = ['/dry-lab', '/transcriptomics', '/metabolomics', '/protein', '/model'];
+const ARTICLE_GROUP_HEROES: Record<string, string> = {
+  'Wet Lab': '/images/great-salt-lake-iss063-e-40184.jpg',
+  'Dry Lab': '/images/heroes/dry-lab.webp',
+  'Human Practices': '/images/heroes/human-practices.webp',
+  People: '/images/heroes/people.webp',
+};
+
+function normalizePath(pathname: string) {
+  const normalized = pathname.replace(/\/+$/, "");
+  return normalized || "/";
+}
+
+/**
+ * Resolve both local public assets and the absolute/data URLs used by the
+ * published Wiki and the single-file review build. The preview inliner may
+ * leave a leading slash in front of a data URI ("/data:image/…"), so strip
+ * root slashes before handling data/blob URLs.
+ */
+function resolveFigureSrc(src: string) {
+  const raw = src.trim();
+  if (/^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(raw)) return raw;
+  const relative = raw.replace(/^\/+/, "");
+  if (/^(?:data|blob):/i.test(relative)) return relative;
+  const base = import.meta.env.BASE_URL || "/";
+  return `${base.endsWith("/") ? base : `${base}/`}${relative}`;
+}
+
+function BrandMark() {
+  return <span className="brand-mark" aria-hidden="true">
+    <svg viewBox="0 0 48 48" role="img">
+      <path className="brand-mark__flagella" d="M16 13C12 8 12 5 15 2M31 13c5-5 5-8 2-11" />
+      <path className="brand-mark__cell" d="M12 10h24v4h4v20h-4v4H12v-4H8V14h4z" />
+      <path className="brand-mark__hub" d="M19 18h10v3h3v8h-3v3H19v-3h-3v-8h3z" />
+      <path className="brand-mark__branch" d="M13 17h4M31 17h4M13 31h4M31 31h4" />
+    </svg>
+  </span>;
+}
+
+function BootLoadingScreen() {
+  return <main id="main-content" tabIndex={-1} className="px-loading px-loading--boot" role="status" aria-live="polite">
+    <p className="px-loading-title">DUNATERP</p>
+    <div className="px-loader-scene" aria-hidden="true"><i /><b /><span /></div>
+    <p className="px-loading-sub">Surveying the salt flats…</p>
+    <div className="px-meter" aria-hidden="true">{Array.from({ length: 16 }, (_, index) => <i key={index} style={{ "--px-cell-index": index } as CSSProperties} />)}</div>
+  </main>;
+}
+
+function Header({ light = false }: { light?: boolean }) {
+  const header = useRef<HTMLElement>(null);
+  const { pathname } = useLocation();
+  const currentPath = normalizePath(pathname);
+  useEffect(() => {
+    const node = header.current;
+    if (!node) return;
+    const close = () => node.querySelectorAll("details[open]").forEach((item) => item.removeAttribute("open"));
+    const outside = (event: PointerEvent) => { if (!node.contains(event.target as Node)) close(); };
+    const escape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      const active = document.activeElement?.closest("details[open]");
+      close();
+      active?.querySelector("summary")?.focus();
+    };
+    close();
+    document.addEventListener("pointerdown", outside);
+    document.addEventListener("keydown", escape);
+    return () => {
+      document.removeEventListener("pointerdown", outside);
+      document.removeEventListener("keydown", escape);
+    };
+  }, [pathname]);
+  return <header ref={header} className={`site-header${light ? " site-header--light" : ""}`}>
+    <Link className="brand" to="/" aria-label="DunaTerp home"><BrandMark /><span>DunaTerp<small>SCU–CHINA · 2026</small></span></Link>
+    <nav className="desktop-nav" aria-label="Primary navigation">
+      {navigation.map((group) => <details key={group.label} name="desktop-navigation">
+        <summary className={group.items.some(([, href]) => href === currentPath) || (group.label === 'Dry Lab' && MODELING_PATHS.includes(currentPath)) ? "is-current" : undefined}>{group.label}<span aria-hidden="true">⌄</span></summary>
+        <div className={`nav-popover${group.label === 'Dry Lab' ? ' nav-popover--dry-lab' : ''}`}>
+          {group.label === 'Dry Lab' ? <>
+            <p>{group.label}</p>
+            <Link to="/dry-lab" aria-current={currentPath === '/dry-lab' ? "page" : undefined}>Overview<span aria-hidden="true">↗</span></Link>
+            {dryLabMenuGroups.map((section) => <section className="nav-popover-section" key={section.label}>
+              <h3>{section.label}</h3>
+              {section.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}<span aria-hidden="true">↗</span></Link>)}
+            </section>)}
+          </> : <>
+            <p>{group.label}</p>
+            {group.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}<span aria-hidden="true">↗</span></Link>)}
+          </>}
+        </div>
+      </details>)}
+      <Link className="nav-index" to="/wiki-map" aria-current={currentPath === "/wiki-map" ? "page" : undefined}>Explore Wiki <span aria-hidden="true">↗</span></Link>
+    </nav>
+    <details className="mobile-menu"><summary>Menu <span aria-hidden="true">☰</span></summary><nav aria-label="Mobile navigation">
+      {navigation.map((group) => <div className="mobile-nav-group" key={group.label}><p>{group.label}</p>{group.label === 'Dry Lab' ? <>
+        <Link to="/dry-lab" aria-current={currentPath === '/dry-lab' ? "page" : undefined}>Overview</Link>
+        {dryLabMenuGroups.map((section) => <section className="mobile-nav-subgroup" key={section.label}><p>{section.label}</p>{section.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}</Link>)}</section>)}
+      </> : group.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}</Link>)}</div>)}
+      <Link className="mobile-map-link" to="/wiki-map">Explore all pages ↗</Link>
+    </nav></details>
+  </header>;
+}
+
+function Footer() {
+  return <footer className="site-footer"><div><p className="footer-brand">DunaTerp<span aria-hidden="true">.</span></p><p>A programmable, salt-adapted terpenoid platform in <i>Dunaliella salina</i>.</p><small>SCU–CHINA / iGEM 2026</small></div><div className="footer-links"><a href="https://gitlab.igem.org/2026/scu-china">Team GitLab ↗</a><a href="https://creativecommons.org/licenses/by/4.0/">Content: CC BY 4.0 ↗</a><Link to="/attributions">Attributions</Link><Link to="/responsible-ai">Responsible AI</Link></div></footer>;
+}
+
+function pageReferences(page: (typeof pages)[string]) {
+  if (page.references) return page.references;
+  const seen = new Set<string>();
+  const references: WikiReference[] = [];
+  for (const section of page.sections) {
+    for (const block of section.blocks ?? []) {
+      if (block.kind !== "links") continue;
+      for (const link of block.links) {
+        if (!/^https?:\/\//i.test(link.href) || seen.has(link.href)) continue;
+        seen.add(link.href);
+        references.push({ ...link, kind: 'Web resource' });
+      }
+    }
+  }
+  return references;
+}
+
+function firstPageFigure(page: (typeof pages)[string]) {
+  if (page.figure) return page.figure.src;
+  for (const section of page.sections) {
+    for (const block of section.blocks ?? []) {
+      if (block.kind === "figure") return block.src;
+      if (block.kind === "figure-grid" && block.figures[0]) return block.figures[0].src;
+    }
+  }
+  return "/figures/project/salt-strata.svg";
+}
+
+function renderCitations(text: string, referenceNumbers: Map<string, number>) {
+  if (referenceNumbers.size === 0) return text;
+  const parts = text.split(/\[(\d+)\]/g);
+  return parts.map((part, index) => {
+    if (index % 2 === 0) return part;
+    const number = Number(part);
+    return number > 0 && number <= referenceNumbers.size
+      ? <a className="inline-citation" href={`#reference-${number}`} key={`${index}-${number}`}>[{number}]</a>
+      : `[${part}]`;
+  });
+}
+
+type TocSection = { id: string; title: string; children: Array<{ id: string; title: string }> };
+
+type TocChapterDefinition = { title: string; start: number; end: number };
+
+/**
+ * Long technical pages read more clearly when the contents panel describes a
+ * few real chapters instead of repeating every on-page heading at the same
+ * level. These ranges only affect the contents panel: every section and anchor
+ * remains present in the article.
+ */
+const TOC_CHAPTERS: Record<string, TocChapterDefinition[]> = {
+  "project-description": [
+    { title: "Background & Chassis", start: 0, end: 1 },
+    { title: "Reprogramming & Modeling", start: 2, end: 3 },
+    { title: "Products & Validation", start: 4, end: 5 },
+  ],
+  experiments: [
+    { title: "Experimental Workflow", start: 0, end: 0 },
+    { title: "Molecular Construction", start: 1, end: 2 },
+    { title: "Characterisation", start: 3, end: 4 },
+    { title: "Separation & Protocols", start: 5, end: 6 },
+  ],
+  transcriptomics: [
+    { title: "Pathway & Dataset", start: 0, end: 1 },
+    { title: "Sequence & Count Analysis", start: 2, end: 3 },
+    { title: "Results & Model Handoff", start: 4, end: 5 },
+  ],
+  metabolomics: [
+    { title: "Chassis & Method", start: 0, end: 2 },
+    { title: "Product Pathways", start: 3, end: 5 },
+    { title: "Branch Dynamics", start: 6, end: 8 },
+    { title: "Conclusions", start: 9, end: 9 },
+  ],
+  model: [
+    { title: "Regulatory Question", start: 0, end: 2 },
+    { title: "Evidence & Interpretation", start: 3, end: 4 },
+    { title: "Model Handoff", start: 5, end: 6 },
+  ],
+  protein: [
+    { title: "LCYB Design & Screening", start: 0, end: 6 },
+    { title: "TF2146–DNA Recognition", start: 7, end: 10 },
+    { title: "Constructs & Docking Scope", start: 11, end: 12 },
+  ],
+  hardware: [
+    { title: "Overview & Optics", start: 0, end: 1 },
+    { title: "Cultivation Strategy", start: 2, end: 3 },
+    { title: "Light, Scale & Energy", start: 4, end: 5 },
+    { title: "Interactive Tool & Scope", start: 6, end: 7 },
+  ],
+  "safety-and-security": [
+    { title: "Concept & Response", start: 0, end: 1 },
+    { title: "Results & Assumptions", start: 2, end: 3 },
+    { title: "Parameters & Formulation", start: 4, end: 5 },
+    { title: "Project Implications", start: 6, end: 6 },
+  ],
+};
+
+type TocChapter = {
+  id: string;
+  title: string;
+  links: Array<{ id: string; title: string; activeIds: Set<string> }>;
+  activeIds: Set<string>;
+};
+
+function tocChapters(slug: string, sections: TocSection[]): TocChapter[] {
+  const configured = TOC_CHAPTERS[slug];
+  const definitions = configured ?? (sections.length > 6
+    ? Array.from({ length: Math.ceil(sections.length / 3) }, (_, index) => {
+        const start = index * 3;
+        return { title: sections[start].title, start, end: Math.min(start + 2, sections.length - 1) };
+      })
+    : sections.map((section, index) => ({ title: section.title, start: index, end: index })));
+
+  return definitions.flatMap((definition) => {
+    const members = sections.slice(definition.start, definition.end + 1);
+    if (members.length === 0) return [];
+    const allIds = new Set(members.flatMap((section) => [section.id, ...section.children.map((child) => child.id)]));
+    const links = members.length === 1
+      ? members[0].children.map((child) => ({ ...child, activeIds: new Set([child.id]) }))
+      : members.map((section) => ({
+          id: section.id,
+          title: section.title,
+          activeIds: new Set([section.id, ...section.children.map((child) => child.id)]),
+        }));
+    return [{ id: members[0].id, title: definition.title, links, activeIds: allIds }];
+  });
+}
+
+function ArticleToc({ slug, sections, hasReferences }: { slug: string; sections: TocSection[]; hasReferences: boolean }) {
+  const nav = useRef<HTMLElement>(null);
+  const [activeId, setActiveId] = useState("section-1");
+  const items = [
+    ...sections.flatMap((section) => [{ id: section.id, title: section.title }, ...section.children]),
+    ...(hasReferences ? [{ id: "references", title: "References" }] : []),
+  ];
+  const itemKey = items.map((item) => `${item.id}\u0000${item.title}`).join("\u0001");
+
+  useEffect(() => {
+    const currentItems = itemKey ? itemKey.split("\u0001").map((item) => {
+      const [id, title] = item.split("\u0000");
+      return { id, title };
+    }) : [];
+    let frame = 0;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        // Anchor scrolling combines root scroll-padding and section scroll-margin.
+        // Include that landing position so clicking a heading highlights that heading.
+        const firstSection = document.getElementById(currentItems[0]?.id ?? '');
+        const anchorOffset = (parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0)
+          + (firstSection ? parseFloat(getComputedStyle(firstSection).scrollMarginTop) || 0 : 0);
+        const marker = Math.max(Math.min(220, window.innerHeight * 0.3), anchorOffset + 2);
+        let next = currentItems[0]?.id ?? "";
+        for (const item of currentItems) {
+          const section = document.getElementById(item.id);
+          if (!section) continue;
+          if (section.getBoundingClientRect().top <= marker) next = item.id;
+          else break;
+        }
+        setActiveId((current) => current === next ? current : next);
+        const scrollport = nav.current;
+        const link = scrollport?.querySelector<HTMLElement>(`[data-toc-id="${next}"]`);
+        if (scrollport && link) {
+          const port = scrollport.getBoundingClientRect();
+          const target = link.getBoundingClientRect();
+          const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          if (target.top < port.top) scrollport.scrollTo({ top: scrollport.scrollTop - (port.top - target.top) - 8, behavior: reduceMotion ? "auto" : "smooth" });
+          else if (target.bottom > port.bottom) scrollport.scrollTo({ top: scrollport.scrollTop + (target.bottom - port.bottom) + 8, behavior: reduceMotion ? "auto" : "smooth" });
+        }
+      });
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [slug, itemKey]);
+
+  const chapters = tocChapters(slug, sections);
+  return <aside className="article-toc"><p>Contents</p><nav ref={nav} aria-label="Contents">
+    {chapters.map((chapter) => {
+      const isOpen = chapter.activeIds.has(activeId);
+      return <div className={`toc-group${isOpen ? " is-open" : ""}`} key={chapter.id}>
+        <Link data-toc-id={chapter.id} className={`toc-parent${activeId === chapter.id ? " is-active" : ""}`} aria-current={activeId === chapter.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${chapter.id}` }}>{chapter.title}{chapter.links.length > 0 && <b aria-hidden="true">⌄</b>}</Link>
+        {chapter.links.length > 0 && <div className="toc-sublist">{chapter.links.map((link) => {
+          const isActive = link.activeIds.has(activeId);
+          return <Link key={link.id} data-toc-id={link.id} className={isActive ? "is-active" : undefined} aria-current={isActive ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${link.id}` }}>{link.title}</Link>;
+        })}</div>}
+      </div>;
+    })}
+    {hasReferences && <Link data-toc-id="references" className={`toc-references${activeId === "references" ? " is-active" : ""}`} aria-current={activeId === "references" ? "location" : undefined} to={{ pathname: `/${slug}`, hash: "#references" }}>References</Link>}
+  </nav></aside>;
+}
+
+const groupDescriptions = [
+  "From the biological idea to experiments and evidence.",
+  "Understand the system, its constraints and its possibilities.",
+  "Connect project decisions with people and the environment.",
+  "Meet the team and discover the work behind the project.",
+];
+
+function WikiMap() {
+  return <><Header /><main id="main-content" tabIndex={-1} className="map-page">
+    <header className="map-heading"><div><p className="page-eyebrow">DUNATERP / PROJECT INDEX</p><h1>Explore the<br /><em>whole spectrum.</em></h1></div><p className="map-intro">Follow the science, explore the evidence, and meet the people behind DunaTerp. Every chapter starts here.</p></header>
+    <div className="map-grid">{archiveNavigation.map((group, index) => <section key={group.label} className={`map-group map-group--${index}`}><header><span className="map-number">0{index + 1}</span></header><h2>{group.label}</h2><p className="map-description">{groupDescriptions[index]}</p><div className="map-links">{group.items.map(([label, href]) => <Link key={href} to={href}><span>{label}</span><b aria-hidden="true">↗</b></Link>)}</div></section>)}</div>
+    <div className="map-return"><span>Start with the story.</span><Link to="/">Return to the salt route <span aria-hidden="true">↗</span></Link></div>
+    <nav className="related-wiki-pages" aria-label="Project-wide pages"><Link to="/dry-lab">Modeling overview</Link><Link to="/alternative-platform">Alternative Platform</Link></nav>
+  </main><Footer /></>;
+}
+
+function Article({ slug }: { slug: string }) {
+  const page = pages[slug];
+  if (!page) return <Navigate to="/wiki-map" replace />;
+  const group = navigation.find((item) => item.items.some(([, href]) => href === `/${slug}`))
+    ?? (MODELING_PATHS.includes(`/${slug}`) ? navigation.find((item) => item.label === 'Dry Lab') : undefined);
+  const groupIndex = Math.max(0, navigation.findIndex((item) => item === group));
+  const articleAccent = ["#cdf558", "#7de2ff", "#e9c43a", "#c4a8ff"][groupIndex];
+  const figureSrc = page.figure ? resolveFigureSrc(page.figure.src) : "";
+  const hasContent = page.sections.length > 0;
+  const isModeling = MODELING_PATHS.includes(`/${slug}`);
+  const references = pageReferences(page);
+  const referenceNumbers = new Map(references.map((reference, index) => [reference.href, index + 1]));
+  const isWetLab = group?.label === 'Wet Lab';
+  const navigationLabel = group?.items.find(([, href]) => href === `/${slug}`)?.[0];
+  const fallbackHeroTitle = page.eyebrow.split("·")[0].split("/").at(-1)?.trim();
+  const heroTitle = navigationLabel ?? fallbackHeroTitle ?? page.title;
+  const heroImage = resolveFigureSrc(ARTICLE_GROUP_HEROES[group?.label ?? ''] ?? firstPageFigure(page));
+  const tocSections: TocSection[] = page.sections.map((section, sectionIndex) => ({
+    id: `section-${sectionIndex + 1}`,
+    title: section.tocTitle ?? section.title,
+    children: (section.blocks ?? []).flatMap((block, blockIndex) => {
+      if (block.kind === 'heading') return [{ id: `section-${sectionIndex + 1}-heading-${blockIndex + 1}`, title: block.text }];
+      if (block.kind === 'wet-lab-method') return block.headings;
+      return [];
+    }),
+  }));
+  return <><Header /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${isWetLab ? ' article-page--wet-lab' : ''}${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${group?.label === 'Human Practices' ? ' article-page--human-practices' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}${slug === 'experiments' ? ' article-page--experiments' : ''}${slug === 'notebook' ? ' article-page--notebook' : ''}`}>
+    <header className="article-hero"><div><h1>{heroTitle}</h1></div></header>
+    {hasContent && <>
+    <div className="article-layout"><ArticleToc slug={slug} sections={tocSections} hasReferences={references.length > 0} />
+      <div className="article-body">{page.figure && <figure className="feature-figure"><img src={figureSrc} alt={page.figure.alt} loading="lazy" decoding="async" /><figcaption>{page.figure.caption}</figcaption></figure>}
+        <div className="article-sections">{page.sections.map((section, i) => <section id={`section-${i + 1}`} tabIndex={-1} key={`${i}-${section.title}`}><div className="section-number">{String(i + 1).padStart(2, "0")}</div><div><h2>{section.title}</h2>{section.body && <p>{renderCitations(section.body, referenceNumbers)}</p>}{section.blocks && <ArticleBlocks blocks={section.blocks} referenceNumbers={referenceNumbers} sectionId={`section-${i + 1}`} />}{section.items && <ul>{section.items.map((item) => <li key={item}>{renderCitations(item, referenceNumbers)}</li>)}</ul>}{section.note && <aside>{section.note}</aside>}</div></section>)}</div>
+        {references.length > 0 && <section id="references" tabIndex={-1} className="article-references"><h2>References</h2><div className="reference-list">{references.map((reference, index) => <p id={`reference-${index + 1}`} key={reference.href}><a href={reference.href} target="_blank" rel="noreferrer">{reference.label}</a></p>)}</div></section>}
+      </div>
+    </div>
+    </>}
+  </main><Footer /></>;
+}
+
+function ScrollAndTitle() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    const slug = normalizePath(pathname).replace(/^\//, "");
+    const route = `/${slug}`;
+    const leafTitle = navigation
+      .flatMap((group) => group.items)
+      .find(([, href]) => href === route)?.[0]
+      ?? (slug === "dry-lab" ? "Dry Lab" : slug === "wiki-map" ? "Wiki Map" : slug ? pages[slug]?.eyebrow : "DunaTerp");
+    document.title = `SCU-China 2026 | ${leafTitle || "DunaTerp"}`;
+    const frame = requestAnimationFrame(() => {
+      if (hash) {
+        let id = hash.slice(1);
+        try { id = decodeURIComponent(id); } catch { /* Keep the raw id when a malformed URL hash is supplied. */ }
+        const target = document.getElementById(id);
+        if (target) {
+          const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+          target.focus({ preventScroll: true });
+        }
+      } else {
+        window.scrollTo(0, 0);
+        document.getElementById("main-content")?.focus({ preventScroll: true });
+      }
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [pathname, hash]);
+  return null;
+}
+
+export default function App() {
+  const { pathname, search } = useLocation();
+  return <><Link className="skip-link" to={{ pathname, search, hash: "#main-content" }}>Skip to content</Link><ScrollAndTitle /><Routes>
+    <Route path="/" element={<Suspense fallback={<BootLoadingScreen />}><PixelWorld Header={Header} /></Suspense>} />
+    <Route path="/wiki-map" element={<WikiMap />} />
+    {pageOrder.map((slug) => <Route key={slug} path={`/${slug}`} element={<Article slug={slug} />} />)}
+    <Route path="*" element={<Navigate to="/wiki-map" replace />} />
+  </Routes></>;
+}
