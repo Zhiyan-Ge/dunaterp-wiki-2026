@@ -366,18 +366,19 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
         {ready && loadingMinimumElapsed && isStory && <HomePrologue state={story} onNext={() => dispatchStory("NEXT")} onSkip={() => dispatchStory("SKIP")} />}
 
         <div className="px-world-ui" inert={isStory || !ready || failed}>
-        {!started && !dialogueNpc && !stationDialogue && !secretOpen && !atArchive && <aside className="px-trailhead" aria-label="Salt Route instructions">
-          <div className="px-trailhead__mark" aria-hidden="true"><i /><i /><i /></div>
-          <div className="px-trailhead__copy">
-            <p>SALT ROUTE / TRAILHEAD</p>
-            <h2>Follow the boardwalk.</h2>
-          </div>
-          <div className="px-trailhead__keys">
+        {!started && !dialogueNpc && !stationDialogue && !secretOpen && !atArchive && <>
+          <aside className="px-trailhead" aria-label="Salt Route introduction">
+            <div className="px-trailhead__mark" aria-hidden="true"><i /><i /><i /></div>
+            <div className="px-trailhead__copy">
+              <h2>Follow the boardwalk.</h2>
+            </div>
+          </aside>
+          <aside className="px-trailhead__keys" aria-label="Salt Route controls">
             <span><kbd>SCROLL</kbd> / <kbd>SPACE</kbd> travel</span>
             <span><kbd>E</kbd> open field notes</span>
             <span><kbd>FREE ROAM</kbd> meet hidden guides</span>
-          </div>
-        </aside>}
+          </aside>
+        </>}
         {mode === "free" && <ExpeditionJournal
           currentStationKey={npcPrompt?.stationKey ?? promptKey ?? activeChapter?.key ?? null}
           onOpenChange={(open) => { engineRef.current?.setPaused(open); if (!open) requestAnimationFrame(() => requestAnimationFrame(() => canvas.current?.focus({ preventScroll: true }))); }}
