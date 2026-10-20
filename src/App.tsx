@@ -267,6 +267,53 @@ function tocChapters(slug: string, sections: TocSection[]): TocChapter[] {
   });
 }
 
+type PageProgressStop = { id: string; title: string };
+
+function PageProgress({ pathname, stops, accent }: { pathname: string; stops: PageProgressStop[]; accent: string }) {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const maximum = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        const next = Math.max(0, Math.min(100, (window.scrollY / maximum) * 100));
+        setProgress((current) => Math.abs(current - next) < .1 ? current : next);
+      });
+    };
+    const resizeObserver = new ResizeObserver(update);
+    resizeObserver.observe(document.body);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      cancelAnimationFrame(frame);
+      resizeObserver.disconnect();
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [pathname]);
+
+  if (stops.length === 0) return null;
+  const stopPosition = (index: number) => stops.length === 1 ? 0 : (index / (stops.length - 1)) * 100;
+  const activeIndex = stops.reduce((active, _stop, index) => progress + 1 >= stopPosition(index) ? index : active, 0);
+  return <nav className="page-progress" aria-label="Page progress" style={{ "--page-progress": `${progress}%`, "--page-progress-accent": accent } as CSSProperties}>
+    <div className="page-progress__meter" role="progressbar" aria-label="Reading progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress)}>
+      <span className="page-progress__fill" aria-hidden="true" />
+      <i className="page-progress__traveller" aria-hidden="true" />
+    </div>
+    {stops.map((stop, index) => <Link
+      key={stop.id}
+      className={`page-progress__stop${index === activeIndex ? " is-active" : ""}${index <= activeIndex ? " is-passed" : ""}`}
+      style={{ left: `${stopPosition(index)}%` }}
+      to={{ pathname, hash: `#${stop.id}` }}
+      aria-label={`Go to ${stop.title}`}
+      aria-current={index === activeIndex ? "location" : undefined}
+      title={stop.title}
+    ><span aria-hidden="true" /></Link>)}
+  </nav>;
+}
+
 function ArticleToc({ slug, sections, hasReferences }: { slug: string; sections: TocSection[]; hasReferences: boolean }) {
   const nav = useRef<HTMLElement>(null);
   const [activeId, setActiveId] = useState("section-1");
@@ -344,9 +391,10 @@ const groupDescriptions = [
 ];
 
 function WikiMap() {
-  return <><Header /><main id="main-content" tabIndex={-1} className="map-page">
+  const progressStops = archiveNavigation.map((group, index) => ({ id: `map-group-${index + 1}`, title: group.label }));
+  return <><Header /><PageProgress pathname="/wiki-map" stops={progressStops} accent="#c9f66b" /><main id="main-content" tabIndex={-1} className="map-page">
     <header className="map-heading"><div><p className="page-eyebrow">DUNATERP / PROJECT INDEX</p><h1>Explore the<br /><em>whole spectrum.</em></h1></div><p className="map-intro">Follow the science, explore the evidence, and meet the people behind DunaTerp. Every chapter starts here.</p></header>
-    <div className="map-grid">{archiveNavigation.map((group, index) => <section key={group.label} className={`map-group map-group--${index}`}><header><span className="map-number">0{index + 1}</span></header><h2>{group.label}</h2><p className="map-description">{groupDescriptions[index]}</p><div className="map-links">{group.items.map(([label, href]) => <Link key={href} to={href}><span>{label}</span><b aria-hidden="true">↗</b></Link>)}</div></section>)}</div>
+    <div className="map-grid">{archiveNavigation.map((group, index) => <section id={`map-group-${index + 1}`} key={group.label} className={`map-group map-group--${index}`}><header><span className="map-number">0{index + 1}</span></header><h2>{group.label}</h2><p className="map-description">{groupDescriptions[index]}</p><div className="map-links">{group.items.map(([label, href]) => <Link key={href} to={href}><span>{label}</span><b aria-hidden="true">↗</b></Link>)}</div></section>)}</div>
     <div className="map-return"><span>Start with the story.</span><Link to="/">Return to the salt route <span aria-hidden="true">↗</span></Link></div>
     <nav className="related-wiki-pages" aria-label="Project-wide pages"><Link to="/dry-lab">Modeling overview</Link><Link to="/alternative-platform">Alternative Platform</Link></nav>
   </main><Footer /></>;
@@ -378,7 +426,11 @@ function Article({ slug }: { slug: string }) {
       return [];
     }),
   }));
-  return <><Header /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${isWetLab ? ' article-page--wet-lab' : ''}${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${group?.label === 'Human Practices' ? ' article-page--human-practices' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}${slug === 'experiments' ? ' article-page--experiments' : ''}${slug === 'notebook' ? ' article-page--notebook' : ''}`}>
+  const progressStops = [
+    ...tocChapters(slug, tocSections).map((chapter) => ({ id: chapter.id, title: chapter.title })),
+    ...(references.length > 0 ? [{ id: "references", title: "References" }] : []),
+  ];
+  return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${isWetLab ? ' article-page--wet-lab' : ''}${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${group?.label === 'Human Practices' ? ' article-page--human-practices' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}${slug === 'experiments' ? ' article-page--experiments' : ''}${slug === 'notebook' ? ' article-page--notebook' : ''}`}>
     <header className="article-hero"><div><h1>{heroTitle}</h1></div></header>
     {hasContent && <>
     <div className="article-layout"><ArticleToc slug={slug} sections={tocSections} hasReferences={references.length > 0} />
