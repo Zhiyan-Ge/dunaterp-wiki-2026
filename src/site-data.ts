@@ -26,10 +26,11 @@ export type WikiPage = {
 };
 
 export const navigation: Array<{ label: string; items: ReadonlyArray<readonly [string, string]> }> = [
-  { label: "Wet Lab", items: [["Description", "/project-description"], ["Engineering", "/engineering"], ["Experiments", "/experiments"], ["Protocols", "/notebook"], ["Results", "/results"], ["Safety", "/safety-and-security"]] },
+  { label: "Project", items: [["Description", "/project-description"], ["Contribution", "/contribution"], ["Design", "/design"], ["Experiments", "/experiments"], ["Results", "/results"], ["Engineering", "/engineering"], ["Safety", "/safety-and-security"], ["Parts", "/parts"]] },
   { label: "Dry Lab", items: dryLabNavigation },
   { label: "Human Practices", items: [["Education", "/education"], ["Cooperation", "/cooperation"]] },
-  { label: "People", items: [["Team", "/team"], ["Attributions", "/attributions"], ["Responsible AI", "/responsible-ai"]] },
+  { label: "Lab", items: [["Safety", "/lab-safety"], ["Notebook", "/lab-notebook"]] },
+  { label: "Team", items: [["Team", "/team"], ["Attributions", "/attributions"], ["Responsible AI", "/responsible-ai"]] },
 ];
 
 /** The compact header groups Dry Lab into its two main entrances. Indexes and
@@ -55,25 +56,57 @@ export const pages: Record<string, WikiPage> = {
   protein,
   "project-description": {
     title: "DunaTerp: a programmable terpenoid platform",
-    eyebrow: "Project description",
-    intro: "DunaTerp reprogrammes carotenoid metabolism in the halophilic microalga Dunaliella salina. The core design introduces the project-selected transcription factor 2146 to redirect pathway flux toward a competitive β-carotene hub; four downstream product designs demonstrate what that programmable chassis can support.",
+    eyebrow: "Description",
+    intro: "DunaTerp asks whether a salt-compatible photosynthetic chassis can become a practical terpenoid platform. The project starts from Dunaliella salina, a naturally β-carotene-rich microalga, and builds outward toward programmable product routes and controlled cultivation.",
     status: "team-draft",
-    references: [refs.oren2005, refs.borowitzka2013, refs.lan2022, refs.mialoundama2010],
     sections: [
       {
         eyebrow: "Value and production landscape",
         title: "Background & Challenge",
-        body: "Terpenoids are used across food, nutrition, aroma, colour and other high-value applications. Current supply spans chemical synthesis, plant extraction and biological production, but each route leaves a gap: chemical synthesis can bring process and environmental costs; plant extraction is constrained by slow growth, variable abundance, land and freshwater demand; conventional yeast or bacterial factories often rely on sterile freshwater cultivation and energy-intensive operation. The project therefore asks whether a salt-compatible photosynthetic chassis can make this production landscape more practical [2]."
+        body: "Terpenoids are used across food, nutrition, aroma, colour and other high-value applications. Current supply spans chemical synthesis, plant extraction and biological production, but each route leaves a gap: chemical synthesis can bring process and environmental costs; plant extraction is constrained by slow growth, variable abundance, land and freshwater demand; conventional yeast or bacterial factories often rely on sterile freshwater cultivation and energy-intensive operation. DunaTerp therefore asks whether a salt-compatible photosynthetic chassis can make this production landscape more practical."
       },
       {
         eyebrow: "Why this chassis",
         title: "A Chassis Shaped by Salt",
-        body: "Dunaliella salina brings three connected advantages. First, its tolerance of seawater and hypersaline media supports cultivation in conditions that suppress many contaminants and reduces dependence on freshwater and arable land. Second, it already contains a complete MEP-to-carotenoid pathway and naturally accumulates β-carotene, providing a starting network for engineering. Third, its photosynthetic, salt-compatible biology opens a broad application space in saline environments rather than tying the platform to conventional sterile freshwater fermentation [1]."
+        body: "Dunaliella salina brings three connected advantages. First, its tolerance of seawater and hypersaline media supports cultivation in conditions that suppress many contaminants and reduces dependence on freshwater and arable land. Second, it already contains a complete MEP-to-carotenoid pathway and naturally accumulates β-carotene, providing a starting network for engineering. Third, its photosynthetic, salt-compatible biology opens a broad application space in saline environments rather than tying the platform to conventional sterile freshwater fermentation."
       },
+      {
+        eyebrow: "Project overview",
+        title: "A Shared β-Carotene Hub",
+        body: "DunaTerp treats the native β-carotene pool of D. salina as a programmable hub rather than a fixed trait. The project introduces transcription factor 2146 as a proposed regulatory input to reshape carotenoid-pathway expression, then branches that shared hub toward several downstream product routes. In this way, the project is framed not as a single-product strain, but as a chassis-level platform with multiple possible outputs."
+      },
+    ],
+  },
+  contribution: {
+    title: "What DunaTerp contributes",
+    eyebrow: "Contribution",
+    intro: "This project contributes a chassis-level platform idea, a model-guided route-comparison framework and a salt-responsive containment concept for Dunaliella-based engineering.",
+    status: "team-draft",
+    sections: [
+      {
+        title: "A salt-compatible terpenoid platform",
+        body: "DunaTerp proposes D. salina as more than a naturally pigmented organism. The project frames it as a salt-compatible engineering chassis whose native β-carotene metabolism can support several downstream terpenoid routes from one shared metabolic hub."
+      },
+      {
+        title: "A model-guided design chain",
+        body: "The project links transcriptional regulation, pathway control and downstream product competition in one design chain. Transcript evidence, metabolic modeling and product-route comparison are used together to define which measurements matter most for testing the platform."
+      },
+      {
+        title: "A biosafety concept with explicit assumptions",
+        body: "The salt-responsive containment work contributes a concrete biosafety idea for D. salina cultivation: keep cells viable in high-salt production conditions while increasing effective toxicity after a salinity drop. The value of this contribution lies not only in the circuit concept, but also in making its assumptions, response requirements and likely failure points explicit."
+      },
+    ],
+  },
+  design: {
+    title: "How the project is designed",
+    eyebrow: "Design",
+    intro: "The design starts from a naturally β-carotene-rich chassis, adds a regulatory layer intended to redirect pathway behavior and then distributes the shared hub into separate product routes and a parallel containment module.",
+    status: "team-draft",
+    sections: [
       {
         eyebrow: "The core intervention",
         title: "Reprogramme the Metabolic Engine",
-        body: "DunaTerp does not stop at using a naturally productive alga. The project identifies and introduces transcription factor 2146 as a regulatory input intended to reshape carotenoid-pathway expression and redirect metabolic flux toward competitive β-carotene synthesis. This turns the native β-carotene pool from a fixed biological trait into the shared, programmable hub of the platform. LCYB remains the enzymatic gate from lycopene into that hub, while TF2146 provides the upstream regulatory intervention [3] [4].",
+        body: "DunaTerp does not stop at using a naturally productive alga. The project identifies and introduces transcription factor 2146 as a regulatory input intended to reshape carotenoid-pathway expression and redirect metabolic flux toward competitive β-carotene synthesis. This turns the native β-carotene pool from a fixed biological trait into the shared, programmable hub of the platform. LCYB remains the enzymatic gate from lycopene into that hub, while TF2146 provides the upstream regulatory intervention."
       },
       {
         eyebrow: "Model-guided design",
@@ -103,6 +136,11 @@ export const pages: Record<string, WikiPage> = {
         eyebrow: "From engineered cell to application",
         title: "Characterise the Platform",
         body: "Characterisation first asks whether the regulatory intervention changes pathway expression and β-carotene supply, then tests product identity, titre, conversion efficiency and by-product profiles for each downstream strain. Light delivery, salinity, biomass productivity and recovery yield connect the engineered cell to cultivation and downstream processing."
+      },
+      {
+        eyebrow: "Biosafety module",
+        title: "Add a Salt-Responsive Safeguard",
+        body: "In parallel with the production platform, the project proposes a salt-responsive safeguard module. The intended logic is to maintain cultivation under high-salt conditions while reducing persistence after salinity drops, linking process context directly to containment behavior."
       },
     ],
   },
@@ -188,29 +226,9 @@ export const pages: Record<string, WikiPage> = {
       },
     ],
   },
-  notebook: {
-    title: "Protocols",
-    eyebrow: "Wet Lab",
-    intro: "The team-authored experimental protocols are provided below in their original document layout.",
-    status: "review-ready",
-    sections: [
-      {
-        title: "CPP2146 Experimental Protocols",
-        tocTitle: "CPP2146",
-        body: "",
-        blocks: [{ kind: "pdf", src: "/protocols/Experiment_CPP2146_EN.pdf", downloadSrc: "/protocols/Experiment_CPP2146_EN.docx", label: "CPP2146 experimental protocols" }],
-      },
-      {
-        title: "Team Experimental Protocols",
-        tocTitle: "Team experiments",
-        body: "",
-        blocks: [{ kind: "pdf", src: "/protocols/Experiment_Team_EN.pdf", downloadSrc: "/protocols/Experiment_Team_EN.docx", label: "Team experimental protocols" }],
-      },
-    ],
-  },
   results: {
     title: "What the evidence shows", eyebrow: "Results", intro: "Light changes carotenoid-pathway transcript abundance, but the pathway does not rise or fall as one synchronized unit. The models identify LCYB and the β-carotene entry split as useful control points, while protein, pigment and flux measurements remain necessary to test the proposed mechanism.", status: "team-draft",
-    references: [refs.transcriptomeDataset, refs.li2019, refs.fachet2020, refs.lan2022, refs.alphafold3],
+    references: [refs.transcriptomeDataset, refs.li2019, refs.fachet2020, refs.lan2022, refs.alphafold3, refs.chen2009, refs.dca1, refs.mazf, refs.farhat2011, refs.gomez2005],
     sections: [
       { title: "Transcript responses are not uniform", body: "Across the three light conditions, carotenoid-pathway transcripts respond individually rather than as a single coordinated block [1] [2]. One LCYB-assigned contig rises from low to medium light and then falls at high light; the other remains higher under high light than under low light. This transcript-specific behavior makes LCYB a biologically motivated modeling focus without implying that LCYB protein activity or β-carotene flux increased.", blocks: [
         { kind: "figure", src: "/figures/dry-lab/transcriptomics-sample-expression.svg", alt: "Replicate-level normalized read counts for six carotenoid-enzyme transcripts across three light conditions.", caption: "Fig. 1 Replicate-level expression of carotenoid transcripts" },
@@ -224,12 +242,59 @@ export const pages: Record<string, WikiPage> = {
       { title: "The model defines the next measurements", body: "The five-state model links regulatory input, promoter occupancy, LCYB transcript, active enzyme, lycopene conversion and the β-carotene pool. Its present predictions are conditional on assumed parameters. Matched measurements of TF2146 abundance or binding, LCYB transcript and protein, lycopene, β-carotene and product formation are required to calibrate the chain and test whether regulation changes flux.", blocks: [
         { kind: "figure", src: "/figures/dry-lab/14_regulatory_model.png", alt: "Five-state model connecting regulatory input to LCYB expression and beta-carotene.", caption: "Fig. 4 Regulatory model of the LCYB step" },
       ] },
+      { title: "Safety model outcomes", body: "The salt-responsive containment model compares the same salinity drop under retained-cell and water-exchange environments, and tests three response modes: no effective switch, growth inhibition alone and conditional killing. The strongest modeled reduction in cell concentration appears only when the circuit is allowed to add an explicit killing effect after the salinity change.", blocks: [
+        { kind: "paragraph", text: "The results compare how salinity change, growth behavior and transport interact under different containment assumptions. They are scenario-based model outcomes, not direct measurements of engineered-strain clearance." },
+        { kind: "safety-results" },
+        { kind: "paragraph", text: "In the retained-cell baseline, the conditional-killing case reaches T90 at 8.3 h and T99 at 13.2 h, while weaker response assumptions do not reach the same reduction within the modeled time window." },
+      ] },
+      { title: "Safety sensitivity and cultivation trade-offs", body: "The same containment concept changes substantially when its assumptions are perturbed. Response delay, effective mortality and surrounding salinity all affect whether the modeled safeguard clears cells rapidly, slowly or not at all within the simulation window.", blocks: [
+        { kind: "paragraph", text: "Sensitivity analysis highlights which assumptions matter most for the containment design and therefore which project measurements would most improve the model." },
+        { kind: "table", caption: "Selected sensitivity results · T99 for a 48 h simulation", columns: ["Change from baseline", "Setting", "T99"], rows: [
+          ["Baseline", "No response delay; external salt 0.05 M", "13.2 h"],
+          ["Delayed response", "6 h delay", "19.1 h"],
+          ["Delayed response", "24 h delay", "37.1 h"],
+          ["Lower maximum mortality", "Half the assumed baseline rate", "22.8 h"],
+          ["Higher maximum mortality", "Twice the assumed baseline rate", "8.3 h"],
+          ["Slower salt change", "Relaxation rate 0.1 h⁻¹", "27.0 h"],
+          ["More saline surroundings", "External salt 0.50 M", "38.4 h"],
+          ["More saline surroundings", "External salt 0.70 M", "Not reached within 48 h"],
+        ] },
+        { kind: "paragraph", text: "These comparisons are mathematical stress tests rather than measured confidence intervals, but they show clearly that delay, receiving salinity and maximum effective mortality strongly influence the predicted outcome." },
+        { kind: "paragraph", text: "The model also suggests a possible cultivation trade-off: under constant production salinity, the lethal-response scenario leaves a small residual burden on growth. That result does not estimate observed biomass or product loss, but it identifies a question that should be tested experimentally." },
+      ] },
     ],
   },
   model: modeling,
   hardware,
   "hardware-design": hardwareDesign,
   "safety-and-security": safety,
+  parts: {
+    title: "Parts",
+    eyebrow: "Parts",
+    intro: "This page is reserved for the project's part and device overview and will be completed when the material is ready.",
+    status: "structure-only",
+    sections: [
+      { title: "Content in preparation", body: "Team input required: add the parts and devices summary for this section." },
+    ],
+  },
+  "lab-safety": {
+    title: "Lab Safety",
+    eyebrow: "Lab",
+    intro: "This page is reserved for lab safety content and will be completed when the material is ready.",
+    status: "structure-only",
+    sections: [
+      { title: "Content in preparation", body: "Team input required: add the lab-specific safety content for this section." },
+    ],
+  },
+  "lab-notebook": {
+    title: "Lab Notebook",
+    eyebrow: "Lab",
+    intro: "This page is reserved for lab notebook content and will be completed when the material is ready.",
+    status: "structure-only",
+    sections: [
+      { title: "Content in preparation", body: "Team input required: add the lab notebook content for this section." },
+    ],
+  },
   "alternative-platform": {
     title: "Engineering beyond the usual chassis", eyebrow: "Alternative Platform", intro: "Dunaliella salina combines extreme halotolerance, photosynthetic carbon fixation and native carotenoid accumulation. DunaTerp uses those traits as functional parts of the engineering strategy rather than treating the alga as an interchangeable host.", status: "team-draft",
     references: [refs.oren2005, refs.lan2022, refs.fachet2020],
@@ -271,10 +336,10 @@ export const pages: Record<string, WikiPage> = {
 };
 
 export const pageOrder = [...new Set([
-  'project-description', 'engineering', 'experiments', 'notebook', 'results',
+  'project-description', 'contribution', 'design', 'experiments', 'results', 'engineering', 'safety-and-security', 'parts',
   'dry-lab', 'transcriptomics', 'metabolomics', 'protein', 'model', 'hardware', 'hardware-design',
   ...Object.keys(pages).filter((key) => ![
-    'project-description', 'engineering', 'experiments', 'notebook', 'results',
+    'project-description', 'contribution', 'design', 'experiments', 'results', 'engineering', 'safety-and-security', 'parts',
     'dry-lab', 'transcriptomics', 'metabolomics', 'protein',
     'model', 'hardware', 'hardware-design',
   ].includes(key)),

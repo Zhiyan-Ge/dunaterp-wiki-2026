@@ -19,7 +19,7 @@ import { HomePrologue } from "./home/HomePrologue";
 import { initialStory, STORY_BEATS, storyReducer } from "./home/story";
 
 type HeaderProps = { light?: boolean };
-const GROUP_ACCENTS = ["#cdf558", "#f7a52d", "#e65c42", "#c4a8ff"];
+const GROUP_ACCENTS = ["#cdf558", "#f7a52d", "#e65c42", "#91e6b0", "#c4a8ff"];
 const ROUTE_EGGS = [
   {
     key: "protein",
