@@ -192,6 +192,7 @@ export const cooperation: WikiPage = {
 export const collaboration: WikiPage = {
   title: 'Collaboration',
   eyebrow: 'Collaboration',
+  heroImage: 'https://static.igem.wiki/teams/6212/wiki/team/scu-china-2026.webp',
   intro: 'We value collaboration with other iGEM teams as an opportunity to exchange ideas, share experiences, and learn from different perspectives.',
   status: 'team-draft',
   sections: [
