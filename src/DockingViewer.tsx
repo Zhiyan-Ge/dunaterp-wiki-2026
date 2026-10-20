@@ -31,7 +31,7 @@ export function DockingViewer() {
     try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false }); }
     catch { queueMicrotask(() => setError(true)); return; }
     renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-    renderer.setClearColor('#edf1e9');
+    renderer.setClearColor(getComputedStyle(mount).getPropertyValue('--cream').trim() || '#f7f1df');
     renderer.localClippingEnabled = true;
     mount.appendChild(renderer.domElement);
     renderer.domElement.setAttribute('aria-label', 'Interactive WT LCYB and lycopene docking illustration');

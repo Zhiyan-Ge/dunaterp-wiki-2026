@@ -727,3 +727,21 @@ body:has(.article-page--hardware) { background: #f3ecd0; }
   .article-page .section-number { width: 2.25rem; height: 2.25rem; }
   .article-page .article-references { padding-top: 1.5rem; }
 }
+
+/* Research panels follow the Dry Lab paper and accent palette. */
+.article-page--dry-lab .research-table-scroll,
+.article-page--dry-lab .research-table-details {
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  background: #fffaf0;
+}
+.article-page--dry-lab .research-table-scroll caption { background: #fffaf0; }
+.article-page--dry-lab .research-table-scroll thead { background: color-mix(in srgb, var(--article-accent) 38%, #fffaf0); }
+.article-page--dry-lab .research-table-scroll tbody tr:nth-child(even) { background: var(--cream); }
+.article-page--dry-lab .research-figure { border: 2px solid var(--ink); border-radius: 0; background: #fffaf0; }
+.article-page--dry-lab .research-equation,
+.article-page--dry-lab .research-code pre {
+  border: 2px solid var(--ink);
+  border-left: 6px solid var(--article-accent);
+  background: #fffaf0;
+}
