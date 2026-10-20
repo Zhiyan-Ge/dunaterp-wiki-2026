@@ -83,6 +83,13 @@ export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, numbe
       case 'code': return <div className="research-code" key={i}><p>{block.label}</p><pre tabIndex={0}><code>{block.text}</code></pre></div>;
       case 'figure': return <ResearchFigure key={i} figure={block} />;
       case 'figure-grid': return <div className="research-figure-grid" key={i}>{block.figures.map((figure) => <ResearchFigure key={figure.src} figure={figure} compact />)}</div>;
+      case 'member-grid': return <ul className="team-roster" key={i}>{block.members.map((member) => {
+        const name = `${member.givenName} ${member.familyName}`;
+        return <li className="team-member" key={member.src}>
+          <img src={resolveAsset(member.src)} alt={`Portrait of ${name}`} width={720} height={900} loading="lazy" decoding="async" />
+          <div className="team-member__caption"><h3>{name}</h3><p>{member.major}</p></div>
+        </li>;
+      })}</ul>;
       case 'chapter-grid': return <div className="research-chapter-grid" key={i}>{block.items.map((item) => <Link className="research-chapter-card" to={item.href} key={item.href}><span>{item.index}</span><div><h3>{item.title}</h3><p>{item.text}</p></div><b aria-hidden="true">↗</b></Link>)}</div>;
       case 'table': return <DataTable key={i} block={block} />;
       case 'links': return <ul className="research-links" key={i}>{block.links.map(({label,href}) => {

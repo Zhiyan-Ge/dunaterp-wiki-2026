@@ -49,3 +49,6 @@ tools/art-check/shots
 # Single-file preview build
 tools/preview/.out
 tools/preview/dunaterp-preview.html
+
+# Original team photos are served by the official iGEM asset library.
+/public/figures/team/

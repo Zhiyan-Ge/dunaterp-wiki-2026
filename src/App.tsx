@@ -416,7 +416,7 @@ function Article({ slug }: { slug: string }) {
   const navigationLabel = group?.items.find(([, href]) => href === `/${slug}`)?.[0];
   const fallbackHeroTitle = page.eyebrow.split("·")[0].split("/").at(-1)?.trim();
   const heroTitle = navigationLabel ?? fallbackHeroTitle ?? page.title;
-  const heroImage = resolveFigureSrc(ARTICLE_GROUP_HEROES[group?.label ?? ''] ?? firstPageFigure(page));
+  const heroImage = resolveFigureSrc(slug === 'team' ? firstPageFigure(page) : (ARTICLE_GROUP_HEROES[group?.label ?? ''] ?? firstPageFigure(page)));
   const tocSections: TocSection[] = page.sections.map((section, sectionIndex) => ({
     id: `section-${sectionIndex + 1}`,
     title: section.tocTitle ?? section.title,
@@ -430,8 +430,9 @@ function Article({ slug }: { slug: string }) {
     ...tocChapters(slug, tocSections).map((chapter) => ({ id: chapter.id, title: chapter.title })),
     ...(references.length > 0 ? [{ id: "references", title: "References" }] : []),
   ];
-  return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${isWetLab ? ' article-page--wet-lab' : ''}${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${group?.label === 'Human Practices' ? ' article-page--human-practices' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}${slug === 'experiments' ? ' article-page--experiments' : ''}${slug === 'notebook' ? ' article-page--notebook' : ''}`}>
+  return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${isWetLab ? ' article-page--wet-lab' : ''}${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${group?.label === 'Human Practices' ? ' article-page--human-practices' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}${slug === 'experiments' ? ' article-page--experiments' : ''}${slug === 'notebook' ? ' article-page--notebook' : ''}${slug === 'team' ? ' article-page--team' : ''}`}>
     <header className="article-hero"><div><h1>{heroTitle}</h1></div></header>
+    {slug === 'team' && <p className="team-introduction">{page.intro}</p>}
     {hasContent && <>
     <div className="article-layout"><ArticleToc slug={slug} sections={tocSections} hasReferences={references.length > 0} />
       <div className="article-body">{page.figure && <figure className="feature-figure"><img src={figureSrc} alt={page.figure.alt} loading="lazy" decoding="async" /><figcaption>{page.figure.caption}</figcaption></figure>}

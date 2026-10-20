@@ -5,6 +5,7 @@ import { protein } from './content/protein';
 import { dryLabNavigation, dryLabIndex, hardware, hardwareDesign, metabolomics, modeling, transcriptomics } from './content/dry-lab';
 import { cooperation, education } from './content/human-practices';
 import { stakeholderAnalysis } from './content/stakeholder-analysis';
+import { team } from './content/team';
 
 export type WikiSection = {
   title: string;
@@ -245,13 +246,7 @@ export const pages: Record<string, WikiPage> = {
   education,
   cooperation,
   "stakeholder-analysis": stakeholderAnalysis,
-  team: {
-    title: "The people behind DunaTerp", eyebrow: "Team", intro: "SCU-China 2026 brings together wet-lab, dry-lab, hardware, human-practices and Wiki work around one salt-adapted terpenoid platform.", status: "team-draft",
-    sections: [
-      { title: "One project, connected work", body: "Wet-lab construction and validation, transcript and metabolic analysis, protein and regulatory modeling, photobioreactor engineering, project integration and website development are treated as connected parts of the same design chain." },
-      { title: "Roles and contributions", body: "The official team roster identifies the members of SCU-China 2026, while the Attributions Form connects experimental, analytical, design, communication and Wiki contributions to the people who performed them." },
-    ],
-  },
+  team,
   attributions: {
     title: "Credit is part of the method", eyebrow: "Attributions", intro: "DunaTerp combines team experiments and analysis with public datasets, literature, software and external guidance. The official iGEM Attributions Form remains the authoritative record of individual contributions.", status: "team-draft",
     sections: [

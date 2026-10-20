@@ -950,5 +950,194 @@
     "sha256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
     "sourceSha256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
     "bytes": 13568
+  },
+  {
+    "source": "figures/team/linjintao-chen.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/linjintao-chen.webp",
+    "sha256": "7bb6ec3b3631074e3890a803140557ba132838bdf4005910b0ae64f84be071f2",
+    "sourceSha256": "bf021972baebbaf63a6b946a4ebc6b314f26223a0158456174467b000d795e3d",
+    "bytes": 695268
+  },
+  {
+    "source": "figures/team/zhutian-mao.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/zhutian-mao-b2410e25b5d2.webp",
+    "sha256": "b2410e25b5d2028ac57d5d65f00216847def14b553bffffe65d18a7fedcdf167",
+    "sourceSha256": "f2f94e939323b389b66c3950f0267b58c36bf5e8e088fe369afe8a47ba2d35a7",
+    "bytes": 294542
+  },
+  {
+    "source": "figures/team/yongyuan-mi.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/yongyuan-mi.webp",
+    "sha256": "a830c91c1513ba06923619d15ed11ad401526aa016cd2fef7157a52f56cfa649",
+    "sourceSha256": "7dfb6c83fef005a6fc8ff1861bfa41783fc29701d4739699f1c5474d2ab27446",
+    "bytes": 532046
+  },
+  {
+    "source": "figures/team/hongyi-wang.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/hongyi-wang.webp",
+    "sha256": "b2969708b0abe773b3bb4d5af97ad797d1fa952203de8e9b7004cb638c3c8e73",
+    "sourceSha256": "d2ded7cc12d9ebfbc0ad1685175ac44b51cc27501e8e2e6e46a460cdf8651458",
+    "bytes": 85074
+  },
+  {
+    "source": "figures/team/kaiting-wei.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/kaiting-wei.webp",
+    "sha256": "4664d5a245311e70129b3f91d2c96b76d9d41a0b952a239ac238c6e5af10af50",
+    "sourceSha256": "ef454d3b17a397e08a8202f87dfd2c0c9e77cf4287bd40a152c12be68a0d6da2",
+    "bytes": 132616
+  },
+  {
+    "source": "figures/team/xin-xiong.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/xin-xiong-e94ba0785242.webp",
+    "sha256": "e94ba07852427705e59e1b8027522b7c1e67194a1557effc2dc5e39f2b322131",
+    "sourceSha256": "2f01bcc8e5a90025b2305fc8aaaf4a7cf768e3b62f3142eb347ddd917fecc374",
+    "bytes": 114740
+  },
+  {
+    "source": "figures/team/furong-yang.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/furong-yang.webp",
+    "sha256": "6a0801815c06e5153c3f68ceab8bcf0755ab617f3f5429eae67a8f1ae1948e0c",
+    "sourceSha256": "bfa295f01f9f685e45d31bd9b36b6827ed29665ec09903b8f2fde37d0c26d455",
+    "bytes": 574902
+  },
+  {
+    "source": "figures/team/qingying-zhao.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/qingying-zhao.webp",
+    "sha256": "1de4e45afd8360af56506fe88e83310db0e97cfc2f816170c60e6130b8266514",
+    "sourceSha256": "a425caaf107d8410a24a17d03ac33e3742bc4b88d5dd0bf19b9afa1489da9a35",
+    "bytes": 50130
+  },
+  {
+    "source": "figures/team/tianyu-zhou.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/tianyu-zhou-56ec3f2bc753.webp",
+    "sha256": "56ec3f2bc753b116956bbf9eeaa3508d9266b62c7bc6eb631374fc8f75084d9d",
+    "sourceSha256": "43efde8474e370cbf05ef63172b0469676687c51916b11c1db370f7b8a621a4b",
+    "bytes": 213076
+  },
+  {
+    "source": "figures/team/hengyu-dai.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/hengyu-dai.webp",
+    "sha256": "756fffd7704f3ea920f7eed9516b43757d5e52549da45535c98b44f4dc38e1f9",
+    "sourceSha256": "5db4e5b605259242c73f58677de7423f2c8dbf0ed16e3eb946513bd09bde6e35",
+    "bytes": 563086
+  },
+  {
+    "source": "figures/team/yihan-dai.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/yihan-dai.webp",
+    "sha256": "14a463a5d5b6e5eac5b9a56fe38a70f3c8f3cafb962a7629000efb537a785d4b",
+    "sourceSha256": "91ff3b99ac27ecbe571e1fc9c637674037fe04c1882beba0dd3f85e65f860c7b",
+    "bytes": 48792
+  },
+  {
+    "source": "figures/team/yuheng-gao.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/yuheng-gao.webp",
+    "sha256": "02adb72fe727ec407b4ecc8c4cecd4cc80707387cbb27d7e00c36f0e9c41f2b9",
+    "sourceSha256": "78c1e9649b86df30320b028d9ec9cd1c46847aef47c20ffa4120f75c24a4c984",
+    "bytes": 465282
+  },
+  {
+    "source": "figures/team/zhiyan-ge.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/zhiyan-ge.webp",
+    "sha256": "bf391483db0159cdf07f472b2f74d6b2a2789a6dd2dba0ff0f8abf94744e5c9c",
+    "sourceSha256": "c764fa35c53e82afa6e56a4669a2435c8202e4024852e3c7db4007124f0e5c45",
+    "bytes": 526582
+  },
+  {
+    "source": "figures/team/hengwei-liang.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/hengwei-liang.webp",
+    "sha256": "52cc3122fd26626fb11b43214d34faae5db4fe490ac383c34965a97a9dd43bd9",
+    "sourceSha256": "3a3eb4106840b0e616979462ae7219a7e15e696fdee8442a7df6a43bfc5e0dae",
+    "bytes": 531668
+  },
+  {
+    "source": "figures/team/keyu-liu.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/keyu-liu.webp",
+    "sha256": "a6954e679b09d49369a79e1b97af9df199137e22927363bd340f8635b5b71b31",
+    "sourceSha256": "207c1f88f9ce4da4e281d54b115d9b66d6f74d53747a1bae096ec55ee2a956ec",
+    "bytes": 543166
+  },
+  {
+    "source": "figures/team/yuyang-lu.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/yuyang-lu.webp",
+    "sha256": "531e99373815ed215f4867d7d0881d9fac898379fbc2b438e76adc6821f48b93",
+    "sourceSha256": "47fe7ef0afef9b624bfa2a97246d7fbbb49debfd63494e44df5f0b11aa552b7d",
+    "bytes": 553290
+  },
+  {
+    "source": "figures/team/yujia-peng.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/yujia-peng.webp",
+    "sha256": "f937154d55a707bb6e237b08ca6eb3c3c83dbcafb57b85a8d8bfe7e58c5ce17d",
+    "sourceSha256": "b56ea44f8491e4182726e3d74761a95710992acd30f45d3ae291e6ac4319f6ca",
+    "bytes": 69790
+  },
+  {
+    "source": "figures/team/yinuo-wang.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/yinuo-wang.webp",
+    "sha256": "8bc80cd320d43a55b2789bb1cbbe55751b007d62163686aa3a8d89f0b9c2c5db",
+    "sourceSha256": "fab68eaaab70f7da5e0f1e8b127c7014b388a1893c5e86d93dd4da6732caf16d",
+    "bytes": 519424
+  },
+  {
+    "source": "figures/team/jianye-wang.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/jianye-wang.webp",
+    "sha256": "a8e1adb5681409d312dd7b5e4fb180ee3d98b8bf18696b798f9bda9128b3d18c",
+    "sourceSha256": "0dce25f16fd2c882858ba2549384c0c10d42d3b3fa503d663a4295f7963be8e1",
+    "bytes": 562826
+  },
+  {
+    "source": "figures/team/xinyu-wang.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/xinyu-wang-5e472bc242ea.webp",
+    "sha256": "5e472bc242ea41347ec05342db1c0716f170ac0fa836798d540356bbd7cd49f0",
+    "sourceSha256": "3e63c947741920beb3a16ed433f91733e09a4577ae7a79c071b907be0c190ccb",
+    "bytes": 580078
+  },
+  {
+    "source": "figures/team/ziqi-wang.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/ziqi-wang-edf633bdc610.webp",
+    "sha256": "edf633bdc610ed85371241c83a1e26ee5618d9454d6e4030636f4abc8883ba3d",
+    "sourceSha256": "038c809e7946c991e15cda9c3d753226f9464b0c39487cfd9f250deef4f80685",
+    "bytes": 515824
+  },
+  {
+    "source": "figures/team/yusen-wu.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/yusen-wu.webp",
+    "sha256": "af7b57cfdab9920f2e9d66a8b469079ea014df5ee1af7f6908bceb03390ebfbb",
+    "sourceSha256": "83192e1a02b52591e3dce096e191a5872166daf07dd486201b4b9b4d8aebb51c",
+    "bytes": 515948
+  },
+  {
+    "source": "figures/team/yanping-yang.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/yanping-yang.webp",
+    "sha256": "26f7aa87e5513f69b9ce2b7c31d23f504da5ff4f2fb6b5654c48a37994fc0e85",
+    "sourceSha256": "8e7ec7622ae56102430f8155a3a1497cb7fe3be9c677ed210cbba15be67b76a2",
+    "bytes": 514466
+  },
+  {
+    "source": "figures/team/ziyang-zhou.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/ziyang-zhou.webp",
+    "sha256": "bc23e0883277a4b116d0fe162ff29367f61bc50ca4e63c70708b21991fc3649d",
+    "sourceSha256": "80d247d2dd9350a8a8a073964b77dcbb2a1c3015b83ce62030ad11ff85d56d31",
+    "bytes": 580074
+  },
+  {
+    "source": "figures/team/scu-china-2026.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/scu-china-2026.webp",
+    "sha256": "5f22707b5bda52a75d65c9feadf2782ee957693e57e42d863354814d2f80fdb3",
+    "sourceSha256": "330e8234360515c990b2c28a385d29eb323edb5418c7a35617b5c0aea653b8b6",
+    "bytes": 4051720
+  },
+  {
+    "source": "figures/team/jiaxuan-chen.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/jiaxuan-chen-2bda42501732.webp",
+    "sha256": "2bda42501732710f85ab5f1bdab1c661616cd49da33b5d03056dc8b2e6a459bf",
+    "sourceSha256": "269496231cd06cbc002712e0ce0d17ea7327d2350b4dd449326d331246995843",
+    "bytes": 222626
+  },
+  {
+    "source": "figures/team/hao-wang.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/hao-wang-73add8816dcd.webp",
+    "sha256": "73add8816dcdd1ec8a03a765d8be8618a9daffe30b5dc7b1e73ea313402fa796",
+    "sourceSha256": "46d2848a2d761e98f93641134046921ff428172fdcb8887d5acbe8b0d87724e7",
+    "bytes": 114198
   }
 ]

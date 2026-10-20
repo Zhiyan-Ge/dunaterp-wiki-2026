@@ -1,0 +1,60 @@
+/* Team portraits follow the existing DunaTerp article palette and pixel frames. */
+.article-page--team .article-hero { background-position: center bottom; }
+.article-page--team .team-introduction {
+  max-width: 48rem;
+  margin: 2.5rem 0 0;
+  color: #365047;
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+.article-page--team .article-sections > section {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+}
+.article-page--team .section-number { display: none; }
+.article-page--team .article-sections h2 { font-size: clamp(1.65rem, 2.6vw, 2.5rem); }
+.article-page--team ul.team-roster {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem 1.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.article-page--team li.team-member { max-width: none; min-width: 0; padding: 0; }
+.team-member > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 3px solid var(--ink);
+  background: var(--salt);
+  box-shadow: 4px 4px 0 color-mix(in srgb, var(--article-accent) 55%, var(--ink));
+}
+.article-page--team .team-member__caption { padding: 1rem .15rem 0; text-align: center; }
+.article-page--team .team-member__caption h3 {
+  margin: 0;
+  color: var(--ink);
+  font: 800 clamp(1rem, 1.5vw, 1.25rem)/1.35 ui-monospace, Menlo, monospace;
+  letter-spacing: -.035em;
+  text-transform: none;
+  overflow-wrap: anywhere;
+}
+.article-page--team .team-member__caption p { margin: .4rem 0 0; font-size: .8125rem; line-height: 1.5; color: #53675f; }
+.article-page--team .research-figure { margin: 0; padding: .6rem; }
+.article-page--team .research-figure img { max-height: none; }
+.article-page--team .research-figure figcaption { padding: 1rem .4rem .4rem; text-align: center; color: var(--ink); font-weight: 700; }
+@media (min-width: 801px) and (max-width: 1100px) {
+  .article-page--team ul.team-roster { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 650px) {
+  .article-page--team ul.team-roster { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 1rem; }
+  .article-page--team .article-sections > section { padding: 1rem; }
+  .article-page--team .team-member__caption h3 { font-size: .9375rem; }
+  .article-page--team .team-member__caption p { font-size: .75rem; }
+}
+@media (max-width: 380px) {
+  .article-page--team ul.team-roster { grid-template-columns: minmax(0, 1fr); }
+}

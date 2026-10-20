@@ -57,3 +57,46 @@ This entry records the reference source, not a claim of verified ownership.
 The generated asset and prompts are described in `docs/researcher-sprite.md`.
 Scenery and NPCs remain procedural. No scientific content was changed.
 Named human reviewer: pending.
+
+
+## 20 October 2026 — team page portraits
+
+OpenAI Codex implemented the team-provided cohort assignments and English
+member roster, using the 2025 SCU-China members page as the layout reference
+while preserving the current 2026 Wiki styling. Portraits and the group photo
+come from the local photo folders supplied by the team. After the user approved processing to meet the official 10 MB upload limit,
+selected copies were cropped to consistent 4:5 frames and exported as high-quality
+WebP (quality 95, up to 1600 by 2000 pixels); the group photo retains its complete
+composition at 4800 by 3200 pixels. Originals are preserved and SHA-256 recorded. No portraits
+were generated or retouched by Codex. Majors are user-requested placeholders
+reading Biological Science. The files are submitted through the official iGEM Wiki Uploads UI. Human review
+and GitLab publication are pending.
+
+
+### Team portrait review update, 20 October 2026
+
+At the user's request, new supplied `_1` images replace the portraits of Xin
+Xiong, Zhutian Mao and Tianyu Zhou. Codex applied the same 4:5 framing and
+high-quality WebP export, then submitted the copies using the official iGEM
+Uploads UI under new hashed filenames. The first three leaders now display Xin
+Xiong, Hongyi Wang and Kaiting Wei. User-provided majors for Yongyuan Mi and
+Tianyu Zhou are translated as Ecology and Computational Biology. No original
+photo was modified and no GitLab push was performed.
+
+
+### Additional team members, 20 October 2026
+
+The user supplied Jiaxuan Chen and Hao Wang's portraits and majors. Their `_1`
+photos were cropped and exported with the same WebP settings and submitted
+through official iGEM Uploads. New `_1` files for Xinyu Wang and Ziqi Wang were
+selected under the user's existing preference and uploaded as well. Source
+files remain unchanged. The user-supplied major corrections are translated as
+Computational Biology (Zhiyan Ge and Keyu Liu), Computational Science (Yinuo
+Wang), Materials Engineering (Jiaxuan Chen) and Pharmacy (Hao Wang). GitLab
+publication remains pending human review.
+
+
+### Team page publication approval, 20 October 2026
+
+After reviewing the local page and all requested changes, the user explicitly
+authorized pushing the completed Team page to the official GitLab repository.
