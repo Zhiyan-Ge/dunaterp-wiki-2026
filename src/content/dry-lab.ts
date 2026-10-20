@@ -22,7 +22,7 @@ export const dryLabNavigation = [
 ] as const;
 
 export const dryLabMenuGroups = [
-  { label: 'Modeling', items: [dryLabNavigation[1], dryLabNavigation[2], dryLabNavigation[3], dryLabNavigation[4], dryLabNavigation[7]] },
+  { label: 'Modeling', items: [dryLabNavigation[1], dryLabNavigation[2], dryLabNavigation[3], dryLabNavigation[4]] },
   { label: 'Hardware', items: [dryLabNavigation[5], dryLabNavigation[6]] },
 ] as const;
 
