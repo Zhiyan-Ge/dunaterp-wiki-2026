@@ -74,6 +74,7 @@ function Header({ light = false }: { light?: boolean }) {
           {group.label === 'Dry Lab' ? <>
             <p>{group.label}</p>
             <Link to="/dry-lab" aria-current={currentPath === '/dry-lab' ? "page" : undefined}>Overview<span aria-hidden="true">↗</span></Link>
+            <Link to="/safety-and-security" aria-current={currentPath === '/safety-and-security' ? "page" : undefined}>Safety<span aria-hidden="true">↗</span></Link>
             {dryLabMenuGroups.map((section) => <section className="nav-popover-section" key={section.label}>
               <h3>{section.label}</h3>
               {section.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}<span aria-hidden="true">↗</span></Link>)}
@@ -90,6 +91,7 @@ function Header({ light = false }: { light?: boolean }) {
       <Link className="mobile-home-link" to="/wiki-map" aria-current={currentPath === "/wiki-map" ? "page" : undefined}>Home</Link>
       {navigation.map((group) => <div className="mobile-nav-group" key={group.label}><p>{group.label}</p>{group.label === 'Dry Lab' ? <>
         <Link to="/dry-lab" aria-current={currentPath === '/dry-lab' ? "page" : undefined}>Overview</Link>
+        <Link to="/safety-and-security" aria-current={currentPath === '/safety-and-security' ? "page" : undefined}>Safety</Link>
         {dryLabMenuGroups.map((section) => <section className="mobile-nav-subgroup" key={section.label}><p>{section.label}</p>{section.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}</Link>)}</section>)}
       </> : group.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}</Link>)}</div>)}
       <Link className="mobile-map-link" to="/">Play intro ↻</Link>

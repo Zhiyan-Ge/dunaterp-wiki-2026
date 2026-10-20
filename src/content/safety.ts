@@ -9,7 +9,7 @@ const math = String.raw;
 
 export const safety: WikiPage = {
   title: 'Salt-responsive containment',
-  eyebrow: 'Safety & Security',
+  eyebrow: 'Dry Lab / Safety',
   status: 'team-draft',
   intro: 'This page records the rationale, assumptions and model structure behind the salt-responsive containment concept. It explains why salinity was chosen as a signal, how the circuit is intended to respond and which parameters most shape the design space.',
   references: [refs.chen2009, refs.dca1, refs.mazf, refs.farhat2011, refs.gomez2005],

@@ -18,6 +18,7 @@ export const dryLabNavigation = [
   ['Protein', '/protein'],
   ['Hardware Modeling', '/hardware'],
   ['Hardware Design', '/hardware-design'],
+  ['Safety', '/safety-and-security'],
 ] as const;
 
 export const dryLabMenuGroups = [
@@ -319,6 +320,10 @@ export const dryLabIndex: WikiPage = {
     section('Structural models refine two molecular hypotheses',
       p('The protein work examines LCYB substitutions and a proposed TF2146–DNA interaction. FoldX, AlphaFold 3, docking and a short molecular-dynamics comparison narrow the LCYB candidates without claiming improved catalysis. A separate TF2146–DNA model identifies a candidate recognition interface that still requires a binding assay and native-promoter validation.'),
       links(['See the protein and DNA analysis', '/protein']),
+    ),
+    section('Salinity defines containment requirements',
+      p('The salt-responsive containment model compares growth inhibition and conditional killing after a fall in salinity. Scenario and sensitivity analyses identify how response delay, assumed mortality and receiving salinity affect persistence.'),
+      links(['See the safety model', '/safety-and-security']),
     ),
     section('Reactor geometry shapes the light environment',
       p('The flat-panel airlift photobioreactor uses transparent PMMA walls, a serpentine culture chamber and bubble-driven circulation. Optical modeling shows that self-shading darkens the reactor centre as biomass rises, while cultivation simulations treat irradiance and switching time as a coupled design space. The physical design therefore keeps a short optical path and integrates gas distribution, circulation and gas–liquid separation in one body.'),
