@@ -159,7 +159,6 @@ export const attributions: WikiPage = {
         { kind: 'paragraph', text: 'The active homepage uses the repository’s original Canvas pixel world, extended with fictional NPC guides and educational games. The characters do not represent team members or stakeholder testimony. Stardew Valley is a stylistic reference; no game assets, characters, music or dialogue are redistributed.' },
         { kind: 'paragraph', text: 'The scroll-constrained route, Dunaliella geometry, scientific landmarks, text and interface are project-specific; no Folio models, artwork, audio or textures are redistributed. Full notice: THIRD_PARTY_NOTICES.md in the Wiki repository.' },
         { kind: 'paragraph', text: 'The Transcriptomics and Mathematical Modeling pages render equations and fonts locally with KaTeX 0.16.22, licensed under MIT. Source and licence notice: THIRD_PARTY_NOTICES.md in the Wiki repository.' },
-        { kind: 'links', links: [{ label: 'Responsible AI use', href: '/responsible-ai' }] },
       ],
     },
     {
