@@ -314,6 +314,7 @@ const groupDescriptions = [
   "From the biological idea to experiments and evidence.",
   "Understand the system, its constraints and its possibilities.",
   "Connect project decisions with people and the environment.",
+  "Keep lab practice organized with safety notes and notebook records.",
   "Meet the team and discover the work behind the project.",
 ];
 
