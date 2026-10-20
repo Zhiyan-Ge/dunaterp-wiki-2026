@@ -602,6 +602,7 @@ export function ExpeditionJournal({
   const [isOpen, setIsOpen] = useState(false);
   const [selectedNpc, setSelectedNpc] = useState<ExpeditionNpcId>("biologist");
   const [dialogueChoice, setDialogueChoice] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<"contacts" | "exercises">("contacts");
   const [activeGame, setActiveGame] = useState<GameId>("pathway-order");
   const [resetVersion, setResetVersion] = useState(0);
   const [progress, setProgress] = useState<JournalProgress>(() => readProgress());
@@ -638,6 +639,7 @@ export function ExpeditionJournal({
   const selectNpc = useCallback((npcId: ExpeditionNpcId) => {
     setSelectedNpc(npcId);
     setDialogueChoice(null);
+    setActiveSection("contacts");
     markNpcVisited(npcId);
   }, [markNpcVisited]);
 
@@ -782,11 +784,19 @@ export function ExpeditionJournal({
                   );
                 })}
               </div>
-              <p className="ej-contact-note">A conversation can add a question to your notes.</p>
+              <button
+                type="button"
+                className={`ej-exercise-link${activeSection === "exercises" ? " is-active" : ""}`}
+                onClick={() => setActiveSection("exercises")}
+                aria-pressed={activeSection === "exercises"}
+              >
+                <span className="ej-eyebrow">FIELD EXERCISES</span>
+                <span>Three activities · {completedGames}/{GAME_IDS.length} complete</span>
+              </button>
             </aside>
 
             <div className="ej-journal-main">
-              <section className="ej-conversation" aria-labelledby={`${idPrefix}-contact-title`}>
+              <section className="ej-conversation" aria-labelledby={`${idPrefix}-contact-title`} hidden={activeSection !== "contacts"}>
                 <div className="ej-conversation__topline">
                   <span className="ej-location">{nearbyStation ? `Near ${nearbyStation}` : "Salt route · field notes"}</span>
                   <span className="ej-location__dot" aria-hidden="true" />
@@ -831,7 +841,7 @@ export function ExpeditionJournal({
                 )}
               </section>
 
-              <section className="ej-games" aria-labelledby={`${idPrefix}-games-title`}>
+              <section className="ej-games" aria-labelledby={`${idPrefix}-games-title`} hidden={activeSection !== "exercises"}>
                 <div className="ej-games__heading">
                   <div>
                     <p className="ej-eyebrow">EXPLORATION MODE</p>
