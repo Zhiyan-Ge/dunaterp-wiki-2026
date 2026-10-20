@@ -273,10 +273,50 @@ export const pages: Record<string, WikiPage> = {
   parts: {
     title: "Parts",
     eyebrow: "Parts",
-    intro: "This page is reserved for the project's part and device overview and will be completed when the material is ready.",
-    status: "structure-only",
+    intro: "DunaTerp's Registry record brings together the regulatory elements, coding sequences, targeting element, vector and composite expression constructs used across the project. Each Part number below links directly to its official iGEM Registry record.",
+    status: "team-draft",
     sections: [
-      { title: "Content in preparation", body: "Team input required: add the parts and devices summary for this section." },
+      {
+        title: "SCU-China 2026 Registry record",
+        body: "The official team record currently contains 16 Parts: 14 published records and two draft records. The team-level Registry page is the authoritative index for this collection.",
+        blocks: [
+          { kind: "links", links: [
+            { label: "Open the official SCU-China (2026) Registry record", href: "https://registry.igem.org/organisations/b53d8950-5efe-4d5a-89b8-294aa00758ab" },
+          ] },
+        ],
+      },
+      {
+        title: "Published Parts",
+        body: "These records are published in the iGEM Registry. The table preserves the official Part number, title, role and sequence length shown in the Registry.",
+        blocks: [
+          { kind: "table", caption: "Published iGEM Registry Parts · SCU-China 2026", columns: ["Part number", "Official title", "Registry role", "Length", "Official record"], rows: [
+            ["BBa_26A1VMDJ", "PDCA1 salt-responsive promoter", "Promoter", "1,369 bp", "https://registry.igem.org/parts/bba-26a1vmdj"],
+            ["BBa_26S2808C", "Pip weak promoter", "Promoter", "2,044 bp", "https://registry.igem.org/parts/bba-26s2808c"],
+            ["BBa_261OJ38D", "CitCCD4", "CDS", "1,692 bp", "https://registry.igem.org/parts/bba-261oj38d"],
+            ["BBa_2697BHS2", "CCD1", "CDS", "1,617 bp", "https://registry.igem.org/parts/bba-2697bhs2"],
+            ["BBa_26EJ70BX", "DtRBCS2 Promoter", "Promoter", "419 bp", "https://registry.igem.org/parts/bba-26ej70bx"],
+            ["BBa_26HXFBCU", "pRBCS2-CitCCD4", "Engineered Region", "2,111 bp", "https://registry.igem.org/parts/bba-26hxfbcu"],
+            ["BBa_26FN67DL", "MazE antitoxin CDS", "CDS", "249 bp", "https://registry.igem.org/parts/bba-26fn67dl"],
+            ["BBa_26LDQ026", "p35S-CitCCD4", "Engineered Region", "2,068 bp", "https://registry.igem.org/parts/bba-26ldq026"],
+            ["BBa_265TD6LS", "DtRBCS2 Chloroplast Transit Peptide", "Transit Peptide", "144 bp", "https://registry.igem.org/parts/bba-265td6ls"],
+            ["BBa_261RCD6J", "pRBCS2-CCD1", "Engineered Region", "2,036 bp", "https://registry.igem.org/parts/bba-261rcd6j"],
+            ["BBa_2682BGY8", "p35S-CCD1", "Engineered Region", "1,993 bp", "https://registry.igem.org/parts/bba-2682bgy8"],
+            ["BBa_26QLEIH2", "pCAMBIA1302", "Plasmid Vector", "10,549 bp", "https://registry.igem.org/parts/bba-26qleih2"],
+            ["BBa_26VRE9P8", "MazF toxin CDS", "CDS", "336 bp", "https://registry.igem.org/parts/bba-26vre9p8"],
+            ["BBa_267QXDD3", "pRBCS2-Transit Peptide-CCD1", "Engineered Region", "2,177 bp", "https://registry.igem.org/parts/bba-267qxdd3"],
+          ] },
+        ],
+      },
+      {
+        title: "Draft Registry records",
+        body: "The following two records exist in the official Registry but remain in draft status. Their Registry documentation should be reviewed and published before the Registry Contributions deadline.",
+        blocks: [
+          { kind: "table", caption: "Draft iGEM Registry Parts · publication pending", columns: ["Part number", "Official title", "Registry role", "Length", "Official record"], rows: [
+            ["BBa_26TQTS2R", "CaMV 35S promoter", "Promoter", "346 bp", "https://registry.igem.org/parts/bba-26tqts2r"],
+            ["BBa_26RSNHS8", "GFP reporter CDS", "CDS", "717 bp", "https://registry.igem.org/parts/bba-26rsnhs8"],
+          ] },
+        ],
+      },
     ],
   },
   "lab-safety": {
