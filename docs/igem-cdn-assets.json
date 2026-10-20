@@ -1190,6 +1190,20 @@
     "bytes": 9872315
   },
   {
+    "source": "figures/wet-lab/biosafety-design-high-salt.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/wet-lab/biosafety-design-high-salt-31e85d62a760.avif",
+    "sha256": "21c9687d926e8795bca591ab45eeecd97d90e307f98aac297dd5e9c9f8af2003",
+    "sourceSha256": "31e85d62a760134e44c3de94ffb88841d05906eca239fb5f3dacd54bb913b0c3",
+    "bytes": 18546
+  },
+  {
+    "source": "figures/wet-lab/biosafety-design-low-salt.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/wet-lab/biosafety-design-low-salt-566c5b2d15b0.avif",
+    "sha256": "c285f953d03ace9c49b71d0ba047d9cb8019d5f1160e1ae4901c518711e85341",
+    "sourceSha256": "566c5b2d15b08fec22dd16aaf3fa49e26bb7111aaddccb3c090b4fe84ae237e5",
+    "bytes": 18146
+  },
+  {
     "source": "images/heroes/lab.webp",
     "url": "https://static.igem.wiki/teams/6212/wiki/heroes/lab-hero-db552c0b1fc4.webp",
     "sha256": "db552c0b1fc4ce8616cd61f366bb280cda5566c405ba89ccb45d8d6a850f61a7",

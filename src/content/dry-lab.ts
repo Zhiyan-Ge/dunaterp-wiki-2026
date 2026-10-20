@@ -16,14 +16,14 @@ export const dryLabNavigation = [
   ['Mathematical Modeling', '/model'],
   ['Metabolomics', '/metabolomics'],
   ['Protein', '/protein'],
+  ['Safety', '/safety-and-security'],
   ['Hardware Modeling', '/hardware'],
   ['Hardware Design', '/hardware-design'],
-  ['Safety', '/safety-and-security'],
 ] as const;
 
 export const dryLabMenuGroups = [
-  { label: 'Modeling', items: [dryLabNavigation[1], dryLabNavigation[2], dryLabNavigation[3], dryLabNavigation[4]] },
-  { label: 'Hardware', items: [dryLabNavigation[5], dryLabNavigation[6]] },
+  { label: 'Modeling', items: [dryLabNavigation[1], dryLabNavigation[2], dryLabNavigation[3], dryLabNavigation[4], dryLabNavigation[5]] },
+  { label: 'Hardware', items: [dryLabNavigation[6], dryLabNavigation[7]] },
 ] as const;
 
 export const transcriptomics: WikiPage = {

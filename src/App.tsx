@@ -7,7 +7,7 @@ import { ArticleBlocks } from './ArticleBlocks';
 import type { WikiReference } from './content/types';
 
 const PixelWorld = lazy(() => import("./PixelWorld").then((module) => ({ default: module.PixelWorld })));
-const MODELING_PATHS = ['/dry-lab', '/transcriptomics', '/metabolomics', '/protein', '/model'];
+const MODELING_PATHS = ['/dry-lab', '/transcriptomics', '/metabolomics', '/protein', '/model', '/safety-and-security'];
 const ARTICLE_GROUP_HEROES: Record<string, string> = {
   Project: '/images/great-salt-lake-iss063-e-40184.jpg',
   'Dry Lab': '/images/heroes/dry-lab.webp',
@@ -74,7 +74,6 @@ function Header({ light = false }: { light?: boolean }) {
           {group.label === 'Dry Lab' ? <>
             <p>{group.label}</p>
             <Link to="/dry-lab" aria-current={currentPath === '/dry-lab' ? "page" : undefined}>Overview<span aria-hidden="true">↗</span></Link>
-            <Link to="/safety-and-security" aria-current={currentPath === '/safety-and-security' ? "page" : undefined}>Safety<span aria-hidden="true">↗</span></Link>
             {dryLabMenuGroups.map((section) => <section className="nav-popover-section" key={section.label}>
               <h3>{section.label}</h3>
               {section.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}<span aria-hidden="true">↗</span></Link>)}
@@ -91,7 +90,6 @@ function Header({ light = false }: { light?: boolean }) {
       <Link className="mobile-home-link" to="/" aria-current={currentPath === "/" ? "page" : undefined}>Home</Link>
       {navigation.map((group) => <div className="mobile-nav-group" key={group.label}><p>{group.label}</p>{group.label === 'Dry Lab' ? <>
         <Link to="/dry-lab" aria-current={currentPath === '/dry-lab' ? "page" : undefined}>Overview</Link>
-        <Link to="/safety-and-security" aria-current={currentPath === '/safety-and-security' ? "page" : undefined}>Safety</Link>
         {dryLabMenuGroups.map((section) => <section className="mobile-nav-subgroup" key={section.label}><p>{section.label}</p>{section.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}</Link>)}</section>)}
       </> : group.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}</Link>)}</div>)}
       <Link className="mobile-map-link" to="/wiki-map">Explore Wiki ↗</Link>
