@@ -1,0 +1,153 @@
+import type { WikiPage } from '../site-data';
+import type { AttributionEntry } from './types';
+
+// Source: SCU-China 2026 official Attributions Form, read on 20 October 2026.
+// Summaries credit specific contributions rather than generic task definitions.
+// Zhutian Mao and Yusen Wu remain pending team confirmation. Three additional
+// student statements will be supplied separately; do not invent their identities.
+export const principalInvestigators: AttributionEntry[] = [
+  {
+    name: 'Nianhui Zhang', role: 'Primary PI',
+    contribution: 'Provided ideas for the project, oversaw team administration and task allocation, supported funding and experimental materials, and provided laboratory safety guidance.',
+  },
+  {
+    name: 'Hui Xu', role: 'Secondary PI',
+    contribution: 'Reviewed experimental data and project progress, advised on the project framework and research direction, and provided vectors for Gateway cloning.',
+  },
+];
+
+export const studentContributions: AttributionEntry[] = [
+  {
+    name: 'Xin Xiong', role: 'Student Leader',
+    contribution: 'Led and coordinated the dry-lab team, including modeling and hardware development. Guided the analysis of modeling results and hardware tests, contributed to dry-lab Wiki implementation, and helped write, review, and visualize the modeling and hardware work.',
+  },
+  {
+    name: 'Hongyi Wang', role: 'Student Leader',
+    contribution: 'Coordinated team tasks and project design, analyzed experimental data, reviewed literature, and participated in research and interviews. Wrote Wiki content and Safety and Check-In Forms, communicated with iGEM HQ, and assembled and tested hardware and recorded its demonstration video.',
+  },
+  {
+    name: 'Kaiting Wei', role: 'Student Leader',
+    contribution: 'Conducted literature research, designed questionnaires, and analyzed external feedback to inform the project. Wrote and organized Human Practices materials and the Education and Cooperation sections, created event posters, and contributed to the team logo and graphic design.',
+  },
+  {
+    name: 'Linjintao Chen',
+    contribution: 'Provided guidance for dry-lab work, collected data, and participated in Human Practices activities.',
+  },
+  { name: 'Zhutian Mao', contribution: '' },
+  {
+    name: 'Yongyuan Mi',
+    contribution: 'Participated in project coordination, drafted the Safety Form, contributed to selected Human Practices activities and hardware construction, and reviewed and revised Wiki content.',
+  },
+  {
+    name: 'Furong Yang',
+    contribution: 'Contributed to the biosafety module design, reviewed literature on kill switches and salt-regulated responses in Dunaliella salina, and constructed p1302-mazF. Developed experimental protocols and coordinated the module’s experimental planning and execution.',
+  },
+  {
+    name: 'Qingying Zhao',
+    contribution: 'Contributed to functional-module design and literature research on downstream metabolic pathways and genetic modification of Dunaliella salina. Identified candidate signal peptides and pathway genes, performed in-silico plasmid construction, and coordinated experimental methods, progress, and Wiki writing.',
+  },
+  {
+    name: 'Tianyu Zhou',
+    contribution: 'Managed dry-lab modeling work, coordinated the hardware project, and guided construction of the team Wiki.',
+  },
+  {
+    name: 'Jiaxuan Chen',
+    contribution: 'Designed the bioreactor, performed computational fluid dynamics simulations of its internal chamber, and procured hardware components.',
+  },
+  {
+    name: 'Hengyu Dai',
+    contribution: 'Participated in vector construction, microalgal cultivation, and positive-transformant identification for Dunaliella salina engineering. Recorded procedures and raw data, organized supporting materials, and wrote and revised the corresponding Wiki Notebook content.',
+  },
+  {
+    name: 'Yihan Dai',
+    contribution: 'Designed primers and constructed p1302-bar-Pip-mazF and p2301-Pdca1-EGFP, performed chassis transformation, and contributed to algal cultivation and growth-curve analysis. Organized biosafety records and protocols in Benchling, coordinated experimental tasks, wrote the Biosafety Design and Results sections, and contributed to safety documentation.',
+  },
+  {
+    name: 'Yuheng Gao',
+    contribution: 'Participated in experiments for β-ionone and β-citraurin biosynthesis, curated experimental data, and maintained laboratory records and protocols. Wrote Notebook and Parts documentation, registered related biological parts, contributed to public outreach, and supported parts safety screening and laboratory biosafety practices.',
+  },
+  {
+    name: 'Zhiyan Ge',
+    contribution: 'Developed engineering models for the flat-panel airlift photobioreactor and built the browser-based PBR simulation tool and supporting code. Wrote the Hardware Modeling documentation and integrated Hardware Modeling and Hardware Design content, figures, equations, navigation, and the interactive widget into the Wiki.',
+  },
+  {
+    name: 'Hengwei Liang',
+    contribution: 'Assisted with bacterial culture, gel electrophoresis, and DNA concentration measurements for the astaxanthin and crocetin work. Documented selected experiments and wrote and revised the Astaxanthin and Crocetin section of the Wiki Notebook.',
+  },
+  {
+    name: 'Keyu Liu',
+    contribution: 'Performed metabolomics-related modeling and analysis, developed the associated code and figures, and wrote and built the Metabolomics page. Integrated kill-switch content into the Engineering and Experiments pages and contributed to their writing and presentation.',
+  },
+  {
+    name: 'Yuyang Lu',
+    contribution: 'Analyzed experimental data, reviewed literature, and discussed the project with experts. Participated in wet-lab experiments, research, and interviews, wrote Wiki content, and contributed to Check-In Forms and laboratory safety.',
+  },
+  {
+    name: 'Yujia Peng',
+    contribution: 'Designed and conducted kill-switch experiments involving vector construction, algal transformation, and OD680 growth assays. Organized records and raw data, performed growth-curve processing and statistical analysis, generated figures in GraphPad Prism, and wrote the module’s background, methods, results, and discussion.',
+  },
+  {
+    name: 'Hao Wang',
+    contribution: 'Participated in plasmid and gene-construct assembly, recorded experimental procedures and results with safety considerations, and wrote safety-related Wiki and Parts documentation.',
+  },
+  {
+    name: 'Jianye Wang',
+    contribution: 'Designed primers and expression vectors, performed chassis transformation and RT-qPCR validation, and curated sequencing data and metadata. Developed protocols and vector maps, analyzed mass-spectrometry and qPCR results, wrote CPP2146, astaxanthin, and crocetin results, and supported safety documentation and deliverable uploads.',
+  },
+  {
+    name: 'Xinyu Wang',
+    contribution: 'Designed and analyzed a public-perception survey, interviewed enterprise experts, and prepared regulatory interview questions. Led a children’s eco-bottle workshop, presented at inter-team exchanges, wrote science-communication articles, co-authored an education practice handbook, and coordinated ACMA activities and external interviews.',
+  },
+  {
+    name: 'Yinuo Wang',
+    contribution: 'Curated and analyzed public Dunaliella salina RNA-seq data and connected transcriptomic evidence to the mathematical model of transcriptional regulation, LCYB expression, metabolic competition, and β-carotene production. Produced scientific figures and wrote and revised the Transcriptomics and Mathematical Modeling sections. Co-designed and built the Wiki’s visual system, interactive homepage, layouts, navigation, and scientific-content components; integrated team materials, coordinated revisions and versions, tested desktop and mobile interfaces, and supported deployment.',
+  },
+  {
+    name: 'Ziqi Wang',
+    contribution: 'Designed and verified CitCCD4 and CCD1 constructs, performed molecular cloning and Dunaliella transformation, and analyzed PCR, sequencing, and LC-MS/GC-MS data. Maintained experimental records, protocols, vector maps, and metadata; contributed to outreach, risk assessment, safety documentation, and Wiki writing for β-citraurin and β-ionone synthesis.',
+  },
+  { name: 'Yusen Wu', contribution: '' },
+  {
+    name: 'Yanping Yang',
+    contribution: 'Participated in plasmid construction and Dunaliella salina transformation, organized daily laboratory records, produced videos, and contributed to mascot and team-logo design.',
+  },
+  {
+    name: 'Ziyang Zhou',
+    contribution: 'Constructed and verified five pCAMBIA1302-based vectors for CCD1 and CitCCD4 pathways, investigated amplification and promoter-loss problems, rebuilt constructs, and transformed Dunaliella salina. Prepared metabolomics samples, interpreted the datasets, and curated records in Benchling. Wrote the Engineering page’s Design-Build-Test-Learn account and contributed to science communication and the Safety Form.',
+  },
+];
+
+export const acknowledgements: AttributionEntry[] = [
+  {
+    name: 'Yao Song', role: 'Advisor',
+    contribution: 'Reviewed experimental data and advised on experimental planning and revision, including Dunaliella salina cultivation, passaging, and plasmid transformation.',
+  },
+];
+
+export const attributions: WikiPage = {
+  title: 'The people behind our work',
+  eyebrow: 'Attributions',
+  heroImage: 'https://static.igem.wiki/teams/6212/wiki/team/scu-china-2026.webp',
+  intro: 'SCU-China 2026 thanks the students, principal investigators, advisors, and supporters who contributed to DunaTerp. The following record distinguishes student work from guidance and support provided by others.',
+  status: 'team-draft',
+  sections: [
+    { title: 'Team PI', body: '', blocks: [{ kind: 'attribution-list', entries: principalInvestigators }] },
+    { title: 'Students in Team Roster', body: '', blocks: [{ kind: 'attribution-list', entries: studentContributions }] },
+    { title: 'Acknowledgement', body: '', blocks: [{ kind: 'attribution-list', entries: acknowledgements }] },
+    {
+      title: 'Software and Resources',
+      body: 'Public datasets, literature, software, and design resources are credited alongside the work that uses them. The project’s software and asset notices remain part of this attribution record.',
+      blocks: [
+        { kind: 'paragraph', text: 'The active homepage uses the repository’s original Canvas pixel world, extended with fictional NPC guides and educational games. The characters do not represent team members or stakeholder testimony. Stardew Valley is a stylistic reference; no game assets, characters, music or dialogue are redistributed.' },
+        { kind: 'paragraph', text: "The retained, inactive 3D implementation’s Rapier physics world, contact-force event loop, dynamic object synchronisation and damped follow-camera in DunaTerp are adapted from Bruno Simon's Folio 2025 under the MIT License. The scroll-constrained route, Dunaliella geometry, scientific landmarks, text and interface are project-specific; no Folio models, artwork, audio or textures are redistributed. Full notice: THIRD_PARTY_NOTICES.md in the Wiki repository." },
+        { kind: 'paragraph', text: 'The Transcriptomics and Mathematical Modeling pages render equations and fonts locally with KaTeX 0.16.22, licensed under MIT. Source and licence notice: THIRD_PARTY_NOTICES.md in the Wiki repository.' },
+        { kind: 'links', links: [{ label: 'Responsible AI use', href: '/responsible-ai' }] },
+      ],
+    },
+    {
+      title: 'Official Attributions Form',
+      body: 'The official iGEM record is displayed below once the team submits its Attributions Form. Individual statements on this page summarize the team’s contribution records.',
+      blocks: [{ kind: 'official-attributions' }],
+    },
+  ],
+};

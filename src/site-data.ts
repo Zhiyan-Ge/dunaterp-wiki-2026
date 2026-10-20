@@ -1,4 +1,5 @@
 import type { ContentBlock, WikiReference } from './content/types';
+import { attributions } from './content/attributions';
 import { refs } from './content/references';
 import { safety } from './content/safety';
 import { protein } from './content/protein';
@@ -23,6 +24,7 @@ export type WikiPage = {
   intro: string;
   status: "team-draft" | "structure-only" | "review-ready";
   sections: WikiSection[];
+  heroImage?: string;
   figure?: { src: string; alt: string; caption: string };
   references?: WikiReference[];
 };
@@ -353,16 +355,7 @@ export const pages: Record<string, WikiPage> = {
   collaboration,
   "stakeholder-analysis": stakeholderAnalysis,
   team,
-  attributions: {
-    title: "Credit is part of the method", eyebrow: "Attributions", intro: "DunaTerp combines team experiments and analysis with public datasets, literature, software and external guidance. The official iGEM Attributions Form remains the authoritative record of individual contributions.", status: "team-draft",
-    sections: [
-      { title: "Team work", body: "The contribution record distinguishes project conception, experimental design, plasmid construction, algal transformation, data analysis, mathematical and structural modeling, hardware design, writing, visual design and Wiki integration." },
-      { title: "External foundations", body: "Public RNA-seq data, protein and motif databases, scientific literature, modeling software and open-source libraries are cited at the point of use. Facilities, mentors, donated materials and external technical support are recorded separately from student work." },
-      { title: "Pixel exploration and learning activities", body: "The active homepage uses the repository’s original Canvas pixel world, extended with fictional NPC guides and educational games. The characters do not represent team members or stakeholder testimony. Stardew Valley is a stylistic reference; no game assets, characters, music or dialogue are redistributed." },
-      { title: "Earlier website physics and interaction", body: "The retained, inactive 3D implementation’s Rapier physics world, contact-force event loop, dynamic object synchronisation and damped follow-camera in DunaTerp are adapted from Bruno Simon's Folio 2025 under the MIT License. The scroll-constrained route, Dunaliella geometry, scientific landmarks, text and interface are project-specific; no Folio models, artwork, audio or textures are redistributed. Full notice: THIRD_PARTY_NOTICES.md in the Wiki repository." },
-      { title: "Scientific equation renderer", body: "The Transcriptomics and Mathematical Modeling pages render equations and fonts locally with KaTeX 0.16.22, licensed under MIT. Source and licence notice: THIRD_PARTY_NOTICES.md in the Wiki repository." },
-    ],
-  },
+  attributions,
 };
 
 export const pageOrder = [...new Set([

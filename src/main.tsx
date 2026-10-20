@@ -6,6 +6,7 @@ import "./styles.css";
 import "./ui-refinements.css";
 import "./pixel.css";
 import "./team.css";
+import "./attributions.css";
 
 // The site ships with real paths. The single-file preview build in
 // tools/preview has no server to rewrite unknown routes, so it opts into hash
