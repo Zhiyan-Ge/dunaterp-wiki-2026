@@ -65,9 +65,9 @@ function Header({ light = false }: { light?: boolean }) {
     };
   }, [pathname]);
   return <header ref={header} className={`site-header${light ? " site-header--light" : ""}`}>
-    <Link className="brand" to="/wiki-map" aria-label="DunaTerp Wiki home"><BrandMark /><span>DunaTerp<small>SCU–CHINA · 2026</small></span></Link>
+    <Link className="brand" to="/" aria-label="DunaTerp home"><BrandMark /><span>DunaTerp<small>SCU–CHINA · 2026</small></span></Link>
     <nav className="desktop-nav" aria-label="Primary navigation">
-      <Link className={`nav-home${currentPath === "/wiki-map" ? " is-current" : ""}`} to="/wiki-map" aria-current={currentPath === "/wiki-map" ? "page" : undefined}>Home</Link>
+      <Link className={`nav-home${currentPath === "/" ? " is-current" : ""}`} to="/" aria-current={currentPath === "/" ? "page" : undefined}>Home</Link>
       {navigation.map((group) => <details key={group.label} name="desktop-navigation">
         <summary className={group.items.some(([, href]) => href === currentPath) || (group.label === 'Dry Lab' && MODELING_PATHS.includes(currentPath)) ? "is-current" : undefined}>{group.label}<span aria-hidden="true">⌄</span></summary>
         <div className={`nav-popover${group.label === 'Dry Lab' ? ' nav-popover--dry-lab' : ''}`}>
@@ -84,15 +84,15 @@ function Header({ light = false }: { light?: boolean }) {
           </>}
         </div>
       </details>)}
-      <Link className="nav-index" to="/" aria-current={currentPath === "/" ? "page" : undefined}>Play Intro <span aria-hidden="true">↻</span></Link>
+      <Link className="nav-index" to="/wiki-map" aria-current={currentPath === "/wiki-map" ? "page" : undefined}>Explore Wiki <span aria-hidden="true">↗</span></Link>
     </nav>
     <details className="mobile-menu"><summary>Menu <span aria-hidden="true">☰</span></summary><nav aria-label="Mobile navigation">
-      <Link className="mobile-home-link" to="/wiki-map" aria-current={currentPath === "/wiki-map" ? "page" : undefined}>Home</Link>
+      <Link className="mobile-home-link" to="/" aria-current={currentPath === "/" ? "page" : undefined}>Home</Link>
       {navigation.map((group) => <div className="mobile-nav-group" key={group.label}><p>{group.label}</p>{group.label === 'Dry Lab' ? <>
         <Link to="/dry-lab" aria-current={currentPath === '/dry-lab' ? "page" : undefined}>Overview</Link>
         {dryLabMenuGroups.map((section) => <section className="mobile-nav-subgroup" key={section.label}><p>{section.label}</p>{section.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}</Link>)}</section>)}
       </> : group.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}</Link>)}</div>)}
-      <Link className="mobile-map-link" to="/">Play intro ↻</Link>
+      <Link className="mobile-map-link" to="/wiki-map">Explore Wiki ↗</Link>
     </nav></details>
   </header>;
 }
