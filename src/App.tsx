@@ -432,7 +432,7 @@ function Article({ slug }: { slug: string }) {
   ];
   return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${isWetLab ? ' article-page--wet-lab' : ''}${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${group?.label === 'Human Practices' ? ' article-page--human-practices' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}${slug === 'experiments' ? ' article-page--experiments' : ''}${slug === 'notebook' ? ' article-page--notebook' : ''}${slug === 'team' ? ' article-page--team' : ''}`}>
     <header className="article-hero"><div><h1>{heroTitle}</h1></div></header>
-    {slug === 'team' && <p className="team-introduction">{page.intro}</p>}
+    {slug === 'team' && page.intro && <p className="team-introduction">{page.intro}</p>}
     {hasContent && <>
     <div className="article-layout"><ArticleToc slug={slug} sections={tocSections} hasReferences={references.length > 0} />
       <div className="article-body">{page.figure && <figure className="feature-figure"><img src={figureSrc} alt={page.figure.alt} loading="lazy" decoding="async" /><figcaption>{page.figure.caption}</figcaption></figure>}

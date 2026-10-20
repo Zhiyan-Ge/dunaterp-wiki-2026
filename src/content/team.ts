@@ -45,6 +45,7 @@ export const teamMembers: TeamMember[] = [
 export const team: WikiPage = {
   title: 'The people behind DunaTerp',
   eyebrow: 'Team',
+  intro: '',
   status: 'team-draft',
   sections: [
     { title: 'Group Leaders', body: '', blocks: [{ kind: 'member-grid', members: groupLeaders }] },
