@@ -8,10 +8,10 @@ import type { WikiReference } from './content/types';
 const PixelWorld = lazy(() => import("./PixelWorld").then((module) => ({ default: module.PixelWorld })));
 const MODELING_PATHS = ['/dry-lab', '/transcriptomics', '/metabolomics', '/protein', '/model'];
 const ARTICLE_GROUP_HEROES: Record<string, string> = {
-  'Wet Lab': '/images/great-salt-lake-iss063-e-40184.jpg',
+  Project: '/images/great-salt-lake-iss063-e-40184.jpg',
   'Dry Lab': '/images/heroes/dry-lab.webp',
   'Human Practices': '/images/heroes/human-practices.webp',
-  People: '/images/heroes/people.webp',
+  Team: '/images/heroes/people.webp',
 };
 
 function normalizePath(pathname: string) {
@@ -79,6 +79,7 @@ function Header({ light = false }: { light?: boolean }) {
   return <header ref={header} className={`site-header${light ? " site-header--light" : ""}`}>
     <Link className="brand" to="/" aria-label="DunaTerp home"><BrandMark /><span>DunaTerp<small>SCU–CHINA · 2026</small></span></Link>
     <nav className="desktop-nav" aria-label="Primary navigation">
+      <Link className={`nav-home${currentPath === "/" ? " is-current" : ""}`} to="/" aria-current={currentPath === "/" ? "page" : undefined}>Home</Link>
       {navigation.map((group) => <details key={group.label} name="desktop-navigation">
         <summary className={group.items.some(([, href]) => href === currentPath) || (group.label === 'Dry Lab' && MODELING_PATHS.includes(currentPath)) ? "is-current" : undefined}>{group.label}<span aria-hidden="true">⌄</span></summary>
         <div className={`nav-popover${group.label === 'Dry Lab' ? ' nav-popover--dry-lab' : ''}`}>
@@ -98,6 +99,7 @@ function Header({ light = false }: { light?: boolean }) {
       <Link className="nav-index" to="/wiki-map" aria-current={currentPath === "/wiki-map" ? "page" : undefined}>Explore Wiki <span aria-hidden="true">↗</span></Link>
     </nav>
     <details className="mobile-menu"><summary>Menu <span aria-hidden="true">☰</span></summary><nav aria-label="Mobile navigation">
+      <Link className="mobile-home-link" to="/" aria-current={currentPath === "/" ? "page" : undefined}>Home</Link>
       {navigation.map((group) => <div className="mobile-nav-group" key={group.label}><p>{group.label}</p>{group.label === 'Dry Lab' ? <>
         <Link to="/dry-lab" aria-current={currentPath === '/dry-lab' ? "page" : undefined}>Overview</Link>
         {dryLabMenuGroups.map((section) => <section className="mobile-nav-subgroup" key={section.label}><p>{section.label}</p>{section.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}</Link>)}</section>)}
@@ -171,7 +173,7 @@ const TOC_CHAPTERS: Record<string, TocChapterDefinition[]> = {
     { title: "Experimental Workflow", start: 0, end: 0 },
     { title: "Molecular Construction", start: 1, end: 2 },
     { title: "Characterisation", start: 3, end: 4 },
-    { title: "Separation & Protocols", start: 5, end: 6 },
+    { title: "Salt-response validation", start: 5, end: 6 },
   ],
   transcriptomics: [
     { title: "Pathway & Dataset", start: 0, end: 1 },
@@ -330,13 +332,13 @@ function Article({ slug }: { slug: string }) {
   const group = navigation.find((item) => item.items.some(([, href]) => href === `/${slug}`))
     ?? (MODELING_PATHS.includes(`/${slug}`) ? navigation.find((item) => item.label === 'Dry Lab') : undefined);
   const groupIndex = Math.max(0, navigation.findIndex((item) => item === group));
-  const articleAccent = ["#cdf558", "#7de2ff", "#e9c43a", "#c4a8ff"][groupIndex];
+  const articleAccent = ["#cdf558", "#7de2ff", "#e9c43a", "#91e6b0", "#c4a8ff"][groupIndex];
   const figureSrc = page.figure ? resolveFigureSrc(page.figure.src) : "";
   const hasContent = page.sections.length > 0;
   const isModeling = MODELING_PATHS.includes(`/${slug}`);
   const references = pageReferences(page);
   const referenceNumbers = new Map(references.map((reference, index) => [reference.href, index + 1]));
-  const isWetLab = group?.label === 'Wet Lab';
+  const isWetLab = group?.label === 'Project';
   const navigationLabel = group?.items.find(([, href]) => href === `/${slug}`)?.[0];
   const fallbackHeroTitle = page.eyebrow.split("·")[0].split("/").at(-1)?.trim();
   const heroTitle = navigationLabel ?? fallbackHeroTitle ?? page.title;

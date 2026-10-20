@@ -70,7 +70,7 @@ export const NPCS: Record<ExpeditionNpcId, ExpeditionNpc> = {
     initials: "MC",
     intro:
       "The first orange salt pond I saw looked almost lifeless, and that contradiction stayed with me. I want to know what Dunaliella can build here—but I still ask whether every bright colour is really the molecule we hoped for.",
-    chapterHint: "Field trail: Wet Lab → Description, Experiments and Results",
+    chapterHint: "Field trail: Project → Description, Experiments and Results",
     prompts: [
       {
         id: "why-alga",
@@ -102,7 +102,7 @@ export const NPCS: Record<ExpeditionNpcId, ExpeditionNpc> = {
     initials: "IP",
     intro:
       "A natural pigment pool is useful, but a platform begins only when we can steer it. I keep asking whether TF2146 truly redirects flux toward the β-carotene hub—and what that change costs elsewhere in the pathway.",
-    chapterHint: "Field trail: Wet Lab → Engineering; Dry Lab → Mathematical Modeling",
+    chapterHint: "Field trail: Project → Engineering; Dry Lab → Mathematical Modeling",
     prompts: [
       {
         id: "hub",
