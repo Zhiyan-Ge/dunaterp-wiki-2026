@@ -31,7 +31,7 @@ export const navigation: Array<{ label: string; items: ReadonlyArray<readonly [s
   { label: "Project", items: [["Description", "/project-description"], ["Contribution", "/contribution"], ["Design", "/design"], ["Experiments", "/experiments"], ["Results", "/results"], ["Engineering", "/engineering"], ["Safety", "/safety-and-security"], ["Parts", "/parts"]] },
   { label: "Dry Lab", items: dryLabNavigation },
   { label: "Human Practices", items: [["Stakeholder Analysis", "/stakeholder-analysis"], ["Education", "/education"], ["Cooperation", "/cooperation"]] },
-  { label: "Lab", items: [["Safety", "/lab-safety"], ["Notebook", "/lab-notebook"]] },
+  { label: "Lab", items: [["Lab Safety", "/lab-safety"], ["Notebook", "/lab-notebook"]] },
   { label: "Team", items: [["Team", "/team"], ["Attributions", "/attributions"], ["Collaboration", "/collaboration"]] },
 ];
 
@@ -153,12 +153,13 @@ export const pages: Record<string, WikiPage> = {
       {
         eyebrow: "Kill switch architecture",
         title: "Engineer a Salt-Controlled Suicide Switch",
-        body: "The biosafety strategy is to let engineered Dunaliella salina survive in high-salt working conditions but lose viability after transfer to low-salt external environments. The circuit therefore couples a salt-responsive antitoxin module to a constitutive toxin module.",
+        body: "The biosafety design links the salt environment of Dunaliella salina to a mazEF toxin-antitoxin circuit. Its intended logic is straightforward: cells should remain viable in the high-salt production setting but lose protection after escape into low-salt environments.",
         blocks: [
-          { kind: "paragraph", text: "In the intended final design, high salt activates PDCA1 and drives mazE expression. MazE neutralises the low-level MazF produced from the Pip-driven toxin module, so cells remain viable in the target niche [1]." },
-          { kind: "paragraph", text: "After transfer to low salt, PDCA1 shuts down, no new MazE is produced, and the remaining MazF is no longer buffered. The resulting toxin activity is expected to stop growth and kill cells outside the intended cultivation environment [2]." },
-          { kind: "figure", src: "/figures/wet-lab/engineer1.png", alt: "Working principle of the salt-controlled suicide switch under high-salt conditions with PDCA1-driven MazE neutralising low-level MazF.", caption: "Fig. 1 Salt-controlled switch under high-salt conditions" },
-          { kind: "figure", src: "/figures/wet-lab/engineer2.png", alt: "Working principle of the salt-controlled suicide switch under low-salt conditions with loss of MazE protection and MazF-driven cell death.", caption: "Fig. 2 Salt-controlled switch under low-salt conditions" },
+          { kind: "paragraph", text: "Under high-salt conditions, the endogenous promoter PDCA1 is activated and drives mazE expression. The resulting MazE antitoxin neutralises the low-level MazF toxin expressed from the weak endogenous promoter Pip, allowing engineered cells to survive during normal cultivation [1] [2]." },
+          { kind: "paragraph", text: "After transfer to low-salt environments, PDCA1 activity is suppressed, mazE expression falls, and the remaining MazF is progressively released from antagonism. In this design, the loss of MazE protection is expected to inhibit growth and eventually kill escaped cells." },
+          { kind: "figure", src: "/figures/wet-lab/biosafety-design-high-salt.png", alt: "Schematic of the salt-responsive biosafety circuit under high-salt conditions, where PDCA1 drives mazE expression and MazE neutralises MazF so Dunaliella salina survives.", caption: "Fig. 1 Salt-responsive biosafety design under high-salt conditions" },
+          { kind: "figure", src: "/figures/wet-lab/biosafety-design-low-salt.png", alt: "Schematic of the salt-responsive biosafety circuit under low-salt conditions, where PDCA1 is suppressed, MazE protection is lost and MazF causes cell death.", caption: "Fig. 2 Salt-responsive biosafety design under low-salt conditions" },
+          { kind: "paragraph", text: "Because the whole safeguard depends on MazF remaining cytotoxic in the algal chassis, we first tested MazF as the execution module itself. That validation then guided the later engineering cycles, which focused on reducing toxin leak and assembling the full salt-responsive circuit." },
         ],
       },
       {
