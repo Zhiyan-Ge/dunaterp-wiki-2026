@@ -35,7 +35,7 @@ export const teamMembers: TeamMember[] = [
   { givenName: 'Hao', familyName: 'Wang', major: 'Pharmacy', src: '/figures/team/hao-wang.webp' },
   { givenName: 'Jianye', familyName: 'Wang', major: 'Biological Science', src: '/figures/team/jianye-wang.webp' },
   { givenName: 'Xinyu', familyName: 'Wang', major: 'Biological Science', src: '/figures/team/xinyu-wang.webp' },
-  { givenName: 'Yinuo', familyName: 'Wang', major: 'Computational Science', src: '/figures/team/yinuo-wang.webp' },
+  { givenName: 'Yinuo', familyName: 'Wang', major: 'Computer Science', src: '/figures/team/yinuo-wang.webp' },
   { givenName: 'Ziqi', familyName: 'Wang', major: 'Biological Science', src: '/figures/team/ziqi-wang.webp' },
   { givenName: 'Yusen', familyName: 'Wu', major: 'Biological Science', src: '/figures/team/yusen-wu.webp' },
   { givenName: 'Yanping', familyName: 'Yang', major: 'Biological Science', src: '/figures/team/yanping-yang.webp' },

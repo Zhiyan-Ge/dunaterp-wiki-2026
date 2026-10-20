@@ -208,15 +208,16 @@
     },
     {
       "source": "figures/team/yinuo-wang.webp",
-      "original": "24单人照/汪依诺.JPG",
-      "sourceSha256": "fab68eaaab70f7da5e0f1e8b127c7014b388a1893c5e86d93dd4da6732caf16d",
-      "sha256": "8bc80cd320d43a55b2789bb1cbbe55751b007d62163686aa3a8d89f0b9c2c5db",
-      "bytes": 519424,
+      "original": "Yinuo Wang.jpg",
+      "sourceSha256": "a518df3b35e086043d251e6e37c18559075ec93d159d8410e11bab293e9708e3",
+      "sha256": "7e1590b804a980c0c18ce27b16646c90a643a5cfa0f37e8135463a78b6d9927d",
+      "bytes": 499430,
       "width": 1600,
       "height": 2000,
-      "originalWidth": 6000,
-      "originalHeight": 4000,
-      "url": "https://static.igem.wiki/teams/6212/wiki/team/yinuo-wang.webp"
+      "originalWidth": 3128,
+      "originalHeight": 3128,
+      "uploadFile": "figures/team/yinuo-wang-7e1590b804a9.webp",
+      "url": "https://static.igem.wiki/teams/6212/wiki/team/yinuo-wang-7e1590b804a9.webp"
     },
     {
       "source": "figures/team/jianye-wang.webp",
@@ -331,4 +332,3 @@
       "url": "https://static.igem.wiki/teams/6212/wiki/team/hao-wang-73add8816dcd.webp"
     }
   ]
-  
