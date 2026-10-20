@@ -1188,5 +1188,12 @@
     "sha256": "8fd573afd33a16fd158ec0040482f8178156de7ef0e9fea7ba1d12e8d7aa0f03",
     "sourceSha256": "8fd573afd33a16fd158ec0040482f8178156de7ef0e9fea7ba1d12e8d7aa0f03",
     "bytes": 9872315
+  },
+  {
+    "source": "images/heroes/lab.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/heroes/lab-hero-db552c0b1fc4.webp",
+    "sha256": "db552c0b1fc4ce8616cd61f366bb280cda5566c405ba89ccb45d8d6a850f61a7",
+    "sourceSha256": "f5369cf7fa39c7158232aa0b45063cb2648a9483a04ab986ad62439fee211301",
+    "bytes": 108000
   }
 ]
