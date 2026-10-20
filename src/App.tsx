@@ -98,16 +98,10 @@ function Footer() {
   return <footer className="site-footer">
     <div className="footer-main">
       <section className="footer-acknowledgement" aria-labelledby="footer-acknowledgement-title">
-        <h2 id="footer-acknowledgement-title">Acknowledgement</h2>
+        <h2 id="footer-acknowledgement-title">ACKNOWLEDGEMENT</h2>
         <div className="footer-marks">
-          <figure>
-            <img src="https://static.igem.wiki/teams/5810/scu/scu11.webp" alt="Sichuan University emblem" loading="lazy" decoding="async" />
-            <figcaption>Sichuan University</figcaption>
-          </figure>
-          <figure>
-            <img src="https://static.igem.wiki/teams/5810/scu/scu12.webp" alt="College of Life Sciences, Sichuan University emblem" loading="lazy" decoding="async" />
-            <figcaption>College of Life Sciences</figcaption>
-          </figure>
+          <img src="https://static.igem.wiki/teams/5810/scu/scu11.webp" alt="Sichuan University emblem" loading="lazy" decoding="async" />
+          <img src="https://static.igem.wiki/teams/5810/scu/scu12.webp" alt="College of Life Sciences, Sichuan University emblem" loading="lazy" decoding="async" />
           <div className="footer-project-mark" aria-label="DunaTerp, SCU-China iGEM 2026">
             <BrandMark />
             <span><strong>DunaTerp</strong><small>SCU–CHINA · iGEM 2026</small></span>

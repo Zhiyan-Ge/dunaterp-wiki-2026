@@ -200,32 +200,32 @@ main:focus:not(:focus-visible) { outline: none; }
 .site-footer {
   position: relative;
   z-index: 3;
+  display: block;
   padding: clamp(3rem,6vw,5.5rem) clamp(1.5rem,5vw,6rem) 2rem;
   background: #031c19;
   color: #fff;
   border-top: 5px solid var(--lime);
 }
 .footer-main {
-  width: min(1380px,100%);
+  width: min(1480px,100%);
   margin-inline: auto;
   display: grid;
-  grid-template-columns: minmax(0,1.08fr) minmax(20rem,.92fr);
-  gap: clamp(3rem,8vw,9rem);
+  grid-template-columns: minmax(0,1fr) minmax(22rem,1fr);
+  align-items: start;
+  gap: clamp(4rem,9vw,10rem);
   padding-bottom: clamp(3rem,5vw,5rem);
 }
 .site-footer h2 {
   margin: 0 0 2rem;
   color: var(--lime);
-  font: 400 clamp(1.9rem,3vw,2.7rem)/1.1 Georgia,serif;
-  letter-spacing: -.025em;
+  font: 600 clamp(1.55rem,2.2vw,2.25rem)/1.1 Georgia,serif;
+  letter-spacing: .015em;
 }
-.footer-marks { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); align-items: center; gap: clamp(1.25rem,3vw,3rem); }
-.footer-marks figure { min-width: 0; margin: 0; text-align: center; }
-.footer-marks img { display: block; width: min(8.5rem,100%); aspect-ratio: 1; object-fit: contain; margin-inline: auto; filter: grayscale(1) brightness(1.2) contrast(1.08); }
-.footer-marks figcaption { margin-top: .7rem; color: #bcd0c7; font-size: .72rem; line-height: 1.35; }
-.footer-project-mark { min-width: 0; display: grid; justify-items: center; gap: .8rem; text-align: center; }
-.footer-project-mark .brand-mark { width: 5.3rem; height: 5.3rem; color: var(--deep); background: var(--lime); border: 0; }
-.footer-project-mark .brand-mark svg { width: 3.3rem; height: 3.3rem; }
+.footer-marks { display: flex; align-items: center; gap: clamp(2rem,4vw,4rem); min-height: 9rem; }
+.footer-marks>img { display: block; flex: 0 0 7.5rem; width: 7.5rem; height: 7.5rem; object-fit: contain; filter: grayscale(1) brightness(1.2) contrast(1.08); }
+.footer-project-mark { flex: 0 0 10rem; min-width: 0; display: grid; justify-items: center; gap: .65rem; text-align: center; }
+.footer-project-mark .brand-mark { width: 7.5rem; height: 7.5rem; color: var(--deep); background: var(--lime); border: 0; }
+.footer-project-mark .brand-mark svg { width: 4.5rem; height: 4.5rem; }
 .footer-project-mark .brand-mark__flagella { stroke: var(--deep); }
 .footer-project-mark .brand-mark__cell { fill: var(--deep); stroke: var(--deep); }
 .footer-project-mark .brand-mark__branch { stroke: var(--lime); }
@@ -236,7 +236,7 @@ main:focus:not(:focus-visible) { outline: none; }
 .footer-contact address a,.footer-contact address p { display: grid; grid-template-columns: 2.1rem minmax(0,1fr); align-items: center; gap: 1rem; min-height: 44px; margin: 0; color: #fff; font: 400 clamp(.95rem,1.3vw,1.08rem)/1.6 Georgia,serif; text-decoration: none; }
 .footer-contact address a:hover span { color: var(--lime); text-decoration: underline; text-underline-offset: .3rem; }
 .footer-contact svg { width: 1.7rem; height: 1.7rem; fill: none; stroke: var(--lime); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.footer-bottom { width: min(1380px,100%); margin-inline: auto; display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: end; gap: 2rem; padding-top: 1.8rem; border-top: 1px solid rgba(201,246,107,.55); }
+.footer-bottom { width: min(1480px,100%); margin-inline: auto; display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: end; gap: 2rem; padding-top: 1.8rem; border-top: 1px solid rgba(201,246,107,.55); }
 .site-footer .footer-bottom p { max-width: 76rem; margin: 0; color: #bcd0c7; font-size: .82rem; line-height: 1.75; }
 .site-footer a { color: inherit; }
 .site-footer .footer-bottom p a { color: #fff; text-underline-offset: .25rem; }
@@ -297,6 +297,8 @@ main:focus:not(:focus-visible) { outline: none; }
 .world-loading h1 { font: 400 clamp(3rem,10vw,7rem)/1 Georgia,serif; margin: 0; letter-spacing: -.06em; }
 .world-loading a { color: var(--lime); padding: .75rem; }
 @media (max-width: 1100px) {
+  .footer-main { grid-template-columns: 1fr; gap: 3.5rem; }
+  .footer-contact { max-width: 38rem; }
   .map-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .map-grid .map-description { min-height: 3.2rem; }
   .desktop-nav summary { padding-inline: .6rem; }
@@ -375,8 +377,10 @@ main:focus:not(:focus-visible) { outline: none; }
   .intro-lockup { bottom: 15rem; }
   .intro-start { bottom: 3rem; }
   .site-footer { padding-inline: 1.25rem; }
-  .footer-marks { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .footer-marks { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem; }
+  .footer-marks>img { width: 6.25rem; height: 6.25rem; margin-inline: auto; }
   .footer-project-mark { grid-column: 1 / -1; grid-template-columns: auto auto; justify-content: center; align-items: center; text-align: left; }
+  .footer-project-mark .brand-mark { width: 6.25rem; height: 6.25rem; }
   .next-page { padding: 1.5rem 3.5rem 1.5rem 1.5rem; }
   .next-page b { right: 1.25rem; }
 }
