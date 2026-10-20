@@ -1,10 +1,10 @@
 import type { WikiPage } from '../site-data';
 import type { AttributionEntry } from './types';
 
-// Source: SCU-China 2026 official Attributions Form, read on 20 October 2026.
+// Sources: SCU-China 2026 official Attributions Form, read on 20–21 October 2026;
+// Jiayu Cheng and Zhe Yu's supplied documents; Lecheng Guo's supplied statement.
+// Zhutian Mao and Yusen Wu's revised statements were supplied on 21 October.
 // Summaries credit specific contributions rather than generic task definitions.
-// Zhutian Mao and Yusen Wu remain pending team confirmation. Three additional
-// student statements will be supplied separately; do not invent their identities.
 export const principalInvestigators: AttributionEntry[] = [
   {
     name: 'Nianhui Zhang', role: 'Primary PI',
@@ -33,7 +33,10 @@ export const studentContributions: AttributionEntry[] = [
     name: 'Linjintao Chen',
     contribution: 'Provided guidance for dry-lab work, collected data, and participated in Human Practices activities.',
   },
-  { name: 'Zhutian Mao', contribution: '' },
+  {
+    name: 'Zhutian Mao',
+    contribution: 'Contributed to DunaTerp’s conceptual design and refinement, focusing on carotenoid and β-ionone production. Reviewed literature on Dunaliella salina, carotenoid biosynthesis and regulation, and carotenoid cleavage to inform pathway selection and feasibility assessment, and contributed to plasmid construction and experimental design. Organized experimental and competition tasks, developed plans and protocols, coordinated team progress, and drafted and revised Wiki content. Helped maintain laboratory safety through established procedures, hazard identification, and preventive measures.',
+  },
   {
     name: 'Yongyuan Mi',
     contribution: 'Participated in project coordination, drafted the Safety Form, contributed to selected Human Practices activities and hardware construction, and reviewed and revised Wiki content.',
@@ -55,6 +58,10 @@ export const studentContributions: AttributionEntry[] = [
     contribution: 'Designed the bioreactor, performed computational fluid dynamics simulations of its internal chamber, and procured hardware components.',
   },
   {
+    name: 'Jiayu Cheng',
+    contribution: 'Analyzed candidate protein 2146 for CXC domains, conserved cysteine residues, and intrinsically disordered regions, including comparison with a 551-amino-acid reference protein. Conducted sequence alignment, structure prediction, zinc-coordination modeling, and FoldX calculations, and prepared the associated figures. Developed the initial biosafety simulation in Python to model salinity-dependent circuit activation, effector accumulation, and engineered-cell population dynamics. Coordinated protein-modeling and biosafety tasks and developed and wrote the initial Protein section of the Wiki.',
+  },
+  {
     name: 'Hengyu Dai',
     contribution: 'Participated in vector construction, microalgal cultivation, and positive-transformant identification for Dunaliella salina engineering. Recorded procedures and raw data, organized supporting materials, and wrote and revised the corresponding Wiki Notebook content.',
   },
@@ -69,6 +76,10 @@ export const studentContributions: AttributionEntry[] = [
   {
     name: 'Zhiyan Ge',
     contribution: 'Developed engineering models for the flat-panel airlift photobioreactor and built the browser-based PBR simulation tool and supporting code. Wrote the Hardware Modeling documentation and integrated Hardware Modeling and Hardware Design content, figures, equations, navigation, and the interactive widget into the Wiki.',
+  },
+  {
+    name: 'Lecheng Guo',
+    contribution: 'Analyzed TF2146 sequence, structure, localization, phosphorylation, and protein–DNA models to identify candidate functional regions. Using Zhe Yu’s LCYB mutation designs, assembled variant sequences and prepared FoldX inputs for Jiayu Cheng, then performed AF3 structural screening and 21 Vina docking runs across seven receptor models, with pose and contact analysis. Curated inputs and results, contributed analysis scripts, figures, and the interactive docking viewer, and wrote and revised the related Wiki content, navigation, and displays. Extended Jiayu Cheng’s initial biosafety model with parameter checks and scenarios distinguishing growth inhibition, cell death, and washout, and documented the lack of host-specific calibration so simulated clearance was not presented as experimentally validated containment.',
   },
   {
     name: 'Hengwei Liang',
@@ -106,10 +117,17 @@ export const studentContributions: AttributionEntry[] = [
     name: 'Ziqi Wang',
     contribution: 'Designed and verified CitCCD4 and CCD1 constructs, performed molecular cloning and Dunaliella transformation, and analyzed PCR, sequencing, and LC-MS/GC-MS data. Maintained experimental records, protocols, vector maps, and metadata; contributed to outreach, risk assessment, safety documentation, and Wiki writing for β-citraurin and β-ionone synthesis.',
   },
-  { name: 'Yusen Wu', contribution: '' },
+  {
+    name: 'Yusen Wu',
+    contribution: 'Curated a versioned, reproducible archive of UPLC-MS/MS data, metabolite tables, Sanger reads, plasmid maps, and qPCR exports. Performed targeted carotenoid quantification and ΔΔCt analysis, cloned p1302-RBCS2 and CaMV 35S constructs, transformed and cultured Dunaliella salina, and collected MS and qPCR samples. Coordinated weekly tasks, reviewed team outputs, verified constructs by Sanger sequencing, and checked MS and qPCR interpretations against literature and alternative normalizations. Produced pathway, expression-cassette, and qPCR figures and wrote Results, part descriptions, mass-spectrometry reports, and bilingual Wiki content.',
+  },
   {
     name: 'Yanping Yang',
     contribution: 'Participated in plasmid construction and Dunaliella salina transformation, organized daily laboratory records, produced videos, and contributed to mascot and team-logo design.',
+  },
+  {
+    name: 'Zhe Yu',
+    contribution: 'Performed CB-Dock2 molecular docking and HDOCK protein–DNA docking analyses of lycopene cyclase and candidate transcription factor 2146, examining binding pockets, contact residues, and predicted relative affinities across mutants and truncations. Designed LCYB pocket mutations and TF2146 truncation, deletion, phosphorylation, nuclear-localization, and cysteine variants. Developed Wiki page structures, interactive scripts, and interface changes, and authored and uploaded the Protein section’s docking analyses. Refined docking visualizations and wrote Wiki text, introductory narrative and dialogue, and dry-lab analysis reports.',
   },
   {
     name: 'Ziyang Zhou',
