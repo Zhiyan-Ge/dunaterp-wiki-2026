@@ -687,6 +687,12 @@
   color: var(--px-salt);
   box-shadow: 4px 4px 0 var(--px-ink);
 }
+.px-archive-grid section:last-child {
+  grid-column: 1 / -1;
+}
+.px-archive-grid section:last-child nav {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 .px-archive-index {
   display: grid;
   place-items: center;
@@ -915,4 +921,5 @@
   .px-archive > header { align-items: flex-start; flex-direction: column; }
   .px-archive > header p { order: 0; }
   .px-archive-grid nav { grid-template-columns: 1fr; }
+  .px-archive-grid section:last-child nav { grid-template-columns: 1fr; }
 }
