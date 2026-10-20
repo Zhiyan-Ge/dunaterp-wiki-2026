@@ -1,0 +1,53 @@
+/* Match the current DunaTerp palette and pixel frames, with the 2025 name-first lists. */
+.article-page--attributions .article-hero { background-position: center bottom; }
+.article-page--attributions .attributions-introduction {
+  max-width: 74ch;
+  margin: 2.5rem 0 0;
+  color: var(--ink);
+  font-size: 1.0625rem;
+  line-height: 1.85;
+}
+.article-page--attributions .article-sections > section {
+  grid-template-columns: minmax(0, 1fr);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+.article-page--attributions .section-number { display: none; }
+.article-page--attributions .article-sections h2 {
+  font-size: clamp(1.65rem, 2.6vw, 2.5rem);
+}
+.article-page--attributions ul.attribution-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.article-page--attributions .attribution-list > li {
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+}
+.article-page--attributions .attribution-list > li:first-child { padding-top: .5rem; }
+.article-page--attributions .attribution-list > li:last-child { border-bottom: 0; padding-bottom: .25rem; }
+.article-page--attributions .attribution-list p { max-width: 76ch; margin: 0; }
+.article-page--attributions .attribution-list p + p { margin-top: .45rem; line-height: 1.85; }
+.attribution-list strong { color: var(--ink); font-size: 1.0625rem; }
+.attribution-role { margin-left: .75rem; color: var(--muted); font-size: .8125rem; white-space: nowrap; }
+.official-attributions { min-width: 0; }
+.official-attributions iframe {
+  display: block;
+  width: 100%;
+  height: 46rem;
+  margin-top: 1rem;
+  border: 2px solid var(--ink);
+  background: white;
+  box-shadow: 4px 4px 0 var(--article-accent);
+}
+@media (max-width: 650px) {
+  .article-page--attributions .attributions-introduction { margin-top: 1.5rem; font-size: 1rem; }
+  .article-page--attributions .article-sections > section { padding: 1rem; }
+  .attribution-role { display: block; margin: .2rem 0 0; white-space: normal; }
+  .official-attributions iframe { height: 34rem; }
+}

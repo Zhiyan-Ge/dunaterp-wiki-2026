@@ -99,6 +99,14 @@ export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, numbe
           ? <a href={`#reference-${reference}`}>{label} <sup>[{reference}]</sup></a>
           : <a href={href} target="_blank" rel="noreferrer">{label} ↗</a>}</li>;
       })}</ul>;
+      case 'attribution-list': return <ul className="attribution-list" key={i}>{block.entries.map((entry) => <li key={entry.name}>
+        <p><strong>{entry.name}</strong>{entry.role && <span className="attribution-role">{entry.role}</span>}</p>
+        <p>{entry.contribution || 'Contribution details will be added after team confirmation.'}</p>
+      </li>)}</ul>;
+      case 'official-attributions': return <div className="official-attributions" key={i}>
+        <p><a href="https://teams.igem.org/wiki/6212/attributions" target="_blank" rel="noreferrer">Open the official iGEM Attributions Form ↗</a></p>
+        <iframe src="https://teams.igem.org/wiki/6212/attributions" title="SCU-China 2026 official iGEM Attributions Form" loading="lazy" />
+      </div>;
       // Build-time, escaped markup generated only from the supplied local DOCX files.
       // Native headings, lists and tables inherit article styles; no embedded document.
       case 'wet-lab-overview': return <WetLabOverview key={i} />;
