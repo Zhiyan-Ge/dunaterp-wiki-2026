@@ -228,6 +228,12 @@ const TOC_CHAPTERS: Record<string, TocChapterDefinition[]> = {
     { title: "Parameters & Formulation", start: 4, end: 5 },
     { title: "Project Implications", start: 6, end: 6 },
   ],
+  "stakeholder-analysis": [
+    { title: "Stakeholder Framework", start: 0, end: 0 },
+    { title: "Public & Industry", start: 1, end: 3 },
+    { title: "Regulation & Research", start: 4, end: 5 },
+    { title: "Summary", start: 6, end: 6 },
+  ],
 };
 
 type TocChapter = {

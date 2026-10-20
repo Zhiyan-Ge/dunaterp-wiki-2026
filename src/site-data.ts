@@ -4,6 +4,7 @@ import { safety } from './content/safety';
 import { protein } from './content/protein';
 import { dryLabNavigation, dryLabIndex, hardware, hardwareDesign, metabolomics, modeling, transcriptomics } from './content/dry-lab';
 import { cooperation, education } from './content/human-practices';
+import { stakeholderAnalysis } from './content/stakeholder-analysis';
 
 export type WikiSection = {
   title: string;
@@ -28,7 +29,7 @@ export type WikiPage = {
 export const navigation: Array<{ label: string; items: ReadonlyArray<readonly [string, string]> }> = [
   { label: "Wet Lab", items: [["Description", "/project-description"], ["Engineering", "/engineering"], ["Experiments", "/experiments"], ["Protocols", "/notebook"], ["Results", "/results"], ["Safety", "/safety-and-security"]] },
   { label: "Dry Lab", items: dryLabNavigation },
-  { label: "Human Practices", items: [["Education", "/education"], ["Cooperation", "/cooperation"]] },
+  { label: "Human Practices", items: [["Stakeholder Analysis", "/stakeholder-analysis"], ["Education", "/education"], ["Cooperation", "/cooperation"]] },
   { label: "People", items: [["Team", "/team"], ["Attributions", "/attributions"]] },
 ];
 
@@ -243,6 +244,7 @@ export const pages: Record<string, WikiPage> = {
   },
   education,
   cooperation,
+  "stakeholder-analysis": stakeholderAnalysis,
   team: {
     title: "The people behind DunaTerp", eyebrow: "Team", intro: "SCU-China 2026 brings together wet-lab, dry-lab, hardware, human-practices and Wiki work around one salt-adapted terpenoid platform.", status: "team-draft",
     sections: [
