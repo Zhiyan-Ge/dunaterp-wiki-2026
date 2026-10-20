@@ -18,12 +18,12 @@ export const principalInvestigators: AttributionEntry[] = [
 
 export const studentContributions: AttributionEntry[] = [
   {
-    name: 'Xin Xiong', role: 'Student Leader',
-    contribution: 'Led and coordinated the dry-lab team, including modeling and hardware development. Guided the analysis of modeling results and hardware tests, contributed to dry-lab Wiki implementation, and helped write, review, and visualize the modeling and hardware work.',
-  },
-  {
     name: 'Hongyi Wang', role: 'Student Leader',
     contribution: 'Coordinated team tasks and project design, analyzed experimental data, reviewed literature, and participated in research and interviews. Wrote Wiki content and Safety and Check-In Forms, communicated with iGEM HQ, and assembled and tested hardware and recorded its demonstration video.',
+  },
+  {
+    name: 'Xin Xiong', role: 'Student Leader',
+    contribution: 'Led and coordinated the dry-lab team, including modeling and hardware development. Guided the analysis of modeling results and hardware tests, contributed to dry-lab Wiki implementation, and helped write, review, and visualize the modeling and hardware work.',
   },
   {
     name: 'Kaiting Wei', role: 'Student Leader',
@@ -128,7 +128,7 @@ export const attributions: WikiPage = {
   title: 'The people behind our work',
   eyebrow: 'Attributions',
   heroImage: 'https://static.igem.wiki/teams/6212/wiki/team/scu-china-2026.webp',
-  intro: 'SCU-China 2026 thanks the students, principal investigators, advisors, and supporters who contributed to DunaTerp. The following record distinguishes student work from guidance and support provided by others.',
+  intro: '',
   status: 'team-draft',
   sections: [
     { title: 'Team PI', body: '', blocks: [{ kind: 'attribution-list', entries: principalInvestigators }] },
