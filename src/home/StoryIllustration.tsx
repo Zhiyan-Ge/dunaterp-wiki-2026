@@ -18,7 +18,7 @@ export function StoryIllustration({ beat }: { beat: StoryBeat }) {
     case "traits":
       return <div className="story-discovery">
         <div className="story-specimen"><StoryGlyph kind="alga" /><span>Dunaliella salina</span></div>
-        <ul className="story-loot">{["LOW-COST, SALT-TOLERANT CULTIVATION", "COMPLETE MEP + CAROTENOID PATHWAY", "BROAD, NON-FRESHWATER POTENTIAL"].map((text, index) => <li key={text} style={stagger(index)}>+ {text}</li>)}</ul>
+        <ul className="story-loot">{["LOW-COST, SALT-TOLERANT CULTIVATION", "COMPLETE MEP PATHWAY", "BROAD, NON-FRESHWATER POTENTIAL"].map((text, index) => <li key={text} style={stagger(index)}>+ {text}</li>)}</ul>
       </div>;
 
     case "products":

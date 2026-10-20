@@ -63,96 +63,96 @@ export const NPCS: Record<ExpeditionNpcId, ExpeditionNpc> = {
   "biologist": {
     id: "biologist",
     name: "Dr. Lin",
-    role: "Algal biologist",
+    role: "Scholar discussion",
     stationKey: "brine-edge",
     stationLabel: "Brine edge",
     accent: "#7cc45a",
     initials: "MC",
     intro:
-      "The first orange salt pond I saw looked almost lifeless, and that contradiction stayed with me. I want to know what Dunaliella can build here—but I still ask whether every bright colour is really the molecule we hoped for.",
-    chapterHint: "Field trail: Project → Description, Experiments and Results",
+      "Our discussion with Sichuan University researchers challenged us to show what makes Dunaliella salina a useful chassis, not assume its salt tolerance or native MEP pathway make it superior. They urged us to match our claims to evidence and real application needs.",
+    chapterHint: "HP source: Academic consultations · Sichuan University",
     prompts: [
       {
         id: "why-alga",
-        label: "Why follow this salt dweller?",
+        label: "What did the scholars challenge?",
         response:
-          "Follow the salt and the clue appears: this wall-less, motile alga already thrives in hypersaline water and builds carotenoids. That gives our expedition a living chassis and a native metabolic trail to explore.",
+          "They asked us to substantiate D. salina's advantages against established hosts, verify demand for target products, and support claims about stress tolerance and cultivation efficiency with evidence.",
       },
       {
         id: "cell-evidence",
-        label: "What belongs in the field notes?",
+        label: "How should we describe the chassis?",
         response:
-          "Write down what we saw, what we compared and how we measured it. A coloured culture is an exciting footprint; chromatography or spectroscopy tells us which molecule actually left it.",
+          "As a photosynthetic microalga—not a plant chassis. Its native MEP pathway is a starting point, not proof of a superior production platform.",
       },
       {
         id: "careful-claim",
-        label: "How far can a claim travel?",
+        label: "What should we prioritize?",
         response:
-          "Only as far as the evidence trail. Name the observation, the comparison and the uncertainty, then stop at the last confirmed marker. That is how another explorer can retrace our route.",
+          "Focus on a feasible proof of concept, define measurable engineering goals, and verify enzyme function, metabolic changes, and biosafety rather than pursue several unvalidated products at once.",
       },
     ],
   },
   "engineer": {
     id: "engineer",
     name: "Mara",
-    role: "Pathway engineer",
+    role: "Enterprise discussion",
     stationKey: "product-yards",
     stationLabel: "Product yards",
     accent: "#e9c43a",
     initials: "IP",
     intro:
-      "A natural pigment pool is useful, but a platform begins only when we can steer it. I keep asking whether TF2146 truly redirects flux toward the β-carotene hub—and what that change costs elsewhere in the pathway.",
-    chapterHint: "Field trail: Project → Engineering; Dry Lab → Mathematical Modeling",
+      "At Kunming Aisheng Biotechnology, we discussed how cultivation, scale-up, and downstream processing shape the value of a microalgal product. Their experience made us look beyond intracellular yield to the recovered product and process cost.",
+    chapterHint: "HP source: Microalgae enterprise visit · Kunming Aisheng Biotechnology",
     prompts: [
       {
         id: "hub",
-        label: "Why build around one hub?",
+        label: "What limits scale-up?",
         response:
-          "Think of β-carotene as the busiest roundabout on the map. TF2146 is our regulatory lever for reprogramming traffic toward that hub; LCYB is the enzymatic gate that converts lycopene into it.",
+          "Experts pointed to culture density, genetic-tool maturity, and industrial scale-up as unresolved challenges for Dunaliella. They also described the need to control growth conditions and cultivation stages.",
       },
       {
         id: "branch",
-        label: "Which route comes first?",
+        label: "What did the process visit reveal?",
         response:
-          "Choose the destination, trace every conversion backward, then check the enzyme, substrate and analytical readout at each turn. Astaxanthin, β-ionone, crocetin and β-citraurin each need their own strain and route card.",
+          "Tubular photobioreactors can improve environmental control and contamination management, but light, temperature, monitoring equipment, and operating cost also matter.",
       },
       {
         id: "model",
-        label: "What does the model reveal?",
+        label: "Why follow product recovery?",
         response:
-          "A model is our compass: it follows control from promoter occupancy to LCYB transcript, active enzyme and β-carotene. Sensitivity analysis then points to the measurements most likely to change our direction.",
+          "Cell damage during centrifugation and salt removal can reduce recoverable biomass in P. tricornutum. That's a question for our process to test—not an outcome to assume for D. salina.",
       },
     ],
   },
   "researcher": {
     id: "researcher",
     name: "Ari",
-    role: "Community researcher",
+    role: "Government consultation",
     stationKey: "model-station",
     stationLabel: "Process checkpoint",
     accent: "#c4a8ff",
     initials: "AO",
     intro:
-      "Whenever a design looks complete, I look for the person whose question is missing. I listen for practical worries that never appear in a pathway diagram, then ask whether the project changed because someone trusted us with them.",
-    chapterHint: "Field trail: Human Practices → Education and Cooperation",
+      "In our consultation with Chengdu food-safety regulatory representatives, we asked whether purification or an established compound approval automatically covers production in engineered Dunaliella. The guidance showed us to assess the product, production organism, and process together.",
+    chapterHint: "HP source: Food-safety regulatory consultation · Chengdu",
     prompts: [
       {
         id: "listen",
-        label: "Whose map are we missing?",
+        label: "Does purification remove regulatory review?",
         response:
-          "Start with the people who grow, operate, regulate, process or live beside the system. Ask what they value, what worries them and what evidence would earn their trust; each answer adds a landmark we could not see alone.",
+          "The representatives cautioned that ingredients produced using genetically modified microorganisms may still require safety assessment, even when highly purified. Product purity alone does not settle the question.",
       },
       {
         id: "safety",
-        label: "What opens the next gate?",
+        label: "Does an existing approval cover a new chassis?",
         response:
-          "The gate opens when the criteria are visible: containment, reproducibility, product evidence and stakeholder concerns all receive a documented answer. Readiness is a checkpoint the whole team can inspect.",
+          "Not automatically. Approval for astaxanthin from Haematococcus pluvialis should not be assumed to cover astaxanthin made with engineered D. salina; the applicable pathway needs confirmation.",
       },
       {
         id: "change-design",
-        label: "Can feedback reroute us?",
+        label: "What should we do next?",
         response:
-          "Absolutely. A concern can become a design constraint, a new control or a different experiment. We mark every turn in the journal so the final route shows who helped shape it.",
+          "Review requirements for each product and intended use, document the chassis and processing details, consult official sources, and distinguish preliminary guidance from confirmed approval.",
       },
     ],
   },
@@ -602,6 +602,7 @@ export function ExpeditionJournal({
   const [isOpen, setIsOpen] = useState(false);
   const [selectedNpc, setSelectedNpc] = useState<ExpeditionNpcId>("biologist");
   const [dialogueChoice, setDialogueChoice] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<"contacts" | "exercises">("contacts");
   const [activeGame, setActiveGame] = useState<GameId>("pathway-order");
   const [resetVersion, setResetVersion] = useState(0);
   const [progress, setProgress] = useState<JournalProgress>(() => readProgress());
@@ -638,6 +639,7 @@ export function ExpeditionJournal({
   const selectNpc = useCallback((npcId: ExpeditionNpcId) => {
     setSelectedNpc(npcId);
     setDialogueChoice(null);
+    setActiveSection("contacts");
     markNpcVisited(npcId);
   }, [markNpcVisited]);
 
@@ -738,7 +740,7 @@ export function ExpeditionJournal({
               <p className="ej-eyebrow">DUNATERP · FIELD ARCHIVE</p>
               <h1 id={dialogTitleId}>Expedition journal</h1>
               <p id={dialogDescriptionId} className="ej-header__dek">
-                Meet three fictional research guides and solve their field exercises. The guides do not represent team members or real stakeholder interviews.
+                Explore paraphrased summaries of our Human Practices discussions with scholars, industry representatives, and government officials. These fictional guides do not represent individual participants or provide verbatim quotes.
               </p>
             </div>
             <div className="ej-header__actions">
@@ -782,11 +784,19 @@ export function ExpeditionJournal({
                   );
                 })}
               </div>
-              <p className="ej-contact-note">A conversation can add a question to your notes.</p>
+              <button
+                type="button"
+                className={`ej-exercise-link${activeSection === "exercises" ? " is-active" : ""}`}
+                onClick={() => setActiveSection("exercises")}
+                aria-pressed={activeSection === "exercises"}
+              >
+                <span className="ej-eyebrow">FIELD EXERCISES</span>
+                <span>Three activities · {completedGames}/{GAME_IDS.length} complete</span>
+              </button>
             </aside>
 
             <div className="ej-journal-main">
-              <section className="ej-conversation" aria-labelledby={`${idPrefix}-contact-title`}>
+              <section className="ej-conversation" aria-labelledby={`${idPrefix}-contact-title`} hidden={activeSection !== "contacts"}>
                 <div className="ej-conversation__topline">
                   <span className="ej-location">{nearbyStation ? `Near ${nearbyStation}` : "Salt route · field notes"}</span>
                   <span className="ej-location__dot" aria-hidden="true" />
@@ -800,7 +810,7 @@ export function ExpeditionJournal({
                   </div>
                 </div>
                 <div className="ej-speech">
-                  <span className="ej-speech__tag">FIELD CONTACT</span>
+                  <span className="ej-speech__tag">HP DISCUSSION SUMMARY</span>
                   <p>{activeNpc.intro}</p>
                 </div>
                 <fieldset className="ej-prompts">
@@ -831,7 +841,7 @@ export function ExpeditionJournal({
                 )}
               </section>
 
-              <section className="ej-games" aria-labelledby={`${idPrefix}-games-title`}>
+              <section className="ej-games" aria-labelledby={`${idPrefix}-games-title`} hidden={activeSection !== "exercises"}>
                 <div className="ej-games__heading">
                   <div>
                     <p className="ej-eyebrow">EXPLORATION MODE</p>
