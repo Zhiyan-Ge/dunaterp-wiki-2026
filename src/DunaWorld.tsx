@@ -131,7 +131,6 @@ const panelGroups: PanelGroup[] = [
     links: [
       { label: "Team", href: "/team", note: "Students, PIs, instructors and advisors" },
       { label: "Attributions", href: "/attributions", note: "A transparent division of work" },
-      { label: "Responsible AI", href: "/responsible-ai", note: "Models, boundaries and human review" },
       { label: "Complete Wiki Map", href: "/wiki-map", note: "Every standard route in one place" },
     ],
   },

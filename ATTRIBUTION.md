@@ -6,12 +6,12 @@
 - Procedural *Dunaliella salina* model: an original, diagrammatic model based on published morphology—oval/pear-shaped wall-less cell, two equal anterior flagella, cup-shaped chloroplast, central pyrenoid and anterior eyespot. No microscopy image was copied. Morphology reference: Friedl et al., *Algal Research* 2020, https://doi.org/10.1016/j.algal.2020.102066.
 - Miniature collision algae and impact rings: original procedural decorative objects used to communicate motion and interaction. Their bouncing behaviour is not a simulation of algal biology or experimental evidence.
 - Saltworks buildings, photobioreactors, light array, wet-lab bench, carotenoid pathway hub, product tanks and sustainability station: original procedural scene props. They are conceptual illustrations, not records of built hardware or experimental evidence.
-- OpenAI Codex (GPT-5 family): website scaffolding, interface code, navigation, accessibility structure and clearly marked copy drafts on 2026-08-15. See `/responsible-ai`.
+- OpenAI Codex (GPT-5 family): website scaffolding, interface code, navigation, accessibility structure and clearly marked copy drafts on 2026-08-15.
 
 No external fonts, analytics, iframes, runtime APIs or CDN-hosted assets are used by this prototype.
 
 - OpenAI Codex: UI refinement of existing navigation, home chapter overlays, Wiki index, article reading layout, responsive styles and keyboard access on 2026-09-05. Scientific page data and scene assets were retained. Human review is pending; no scientific review or browser visual verification is claimed.
-- Anthropic Claude: front-end performance changes on 2026-09-06 — deferred loading of the Rapier physics module, `three`/`rapier` build-chunk split, half-rate directional shadow updates, render-loop pause on hidden tabs, GPU resource disposal on unmount, and fewer React re-renders during the scroll journey. No scientific content, scene geometry, physics behaviour or dependency versions were changed. `tsc`, ESLint and the production build pass; browser and device verification are pending. The `/responsible-ai` page still lists only the earlier model and must be updated by the team.
+- Anthropic Claude: front-end performance changes on 2026-09-06 — deferred loading of the Rapier physics module, `three`/`rapier` build-chunk split, half-rate directional shadow updates, render-loop pause on hidden tabs, GPU resource disposal on unmount, and fewer React re-renders during the scroll journey. No scientific content, scene geometry, physics behaviour or dependency versions were changed. `tsc`, ESLint and the production build pass; browser and device verification are pending.
 
 ## Pixel homepage — 2026-09-08
 
@@ -21,7 +21,7 @@ No external fonts, analytics, iframes, runtime APIs or CDN-hosted assets are use
 - **Station structures** (sampling tower, cell exhibit, light array, model hut, product tanks, commons pavilion, archive gatehouse): original procedural scene props. They are conceptual illustrations, not records of built hardware or of experimental evidence.
 - **Pixel *Dunaliella salina* model**: the same original diagrammatic morphology previously used in the 3D scene — wall-less oval cell, two equal anterior flagella, cup-shaped chloroplast, central pyrenoid, anterior eyespot — redrawn in pixel form. Morphology reference unchanged: Friedl et al., *Algal Research* 2020, https://doi.org/10.1016/j.algal.2020.102066.
 - **Offline art check** (`tools/art-check/`): an original minimal Canvas2D rasteriser and PNG encoder written for this project so the art can be reviewed as images without a browser. It is a development tool and ships nothing to the site.
-- No scientific page content, figure, dataset or claim was changed in this work. Human review is pending; no scientific review and no browser or device verification is claimed. The `/responsible-ai` page must be updated by the team to list this model and use.
+- No scientific page content, figure, dataset or claim was changed in this work. Human review is pending; no scientific review and no browser or device verification is claimed.
 
 
 

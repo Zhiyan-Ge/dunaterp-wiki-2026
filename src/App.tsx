@@ -134,7 +134,7 @@ function Footer() {
     </div>
     <div className="footer-bottom">
       <p>© 2026 — Content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.<br />The repository used to create this website is available at <a href="https://gitlab.igem.org/2026/scu-china">gitlab.igem.org/2026/scu-china</a>.</p>
-      <nav className="footer-links" aria-label="Site information"><Link to="/attributions">Attributions</Link><Link to="/responsible-ai">Responsible AI</Link></nav>
+      <nav className="footer-links" aria-label="Site information"><Link to="/attributions">Attributions</Link></nav>
     </div>
   </footer>;
 }

@@ -49,7 +49,6 @@ The GitHub workflow supplies its own base path and creates an SPA fallback for d
 3. Replace every `Team input required` section with team-authored, human-reviewed work.
 4. Verify all scientific claims, parameters, citations, figures and quotations against primary records.
 5. Keep the official `LICENSE` file and visible CC BY 4.0 footer link.
-6. Update `/responsible-ai` with every model, use and named human reviewer.
 
 See `PIXEL-WORLD.md` for the homepage design, the rules the pixel art depends on, and what still needs browser acceptance.
 

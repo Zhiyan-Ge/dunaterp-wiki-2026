@@ -29,7 +29,7 @@ export const navigation: Array<{ label: string; items: ReadonlyArray<readonly [s
   { label: "Wet Lab", items: [["Description", "/project-description"], ["Engineering", "/engineering"], ["Experiments", "/experiments"], ["Protocols", "/notebook"], ["Results", "/results"], ["Safety", "/safety-and-security"]] },
   { label: "Dry Lab", items: dryLabNavigation },
   { label: "Human Practices", items: [["Education", "/education"], ["Cooperation", "/cooperation"]] },
-  { label: "People", items: [["Team", "/team"], ["Attributions", "/attributions"], ["Responsible AI", "/responsible-ai"]] },
+  { label: "People", items: [["Team", "/team"], ["Attributions", "/attributions"]] },
 ];
 
 /** The compact header groups Dry Lab into its two main entrances. Indexes and
@@ -258,16 +258,6 @@ export const pages: Record<string, WikiPage> = {
       { title: "Pixel exploration and learning activities", body: "The active homepage uses the repository’s original Canvas pixel world, extended with fictional NPC guides and educational games. The characters do not represent team members or stakeholder testimony. Stardew Valley is a stylistic reference; no game assets, characters, music or dialogue are redistributed." },
       { title: "Earlier website physics and interaction", body: "The retained, inactive 3D implementation’s Rapier physics world, contact-force event loop, dynamic object synchronisation and damped follow-camera in DunaTerp are adapted from Bruno Simon's Folio 2025 under the MIT License. The scroll-constrained route, Dunaliella geometry, scientific landmarks, text and interface are project-specific; no Folio models, artwork, audio or textures are redistributed. Full notice: THIRD_PARTY_NOTICES.md in the Wiki repository." },
       { title: "Scientific equation renderer", body: "The Transcriptomics and Mathematical Modeling pages render equations and fonts locally with KaTeX 0.16.22, licensed under MIT. Source and licence notice: THIRD_PARTY_NOTICES.md in the Wiki repository." },
-    ],
-  },
-  "responsible-ai": {
-    title: "Responsible AI use", eyebrow: "Authorship & integrity", intro: "A transparent record of where AI assisted the team, what it did not produce and how humans reviewed the output.", status: "team-draft",
-    sections: [
-      { title: "Model used", body: "OpenAI Codex (GPT-5 family) was used on 15 August 2026 to scaffold website code, organise navigation, create procedural Three.js geometry, improve interface copy and draft clearly marked content structures from team-authored local reports." },
-      { title: "September 2026 website revision", body: "On 9 September 2026, OpenAI Codex coordinated a code and content review with GPT-5.6 Luna subtasks for NPC learning activities, input handling and navigation review. AI assisted with code, fictional guide dialogue and educational questions. Completion badges record in-browser activity only." },
-      { title: "October 2026 researcher character", body: "On 19 October 2026, OpenAI Codex and the built-in OpenAI image generation tool adapted a user-supplied character reference into a transparent, four-direction researcher animation sheet and integrated it into the homepage. This is decorative game artwork, not scientific evidence. Named human reviewer: pending." },
-      { title: "Boundaries", body: "AI was not used to generate experimental data, data figures, microscopy, simulated experimental evidence, quotations or citations. Existing scientific figures shown in this prototype were produced by the project's analysis scripts and remain subject to team verification." },
-      { title: "Human responsibility", body: "AI-assisted text and code are not treated as scientific evidence. Team members remain responsible for checking scientific statements against source data, confirming citations, rerunning analysis and build code, reviewing accessibility text and approving the final disclosure." },
     ],
   },
 };
