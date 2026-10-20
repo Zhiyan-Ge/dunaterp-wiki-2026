@@ -35,7 +35,7 @@ export const studentContributions: AttributionEntry[] = [
   },
   {
     name: 'Zhutian Mao',
-    contribution: 'Contributed to DunaTerp’s conceptual design and refinement, focusing on carotenoid and β-ionone production. Reviewed literature on Dunaliella salina, carotenoid biosynthesis and regulation, and carotenoid cleavage to inform pathway selection and feasibility assessment, and contributed to plasmid construction and experimental design. Organized experimental and competition tasks, developed plans and protocols, coordinated team progress, and drafted and revised Wiki content. Helped maintain laboratory safety through established procedures, hazard identification, and preventive measures.',
+    contribution: 'Contributed to DunaTerp’s carotenoid and β-ionone module design, literature research, feasibility assessment, plasmid construction, and experimental planning. Coordinated experimental and competition tasks, developed protocols, reviewed progress, drafted and revised Wiki content, and supported laboratory safety.',
   },
   {
     name: 'Yongyuan Mi',
@@ -59,7 +59,7 @@ export const studentContributions: AttributionEntry[] = [
   },
   {
     name: 'Jiayu Cheng',
-    contribution: 'Analyzed candidate protein 2146 for CXC domains, conserved cysteine residues, and intrinsically disordered regions, including comparison with a 551-amino-acid reference protein. Conducted sequence alignment, structure prediction, zinc-coordination modeling, and FoldX calculations, and prepared the associated figures. Developed the initial biosafety simulation in Python to model salinity-dependent circuit activation, effector accumulation, and engineered-cell population dynamics. Coordinated protein-modeling and biosafety tasks and developed and wrote the initial Protein section of the Wiki.',
+    contribution: 'Analyzed TF2146 domains, conserved residues, and structures using sequence alignment, zinc-coordination modeling, and FoldX. Built the initial Python biosafety model, coordinated protein-modeling and biosafety tasks, prepared scientific figures, and developed and wrote the initial Protein section of the Wiki.',
   },
   {
     name: 'Hengyu Dai',
@@ -79,7 +79,7 @@ export const studentContributions: AttributionEntry[] = [
   },
   {
     name: 'Lecheng Guo',
-    contribution: 'Analyzed TF2146 sequence, structure, localization, phosphorylation, and protein–DNA models to identify candidate functional regions. Using Zhe Yu’s LCYB mutation designs, assembled variant sequences and prepared FoldX inputs for Jiayu Cheng, then performed AF3 structural screening and 21 Vina docking runs across seven receptor models, with pose and contact analysis. Curated inputs and results, contributed analysis scripts, figures, and the interactive docking viewer, and wrote and revised the related Wiki content, navigation, and displays. Extended Jiayu Cheng’s initial biosafety model with parameter checks and scenarios distinguishing growth inhibition, cell death, and washout, and documented the lack of host-specific calibration so simulated clearance was not presented as experimentally validated containment.',
+    contribution: 'Analyzed TF2146–DNA models and screened LCYB variants using AF3 and Vina, following Zhe Yu’s mutation designs and preparing FoldX inputs for Jiayu Cheng. Refined Cheng’s initial biosafety model and documented calibration limits; contributed analysis scripts, figures, interactive viewers, and Wiki content.',
   },
   {
     name: 'Hengwei Liang',
@@ -111,7 +111,7 @@ export const studentContributions: AttributionEntry[] = [
   },
   {
     name: 'Yinuo Wang',
-    contribution: 'Curated and analyzed public Dunaliella salina RNA-seq data and connected transcriptomic evidence to the mathematical model of transcriptional regulation, LCYB expression, metabolic competition, and β-carotene production. Produced scientific figures and wrote and revised the Transcriptomics and Mathematical Modeling sections. Co-designed and built the Wiki’s visual system, interactive homepage, layouts, navigation, and scientific-content components; integrated team materials, coordinated revisions and versions, tested desktop and mobile interfaces, and supported deployment.',
+    contribution: 'Analyzed Dunaliella salina RNA-seq data, linked transcriptomic evidence to LCYB-focused mathematical modeling, and wrote the Transcriptomics and Mathematical Modeling sections. Co-designed and built the Wiki’s visual system, interactive homepage, navigation, and content components; integrated team materials, coordinated revisions, tested interfaces, and supported deployment.',
   },
   {
     name: 'Ziqi Wang',
@@ -119,7 +119,7 @@ export const studentContributions: AttributionEntry[] = [
   },
   {
     name: 'Yusen Wu',
-    contribution: 'Curated a versioned, reproducible archive of UPLC-MS/MS data, metabolite tables, Sanger reads, plasmid maps, and qPCR exports. Performed targeted carotenoid quantification and ΔΔCt analysis, cloned p1302-RBCS2 and CaMV 35S constructs, transformed and cultured Dunaliella salina, and collected MS and qPCR samples. Coordinated weekly tasks, reviewed team outputs, verified constructs by Sanger sequencing, and checked MS and qPCR interpretations against literature and alternative normalizations. Produced pathway, expression-cassette, and qPCR figures and wrote Results, part descriptions, mass-spectrometry reports, and bilingual Wiki content.',
+    contribution: 'Curated MS, qPCR, sequencing, and plasmid records; quantified carotenoids and analyzed RT-qPCR data. Constructed vectors, transformed and cultured Dunaliella salina, and verified constructs and analytical conclusions. Coordinated tasks, produced scientific figures, and wrote Results, part descriptions, reports, and bilingual Wiki content.',
   },
   {
     name: 'Yanping Yang',
@@ -127,7 +127,7 @@ export const studentContributions: AttributionEntry[] = [
   },
   {
     name: 'Zhe Yu',
-    contribution: 'Performed CB-Dock2 molecular docking and HDOCK protein–DNA docking analyses of lycopene cyclase and candidate transcription factor 2146, examining binding pockets, contact residues, and predicted relative affinities across mutants and truncations. Designed LCYB pocket mutations and TF2146 truncation, deletion, phosphorylation, nuclear-localization, and cysteine variants. Developed Wiki page structures, interactive scripts, and interface changes, and authored and uploaded the Protein section’s docking analyses. Refined docking visualizations and wrote Wiki text, introductory narrative and dialogue, and dry-lab analysis reports.',
+    contribution: 'Performed LCYB molecular docking and TF2146–DNA docking, and designed pocket mutations and transcription-factor variants. Developed Wiki structures, interactive scripts, and interface changes; wrote the Protein docking analyses, introductory narrative and dialogue, and dry-lab reports, and refined scientific visualizations.',
   },
   {
     name: 'Ziyang Zhou',
