@@ -95,7 +95,48 @@ function Header({ light = false }: { light?: boolean }) {
 }
 
 function Footer() {
-  return <footer className="site-footer"><div><p className="footer-brand">DunaTerp<span aria-hidden="true">.</span></p><p>A programmable, salt-adapted terpenoid platform in <i>Dunaliella salina</i>.</p><small>SCU–CHINA / iGEM 2026</small></div><div className="footer-links"><a href="https://gitlab.igem.org/2026/scu-china">Team GitLab ↗</a><a href="https://creativecommons.org/licenses/by/4.0/">Content: CC BY 4.0 ↗</a><Link to="/attributions">Attributions</Link><Link to="/responsible-ai">Responsible AI</Link></div></footer>;
+  return <footer className="site-footer">
+    <div className="footer-main">
+      <section className="footer-acknowledgement" aria-labelledby="footer-acknowledgement-title">
+        <h2 id="footer-acknowledgement-title">Acknowledgement</h2>
+        <div className="footer-marks">
+          <figure>
+            <img src="https://static.igem.wiki/teams/5810/scu/scu11.webp" alt="Sichuan University emblem" loading="lazy" decoding="async" />
+            <figcaption>Sichuan University</figcaption>
+          </figure>
+          <figure>
+            <img src="https://static.igem.wiki/teams/5810/scu/scu12.webp" alt="College of Life Sciences, Sichuan University emblem" loading="lazy" decoding="async" />
+            <figcaption>College of Life Sciences</figcaption>
+          </figure>
+          <div className="footer-project-mark" aria-label="DunaTerp, SCU-China iGEM 2026">
+            <BrandMark />
+            <span><strong>DunaTerp</strong><small>SCU–CHINA · iGEM 2026</small></span>
+          </div>
+        </div>
+      </section>
+      <section className="footer-contact" aria-labelledby="footer-contact-title">
+        <h2 id="footer-contact-title">Contact Us</h2>
+        <address>
+          <a href="tel:+8613308049545">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 2.8 9.4 7 7.8 9.1c1.3 2.7 3.4 4.8 6.1 6.1l2.1-1.6 4.2 2.8-.8 3.3c-.2.8-.9 1.4-1.7 1.4C9.5 21.1 2.9 14.5 2.9 6.3c0-.8.6-1.5 1.4-1.7l2.3-.8Z" /></svg>
+            <span>+86 133 0804 9545</span>
+          </a>
+          <a href="mailto:scu_igem@163.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5h18v13H3z" /><path d="m4 7 8 6 8-6" /></svg>
+            <span>scu_igem@163.com</span>
+          </a>
+          <p>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-6.2 6-12a6 6 0 1 0-12 0c0 5.8 6 12 6 12Z" /><circle cx="12" cy="9" r="2" /></svg>
+            <span>College of Life Sciences, Sichuan University<br />No. 29 Wangjiang Road, Chengdu, Sichuan, China</span>
+          </p>
+        </address>
+      </section>
+    </div>
+    <div className="footer-bottom">
+      <p>© 2026 — Content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.<br />The repository used to create this website is available at <a href="https://gitlab.igem.org/2026/scu-china">gitlab.igem.org/2026/scu-china</a>.</p>
+      <nav className="footer-links" aria-label="Site information"><Link to="/attributions">Attributions</Link><Link to="/responsible-ai">Responsible AI</Link></nav>
+    </div>
+  </footer>;
 }
 
 function pageReferences(page: (typeof pages)[string]) {
@@ -383,7 +424,7 @@ function ScrollAndTitle() {
 export default function App() {
   const { pathname, search } = useLocation();
   return <><Link className="skip-link" to={{ pathname, search, hash: "#main-content" }}>Skip to content</Link><ScrollAndTitle /><Routes>
-    <Route path="/" element={<Suspense fallback={<BootLoadingScreen />}><PixelWorld Header={Header} /></Suspense>} />
+    <Route path="/" element={<><Suspense fallback={<BootLoadingScreen />}><PixelWorld Header={Header} /></Suspense><Footer /></>} />
     <Route path="/wiki-map" element={<WikiMap />} />
     {pageOrder.map((slug) => <Route key={slug} path={`/${slug}`} element={<Article slug={slug} />} />)}
     <Route path="*" element={<Navigate to="/wiki-map" replace />} />
