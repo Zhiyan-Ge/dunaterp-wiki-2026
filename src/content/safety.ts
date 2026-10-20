@@ -11,7 +11,7 @@ export const safety: WikiPage = {
   title: 'Salt-responsive containment',
   eyebrow: 'Safety & Security',
   status: 'team-draft',
-  intro: 'We explore whether a change in salinity could help limit the persistence of engineered Dunaliella salina outside cultivation. Literature guides the design; a simple model tests the conditions under which it could work.',
+  intro: 'This page records the rationale, assumptions and model structure behind the salt-responsive containment concept. It explains why salinity was chosen as a signal, how the circuit is intended to respond and which parameters most shape the design space.',
   references: [refs.chen2009, refs.dca1, refs.mazf, refs.farhat2011, refs.gomez2005],
   sections: [
     { title: 'Why use salinity?', body: '', blocks: [
@@ -25,26 +25,6 @@ export const safety: WikiPage = {
       p('The proposed design combines salt-responsive suppression of MazF with MazE-mediated antagonism. Its intended behavior is low effective toxicity during cultivation and increased activity after a fall in salinity. Host expression, RNA-mediated suppression and the balance between MazF and MazE remain unresolved at this stage.'),
       p('MazF cleaves RNA and inhibits translation in the systems studied by Zhang et al. Their eukaryotic evidence comes from a cell-free translation system, rather than living Dunaliella cells [3]. We therefore keep growth inhibition and conditional killing as separate model cases.'),
       p('To assess the overall design without assigning unmeasured rates to every molecular step, the model uses one effective activity variable, x. It summarizes circuit behavior; it is not a measured MazF concentration.'),
-    ] },
-    { title: 'What the model shows', body: '', blocks: [
-      p('We compare the same salinity change in two environments. In the first, cells are retained while salinity falls. In the second, incoming cell-free water changes both salinity and local cell concentration. Each environment is tested with no effective switch, growth inhibition alone and a conditional lethal response.'),
-      { kind: 'safety-results' },
-      p('T99 is the first time the modeled concentration falls to 1% of its initial value. It includes growth, assumed mortality and transport. The retained-cell baseline reaches T90 at 8.3 h and T99 at 13.2 h only in the conditional-killing case. These times describe the specified scenario, rather than a measured clearance time for the engineered strain.'),
-    ] },
-    { title: 'Which assumptions matter?', body: '', blocks: [
-      p('A useful containment design must be assessed beyond its baseline. We varied response delay, effective activity, mortality and the receiving environment. The comparisons below change one input at a time in the retained-cell, conditional-killing case.'),
-      table('Selected sensitivity results · T99 for a 48 h simulation', ['Change from baseline', 'Setting', 'T99'], [
-        ['Baseline', 'No response delay; external salt 0.05 M', '13.2 h'],
-        ['Delayed response', '6 h delay', '19.1 h'],
-        ['Delayed response', '24 h delay', '37.1 h'],
-        ['Lower maximum mortality', 'Half the assumed baseline rate', '22.8 h'],
-        ['Higher maximum mortality', 'Twice the assumed baseline rate', '8.3 h'],
-        ['Slower salt change', 'Relaxation rate 0.1 h⁻¹', '27.0 h'],
-        ['More saline surroundings', 'External salt 0.50 M', '38.4 h'],
-        ['More saline surroundings', 'External salt 0.70 M', 'Not reached within 48 h'],
-      ]),
-      p('Delay, assumed mortality and the receiving salinity substantially change the result. The 0.5× and 2× changes are mathematical stress tests, and the 6 h and 24 h delays are chosen scenarios. They are not measured ranges or confidence intervals.'),
-      p('Cultivation also deserves attention. At constant 1.50 M NaCl, the baseline lethal model predicts a small residual effect and an equilibrium density of about 0.962 times the assumed carrying capacity. This calculation identifies a possible production trade-off; it does not estimate an observed biomass or product loss.'),
     ] },
     { title: 'Parameter choices and their sources', body: '', blocks: [
       p('We use literature to set the biological context and choose plausible scenarios. Where the available studies do not constrain a parameter, we state the assumption and examine its consequences.'),
