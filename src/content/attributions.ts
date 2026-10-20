@@ -157,14 +157,14 @@ export const attributions: WikiPage = {
       body: 'Public datasets, literature, software, and design resources are credited alongside the work that uses them. The project’s software and asset notices remain part of this attribution record.',
       blocks: [
         { kind: 'paragraph', text: 'The active homepage uses the repository’s original Canvas pixel world, extended with fictional NPC guides and educational games. The characters do not represent team members or stakeholder testimony. Stardew Valley is a stylistic reference; no game assets, characters, music or dialogue are redistributed.' },
-        { kind: 'paragraph', text: "The retained, inactive 3D implementation’s Rapier physics world, contact-force event loop, dynamic object synchronisation and damped follow-camera in DunaTerp are adapted from Bruno Simon's Folio 2025 under the MIT License. The scroll-constrained route, Dunaliella geometry, scientific landmarks, text and interface are project-specific; no Folio models, artwork, audio or textures are redistributed. Full notice: THIRD_PARTY_NOTICES.md in the Wiki repository." },
+        { kind: 'paragraph', text: 'The scroll-constrained route, Dunaliella geometry, scientific landmarks, text and interface are project-specific; no Folio models, artwork, audio or textures are redistributed. Full notice: THIRD_PARTY_NOTICES.md in the Wiki repository.' },
         { kind: 'paragraph', text: 'The Transcriptomics and Mathematical Modeling pages render equations and fonts locally with KaTeX 0.16.22, licensed under MIT. Source and licence notice: THIRD_PARTY_NOTICES.md in the Wiki repository.' },
         { kind: 'links', links: [{ label: 'Responsible AI use', href: '/responsible-ai' }] },
       ],
     },
     {
       title: 'Official Attributions Form',
-      body: 'The official iGEM record is displayed below once the team submits its Attributions Form. Individual statements on this page summarize the team’s contribution records.',
+      body: '',
       blocks: [{ kind: 'official-attributions' }],
     },
   ],
