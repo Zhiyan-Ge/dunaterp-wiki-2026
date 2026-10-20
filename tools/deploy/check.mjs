@@ -9,6 +9,12 @@ for (const [source, target] of Object.entries(mapping)) {
     assert.ok(fs.existsSync("public/" + target));
     continue;
   }
+  if (!/^https?:\/\//.test(target)) {
+    assert.equal(assetUrl(source), '/' + target, source);
+    assert.match(target, /^(?:figures|images|protocols)\//, target);
+    assert.ok(fs.existsSync('public/' + target), target);
+    continue;
+  }
   assert.equal(assetUrl(source), target, source);
   assert.ok(target.startsWith('https://static.igem.wiki/teams/6212/wiki/'), target);
 }

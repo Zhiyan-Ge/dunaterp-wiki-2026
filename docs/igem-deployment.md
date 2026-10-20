@@ -28,8 +28,11 @@ artifact. Duplicate images share one CDN object. An unused MSVC
 compiler debug database, misleadingly named `vc140.pdb`, is not a molecular
 structure or a website dependency and is excluded.
 
-`src/content/deploy-assets.json` maps source asset paths to official CDN URLs.
-The article renderer, wet-lab responsive SVGs and animated researcher use that
+`src/content/deploy-assets.json` maps source asset paths to official CDN URLs or
+to a small same-origin deployment asset. The five revised regulatory-model
+figures are bundled as lossless WebP files so their new versions ship with the
+code immediately; together they add about 262 KiB to the Pages artifact. The
+article renderer, wet-lab responsive SVGs and animated researcher use that
 resolver. `VITE_LOCAL_ASSETS=1` uses the previous local aliases and embedded PNG
 for the offline preview and art-check tools. Source assets remain in Git.
 
@@ -37,10 +40,11 @@ for the offline preview and art-check tools. Source assets remain in Git.
 
 `npm run build` checks TypeScript and builds the site. `npm run deploy:prepare`
 validates page asset mappings, replaces generated KaTeX font URLs and the favicon
-with their official CDN URLs, and omits CDN-hosted binary assets from the Pages artifact.
+with their official CDN URLs, omits CDN-hosted binary assets from the Pages artifact,
+and retains the explicitly mapped same-origin files.
 It enforces a 4.5 MiB estimated ZIP budget, below the official 5 MB limit. The
-checked estimate is approximately 1.02 MiB; the published bundle contains the
-application code, styles and local interactive widget.
+checked estimate is approximately 1.3 MiB; the published bundle contains the
+application code, styles, local interactive widget and five regulatory-model figures.
 
 CI uses Node 22 and the locked npm dependencies. It publishes the prepared build
 on the official default branch. Checks include ESLint, TypeScript, production

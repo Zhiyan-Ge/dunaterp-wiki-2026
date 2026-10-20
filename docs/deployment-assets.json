@@ -35,14 +35,45 @@
       "source": "public/figures/dry-lab/14_regulatory_model.png",
       "target": "public/figures/dry-lab/14_regulatory_model.webp",
       "mode": "lossless-png-to-webp",
-      "originalSha256": "aedbdf4579414a88c07a3ecbb3d7ed2580134f3535884c8e83544447b8e8bef0",
+      "originalSha256": "bc058388a914381bcda54ceb79d600d79597aba952147dfd22cb94b70b95b820",
+      "sha256": "2caddd10f86ca036565eac13ef54984e4eee83f08364063d80eba048823d3f08",
+      "bytes": 55884,
       "pixelsEqual": true
     },
     {
       "source": "public/figures/dry-lab/15_regulatory_response.png",
       "target": "public/figures/dry-lab/15_regulatory_response.webp",
       "mode": "lossless-png-to-webp",
-      "originalSha256": "72c871e5ecdef37751fe60bb00859145704dd63993e53fb7c19180a1b5aec5e6",
+      "originalSha256": "b369ebf2041b42c154dabe6037820183fccab8416d1bcf01db5483897fea9dfa",
+      "sha256": "b90ed584d2f8e5aa34c81b944bc45e0e08d99b3ec752c39f05d8b9dced1cb13c",
+      "bytes": 53638,
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/16_regulatory_dynamics.png",
+      "target": "public/figures/dry-lab/16_regulatory_dynamics.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "eab01a93ccde69e50ea3e2f2f7cafd8be6770e86d0be11062e02acc7f960d7f2",
+      "sha256": "4df8b7139b1aa5c816c607cc301159f9e3fe7203c1b467f09e7dfcd9e6ea8587",
+      "bytes": 77696,
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/17_regulatory_sweep.png",
+      "target": "public/figures/dry-lab/17_regulatory_sweep.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "910bb087e3fd63b9cd0fbce659d9bca918a3530ffcc976c82edbc0f45bbb8c69",
+      "sha256": "4cd6109c9afc088d8b0ddf81d5c674d2f38c33a5f1177e81a91e017b8ce259dc",
+      "bytes": 49192,
+      "pixelsEqual": true
+    },
+    {
+      "source": "public/figures/dry-lab/18_regulatory_sensitivity.png",
+      "target": "public/figures/dry-lab/18_regulatory_sensitivity.webp",
+      "mode": "lossless-png-to-webp",
+      "originalSha256": "123704096b0e1587c06690e015effc5505b816f09de4e91a26417769fe12948d",
+      "sha256": "39491b505e1951743304322205b6027ead0201939ff5b69afeb4082b5bf5d984",
+      "bytes": 31432,
       "pixelsEqual": true
     },
     {
