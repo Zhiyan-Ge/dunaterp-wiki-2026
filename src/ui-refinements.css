@@ -528,6 +528,7 @@ main:focus:not(:focus-visible) { outline: none; }
 }
 .article-page.article-page--wet-lab .article-hero { background-color: #d7cfb2; }
 .article-page.article-page--human-practices .article-hero { background-position: center; }
+.article-page--parts .research-table-scroll th[scope="row"] { white-space: nowrap; }
 .article-page .article-layout { padding-top: 4rem; }
 .article-page .article-toc {
   position: sticky;

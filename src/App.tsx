@@ -4,6 +4,7 @@ import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { archiveNavigation, navigation, pageOrder, pages } from "./site-data";
 import { dryLabMenuGroups } from "./content/dry-lab";
 import { ArticleBlocks } from './ArticleBlocks';
+import { renderInlineText } from './inline-text';
 import type { WikiReference } from './content/types';
 
 const PixelWorld = lazy(() => import("./PixelWorld").then((module) => ({ default: module.PixelWorld })));
@@ -165,10 +166,10 @@ function firstPageFigure(page: (typeof pages)[string]) {
 }
 
 function renderCitations(text: string, referenceNumbers: Map<string, number>) {
-  if (referenceNumbers.size === 0) return text;
+  if (referenceNumbers.size === 0) return renderInlineText(text);
   const parts = text.split(/\[(\d+)\]/g);
   return parts.map((part, index) => {
-    if (index % 2 === 0) return part;
+    if (index % 2 === 0) return renderInlineText(part);
     const number = Number(part);
     return number > 0 && number <= referenceNumbers.size
       ? <a className="inline-citation" href={`#reference-${number}`} key={`${index}-${number}`}>[{number}]</a>
@@ -434,7 +435,7 @@ function Article({ slug }: { slug: string }) {
     ...tocChapters(slug, tocSections).map((chapter) => ({ id: chapter.id, title: chapter.title })),
     ...(references.length > 0 ? [{ id: "references", title: "References" }] : []),
   ];
-  return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${isWetLab ? ' article-page--wet-lab' : ''}${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${group?.label === 'Human Practices' ? ' article-page--human-practices' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}${slug === 'experiments' ? ' article-page--experiments' : ''}${slug === 'notebook' ? ' article-page--notebook' : ''}${slug === 'team' ? ' article-page--team' : ''}${slug === 'attributions' ? ' article-page--attributions' : ''}`}>
+  return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${isWetLab ? ' article-page--wet-lab' : ''}${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${group?.label === 'Human Practices' ? ' article-page--human-practices' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}${slug === 'experiments' ? ' article-page--experiments' : ''}${slug === 'notebook' ? ' article-page--notebook' : ''}${slug === 'team' ? ' article-page--team' : ''}${slug === 'attributions' ? ' article-page--attributions' : ''}${slug === 'parts' ? ' article-page--parts' : ''}`}>
     <header className="article-hero"><div><h1>{heroTitle}</h1></div></header>
     {slug === "attributions" && page.intro && <p className="attributions-introduction">{page.intro}</p>}
     {slug === 'team' && page.intro && <p className="team-introduction">{page.intro}</p>}
