@@ -45,7 +45,6 @@ export const teamMembers: TeamMember[] = [
 export const team: WikiPage = {
   title: 'The people behind DunaTerp',
   eyebrow: 'Team',
-  intro: `Meet SCU-China 2026: ${groupLeaders.length} group leaders and ${teamMembers.length} team members working together on DunaTerp.`,
   status: 'team-draft',
   sections: [
     { title: 'Group Leaders', body: '', blocks: [{ kind: 'member-grid', members: groupLeaders }] },
