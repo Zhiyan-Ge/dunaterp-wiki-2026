@@ -3,7 +3,7 @@ import { refs } from './content/references';
 import { safety } from './content/safety';
 import { protein } from './content/protein';
 import { dryLabNavigation, dryLabIndex, hardware, hardwareDesign, metabolomics, modeling, transcriptomics } from './content/dry-lab';
-import { cooperation, education } from './content/human-practices';
+import { collaboration, cooperation, education } from './content/human-practices';
 import { stakeholderAnalysis } from './content/stakeholder-analysis';
 import { team } from './content/team';
 
@@ -30,9 +30,9 @@ export type WikiPage = {
 export const navigation: Array<{ label: string; items: ReadonlyArray<readonly [string, string]> }> = [
   { label: "Project", items: [["Description", "/project-description"], ["Contribution", "/contribution"], ["Design", "/design"], ["Experiments", "/experiments"], ["Results", "/results"], ["Engineering", "/engineering"], ["Safety", "/safety-and-security"], ["Parts", "/parts"]] },
   { label: "Dry Lab", items: dryLabNavigation },
-  { label: "Human Practices", items: [["Stakeholder Analysis", "/stakeholder-analysis"], ["Education", "/education"], ["Cooperation", "/cooperation"], ["Collaboration", "/collaboration"]] },
+  { label: "Human Practices", items: [["Stakeholder Analysis", "/stakeholder-analysis"], ["Education", "/education"], ["Cooperation", "/cooperation"]] },
   { label: "Lab", items: [["Safety", "/lab-safety"], ["Notebook", "/lab-notebook"]] },
-  { label: "Team", items: [["Team", "/team"], ["Attributions", "/attributions"]] },
+  { label: "Team", items: [["Team", "/team"], ["Attributions", "/attributions"], ["Collaboration", "/collaboration"]] },
 ];
 
 /** The compact header groups Dry Lab into its two main entrances. Indexes and
@@ -308,6 +308,7 @@ export const pages: Record<string, WikiPage> = {
   },
   education,
   cooperation,
+  collaboration,
   "stakeholder-analysis": stakeholderAnalysis,
   team,
   attributions: {

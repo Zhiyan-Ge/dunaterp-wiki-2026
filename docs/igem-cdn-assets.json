@@ -1072,10 +1072,10 @@
   },
   {
     "source": "figures/team/yinuo-wang.webp",
-    "url": "https://static.igem.wiki/teams/6212/wiki/team/yinuo-wang-7e1590b804a9.webp",
-    "sha256": "7e1590b804a980c0c18ce27b16646c90a643a5cfa0f37e8135463a78b6d9927d",
+    "url": "https://static.igem.wiki/teams/6212/wiki/team/yinuo-wang-434cdb4f2709.webp",
+    "sha256": "434cdb4f270968ab8b6fa8eae12dd957d53d7296b18b99cac0b413110eee8898",
     "sourceSha256": "a518df3b35e086043d251e6e37c18559075ec93d159d8410e11bab293e9708e3",
-    "bytes": 499430
+    "bytes": 547252
   },
   {
     "source": "figures/team/jianye-wang.webp",
@@ -1139,5 +1139,54 @@
     "sha256": "73add8816dcdd1ec8a03a765d8be8618a9daffe30b5dc7b1e73ea313402fa796",
     "sourceSha256": "46d2848a2d761e98f93641134046921ff428172fdcb8887d5acbe8b0d87724e7",
     "bytes": 114198
+  },
+  {
+    "source": "figures/hp/collaboration-6.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/hp/hp-collaboration-6-11407ede9abd.webp",
+    "sha256": "11407ede9abdd470f1d64474355d90071595a50f5215ce78f2c1a5cb3ab3cea5",
+    "sourceSha256": "6ad6f60c141e7dee432c58b44aca68470836495ec74d163fbce0055860d66d26",
+    "bytes": 93206
+  },
+  {
+    "source": "figures/hp/collaboration-7.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/hp/hp-collaboration-7-1b2c65734456.webp",
+    "sha256": "1b2c657344567bf8d3487022aee120f80d84e4ca6807401ac0cf703d04e2922d",
+    "sourceSha256": "a9618b9a05ebf1a04a592d9a1fcfc069b5cb3a9cc959ff25971a5c01e7fc7178",
+    "bytes": 298348
+  },
+  {
+    "source": "figures/hp/cooperation-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/hp/hp-cooperation-1-dc844ee19a6a.webp",
+    "sha256": "dc844ee19a6a0f450457be93c6d9d493194c0dcca4d5d1c7e91add5e3b3e5706",
+    "sourceSha256": "74031d110a1d4b30208c44475df7639132f7c301c30c926b9f1869c60d0786a1",
+    "bytes": 47198
+  },
+  {
+    "source": "figures/hp/cooperation-4-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/hp/hp-cooperation-4-1-55c14f56913b.webp",
+    "sha256": "55c14f56913b9b81826b768b5baff1fe9ea7f2dc0e9287793786162e8118a0dc",
+    "sourceSha256": "f0a860946a5be3a05ecc915910ef8017da25597041bf7a3dcc40835d9cd5f164",
+    "bytes": 112160
+  },
+  {
+    "source": "figures/hp/cooperation-4-2.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/hp/hp-cooperation-4-2-43a7cdf17088.webp",
+    "sha256": "43a7cdf17088f0366e6ca93db940c803814e77b2de0f0242f7057357755b7d5b",
+    "sourceSha256": "046bb3830b8823d906b83e9dc5d2514152317a73a9b151e08b72fb24cd46a29e",
+    "bytes": 131656
+  },
+  {
+    "source": "protocols/hp/responsible-ai-practice-handbook.pdf",
+    "url": "https://static.igem.wiki/teams/6212/wiki/hp/hp-responsible-ai-practice-handbook-cca16a417372.pdf",
+    "sha256": "cca16a41737223a16e1b8fb24f6bd54930e99cef19e8723fec0ad97eac8cc8e0",
+    "sourceSha256": "cca16a41737223a16e1b8fb24f6bd54930e99cef19e8723fec0ad97eac8cc8e0",
+    "bytes": 8096261
+  },
+  {
+    "source": "protocols/hp/synthetic-biology-education-practice-handbook.pdf",
+    "url": "https://static.igem.wiki/teams/6212/wiki/hp/hp-synthetic-biology-education-practice-handbook-8fd573afd33a.pdf",
+    "sha256": "8fd573afd33a16fd158ec0040482f8178156de7ef0e9fea7ba1d12e8d7aa0f03",
+    "sourceSha256": "8fd573afd33a16fd158ec0040482f8178156de7ef0e9fea7ba1d12e8d7aa0f03",
+    "bytes": 9872315
   }
 ]

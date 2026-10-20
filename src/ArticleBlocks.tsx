@@ -68,7 +68,7 @@ function ProtocolPdf({ block }: { block: Extract<ContentBlock, { kind: 'pdf' }> 
   return <div className="protocol-pdf">
     <div className="protocol-pdf__actions">
       <a href={src} target="_blank" rel="noreferrer">Open PDF ↗</a>
-      <a href={resolveAsset(block.downloadSrc)} download>Download original DOCX ↧</a>
+      <a href={resolveAsset(block.downloadSrc)} download>{block.downloadLabel ?? 'Download original DOCX'} ↧</a>
     </div>
     <iframe src={`${src}#view=FitH`} title={block.label} loading="lazy" />
   </div>;

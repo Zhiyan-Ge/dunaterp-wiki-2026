@@ -120,7 +120,7 @@ const panelGroups: PanelGroup[] = [
     accent: "#f8cb54",
     links: [
       { label: "Education", href: "/education", note: "Dialogue and reusable learning" },
-      { label: "Cooperation", href: "/cooperation", note: "Exchange across teams and communities" },
+      { label: "Cooperation", href: "/cooperation", note: "Industry and regulatory exchange" },
     ],
   },
   {
@@ -133,6 +133,7 @@ const panelGroups: PanelGroup[] = [
     links: [
       { label: "Team", href: "/team", note: "Students, PIs, instructors and advisors" },
       { label: "Attributions", href: "/attributions", note: "A transparent division of work" },
+      { label: "Collaboration", href: "/collaboration", note: "Exchange across iGEM teams" },
       { label: "Complete Wiki Map", href: "/wiki-map", note: "Every standard route in one place" },
     ],
   },

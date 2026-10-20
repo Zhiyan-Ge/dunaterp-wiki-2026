@@ -85,6 +85,11 @@
   "figures/hp/figure-7-2.webp": "figures/hp/figure-7-2.webp",
   "figures/hp/figure-8.webp": "figures/hp/figure-8.webp",
   "figures/hp/figure-9.webp": "figures/hp/figure-9.webp",
+  "figures/hp/collaboration-6.webp": "https://static.igem.wiki/teams/6212/wiki/hp/hp-collaboration-6-11407ede9abd.webp",
+  "figures/hp/collaboration-7.webp": "https://static.igem.wiki/teams/6212/wiki/hp/hp-collaboration-7-1b2c65734456.webp",
+  "figures/hp/cooperation-1.webp": "https://static.igem.wiki/teams/6212/wiki/hp/hp-cooperation-1-dc844ee19a6a.webp",
+  "figures/hp/cooperation-4-1.webp": "https://static.igem.wiki/teams/6212/wiki/hp/hp-cooperation-4-1-55c14f56913b.webp",
+  "figures/hp/cooperation-4-2.webp": "https://static.igem.wiki/teams/6212/wiki/hp/hp-cooperation-4-2-43a7cdf17088.webp",
   "figures/hp/stakeholder-1.webp": "figures/hp/stakeholder-1.webp",
   "figures/hp/stakeholder-2-1.webp": "figures/hp/stakeholder-2-1.webp",
   "figures/hp/stakeholder-2-2.webp": "figures/hp/stakeholder-2-2.webp",
@@ -94,5 +99,8 @@
   "images/great-salt-lake-iss063-e-40184.jpg": "images/great-salt-lake-iss063-e-40184.webp",
   "images/heroes/dry-lab.webp": "images/heroes/dry-lab.webp",
   "images/heroes/human-practices.webp": "images/heroes/human-practices.webp",
-  "images/heroes/people.webp": "images/heroes/people.webp"
+  "images/heroes/people.webp": "images/heroes/people.webp",
+  "protocols/hp/responsible-ai-practice-handbook.pdf": "https://static.igem.wiki/teams/6212/wiki/hp/hp-responsible-ai-practice-handbook-cca16a417372.pdf",
+  "protocols/hp/synthetic-biology-education-practice-handbook.pdf": "https://static.igem.wiki/teams/6212/wiki/hp/hp-synthetic-biology-education-practice-handbook-8fd573afd33a.pdf",
+  "figures/team/yinuo-wang.webp": "https://static.igem.wiki/teams/6212/wiki/team/yinuo-wang-434cdb4f2709.webp"
 }

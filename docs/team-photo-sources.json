@@ -210,14 +210,15 @@
       "source": "figures/team/yinuo-wang.webp",
       "original": "Yinuo Wang.jpg",
       "sourceSha256": "a518df3b35e086043d251e6e37c18559075ec93d159d8410e11bab293e9708e3",
-      "sha256": "7e1590b804a980c0c18ce27b16646c90a643a5cfa0f37e8135463a78b6d9927d",
-      "bytes": 499430,
+      "sha256": "434cdb4f270968ab8b6fa8eae12dd957d53d7296b18b99cac0b413110eee8898",
+      "bytes": 547252,
       "width": 1600,
       "height": 2000,
       "originalWidth": 3128,
       "originalHeight": 3128,
-      "uploadFile": "figures/team/yinuo-wang-7e1590b804a9.webp",
-      "url": "https://static.igem.wiki/teams/6212/wiki/team/yinuo-wang-7e1590b804a9.webp"
+      "crop": { "x": 604, "y": 700, "width": 1920, "height": 2400 },
+      "uploadFile": "figures/team/yinuo-wang-434cdb4f2709.webp",
+      "url": "https://static.igem.wiki/teams/6212/wiki/team/yinuo-wang-434cdb4f2709.webp"
     },
     {
       "source": "figures/team/jianye-wang.webp",

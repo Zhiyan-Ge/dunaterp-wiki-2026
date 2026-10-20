@@ -34,13 +34,14 @@ repository.
 
 ## 2. Create a command-line iGEM session
 
-Run these commands in a private terminal. They deliberately read the password
-without echoing it and keep the short-lived session cookie outside the project.
-Never paste a password, cookie or token into documentation or a commit.
+The iGEM login is stored in macOS Keychain under `api.igem.org`, so it only has
+to be entered once. The password is never written to the repository, a script
+or a plain-text configuration file. The session cookie remains short-lived and
+outside the project.
+
+On the first upload, save the login securely:
 
 ```sh
-IGEM_COOKIE_JAR="$(mktemp -t igem-cookie.XXXXXX)"
-chmod 600 "$IGEM_COOKIE_JAR"
 printf 'iGEM identifier: '
 IFS= read -r IGEM_IDENTIFIER
 printf 'iGEM password: '
@@ -48,6 +49,21 @@ stty -echo
 IFS= read -r IGEM_PASSWORD
 stty echo
 printf '\n'
+
+printf 'protocol=https\nhost=api.igem.org\npath=v1/auth/sign-in\nusername=%s\npassword=%s\n\n' \
+  "$IGEM_IDENTIFIER" "$IGEM_PASSWORD" | git credential-osxkeychain store
+unset IGEM_PASSWORD
+```
+
+For this and later uploads, retrieve the login and create a session:
+
+```sh
+IGEM_CREDENTIAL="$(printf 'protocol=https\nhost=api.igem.org\npath=v1/auth/sign-in\n\n' \
+  | git credential-osxkeychain get)"
+IGEM_IDENTIFIER="$(printf '%s\n' "$IGEM_CREDENTIAL" | sed -n 's/^username=//p')"
+IGEM_PASSWORD="$(printf '%s\n' "$IGEM_CREDENTIAL" | sed -n 's/^password=//p')"
+IGEM_COOKIE_JAR="$(mktemp -t igem-cookie.XXXXXX)"
+chmod 600 "$IGEM_COOKIE_JAR"
 
 curl -fsS \
   -c "$IGEM_COOKIE_JAR" \
@@ -58,9 +74,17 @@ curl -fsS \
     '{identifier: $identifier, password: $password}')" \
   'https://api.igem.org/v1/auth/sign-in' >/dev/null
 
-unset IGEM_PASSWORD
+unset IGEM_PASSWORD IGEM_CREDENTIAL
 curl -fsS -b "$IGEM_COOKIE_JAR" \
   'https://api.igem.org/v1/auth/me' | jq '{username, firstName, lastName}'
+```
+
+If the password changes, remove the saved item and run the first-upload block
+again:
+
+```sh
+printf 'protocol=https\nhost=api.igem.org\npath=v1/auth/sign-in\n\n' \
+  | git credential-osxkeychain erase
 ```
 
 ## 3. Upload to the official Wiki repository
