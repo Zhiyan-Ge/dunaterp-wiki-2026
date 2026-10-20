@@ -28,7 +28,7 @@ export type WikiPage = {
 };
 
 export const navigation: Array<{ label: string; items: ReadonlyArray<readonly [string, string]> }> = [
-  { label: "Project", items: [["Description", "/project-description"], ["Contribution", "/contribution"], ["Design", "/design"], ["Experiments", "/experiments"], ["Results", "/results"], ["Engineering", "/engineering"], ["Safety", "/safety-and-security"], ["Parts", "/parts"]] },
+  { label: "Project", items: [["Description", "/project-description"], ["Contribution", "/contribution"], ["Design", "/design"], ["Experiments", "/experiments"], ["Results", "/results"], ["Engineering", "/engineering"], ["Parts", "/parts"]] },
   { label: "Dry Lab", items: dryLabNavigation },
   { label: "Human Practices", items: [["Stakeholder Analysis", "/stakeholder-analysis"], ["Education", "/education"], ["Cooperation", "/cooperation"]] },
   { label: "Lab", items: [["Safety", "/lab-safety"], ["Notebook", "/lab-notebook"]] },
@@ -45,6 +45,7 @@ export const archiveNavigation = navigation.map((group) => group.label === "Dry 
         ["Mathematical Modeling", "/model"],
         ["Metabolomics", "/metabolomics"],
         ["Protein", "/protein"],
+        ["Safety", "/safety-and-security"],
         ["Hardware Modeling", "/hardware"],
         ["Hardware Design", "/hardware-design"],
       ] as const,

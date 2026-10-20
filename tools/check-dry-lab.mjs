@@ -20,6 +20,7 @@ try {
     ['Protein', '/protein'],
     ['Hardware Modeling', '/hardware'],
     ['Hardware Design', '/hardware-design'],
+    ['Safety', '/safety-and-security'],
   ]);
   assert.equal(new Set(pageOrder).size, pageOrder.length);
   for (const [, href] of items) assert(pages[href.slice(1)], `Missing route ${href}`);
@@ -128,7 +129,7 @@ try {
   assert.equal(figures,18);
   const workflow = fs.readFileSync('.github/workflows/pages.yml','utf8');
   for(const slug of ['dry-lab','transcriptomics','metabolomics','protein','model','hardware','hardware-design']) assert(workflow.includes(`            ${slug} \\`));
-  console.log(`Dry Lab checks passed: complete seven-entry navigation, populated protein and safety pages, ${figures} figures, ${tables} tables, three explicit transcriptomics contrasts and 5 core ODEs.`);
+  console.log(`Dry Lab checks passed: complete eight-entry navigation, populated protein and safety pages, ${figures} figures, ${tables} tables, three explicit transcriptomics contrasts and 5 core ODEs.`);
 } finally {
   await server.close();
 }
