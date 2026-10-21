@@ -1,6 +1,6 @@
 import type { WikiPage } from '../site-data';
 
-// Follows DunaTerp_Description.docx; CAGR corrected to 8.61% after team review.
+// Follows DunaTerp_Description .改.docx; CAGR corrected to 8.61% after team review.
 export const projectDescription: WikiPage = {
   "title": "Project Description",
   "eyebrow": "Description",
@@ -70,78 +70,54 @@ export const projectDescription: WikiPage = {
       "kind": "Article"
     },
     {
-      "label": "Progress and prospects in metabolic engineering approaches for isoprenoid biosynthesis in microalgae[J/OL]. https://pmc.ncbi.nlm.nih.gov/articles/PMC12175399/.",
+      "label": "Mohamadnia S, Valverde-Pérez B, Tavakoli O, Angelidaki I. Progress and prospects in metabolic engineering approaches for isoprenoid biosynthesis in microalgae. Biotechnol Biofuels Bioprod. 2025;18(1):64.",
       "labelRuns": [
         {
-          "text": "Progress and prospects in metabolic engineering approaches for isoprenoid biosynthesis in microalgae[J/OL]. "
-        },
-        {
-          "text": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12175399/",
-          "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12175399/"
-        },
-        {
-          "text": "."
-        }
-      ],
-      "kind": "Article",
-      "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12175399/"
-    },
-    {
-      "label": "Optimization of the four most effective factors on β-carotene production by Dunaliella salina using response surface methodology[J/OL]. https://pmc.ncbi.nlm.nih.gov/articles/PMC6934969/.",
-      "labelRuns": [
-        {
-          "text": "Optimization of the four most effective factors on β-carotene production by "
-        },
-        {
-          "text": "Dunaliella salina",
-          "italic": true
-        },
-        {
-          "text": " using response surface methodology[J/OL]. "
-        },
-        {
-          "text": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6934969/",
-          "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6934969/"
-        },
-        {
-          "text": "."
-        }
-      ],
-      "kind": "Article",
-      "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6934969/"
-    },
-    {
-      "label": "Environmental and biotechnological potential of Dunaliella salina for sustainable environmental applications[J/OL]. Ecological Engineering & Environmental Technology.",
-      "labelRuns": [
-        {
-          "text": "Environmental and biotechnological potential of "
-        },
-        {
-          "text": "Dunaliella salina",
-          "italic": true
-        },
-        {
-          "text": " for sustainable environmental applications[J/OL]. Ecological Engineering & Environmental Technology. "
+          "text": "Mohamadnia S, Valverde-Pérez B, Tavakoli O, Angelidaki I. Progress and prospects in metabolic engineering approaches for isoprenoid biosynthesis in microalgae. Biotechnol Biofuels Bioprod. 2025;18(1):64."
         }
       ],
       "kind": "Article"
     },
     {
-      "label": "β-Ionone: its occurrence and biological function and metabolic engineering[J/OL]. https://pmc.ncbi.nlm.nih.gov/articles/PMC8069406/.",
+      "label": "Zarandi-Miandoab L, Hejazi MA, Bagherieh-Najjar MB, Chaparzadeh N. Optimization of the Four Most Effective Factors on β-Carotene Production by Dunaliella salina Using Response Surface Methodology. Iran J Pharm Res. 2019;18(3):1566-1579.",
       "labelRuns": [
         {
-          "text": "β-Ionone: its occurrence and biological function and metabolic engineering[J/OL]. "
+          "text": "Zarandi-Miandoab L, Hejazi MA, Bagherieh-Najjar MB, Chaparzadeh N. Optimization of the Four Most Effective Factors on β-Carotene Production by "
         },
         {
-          "text": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8069406/",
-          "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8069406/"
+          "text": "Dunaliella salina",
+          "italic": true
         },
         {
-          "text": "."
+          "text": " Using Response Surface Methodology. Iran J Pharm Res. 2019;18(3):1566-1579."
         }
       ],
-      "kind": "Article",
-      "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8069406/"
+      "kind": "Article"
+    },
+    {
+      "label": "Haouazine Y, et al. Environmental and biotechnological potential of Dunaliella salina for sustainable environmental applications. Ecological Engineering & Environmental Technology. 2025.",
+      "labelRuns": [
+        {
+          "text": "Haouazine Y, et al. Environmental and biotechnological potential of "
+        },
+        {
+          "text": "Dunaliella salina",
+          "italic": true
+        },
+        {
+          "text": " for sustainable environmental applications. Ecological Engineering & Environmental Technology. 2025."
+        }
+      ],
+      "kind": "Article"
+    },
+    {
+      "label": "Paparella A, Shaltiel-Harpaza L, Ibdah M. β-Ionone: Its Occurrence and Biological Function and Metabolic Engineering. Plants (Basel). 2021;10(4):754.",
+      "labelRuns": [
+        {
+          "text": "Paparella A, Shaltiel-Harpaza L, Ibdah M. β-Ionone: Its Occurrence and Biological Function and Metabolic Engineering. Plants (Basel). 2021;10(4):754."
+        }
+      ],
+      "kind": "Article"
     },
     {
       "label": "Team: MSP-Maastricht. Kill-Switch (MazE/MazF toxin-antitoxin system)[EB/OL]. iGEM 2023. https://2023.igem.wiki/msp-maastricht/kill-switch.html.",
@@ -369,7 +345,7 @@ export const projectDescription: WikiPage = {
         {
           "kind": "figure",
           "src": "/figures/description/02-chassis-benefits.png",
-          "alt": "Biological mechanisms and nutritional benefits of Dunaliella salina (Alagawany et al., 2025)",
+          "alt": "Biological mechanisms and nutritional benefits of Dunaliella salina",
           "caption": "Fig. 2 Biological mechanisms and nutritional benefits of Dunaliella salina [10]",
           "captionRuns": [
             {
@@ -496,6 +472,28 @@ export const projectDescription: WikiPage = {
           "kind": "document-paragraph",
           "runs": [
             {
+              "text": "To work within the current limits of "
+            },
+            {
+              "text": "D. salina",
+              "italic": true
+            },
+            {
+              "text": "'s genetic toolkit, we use endogenous strong promoters (e.g., "
+            },
+            {
+              "text": "RBCS2",
+              "italic": true
+            },
+            {
+              "text": ") and codon-optimized sequences to improve expression stability."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
               "text": "DunaTerp is built from three integrated parts:",
               "bold": true
             }
@@ -505,7 +503,7 @@ export const projectDescription: WikiPage = {
           "kind": "document-paragraph",
           "runs": [
             {
-              "text": "Chassis flux optimization:We introduce CPP-family transcription factors to redirect lycopene flux toward β-carotene, enlarging the common precursor pool; a genome-scale metabolic model analyzed with COBRA guides the flux-redirection strategy (see Modeling)."
+              "text": "Chassis flux optimization:We introduce CPP-family transcription factors that simultaneously activate the β-carotene synthesis pathway and suppress competing downstream branches, redirecting the metabolic flux toward β-carotene; a genome-scale metabolic model analyzed with COBRA guides the flux-redirection strategy (see Modeling)."
             }
           ]
         },
@@ -513,7 +511,7 @@ export const projectDescription: WikiPage = {
           "kind": "document-paragraph",
           "runs": [
             {
-              "text": "Product pipelines built on the shared β-carotene hub:(a) Carotenoid, astaxanthin: introducing the "
+              "text": "Product pipelines built on the shared β-carotene hub:β-carotene serves as the common precursor for all downstream products described below (a) Carotenoid, astaxanthin: introducing the "
             },
             {
               "text": "Haematococcus pluvialis",
@@ -604,7 +602,7 @@ export const projectDescription: WikiPage = {
               "italic": true
             },
             {
-              "text": " biosafety switch:Engineered algae grow normally in high-salt medium; if they escape into a low-salt natural environment, withdrawal of the salt-controlled antitoxin lets unstable MazE degrade, exposing the MazF mRNA interferase and triggering automatic cell death"
+              "text": " biosafety switch:Engineered algae grow normally in high-salt medium; if they escape into a low-salt natural environment, withdrawal of the salt-controlled antitoxin lets unstable MazE degrade, releasing MazF to interfere with mRNA and trigger cell death"
             },
             {
               "text": "[9]",
@@ -633,6 +631,21 @@ export const projectDescription: WikiPage = {
           "runs": [
             {
               "text": "We have also sketched an industrial vision: food ingredients produced in sunlit photobioreactors rather than chemical plants — more natural nutrition, cleaner labels, and sustainable, CO₂-consuming production. For more information, please refer to the Modeling."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "In summary, DunaTerp demonstrates that "
+            },
+            {
+              "text": "D. salina",
+              "italic": true
+            },
+            {
+              "text": " can be engineered from a β-carotene-accumulating alga into a modular terpenoid platform. Beyond the four pipelines shown here, the shared β-carotene hub and interchangeable enzyme cassettes can be extended to other carotenoid-derived products, offering a generalizable, food-grade chassis for sustainable terpenoid supply."
             }
           ]
         }
