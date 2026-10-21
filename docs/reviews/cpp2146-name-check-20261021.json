@@ -11,7 +11,7 @@
     "source": "public/figures/dry-lab/tf2146-structure.svg",
     "new": "public/figures/dry-lab/cpp2146-structure.svg",
     "sourceSha256": "dbb4e73fb4b695d0b00859391ae5156ebecd85d9c6439bcd3348cb04399096a2",
-    "newSha256": "7e12763a586c98db3dffb00f706ec7a0c2cfdf339b6863a8db66fadb94be49d4",
+    "newSha256": "7d93b53580b989019e230890cda19dd9de9d511cbd24416c4a1b491d0a266c3f",
     "geometry": "All paths outside the old title retained exactly; only the title label and title metadata changed."
   }
 }

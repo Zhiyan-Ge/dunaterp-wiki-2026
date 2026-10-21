@@ -433,7 +433,7 @@
    <path d="M 380.448 428.637656  L 399.888 428.637656  " style="fill: none; stroke: #285747; stroke-width: 4; stroke-linecap: round" />
   </g>
   <g id="text_1"><text x="7.2" y="18.597656" fill="#173f35" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700">CPP2146 · CXC-RICH N-TERMINAL STRUCTURE</text></g><g id="text_2">
-   
+
    <g style="fill: #5e746a" transform="translate(7.2 40.305656) scale(0.105 -0.105)">
     <defs>
      <path id="DejaVuSans-50" d="M 1259 4147  L 1259 2394  L 2053 2394  Q 2494 2394 2734 2622  Q 2975 2850 2975 3272  Q 2975 3691 2734 3919  Q 2494 4147 2053 4147  L 1259 4147  z M 628 4666  L 2053 4666  Q 2838 4666 3239 4311  Q 3641 3956 3641 3272  Q 3641 2581 3239 2228  Q 2838 1875 2053 1875  L 1259 1875  L 1259 0  L 628 0  L 628 4666  z " transform="scale(0.015625)" />
@@ -543,7 +543,7 @@
    </g>
   </g>
   <g id="text_3">
-   
+
    <g style="fill: #4d655b" transform="translate(63.9648 432.496856) scale(0.09 -0.09)">
     <defs>
      <path id="DejaVuSans-43" d="M 4122 4306  L 4122 3641  Q 3803 3938 3442 4084  Q 3081 4231 2675 4231  Q 1875 4231 1450 3742  Q 1025 3253 1025 2328  Q 1025 1406 1450 917  Q 1875 428 2675 428  Q 3081 428 3442 575  Q 3803 722 4122 1019  L 4122 359  Q 3791 134 3420 21  Q 3050 -91 2638 -91  Q 1578 -91 968 557  Q 359 1206 359 2328  Q 359 3453 968 4101  Q 1578 4750 2638 4750  Q 3056 4750 3426 4639  Q 3797 4528 4122 4306  z " transform="scale(0.015625)" />
@@ -565,7 +565,7 @@
    </g>
   </g>
   <g id="text_4">
-   
+
    <g style="fill: #4d655b" transform="translate(235.0368 432.496856) scale(0.09 -0.09)">
     <use xlink:href="#DejaVuSans-43" />
     <use xlink:href="#DejaVuSans-58" x="69.824219" />
@@ -584,7 +584,7 @@
    </g>
   </g>
   <g id="text_5">
-   
+
    <g style="fill: #4d655b" transform="translate(406.1088 432.496856) scale(0.09 -0.09)">
     <use xlink:href="#DejaVuSans-43" />
     <use xlink:href="#DejaVuSans-6f" x="69.824219" />

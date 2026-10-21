@@ -24,5 +24,6 @@ for node in root.iter():
         node.text = node.text.replace('TF2146', 'CPP2146')
 geometry_after = [ET.tostring(node) for node in root.iter(SVG+'path')]
 assert geometry_before == geometry_after, 'Structure geometry changed'
-tree.write(OUTPUT, encoding='utf-8', xml_declaration=True)
+serialized = ET.tostring(root, encoding='utf-8', xml_declaration=True)
+OUTPUT.write_bytes(b'\n'.join(line.rstrip() for line in serialized.splitlines()) + b'\n')
 print(f'Wrote {OUTPUT.name}; molecular geometry unchanged')
