@@ -9,9 +9,9 @@ export function StoryIllustration({ beat }: { beat: StoryBeat }) {
     case "resources":
       return <div className="story-items">
         {([
-          ["food", "Food · nutrition · materials"],
+          ["food", "Food, nutrition and materials"],
           ["plant", "Plant extraction"],
-          ["pigment", "Chemical + microbial routes"],
+          ["pigment", "Chemical and microbial routes"],
         ] as const).map(([kind, label], index) => <div className="story-item" key={kind} style={stagger(index)}><StoryGlyph kind={kind} /><span>{label}</span></div>)}
       </div>;
 
