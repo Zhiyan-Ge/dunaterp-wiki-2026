@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "Duna Sans";
+  src: url("https://static.igem.wiki/teams/6212/wiki/site-fonts/inter-italic-81a8eabd9230.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Duna Sans";
+  src: url("https://static.igem.wiki/teams/6212/wiki/site-fonts/inter-normal-bdb83e4379ec.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Duna Serif";
+  src: url("https://static.igem.wiki/teams/6212/wiki/site-fonts/gelasio-italic-fdab8481ae10.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Duna Serif";
+  src: url("https://static.igem.wiki/teams/6212/wiki/site-fonts/gelasio-normal-db01fc79c217.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Duna Mono";
+  src: url("https://static.igem.wiki/teams/6212/wiki/site-fonts/notosansmono-normal-d00e942a994d.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --font-sans: "Duna Sans", sans-serif;
+  --font-serif: "Duna Serif", "Duna Sans", serif;
+  --font-mono: "Duna Mono", monospace;
+  font-synthesis: none;
+}
+
+/* Keep the team/year lockup intact with the hosted font on narrow screens. */
+.site-header .brand small { white-space: nowrap; }
+@media (max-width: 360px) {
+  .site-header .brand small { font-size: .625rem; letter-spacing: .04em; }
+}

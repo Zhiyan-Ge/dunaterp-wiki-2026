@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, HashRouter } from "react-router-dom";
 import App from "./App";
+import "./typography.css";
 import "./styles.css";
 import "./ui-refinements.css";
 import "./pixel.css";

@@ -2007,5 +2007,40 @@
     "sha256": "5e58d88f7401df3e6f4e7c284cf85f3a59864150c3eba452849dd2954541c9a6",
     "sourceSha256": "f2d93b6eee9b045f3e9277971a978be7d7a8ea111f44b69de6ad436e8039bbdc",
     "bytes": 78732
+  },
+  {
+    "source": "fonts/site/inter-italic-81a8eabd9230.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/site-fonts/inter-italic-81a8eabd9230.woff2",
+    "sha256": "81a8eabd9230c9d59349447c8d16291673898984a67991dfe7fa8c4c68deba61",
+    "sourceSha256": "acd98e64795781b2058f07b18475e0ecee2a0fe2b42a49e2f9e37d0d6bf66ce6",
+    "bytes": 386308
+  },
+  {
+    "source": "fonts/site/inter-normal-bdb83e4379ec.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/site-fonts/inter-normal-bdb83e4379ec.woff2",
+    "sha256": "bdb83e4379ecfea4bd3d35553e56e0b8f362342d1e260117fb24dfb975690482",
+    "sourceSha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+    "bytes": 350916
+  },
+  {
+    "source": "fonts/site/gelasio-italic-fdab8481ae10.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/site-fonts/gelasio-italic-fdab8481ae10.woff2",
+    "sha256": "fdab8481ae1041d2456dc5f733d62035b3744d57202c8c2abd20ec975ecf8cbe",
+    "sourceSha256": "52559e845a4d33514e5f93bb9ae7dbeae1894a53f2c565a15f18af40cd337c09",
+    "bytes": 80252
+  },
+  {
+    "source": "fonts/site/gelasio-normal-db01fc79c217.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/site-fonts/gelasio-normal-db01fc79c217.woff2",
+    "sha256": "db01fc79c217ae840f45ca62bd7152c6119fc90a742e1e19eae2d02e25f0badc",
+    "sourceSha256": "4daecea457258c9ebeb8bc99ed3fd24353618bfad3ea4b93fa0b5d0468fc04e4",
+    "bytes": 72760
+  },
+  {
+    "source": "fonts/site/notosansmono-normal-d00e942a994d.woff2",
+    "url": "https://static.igem.wiki/teams/6212/wiki/site-fonts/notosansmono-normal-d00e942a994d.woff2",
+    "sha256": "d00e942a994dfa32545b1b0ff70b9edebbe7c8e5bd70f0f8a1c147ec245d6f6f",
+    "sourceSha256": "2cb2adb378a8f574213e23df697050b83c54c27df465a2015552740b2769a081",
+    "bytes": 734612
   }
 ]

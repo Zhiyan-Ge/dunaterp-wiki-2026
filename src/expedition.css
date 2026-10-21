@@ -20,7 +20,7 @@
   --ej-warn: #f7a52d;
   --ej-good: #a8dc3c;
   color: var(--ej-salt);
-  font-family: ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, monospace;
+  font-family: var(--font-mono);
 }
 
 .ej-shell button {
@@ -42,7 +42,7 @@
   color: var(--ej-ink);
   box-shadow: 5px 5px 0 rgba(6, 34, 31, .76);
   cursor: pointer;
-  font: 800 .82rem/1 ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, monospace;
+  font: 800 .82rem/1 var(--font-mono);
   letter-spacing: .1em;
   text-transform: uppercase;
   transition: transform .08s steps(2), box-shadow .08s steps(2);
@@ -138,7 +138,7 @@
 .ej-header__dek {
   max-width: 46rem;
   margin: .75rem 0 0;
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 650;
   line-height: 1.55;
@@ -311,7 +311,7 @@
 }
 
 .ej-npc-card__copy > span {
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 750;
 }
@@ -413,7 +413,7 @@
 .ej-conversation__identity > div > p:last-child {
   margin: .35rem 0 0;
   color: rgba(253, 246, 227, .68);
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.875rem;
 }
 
@@ -455,7 +455,7 @@
 .ej-speech p {
   position: relative;
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.98rem;
   font-weight: 650;
   line-height: 1.65;
@@ -515,7 +515,7 @@
   border-left: 4px solid var(--ej-lime);
   background: rgba(6, 34, 31, .55);
   color: rgba(253, 246, 227, .88);
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.88rem;
   line-height: 1.6;
 }
@@ -622,7 +622,7 @@
   max-width: 60ch;
   margin: .8rem 0 1rem;
   color: rgba(253, 246, 227, .74);
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.875rem;
   line-height: 1.55;
 }
@@ -706,7 +706,7 @@
 .ej-choice span {
   display: block;
   margin-top: .35rem;
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.875rem;
   line-height: 1.35;
 }
@@ -731,7 +731,7 @@
 .ej-sort-card p {
   margin: .5rem 0 0;
   color: var(--ej-salt);
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.9rem;
   font-weight: 700;
   line-height: 1.5;
@@ -763,7 +763,7 @@
   border-left: 4px solid var(--ej-wood-light);
   background: rgba(253, 246, 227, .06);
   color: rgba(253, 246, 227, .8);
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.875rem;
   line-height: 1.45;
 }
@@ -771,7 +771,7 @@
 .ej-feedback > span {
   flex: 0 0 auto;
   color: var(--ej-wood-light);
-  font-family: ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-weight: 900;
 }
 
@@ -834,7 +834,7 @@
 .ej-footer p {
   margin: 0;
   color: rgba(253, 246, 227, .72);
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.875rem;
   line-height: 1.45;
 }

@@ -21,6 +21,7 @@ function visit(value) {
 }
 visit(pages);
 const fonts = new Map(manifest.filter(a => a.source.startsWith('fonts/')).map(a => [a.sha256, a.url]));
+const hostedFontUrls = new Set(fonts.values());
 const fontUrls = new Map();
 for (const file of walk('dist/assets').filter(f => f.endsWith('.woff2'))) {
   const hash = crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
@@ -32,7 +33,9 @@ for (const file of walk('dist/assets').filter(f => f.endsWith('.css'))) {
   let css = fs.readFileSync(file, 'utf8').replace(/,\s*url\([^)]*\.(?:woff|ttf)["']?\)\s*format\([^)]*\)/g, '');
   css = css.replace(/url\(([^)]*\.woff2)\)/g, (_, src) => {
     const clean = src.replace(/["']/g, '');
-    const url = fontUrls.get(path.basename(clean));
+    const url = /^https?:\/\//.test(clean)
+      ? (hostedFontUrls.has(clean) ? clean : undefined)
+      : fontUrls.get(path.basename(clean));
     if (!url) throw new Error(`Missing font URL: ${src}`);
     return `url("${url}")`;
   });

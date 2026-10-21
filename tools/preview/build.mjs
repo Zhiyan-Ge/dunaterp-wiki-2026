@@ -12,7 +12,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const out = path.join(here, ".out");
 const publicDir = path.join(here, "..", "..", "public");
 
-const mime = { ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".webp": "image/webp" };
+const mime = { ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".webp": "image/webp", ".woff2": "font/woff2" };
 
 function dataUri(file) {
   const ext = path.extname(file).toLowerCase();
@@ -43,10 +43,14 @@ html = html.replace(/<script[^>]*src="([^"]+)"[^>]*><\/script>/g, (_, src) => {
 
 // Inline the favicon and every public image referenced by the application.
 html = html.replace(/href="\.\/favicon\.svg"/g, () => `href="${dataUri(path.join(publicDir, "favicon.svg"))}"`);
-for (const directory of ["figures"]) {
+const fontAssets = JSON.parse(fs.readFileSync(path.join(publicDir, "..", "docs", "typography-assets.json"), "utf8")).assets;
+for (const directory of ["figures", "fonts/site"]) {
   for (const image of filesBelow(path.join(publicDir, directory))) {
     const publicPath = path.relative(publicDir, image).split(path.sep).join("/");
-    html = html.split(publicPath).join(dataUri(image));
+    const embedded = dataUri(image);
+    html = html.split(publicPath).join(embedded);
+    const font = fontAssets.find(asset => asset.source === publicPath);
+    if (font) html = html.split(font.url).join(embedded);
   }
 }
 
