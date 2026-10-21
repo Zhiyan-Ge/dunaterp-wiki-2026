@@ -172,7 +172,6 @@ main:focus:not(:focus-visible) { outline: none; }
 .article-toc>p { font-size: .75rem; font-weight: 750; letter-spacing: .14em; color: var(--muted); margin: 0 0 1rem; }
 .article-toc nav { display: grid; }
 .article-toc nav a { display: grid; grid-template-columns: 1.6rem 1fr; gap: .5rem; text-decoration: none; font-size: .875rem; line-height: 1.5; padding: .85rem .5rem; border-left: 2px solid var(--line); }
-.article-toc nav a span { font-size: .75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .article-toc nav a:hover, .article-toc nav a:focus-visible { border-left-color: var(--orange); background: var(--salt); }
 .toc-map { display: inline-block; margin-top: 1.5rem; font-size: .875rem; text-decoration: none; border-bottom: 1px solid var(--line); }
 .article-body { min-width: 0; }
