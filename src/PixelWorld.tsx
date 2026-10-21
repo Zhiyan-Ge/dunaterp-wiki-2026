@@ -1,6 +1,7 @@
 import {
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useReducer,
@@ -264,7 +265,8 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
 
   // Free mode pins the document so wandering never scrolls the page away from
   // the world, and hands the scroll position back at the point the hero left.
-  useEffect(() => {
+  // Lock and restore before paint so mode changes cannot flash the footer.
+  useLayoutEffect(() => {
     if (mode !== "free") return;
     const node = root.current;
     const body = document.body;
@@ -294,7 +296,7 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
       // Hand the page back at wherever the hero actually ended up, so leaving
       // free roam never loses the reader's place in the document.
       const restore = node && engine ? nodeTop + engine.journey * travel : scrollLock.current;
-      window.scrollTo(0, restore);
+      window.scrollTo({ left: 0, top: restore, behavior: "instant" });
     };
   }, [mode]);
 
@@ -425,7 +427,7 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
           ))}
         </div>}
 
-        {!dialogueNpc && !stationDialogue && !atArchive && <div className="px-controls">
+        {!dialogueNpc && !stationDialogue && (!atArchive || mode === "free") && <div className="px-controls">
           <button type="button" className="story-replay" onClick={replayIntro} disabled={!ready || failed}>PLAY INTRO ↺</button>
           <button
             type="button"

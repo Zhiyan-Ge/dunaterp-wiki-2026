@@ -107,7 +107,8 @@ The DunaTerp / SCU-CHINA 2026 panda logo was supplied by the user; its original
 artist was not specified. The built-in OpenAI image generation tool extracted
 the panda-and-T emblem onto a transparent background for the header and favicon,
 preserving the white face and eye highlights. The footer uses the complete
-supplied logo on its original white background. Delivery images are resized and
+transparent logo supplied by the user on 21 October 2026, retaining its white
+face and eye highlights. Delivery images are resized and
 encoded as lossless WebP; the favicon is a self-contained SVG containing the
 64px PNG icon. Official CDN URLs, byte counts and source/delivery SHA-256 values
 are recorded in `docs/brand-assets.json` and `docs/igem-cdn-assets.json`.

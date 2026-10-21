@@ -117,7 +117,7 @@ function Footer() {
           <img src="https://static.igem.wiki/teams/5810/scu/scu11.webp" alt="Sichuan University emblem" loading="lazy" decoding="async" />
           <img src="https://static.igem.wiki/teams/5810/scu/scu12.webp" alt="College of Life Sciences, Sichuan University emblem" loading="lazy" decoding="async" />
           <div className="footer-project-mark">
-            <img className="footer-project-logo" src={resolveFigureSrc('images/brand/panda-footer.webp')} alt="DunaTerp — SCU-China iGEM 2026" width={640} height={640} loading="lazy" decoding="async" />
+            <img className="footer-project-logo" src={resolveFigureSrc('images/brand/panda-wordmark.webp')} alt="DunaTerp — SCU-China iGEM 2026" width={528} height={264} loading="lazy" decoding="async" />
           </div>
         </div>
       </section>

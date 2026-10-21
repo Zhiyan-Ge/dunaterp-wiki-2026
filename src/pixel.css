@@ -847,7 +847,11 @@
 
 /* Expedition usability: keep the lake reachable beneath quiet story panels. */
 .px-world.is-ready .px-scroll-chapter > .px-fallback-card { pointer-events: none; }
-.px-world.is-free .px-sticky { position: fixed; inset: 0; }
+/* Free roam owns the viewport, including when entered near the footer. */
+.px-world.is-free .px-sticky { position: fixed; inset: 0; z-index: 4; }
+/* The fixed scene leaves flow in free roam. Remove its matching negative
+   offset too, so it cannot collapse through the world and pull the footer up. */
+.px-world.is-free .px-scroll-story { margin-top: 0; }
 .px-world button:disabled { opacity: .55; cursor: wait; }
 .px-world :is(button, a, canvas):focus-visible { outline: 3px solid #7de2ff; outline-offset: 4px; }
 .px-world.is-free .px-controls {
