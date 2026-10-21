@@ -16,6 +16,10 @@ npm run art:check   # render the pixel world to tools/art-check/shots/
 
 The local URL includes the official team slug: `http://localhost:5173/scu-china/`.
 
+In Free roam, Expedition journal → Discoveries records six illustrated project objects and Noa’s feedback post on the distant salt flats. All seven sites use existing connected terrain at least 192 world pixels from every boardwalk segment; they render and interact only in Free roam. Progress is saved in this browser. Feedback opens a prefilled email to the team’s existing contact address and is sent by the visitor’s email app. Development builds include location shortcuts in the discovery archive; production builds omit them.
+
+To check field placement, interactions and unchanged guided scenery, run `node node_modules/vite/bin/vite.js build --config tools/art-check/vite.config.ts`, then `node tools/art-check/field-check.mjs`.
+
 ## GitHub preview
 
 This folder is an independent Git repository. It can be pushed to a public GitHub repository so teammates and friends can open a live preview without affecting the official iGEM repository.
