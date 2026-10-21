@@ -5,13 +5,13 @@ const methods = [
   { source: protocols[0].sections[0], id: 'cloning', phase: 'Build', short: 'Molecular cloning' },
   { source: protocols[0].sections[1], id: 'transformation', phase: 'Transform', short: 'Algal transformation' },
   { source: protocols[0].sections[2], id: 'dna-extraction', phase: 'Characterise', short: 'Genomic DNA extraction' },
-  { source: protocols[0].sections[3], id: 'qpcr', phase: 'Characterise', short: 'Genomic DNA qPCR' },
-  { source: protocols[1].sections[3], id: 'chromatography', phase: 'Separate', short: 'Product separation' },
+  { source: protocols[1].sections[2], id: 'qpcr', phase: 'Characterise', short: 'RT-qPCR' },
+  { source: protocols[1].sections[3], id: 'tlc', phase: 'Verify', short: 'Product verification' },
 ];
 
-// The three shared methods are byte-identical in both source documents.
+// The two shared methods are byte-identical in both source documents.
 // Show them once; keep both original documents downloadable and fidelity-checked.
-for (let i = 1; i < 4; i++) {
+for (let i = 1; i < 3; i++) {
   if (protocols[0].sections[i].html !== protocols[1].sections[i - 1].html) {
     throw new Error('Wet-lab source methods differ: review before combining them.');
   }
