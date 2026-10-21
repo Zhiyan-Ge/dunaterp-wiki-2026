@@ -11,7 +11,7 @@ export const safety: WikiPage = {
   title: 'Salt-responsive containment',
   eyebrow: 'Dry Lab / Safety',
   status: 'team-draft',
-  intro: 'This page records the rationale, assumptions and model structure behind the salt-responsive containment concept. It explains why salinity was chosen as a signal, how the circuit is intended to respond and which parameters most shape the design space.',
+  intro: 'Safety forms a containment boundary around the entire photons-to-products chain. The production system depends on a high-salinity reactor environment; this model follows cells when that boundary is crossed, connects falling salinity to the proposed MazEF response and calculates the response speed and clearance behavior required from the biological safeguard.',
   references: [refs.chen2009, refs.dca1, refs.mazf, refs.farhat2011, refs.gomez2005],
   sections: [
     { title: 'Why use salinity?', body: '', blocks: [
@@ -65,6 +65,8 @@ export const safety: WikiPage = {
       p('The model identifies three priorities for evaluation: how quickly the full circuit responds to a fall in salinity, whether the response causes recoverable growth arrest or loss of viability, and whether residual activity affects cultivation. These questions matter more to the present design than refining a single predicted clearance time.'),
       p('A practical assessment must also account for weakly responding cells, genetic failure and recovery after conditions change. The present average-cell model does not estimate those outcomes or extinction probability. Its strongest use is to identify the conditions a safeguard would have to meet and the observations that would most change our design decisions.'),
       p('Biological containment is only one layer of risk control. Construct verification, strain-specific response measurements, laboratory controls, closed-reactor operation, waste treatment and incident procedures remain necessary alongside the proposed circuit.'),
+      p('The model therefore returns two design requirements to the rest of the system: the reactor must maintain and monitor the high-salinity production boundary, and the engineered strain must respond rapidly enough after salinity falls. These requirements connect containment directly with reactor operation and laboratory safety practice.'),
+      { kind: 'links', links: [{ label: 'Connect to Hardware Design', href: '/hardware-design' }, { label: 'Connect to Lab Safety', href: '/lab-safety' }] },
     ] },
   ],
 };

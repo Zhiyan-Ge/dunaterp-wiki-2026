@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties } from 
 import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { archiveNavigation, navigation, pageOrder, pages } from "./site-data";
 import { dryLabMenuGroups } from "./content/dry-lab";
+import { ihpNavigation } from "./content/integrated-human-practices";
 import { ArticleBlocks } from './ArticleBlocks';
 import { renderInlineText } from './inline-text';
 import { DocumentText } from './DocumentText';
@@ -10,6 +11,7 @@ import type { DocumentTextRun, WikiReference } from './content/types';
 
 const PixelWorld = lazy(() => import("./PixelWorld").then((module) => ({ default: module.PixelWorld })));
 const MODELING_PATHS = ['/dry-lab', '/transcriptomics', '/metabolomics', '/protein', '/model', '/safety-and-security'];
+const HUMAN_PRACTICES_PATHS = ['/integrated-human-practices', '/background-research', '/stakeholder-analysis', '/project-improvement', '/education', '/cooperation'];
 const ARTICLE_GROUP_HEROES: Record<string, string> = {
   Project: '/images/great-salt-lake-iss063-e-40184.jpg',
   'Dry Lab': '/images/heroes/dry-lab.webp',
@@ -71,8 +73,8 @@ function Header({ light = false }: { light?: boolean }) {
     <nav className="desktop-nav" aria-label="Primary navigation">
       <Link className={`nav-home${currentPath === "/" ? " is-current" : ""}`} to="/" aria-current={currentPath === "/" ? "page" : undefined}>Home</Link>
       {navigation.map((group) => <details key={group.label} name="desktop-navigation">
-        <summary className={group.items.some(([, href]) => href === currentPath) || (group.label === 'Dry Lab' && MODELING_PATHS.includes(currentPath)) ? "is-current" : undefined}>{group.label}<span aria-hidden="true">⌄</span></summary>
-        <div className={`nav-popover${group.label === 'Dry Lab' ? ' nav-popover--dry-lab' : ''}`}>
+        <summary className={group.items.some(([, href]) => href === currentPath) || (group.label === 'Dry Lab' && MODELING_PATHS.includes(currentPath)) || (group.label === 'Human Practices' && HUMAN_PRACTICES_PATHS.includes(currentPath)) ? "is-current" : undefined}>{group.label}<span aria-hidden="true">⌄</span></summary>
+        <div className={`nav-popover${group.label === 'Dry Lab' ? ' nav-popover--dry-lab' : ''}${group.label === 'Human Practices' ? ' nav-popover--human-practices' : ''}`}>
           {group.label === 'Dry Lab' ? <>
             <p>{group.label}</p>
             <Link to="/dry-lab" aria-current={currentPath === '/dry-lab' ? "page" : undefined}>Overview<span aria-hidden="true">↗</span></Link>
@@ -80,6 +82,16 @@ function Header({ light = false }: { light?: boolean }) {
               <h3>{section.label}</h3>
               {section.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}<span aria-hidden="true">↗</span></Link>)}
             </section>)}
+          </> : group.label === 'Human Practices' ? <>
+            <p>{group.label}</p>
+            <details className="nav-nested-group">
+              <summary className={ihpNavigation.some(([, href]) => href === currentPath) || currentPath === '/integrated-human-practices' ? 'is-current' : undefined}>Integrated Human Practices<span aria-hidden="true">›</span></summary>
+              <div className="nav-nested-popover">
+                {ihpNavigation.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? 'page' : undefined}>{label}<span aria-hidden="true">↗</span></Link>)}
+              </div>
+            </details>
+            <Link to="/education" aria-current={currentPath === '/education' ? 'page' : undefined}>Education<span aria-hidden="true">↗</span></Link>
+            <Link to="/cooperation" aria-current={currentPath === '/cooperation' ? 'page' : undefined}>Cooperation<span aria-hidden="true">↗</span></Link>
           </> : <>
             <p>{group.label}</p>
             {group.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}<span aria-hidden="true">↗</span></Link>)}
@@ -93,6 +105,10 @@ function Header({ light = false }: { light?: boolean }) {
       {navigation.map((group) => <div className="mobile-nav-group" key={group.label}><p>{group.label}</p>{group.label === 'Dry Lab' ? <>
         <Link to="/dry-lab" aria-current={currentPath === '/dry-lab' ? "page" : undefined}>Overview</Link>
         {dryLabMenuGroups.map((section) => <section className="mobile-nav-subgroup" key={section.label}><p>{section.label}</p>{section.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}</Link>)}</section>)}
+      </> : group.label === 'Human Practices' ? <>
+        <details className="mobile-nav-nested"><summary>Integrated Human Practices <span aria-hidden="true">⌄</span></summary><div>{ihpNavigation.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? 'page' : undefined}>{label}</Link>)}</div></details>
+        <Link to="/education" aria-current={currentPath === '/education' ? 'page' : undefined}>Education</Link>
+        <Link to="/cooperation" aria-current={currentPath === '/cooperation' ? 'page' : undefined}>Cooperation</Link>
       </> : group.items.map(([label, href]) => <Link key={href} to={href} aria-current={currentPath === href ? "page" : undefined}>{label}</Link>)}</div>)}
       <Link className="mobile-map-link" to="/wiki-map">Explore Wiki ↗</Link>
     </nav></details>
@@ -407,7 +423,8 @@ function Article({ slug }: { slug: string }) {
   const page = pages[slug];
   if (!page) return <Navigate to="/wiki-map" replace />;
   const group = navigation.find((item) => item.items.some(([, href]) => href === `/${slug}`))
-    ?? (MODELING_PATHS.includes(`/${slug}`) ? navigation.find((item) => item.label === 'Dry Lab') : undefined);
+    ?? (MODELING_PATHS.includes(`/${slug}`) ? navigation.find((item) => item.label === 'Dry Lab') : undefined)
+    ?? (HUMAN_PRACTICES_PATHS.includes(`/${slug}`) ? navigation.find((item) => item.label === 'Human Practices') : undefined);
   const groupIndex = Math.max(0, navigation.findIndex((item) => item === group));
   const articleAccent = ["#cdf558", "#7de2ff", "#e9c43a", "#91e6b0", "#c4a8ff"][groupIndex];
   const figureSrc = page.figure ? resolveFigureSrc(page.figure.src) : "";
@@ -417,8 +434,7 @@ function Article({ slug }: { slug: string }) {
   const referenceNumbers = new Map(references.map((reference, index) => [reference.href ?? `#reference-${index + 1}`, index + 1]));
   const isWetLab = group?.label === 'Project';
   const navigationLabel = group?.items.find(([, href]) => href === `/${slug}`)?.[0];
-  const fallbackHeroTitle = page.eyebrow.split("·")[0].split("/").at(-1)?.trim();
-  const heroTitle = navigationLabel ?? fallbackHeroTitle ?? page.title;
+  const heroTitle = navigationLabel ?? page.title;
   const heroImage = resolveFigureSrc(page.heroImage ?? (slug === 'team' ? firstPageFigure(page) : (ARTICLE_GROUP_HEROES[group?.label ?? ''] ?? firstPageFigure(page))));
   const tocSections: TocSection[] = page.sections.map((section, sectionIndex) => ({
     id: `section-${sectionIndex + 1}`,

@@ -7,7 +7,7 @@ import { safety } from './content/safety';
 import { protein } from './content/protein';
 import { dryLabNavigation, dryLabIndex, hardware, hardwareDesign, metabolomics, modeling, transcriptomics } from './content/dry-lab';
 import { collaboration, cooperation, education } from './content/human-practices';
-import { integratedHumanPractices } from './content/integrated-human-practices';
+import { ihpBackgroundResearch, ihpProjectImprovement, ihpStakeholderAnalysis, integratedHumanPractices } from './content/integrated-human-practices';
 import { team } from './content/team';
 import { labSafety } from './content/lab-safety';
 import { labNotebook } from './content/lab-notebook';
@@ -38,7 +38,7 @@ export type WikiPage = {
 export const navigation: Array<{ label: string; items: ReadonlyArray<readonly [string, string]> }> = [
   { label: "Project", items: [["Description", "/project-description"], ["Contribution", "/contribution"], ["Design", "/design"], ["Experiments", "/experiments"], ["Results", "/results"], ["Engineering", "/engineering"], ["Parts", "/parts"]] },
   { label: "Dry Lab", items: dryLabNavigation },
-  { label: "Human Practices", items: [["Integrated Human Practices", "/stakeholder-analysis"], ["Education", "/education"], ["Cooperation", "/cooperation"]] },
+  { label: "Human Practices", items: [["Integrated Human Practices", "/integrated-human-practices"], ["Education", "/education"], ["Cooperation", "/cooperation"]] },
   { label: "Lab", items: [["Lab Safety", "/lab-safety"], ["Notebook", "/lab-notebook"]] },
   { label: "Team", items: [["Team", "/team"], ["Attributions", "/attributions"], ["Collaboration", "/collaboration"]] },
 ];
@@ -276,7 +276,10 @@ export const pages: Record<string, WikiPage> = {
   education,
   cooperation,
   collaboration,
-  "stakeholder-analysis": integratedHumanPractices,
+  "integrated-human-practices": integratedHumanPractices,
+  "background-research": ihpBackgroundResearch,
+  "stakeholder-analysis": ihpStakeholderAnalysis,
+  "project-improvement": ihpProjectImprovement,
   team,
   attributions,
 };

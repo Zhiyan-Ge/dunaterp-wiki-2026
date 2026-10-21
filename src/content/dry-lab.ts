@@ -28,7 +28,7 @@ export const dryLabMenuGroups = [
 
 export const transcriptomics: WikiPage = {
   title: 'Transcriptomics', eyebrow: 'Dry Lab / Transcriptomics', status: 'team-draft',
-  intro: 'We started with the reaction sequence, matched the public Dunaliella salina transcripts to carotenoid-enzyme sequences, and then compared the nine light-acclimation samples with a replicate-aware count model. The output is a transcript-by-transcript view of which pathway steps respond to light—and which LCYB copies are worth carrying into the β-carotene model.',
+  intro: 'The multiscale chain begins with its environmental input: light. We matched public Dunaliella salina transcripts to carotenoid-enzyme sequences and compared nine light-acclimation samples with a replicate-aware count model. This first layer identifies LCYB as the shared control point that the molecular and dynamic models examine next.',
   references: [refs.transcriptomeDataset, refs.li2019, refs.grabherr2011, refs.diamond2015, refs.deseq2010],
   sections: [
     section('THE REACTIONS',
@@ -104,14 +104,14 @@ for (pair in list(c("LL","ML"), c("LL","HL"), c("ML","HL"))) {
       p('The two LCYB contigs do not tell the same story: Cluster-5009.34218 is higher at 600 than 150 and remains modestly above 150 at 1500, while Cluster-5009.36796 rises at 600 and drops at 1500. CRTISO and ZEP also change direction across the ordered light conditions. This is why we do not force the data into one monotonic trend or average all copies of an enzyme into a single value.'),
     ),
     section('FROM EXPRESSION TO MODEL',
-      p('Across the three light conditions, carotenoid-pathway transcripts do not respond as a single coordinated block. Their responses are transcript-specific: the two LCYB-assigned contigs, for example, change differently as light intensity rises. This makes LCYB a biologically motivated focus for the model, while the RNA-seq results remain evidence about transcript abundance—not enzyme activity or β-carotene flux. We therefore use them to guide the model’s regulatory question, and treat protein, pigment, or flux measurements as necessary validation.'),
-      links(['GSE120965 · sample design, expression matrix and Trinity assembly','https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE120965'],['Li et al., 2019 · photoacclimation and transcriptome study','https://doi.org/10.1111/pre.12379'],['Next · Mathematical Modeling','/model']),
+      p('Across the three light conditions, carotenoid-pathway transcripts respond individually, and the two LCYB-assigned contigs change differently as irradiance rises. These data describe transcript abundance—not enzyme activity or β-carotene flux; matched protein, pigment and flux measurements provide the necessary validation. LCYB therefore becomes the shared control point for the next layer, where protein analysis examines enzyme-side substitutions and regulator–DNA recognition before both effects enter the dynamic model.'),
+      links(['GSE120965 · sample design, expression matrix and Trinity assembly','https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE120965'],['Li et al., 2019 · photoacclimation and transcriptome study','https://doi.org/10.1111/pre.12379'],['Next · Protein design and DNA recognition','/protein']),
     ),
   ],
 };
 export const metabolomics: WikiPage = {
   title: 'Metabolic Flow Analysis', eyebrow: 'Modeling / Metabolic Flow', status: 'team-draft',
-  intro: 'We use a constraint-based chassis model and a local dynamic branch model to ask how D. salina can support four carotenoid-derived products, which conditions favour production, and where pathway intervention has the greatest leverage.',
+  intro: 'The regulatory model delivers β-carotene formation as the input to this layer. Here, a constraint-based chassis model and a local branch model follow how that shared β-carotene pool is allocated among astaxanthin, β-ionone, β-citraurin and crocetin, revealing the environmental conditions and branch points that most strongly shape product choice.',
   references: [refs.fachet2020, refs.orth2010, refs.lan2022, refs.mialoundama2010],
   sections: [
     section('Introduction',
@@ -174,13 +174,15 @@ export const metabolomics: WikiPage = {
     section('Conclusions and experimental guidance',
       p('The metabolomics work now forms a comparatively complete workflow: reconstruction of the Dunaliella salina chassis network, integration of multi-product pathways, scenario-feasibility validation, product-potential comparison, environmental adaptation analysis, key-node mechanistic analysis, and finally local dynamic modeling with sensitivity analysis.'),
       p('The conditional results prioritize three measurements for wet-lab feedback: product formation under the D/H-like light and nitrate regimes, the cost of increasing LCYB- and zeaxanthin-associated flux, and kinetic measurements at the BCAR→BION versus BCAR→ZEA entry split. Those data can replace nominal bounds and Vmax/Km values, turning the present scenario model into a calibrated project model.'),
+      p('The same results define the handoff to the bioprocess scale. Hardware Modeling receives the preferred light–nitrogen window, the need to preserve β-carotene supply and the branch-allocation targets, then asks which reactor geometry and operating schedule can sustain those conditions.'),
+      links(['Continue to Hardware Modeling','/hardware']),
     ),
   ],
 };
 
 export const modeling: WikiPage = {
   title: 'Mathematical Modeling', eyebrow: 'Dry Lab / Model', status: 'team-draft',
-  intro: 'Transcriptome analysis identifies LCYB as a light-responsive point in the carotenoid pathway. We therefore built a five-state dynamic model that follows the complete signal chain from regulatory input and promoter occupancy to LCYB transcript, active enzyme, lycopene conversion and the β-carotene pool. The analysis asks where the signal is attenuated, how quickly each layer responds and which parameters most strongly control the final pigment pool. These results define a quantitative sequence for the project’s next measurements and model calibration.',
+  intro: 'Transcriptomics identifies LCYB as the light-responsive control point, while protein analysis supplies two molecular levers on that node: LCYB enzyme design and TF2146–DNA recognition. This page connects those inputs through a five-state dynamic model of promoter occupancy, LCYB transcript, active enzyme, lycopene conversion and β-carotene formation. Its output is the time-dependent β-carotene input passed to the downstream allocation model.',
   references: [refs.bintu2005, refs.liang2017, refs.lan2022, refs.mialoundama2010],
   sections: [
     section('Biological question and model scope',
@@ -302,35 +304,35 @@ for each parameter:
 };
 
 export const dryLabIndex: WikiPage = {
-  title: 'From regulation to cultivation', eyebrow: 'Dry Lab', status: 'team-draft',
-  intro: 'DunaTerp’s dry-lab work answers one engineering question: how can a salt-adapted photosynthetic chassis turn a regulatory response into controllable carotenoid production and remain practical to cultivate? We move from measured transcript responses to regulatory dynamics, pathway allocation, molecular design, biocontainment and reactor operation. Each stage produces a decision for the next.',
+  title: 'From Photons to Products', eyebrow: 'A Multiscale Model of DunaTerp', status: 'team-draft',
+  intro: 'We built one multiscale model of DunaTerp, following the system from environmental input and molecular regulation to metabolic allocation, reactor operation and biological containment. Light initiates the chain; LCYB and TF2146 define its molecular control; regulatory dynamics carry the signal into the β-carotene pool; metabolic analysis distributes that pool among four products; and reactor design supplies the light and salinity conditions that sustain the whole system.',
   sections: [
-    section('Light identifies the regulatory entry points',
-      p('We began with a public light-acclimation dataset containing three biological replicates at each of three irradiances. Sequence annotation placed the recovered transcripts in biochemical order, and count-based differential expression tested each light contrast. The pathway did not respond as one coordinated block: even the two LCYB-assigned contigs changed differently as irradiance increased. This result directs the project toward transcript-specific regulation and identifies the pathway nodes that need to be followed individually.'),
+    section('Environmental signal — light reveals the control point',
+      p('We begin at the environmental scale with a public light-acclimation dataset containing three biological replicates at each of three irradiances. Sequence annotation places the recovered transcripts in biochemical order, and count-based differential expression tests each light contrast. The pathway does not respond as one coordinated block: even the two LCYB-assigned contigs change differently as irradiance increases. This makes LCYB the control point carried into the molecular layer.'),
       links(['See the transcriptomics analysis', '/transcriptomics']),
     ),
-    section('A dynamic model connects regulation to β-carotene',
-      p('LCYB converts lycopene toward the shared β-carotene pool. Our five-state model follows active regulatory factor, LCYB transcript, active enzyme, lycopene and β-carotene, with promoter occupancy linking the regulatory and expression layers. Separating these states shows where a response can be delayed or attenuated and turns the proposed mechanism into a measurement sequence: regulator abundance, LCYB RNA, active enzyme, substrate and product must be compared at matched time points.'),
-      links(['See the mathematical model', '/model']),
-    ),
-    section('The β-carotene hub sets the product trade-offs',
-      p('We extended a reconstructed D. salina network with routes to astaxanthin, β-ionone, β-citraurin and crocetin. All four routes remained feasible across the eight tested light–nitrogen scenarios, but their conditional maximum fluxes differed. High light with low nitrate gave the strongest modeled support for product formation, while the split at the β-carotene hub controlled the overall product pattern more strongly than any single terminal reaction. The engineering priority is therefore the shared entry point and its cultivation environment before individual product branches are optimized.'),
-      links(['See the metabolic-flow analysis', '/metabolomics']),
-    ),
-    section('Structure narrows the molecular design space',
-      p('The protein analysis addresses two design choices. FoldX, AlphaFold 3, docking and molecular-dynamics comparison rank LCYB substitutions by structural stability and interaction behavior, producing a focused set of candidates for construction. The TF2146–DNA model locates a candidate recognition interface and identifies the residues and promoter region to examine in binding and native-promoter assays.'),
+    section('Molecular control — two levers act on LCYB',
+      p('The protein layer examines two ways to control the same node. Enzyme-side LCYB substitutions can alter how lycopene is converted, while regulator-side TF2146–DNA recognition can alter how much LCYB is produced. Structural screening narrows both questions to specific candidates, residues and promoter regions that can be tested and represented in the regulatory model.'),
       links(['See the protein and DNA analysis', '/protein']),
     ),
-    section('Salinity becomes a containment boundary',
-      p('The containment model follows the engineered alga after a transition from its high-salinity cultivation environment into lower-salinity receiving water. It compares growth inhibition with conditional killing and tests how response delay, mortality and receiving salinity affect persistence. These relationships convert salt dependence into quantitative criteria for strain design and containment testing.'),
-      links(['See the safety model', '/safety-and-security']),
+    section('Regulatory dynamics — the signal reaches β-carotene',
+      p('The five-state model follows active regulator, promoter occupancy, LCYB transcript, active enzyme, lycopene conversion and β-carotene formation. It shows how the light-responsive input is compressed and delayed as it crosses these layers. The resulting time-dependent LCYB flux and β-carotene pool provide the input boundary for the product-allocation model.'),
+      links(['See the mathematical model', '/model']),
     ),
-    section('Reactor design preserves the conditions the biology needs',
-      p('The flat-panel airlift photobioreactor translates the biological requirements into geometry and operation. Optical modeling shows how self-shading darkens the reactor centre as biomass rises, while cultivation simulations connect irradiance and switching time to productivity. The resulting design uses a short optical path, transparent PMMA walls, a serpentine chamber and bubble-driven circulation, integrating light delivery, gas distribution, mixing and gas–liquid separation in one body.'),
+    section('Cellular metabolism — β-carotene is allocated to four products',
+      p('A reconstructed D. salina network extends the shared β-carotene pool toward astaxanthin, β-ionone, β-citraurin and crocetin. Flux and local branch analyses compare product support, metabolic cost and redistribution across light–nitrogen conditions. They identify the β-carotene entry split as the strongest control over the overall product pattern and pass an operating window to the bioprocess layer.'),
+      links(['See the metabolic-flow analysis', '/metabolomics']),
+    ),
+    section('Bioprocess scale — reactor operation sustains the modeled state',
+      p('The flat-panel airlift photobioreactor translates the biological operating window into geometry and control. Optical modeling follows how self-shading changes internal irradiance, while cultivation simulations connect light, mixing and switching time to productivity. A short optical path, transparent PMMA walls, a serpentine chamber and bubble-driven circulation are therefore not separate hardware choices: together they maintain the conditions required by the upstream biological models.'),
       links(['See the reactor model', '/hardware'], ['See the reactor design', '/hardware-design']),
     ),
-    section('Dry Lab closes the design loop',
-      p('Together, these analyses turn the DunaTerp concept into a connected set of engineering decisions: resolve pathway regulation at transcript level, quantify how LCYB links that response to β-carotene, manage the trade-offs at the shared product hub, prioritize molecular candidates, define salt-dependent containment limits and cultivate the chassis in a reactor built around its light environment. The same chain also defines the measurements used to test whether each design decision works in practice.'),
+    section('Containment boundary — safety surrounds the production chain',
+      p('Safety is a boundary around the complete system rather than its final step. The salt-responsive containment model asks what happens when cells leave the high-salinity reactor environment, comparing growth inhibition with conditional killing and testing how response delay, mortality and receiving salinity affect persistence. Its outputs define response and clearance requirements for both strain design and reactor operation.'),
+      links(['See the safety model', '/safety-and-security']),
+    ),
+    section('Closing the loop from operation back to signal',
+      p('The chain closes when the reactor’s measured internal irradiance and salinity become the environmental inputs for the next transcriptomic and regulatory analysis. DunaTerp is therefore modeled as one connected system: photons set the signal, molecular control shapes LCYB, dynamics determine β-carotene supply, metabolism allocates four products, hardware maintains the operating state, and containment constrains every stage.'),
     ),
   ],
 };
@@ -363,7 +365,7 @@ export const hardware: WikiPage = {
   status: 'team-draft',
   references: [refs.posten2009, refs.carvalho2011],
   intro:
-    'We developed a flat-panel airlift photobioreactor with symmetric double-sided illumination, together with a reduced-order engineering model to explore how reactor design and operating conditions may influence cultivation and production.',
+    'The metabolic layer defines the light and nutrient conditions that support product allocation. Hardware Modeling translates those requirements into optical path, internal irradiance, mixing, cultivation timing and energy demand, producing an operating envelope that Hardware Design can implement and that feeds measured light and salinity back to the biological models.',
   sections: [
     section(
       'Photobioreactor Design for DunaTerp',
@@ -746,8 +748,9 @@ T_{\mathrm{payback}}
         'Most kinetic, product, and economic parameters in the current implementation are illustrative nominal values rather than direct measurements from the final engineered strain.',
       ),
       p(
-        'The model is therefore primarily used to explore engineering relationships, compare operating scenarios, identify influential parameters, and visualize trade-offs between light, growth, productivity, and energy consumption. Future experimental measurements could be used to further calibrate and validate the model.',
+        'These relationships define the operating envelope passed to Hardware Design: optical path, per-face irradiance, mixing intensity, cultivation timing and energy demand. Once the reactor is operated, measured internal irradiance, biomass and salinity return to the transcriptomic and regulatory layers as updated environmental inputs, closing the multiscale loop.',
       ),
+      links(['Continue to Hardware Design','/hardware-design'], ['Return to the environmental input','/transcriptomics']),
     ),
   ],
 };
@@ -757,7 +760,7 @@ export const hardwareDesign: WikiPage = {
   status: 'team-draft',
   references: [refs.posten2009, refs.carvalho2011],
   intro:
-    'To support Dunaliella cultivation, we designed a flat-panel airlift photobioreactor centered on a serpentine culture chamber and bubble-driven circulation of the culture medium.',
+    'Hardware Modeling identifies the optical and operating conditions required by the biological system. This page turns those outputs into a flat-panel airlift photobioreactor centered on a short optical path, a serpentine culture chamber and bubble-driven circulation of the culture medium.',
   sections: [
     section(
       'Reactor Architecture and Working Principle',
@@ -818,6 +821,12 @@ export const hardwareDesign: WikiPage = {
         'Final Plate A design showing the culture-facing serpentine geometry, fastening layout, and machining refinements.',
         'Fig. 4 Reactor V3 production design',
       ),
+    ),
+    section(
+      'Operating Envelope and Biological Feedback',
+      p('The final reactor design implements the model outputs as physical controls: panel thickness sets the optical path, double-sided illumination sets the boundary irradiance, and bubble-driven circulation repeatedly moves cells through the internal light field. Salinity control maintains the production environment and also defines the boundary used by the containment model.'),
+      p('During operation, internal irradiance, biomass concentration, salinity and product formation can be measured together. Those measurements return to the transcriptomic, regulatory and metabolic layers, allowing the next design cycle to update the signal input, β-carotene supply and four-product allocation with reactor-specific data.'),
+      links(['Return to Transcriptomics','/transcriptomics'], ['See the containment boundary','/safety-and-security']),
     ),
   ],
 };
