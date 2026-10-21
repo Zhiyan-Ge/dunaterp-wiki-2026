@@ -693,6 +693,16 @@ body:has(.article-page--light) { background: #f3f5ef; }
 .article-page--light .feature-figure { background: #fff; color: var(--ink); box-shadow: 6px 6px 0 #d4ded2; }
 .article-page--light .feature-figure figcaption { color: #53675f; }
 .article-page--light .research-table-scroll { background: #fff; }
+.article-page--lab-safety .research-figure-grid { grid-template-columns: minmax(0, 1fr); }
+.article-page--lab-safety .research-figure-grid .research-figure,
+.article-page--lab-safety .research-figure-grid .research-figure > a,
+.article-page--lab-safety .research-figure-grid .research-figure img {
+  width: 100%;
+  max-width: none;
+  min-height: 0;
+  max-height: none;
+}
+.article-page--lab-safety .research-figure-grid .research-figure img { height: auto; object-fit: contain; }
 .article-page--design .article-sections h2 { font-size: clamp(1.65rem, 2.4vw, 2.4rem); line-height: 1.18; text-transform: none; }
 .article-page--design .research-figure-grid .research-figure a { min-height: 0; }
 
