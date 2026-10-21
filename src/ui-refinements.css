@@ -172,23 +172,25 @@ main:focus:not(:focus-visible) { outline: none; }
 .section-number { font-size: .875rem; color: var(--muted); padding-top: .3rem; }
 .article-sections h2 { font-size: clamp(1.8rem,3vw,2.8rem); line-height: 1.15; letter-spacing: -.03em; font-weight: 400; }
 .article-sections p, .article-sections li { max-width: 68ch; font-size: 1.0625rem; line-height: 1.85; color: #365047; }
-.article-page--dry-lab .article-sections>section>div:last-child,
-.article-page--description .article-sections>section>div:last-child,
-.article-page--safety .article-sections>section>div:last-child { min-width: 0; width: 100%; }
-.article-page--dry-lab .article-sections p,
-.article-page--dry-lab .article-sections li,
-.article-page--description .article-sections p,
-.article-page--description .article-sections li,
-.article-page--safety .article-sections p,
-.article-page--safety .article-sections li { max-width: none; }
-.article-page--description .research-blocks,
-.article-page--description .document-paragraph,
-.article-page--description .research-figure,
-.article-page--description .research-table-scroll {
+/* Use one reading column on every article page. Dry Lab established the intended
+   rhythm: copy, figures, tables and callouts share the same left and right edges. */
+.article-page .article-sections>section>div:last-child,
+.article-page .research-blocks,
+.article-page .document-paragraph,
+.article-page .research-figure,
+.article-page .research-table-scroll,
+.article-page .research-table-details,
+.article-page .research-equation,
+.article-page .research-code,
+.article-page .protocol-pdf {
   width: 100%;
+  min-width: 0;
   max-width: none;
 }
-.article-page--description .research-figure { margin-inline: 0; }
+.article-page .article-sections p,
+.article-page .article-sections li,
+.article-page .article-sections aside { max-width: none; }
+.article-page .research-figure { margin-inline: 0; }
 .article-sections ul { padding-left: 1.2rem; }
 .article-sections li { padding-left: .4rem; margin-bottom: .7rem; }
 .article-sections li::marker { color: #6a853c; }

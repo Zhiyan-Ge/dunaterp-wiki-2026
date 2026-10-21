@@ -12,8 +12,8 @@ type GeneratedIhp = {
 const source = generated as unknown as GeneratedIhp;
 
 function stakeholderBlocks(): ContentBlock[] {
-  return stakeholderAnalysis.sections.map((section) => {
-    const blocks: ContentBlock[] = [];
+  return stakeholderAnalysis.sections.flatMap((section) => {
+    const blocks: ContentBlock[] = [{ kind: 'heading', text: section.title }];
     if (section.body) blocks.push({ kind: 'paragraph', text: section.body });
     if (section.blocks) blocks.push(...section.blocks);
     if (section.items?.length) {
@@ -23,7 +23,7 @@ function stakeholderBlocks(): ContentBlock[] {
       });
     }
     if (section.note) blocks.push({ kind: 'paragraph', text: section.note });
-    return { kind: 'details', summary: section.title, blocks };
+    return blocks;
   });
 }
 

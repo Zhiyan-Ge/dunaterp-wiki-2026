@@ -1,7 +1,7 @@
 /* Match the current DunaTerp palette and pixel frames, with the 2025 name-first lists. */
 .article-page--attributions .article-hero { background-position: center bottom; }
 .article-page--attributions .attributions-introduction {
-  max-width: 74ch;
+  max-width: none;
   margin: 2.5rem 0 0;
   color: var(--ink);
   font-size: 1.0625rem;
@@ -31,7 +31,7 @@
 }
 .article-page--attributions .attribution-list > li:first-child { padding-top: .5rem; }
 .article-page--attributions .attribution-list > li:last-child { border-bottom: 0; padding-bottom: .25rem; }
-.article-page--attributions .attribution-list p { max-width: 76ch; margin: 0; }
+.article-page--attributions .attribution-list p { max-width: none; margin: 0; }
 .article-page--attributions .attribution-list p + p { margin-top: .45rem; line-height: 1.85; }
 .attribution-list strong { color: var(--ink); font-size: 1.0625rem; }
 .attribution-role { margin-left: .75rem; color: var(--muted); font-size: .8125rem; white-space: nowrap; }
