@@ -2195,10 +2195,11 @@
           },
           {
             "kind": "figure-grid",
+            "className": "research-figure-grid--teacher-portraits",
             "figures": [
               {
                 "src": "/figures/hp/ihp/ihp-improvement-fig-18.webp",
-                "alt": "Project refinement with Professor Ji Xiaojun and his research team, panel 1",
+                "alt": "Portrait of Dr. Sun Meili",
                 "caption": ""
               },
               {

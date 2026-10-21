@@ -95,7 +95,7 @@ export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, numbe
       case 'equation': return <Equation key={i} block={block} />;
       case 'code': return <div className="research-code" key={i}><p>{block.label}</p><pre tabIndex={0}><code>{block.text}</code></pre></div>;
       case 'figure': return <ResearchFigure key={i} figure={block} />;
-      case 'figure-grid': return <div key={i}><div className="research-figure-grid">{block.figures.map((figure) => <ResearchFigure key={figure.src} figure={figure} compact />)}</div>{block.caption && <p className="research-shared-caption">{block.captionRuns ? <DocumentText runs={block.captionRuns} /> : block.caption}</p>}</div>;
+      case 'figure-grid': return <div key={i}><div className={`research-figure-grid${block.className ? ` ${block.className}` : ''}`}>{block.figures.map((figure) => <ResearchFigure key={figure.src} figure={figure} compact />)}</div>{block.caption && <p className="research-shared-caption">{block.captionRuns ? <DocumentText runs={block.captionRuns} /> : block.caption}</p>}</div>;
       case 'member-grid': return <ul className="team-roster" key={i}>{block.members.map((member) => {
         const name = `${member.givenName} ${member.familyName}`;
         return <li className="team-member" key={member.src}>

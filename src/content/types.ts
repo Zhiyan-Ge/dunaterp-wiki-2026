@@ -7,7 +7,7 @@ export type ContentBlock =
   | { kind: 'equation'; text: string; label: string }
   | { kind: 'code'; text: string; label: string }
   | { kind: 'figure'; src: string; alt: string; caption: string; captionRuns?: DocumentTextRun[]; width?: number; height?: number }
-  | { kind: 'figure-grid'; figures: { src: string; alt: string; caption: string; width?: number; height?: number }[]; caption?: string; captionRuns?: DocumentTextRun[] }
+  | { kind: 'figure-grid'; figures: { src: string; alt: string; caption: string; width?: number; height?: number }[]; caption?: string; captionRuns?: DocumentTextRun[]; className?: string }
   | { kind: 'member-grid'; members: TeamMember[] }
   | { kind: 'chapter-grid'; items: { index: string; title: string; text: string; href: string }[] }
   | { kind: 'table'; caption: string; columns: string[]; rows: string[][]; cellRuns?: DocumentTextRun[][][]; collapsed?: boolean }
