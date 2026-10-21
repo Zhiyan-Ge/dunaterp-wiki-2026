@@ -22,6 +22,7 @@
 .research-table-scroll table { width: 100%; border-collapse: collapse; font-size: .875rem; line-height: 1.55; font-variant-numeric: tabular-nums; }
 .research-table-scroll caption { text-align: left; font-weight: 650; padding: 1rem; color: var(--ink); }
 .research-table-scroll th, .research-table-scroll td { padding: .7rem .8rem; text-align: center; vertical-align: top; border-top: 1px solid var(--line); min-width: 6rem; }
+.research-table-scroll th, .research-table-scroll td { overflow-wrap: normal; word-break: normal; hyphens: none; }
 .research-table-scroll thead { background: #eaf2ef; }
 .research-table-scroll tbody th { font-weight: 500; }
 .research-table-scroll tbody tr:nth-child(even) { background: #f6f8f7; }

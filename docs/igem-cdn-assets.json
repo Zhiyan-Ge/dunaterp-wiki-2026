@@ -1937,5 +1937,33 @@
     "sha256": "73d8a1abf6e16631e45e6ce94e3f7d9ab4363df57d09e39bbd170743af9ffa42",
     "sourceSha256": "9966460c90918261aef9e07de0ae53072c91a0e6a02c01969a7badcb8ff63a99",
     "bytes": 96938
+  },
+  {
+    "source": "figures/hp/stakeholder-4-1.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/hp/stakeholder-4-1-ba24145f43cc.webp",
+    "sha256": "ba24145f43cc3613a52d765c360ef17eb8e2b36fab3648b2118a23d970fc38a5",
+    "sourceSha256": "ba24145f43cc3613a52d765c360ef17eb8e2b36fab3648b2118a23d970fc38a5",
+    "bytes": 460666
+  },
+  {
+    "source": "figures/hp/stakeholder-4-2.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/hp/stakeholder-4-2-5927da673114.webp",
+    "sha256": "5927da67311430c3f770ee59c722d1a474a94b7eb0731ae5b5f40d594bff6bdd",
+    "sourceSha256": "5927da67311430c3f770ee59c722d1a474a94b7eb0731ae5b5f40d594bff6bdd",
+    "bytes": 280694
+  },
+  {
+    "source": "figures/hp/stakeholder-4-3.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/hp/stakeholder-4-3-d78e0ced0a74.webp",
+    "sha256": "d78e0ced0a7466317dc1930ecb47722bfc77ef6c77ba89e61a7f667136f97305",
+    "sourceSha256": "d78e0ced0a7466317dc1930ecb47722bfc77ef6c77ba89e61a7f667136f97305",
+    "bytes": 212266
+  },
+  {
+    "source": "figures/hp/stakeholder-4-4.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/hp/stakeholder-4-4-a18e5b70c0e9.webp",
+    "sha256": "a18e5b70c0e98986c58dab527396c31c88d7746e894630242eaf268bdf8beb68",
+    "sourceSha256": "a18e5b70c0e98986c58dab527396c31c88d7746e894630242eaf268bdf8beb68",
+    "bytes": 193978
   }
 ]

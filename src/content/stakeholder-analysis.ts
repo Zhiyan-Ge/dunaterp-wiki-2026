@@ -86,6 +86,16 @@ export const stakeholderAnalysis: WikiPage = {
         h('Analysis: Current Status'),
         p('The company’s experience illustrated how production difficulties become commercial constraints. Tubular photobioreactors were used to improve control over cultivation and contamination, while temperature management and access to suitable light remained important operating considerations. The experts also noted that monitoring equipment could be expensive. These observations showed that greater process control must be weighed against equipment investment and operating costs.'),
         p('Downstream processing provided a particularly concrete example. During the harvesting of Phaeodactylum tricornutum, the company encountered cell damage during centrifugation, allowing intracellular material to leave with the discarded liquid. Residual salts also complicated subsequent processing. Washing could reduce salt content, but could cause further losses when cells were already damaged. The commercial challenge was therefore to obtain a usable product while balancing recovery, desalting, and processing inputs.'),
+        {
+          kind: 'figure-grid',
+          figures: [
+            { src: '/figures/hp/stakeholder-4-1.webp', alt: 'Flat-panel microalgae cultivation units at the company', caption: '' },
+            { src: '/figures/hp/stakeholder-4-2.webp', alt: 'Illuminated flask cultivation system at the company', caption: '' },
+            { src: '/figures/hp/stakeholder-4-3.webp', alt: 'Processing equipment and pipework at the microalgae company', caption: '' },
+            { src: '/figures/hp/stakeholder-4-4.webp', alt: 'Tubular photobioreactor arrays at the microalgae company', caption: '' },
+          ],
+          caption: 'Figure 4 Photos from visiting the microalgae company',
+        },
         h('Reflection: Insights for Our Project'),
         p('These observations changed how we interpret productivity in DunaTerp. Higher intracellular terpene accumulation would have limited commercial value if much of the product were lost during harvesting or if recovery required excessive processing. The difficulties observed in P. tricornutum cannot be assumed to occur identically in D. salina, but they identify questions that our project needs to investigate.'),
         p('We therefore need to evaluate the amount and quality of the final recovered product, alongside its intracellular accumulation. Salt tolerance should likewise be assessed across the whole process: its potential cultivation benefits need to be considered together with salt removal and product recovery requirements.'),
@@ -99,7 +109,7 @@ export const stakeholderAnalysis: WikiPage = {
       title: 'Government and Food Safety Regulators',
       body: '',
       blocks: [
-        fig('4', 'DunaTerp team members consulting officers from a food safety regulatory department', 'Fig. 4 Consultation with food safety regulatory officers'),
+        fig('4', 'DunaTerp team members consulting officers from a food safety regulatory department', 'Fig. 5 Consultation with food safety regulatory officers'),
         h('Analysis: Current Status'),
         p('Government consultation highlighted that the regulatory assessment of a food ingredient concerns not only the final compound, but also its production organism and manufacturing process. According to the representatives consulted, ingredients produced using genetically modified microorganisms may require a relevant safety assessment even when the final product is highly purified and contains no residual engineered microorganisms or foreign genetic material. Product purity should therefore not be treated as sufficient evidence that a regulatory assessment is unnecessary.'),
         p('The consultation also raised questions about whether existing approvals cover a change in production source. For example, approval associated with astaxanthin from Haematococcus pluvialis should not automatically be assumed to cover astaxanthin produced by engineered Dunaliella salina. The applicable assessment or application pathway would need further confirmation based on the specific product, production process, and intended use.'),
@@ -116,7 +126,7 @@ export const stakeholderAnalysis: WikiPage = {
       title: 'Scientific Research and Educational Institutions',
       body: '',
       blocks: [
-        fig('5', 'DunaTerp team members in an academic exchange with Sichuan University researchers', 'Fig. 5 Academic exchange with Sichuan University researchers'),
+        fig('5', 'DunaTerp team members in an academic exchange with Sichuan University researchers', 'Fig. 6 Academic exchange with Sichuan University researchers'),
         h('Analysis: Current Status'),
         p('Academic consultations with Professor Liu Ke, Associate Professor Xu Hui, and Researcher Qin Jiufu at Sichuan University provided critical perspectives on the biological feasibility, technical design, and application potential of DunaTerp. Their feedback revealed a common challenge: the novelty of a biological chassis must be supported by a clear scientific rationale and verifiable advantages. Professor Liu encouraged us to investigate the actual market demand for astaxanthin and other target products, while questioning whether Dunaliella salina offers sufficient advantages over established production organisms. He emphasized that claims regarding its tolerance to environmental stress and cultivation efficiency require stronger evidence.'),
         p('Associate Professor Xu focused on the scientific rigor of our design, highlighting the need to define D. salina accurately as a photosynthetic microalgal chassis rather than simply a plant chassis. He also questioned the effectiveness of our proposed biosafety switch and emphasized that directed evolution must be guided by a clearly defined engineering objective and an appropriate screening strategy. Researcher Qin further challenged our initial emphasis on product yield, noting that D. salina faces limitations in growth rate and genetic engineering tools compared with established microbial chassis. He suggested that we instead investigate its distinctive potential for photoautotrophic production using saline water and other marginal resources, while prioritizing a focused proof of concept over multiple unverified product pathways. These discussions highlighted the need to connect biological innovation with technical feasibility, resource sustainability, and realistic application scenarios.'),
