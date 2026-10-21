@@ -1,0 +1,55 @@
+{
+  "document": "DunaTerp_Description.docx",
+  "documentSha256": "218690415bd8f1b1a1e7a39dc2d4fe418e428a6735e806a75c77e84aff5d0b56",
+  "textParagraphsMatched": 36,
+  "figures": [
+    {
+      "source": "figures/description/01-market.png",
+      "sha256": "4e9fc9436eb2d4eb5fc7e0e0a250116c483cb739e84c2e7842a5510c17c1b324",
+      "sourceSha256": "3e472bb52ef175fb33e26b97f5262715a6f7d353aa4a34a563be717176e59949",
+      "bytes": 78094,
+      "url": "https://static.igem.wiki/teams/6212/wiki/project-description/description-01-market-4e9fc9436eb2.webp",
+      "width": 796,
+      "height": 1034,
+      "pixelIdenticalToDocx": true
+    },
+    {
+      "source": "figures/description/02-chassis-benefits.png",
+      "sha256": "cf7c3e635f057691659ca3d490e08718bcb386991cf07440fa7b180dc3c527c4",
+      "sourceSha256": "0cabc3e4402485f1fe5f910ee6075a29e39edd9c010c75b5172e9591ededf175",
+      "bytes": 616006,
+      "url": "https://static.igem.wiki/teams/6212/wiki/project-description/description-02-chassis-benefits-cf7c3e635f05.webp",
+      "width": 1382,
+      "height": 1020,
+      "pixelIdenticalToDocx": true
+    },
+    {
+      "source": "figures/description/03-biosafety-switch.png",
+      "sha256": "30ef5d8f140d5b0c14b7b6edc419bb61a6e8931c93b3cfbc4e237b8b94720243",
+      "sourceSha256": "1ef19ca240e58746872039f37b5cdb026b0bcd5919edd9534c76f2c00d0c64f9",
+      "bytes": 31434,
+      "url": "https://static.igem.wiki/teams/6212/wiki/project-description/description-03-biosafety-switch-30ef5d8f140d.webp",
+      "width": 1511,
+      "height": 506,
+      "pixelIdenticalToDocx": true
+    },
+    {
+      "source": "figures/description/04-industrial-hardware.png",
+      "sha256": "acbbb91992abe8b4f151b57296f6a855ffc072a3ed226029b0b03552c7d8c31b",
+      "sourceSha256": "6ad37aba8cd20cd9aea556e40c29808ca02b41d4cefb152fd0b10a431fe5f095",
+      "bytes": 66094,
+      "url": "https://static.igem.wiki/teams/6212/wiki/project-description/description-04-industrial-hardware-acbbb91992ab.webp",
+      "width": 1429,
+      "height": 982,
+      "pixelIdenticalToDocx": true
+    }
+  ],
+  "approvedTextChanges": [
+    {
+      "location": "Introduction market paragraph",
+      "from": "CAGR of 8.11%",
+      "to": "CAGR of 8.61%",
+      "reason": "Team requested consistency with Figure 1 after local review."
+    }
+  ]
+}

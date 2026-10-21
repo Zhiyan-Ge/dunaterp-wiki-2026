@@ -18,9 +18,9 @@ try {
     ['Mathematical Modeling', '/model'],
     ['Metabolomics', '/metabolomics'],
     ['Protein', '/protein'],
+    ['Safety', '/safety-and-security'],
     ['Hardware Modeling', '/hardware'],
     ['Hardware Design', '/hardware-design'],
-    ['Safety', '/safety-and-security'],
   ]);
   assert.equal(new Set(pageOrder).size, pageOrder.length);
   for (const [, href] of items) assert(pages[href.slice(1)], `Missing route ${href}`);

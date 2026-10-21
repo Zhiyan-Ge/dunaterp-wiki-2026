@@ -3,6 +3,8 @@ import { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import katex from 'katex';
 import type { ContentBlock } from './content/types';
+import { DocumentText } from './DocumentText';
+import type { DocumentTextRun } from './content/types';
 import { PBRWidget } from './PBRWidget';
 import { SafetyOverview, SafetyResults } from './SafetyEvidence';
 import { WetLabMethod, WetLabOverview } from './WetLabProtocol';
@@ -56,10 +58,10 @@ function Equation({ block }: { block: Extract<ContentBlock, { kind: 'equation' }
   return <div className="research-equation" role="region" aria-label={block.label} tabIndex={0} dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
-function ResearchFigure({ figure, compact = false }: { figure: { src: string; alt: string; caption: string }; compact?: boolean }) {
+function ResearchFigure({ figure, compact = false }: { figure: { src: string; alt: string; caption: string; captionRuns?: DocumentTextRun[]; width?: number; height?: number }; compact?: boolean }) {
   return <figure className={`feature-figure research-figure${compact ? ' research-figure--compact' : ''}`}>
-    <a href={resolveAsset(figure.src)} aria-label={`Open full-size figure: ${figure.alt}`}><img src={resolveAsset(figure.src)} alt={figure.alt} loading="lazy" decoding="async" /></a>
-    <figcaption>{figure.caption}</figcaption>
+    <a href={resolveAsset(figure.src)} aria-label={`Open full-size figure: ${figure.alt}`}><img src={resolveAsset(figure.src)} alt={figure.alt} width={figure.width} height={figure.height} loading="lazy" decoding="async" /></a>
+    <figcaption>{figure.captionRuns ? <DocumentText runs={figure.captionRuns} /> : figure.caption}</figcaption>
   </figure>;
 }
 
@@ -78,6 +80,7 @@ export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, numbe
   return <div className="research-blocks">{blocks.map((block, i) => {
     switch (block.kind) {
       case 'paragraph': return <p key={i}>{renderCitations(block.text, referenceNumbers)}</p>;
+      case 'document-paragraph': return <p className="document-paragraph" id={block.id} key={i}><DocumentText runs={block.runs} /></p>;
       case 'heading': return <h3 id={sectionId ? `${sectionId}-heading-${i + 1}` : undefined} tabIndex={sectionId ? -1 : undefined} key={i}>{block.text}</h3>;
       case 'equation': return <Equation key={i} block={block} />;
       case 'code': return <div className="research-code" key={i}><p>{block.label}</p><pre tabIndex={0}><code>{block.text}</code></pre></div>;

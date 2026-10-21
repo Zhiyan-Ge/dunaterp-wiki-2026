@@ -4,7 +4,8 @@ import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { archiveNavigation, navigation, pageOrder, pages } from "./site-data";
 import { dryLabMenuGroups } from "./content/dry-lab";
 import { ArticleBlocks } from './ArticleBlocks';
-import type { WikiReference } from './content/types';
+import { DocumentText } from './DocumentText';
+import type { DocumentTextRun, WikiReference } from './content/types';
 
 const PixelWorld = lazy(() => import("./PixelWorld").then((module) => ({ default: module.PixelWorld })));
 const MODELING_PATHS = ['/dry-lab', '/transcriptomics', '/metabolomics', '/protein', '/model', '/safety-and-security'];
@@ -176,7 +177,7 @@ function renderCitations(text: string, referenceNumbers: Map<string, number>) {
   });
 }
 
-type TocSection = { id: string; title: string; children: Array<{ id: string; title: string }> };
+type TocSection = { id: string; title: string; titleRuns?: DocumentTextRun[]; children: Array<{ id: string; title: string }> };
 
 type TocChapterDefinition = { title: string; start: number; end: number };
 
@@ -187,11 +188,6 @@ type TocChapterDefinition = { title: string; start: number; end: number };
  * remains present in the article.
  */
 const TOC_CHAPTERS: Record<string, TocChapterDefinition[]> = {
-  "project-description": [
-    { title: "Background & Chassis", start: 0, end: 1 },
-    { title: "Reprogramming & Modeling", start: 2, end: 3 },
-    { title: "Products & Validation", start: 4, end: 5 },
-  ],
   experiments: [
     { title: "Experimental Workflow", start: 0, end: 0 },
     { title: "Molecular Construction", start: 1, end: 2 },
@@ -242,7 +238,8 @@ const TOC_CHAPTERS: Record<string, TocChapterDefinition[]> = {
 type TocChapter = {
   id: string;
   title: string;
-  links: Array<{ id: string; title: string; activeIds: Set<string> }>;
+  titleRuns?: DocumentTextRun[];
+  links: Array<{ id: string; title: string; titleRuns?: DocumentTextRun[]; activeIds: Set<string> }>;
   activeIds: Set<string>;
 };
 
@@ -264,9 +261,10 @@ function tocChapters(slug: string, sections: TocSection[]): TocChapter[] {
       : members.map((section) => ({
           id: section.id,
           title: section.title,
+          titleRuns: section.titleRuns,
           activeIds: new Set([section.id, ...section.children.map((child) => child.id)]),
         }));
-    return [{ id: members[0].id, title: definition.title, links, activeIds: allIds }];
+    return [{ id: members[0].id, title: definition.title, titleRuns: definition.title === members[0].title ? members[0].titleRuns : undefined, links, activeIds: allIds }];
   });
 }
 
@@ -375,10 +373,10 @@ function ArticleToc({ slug, sections, hasReferences }: { slug: string; sections:
     {chapters.map((chapter) => {
       const isOpen = chapter.activeIds.has(activeId);
       return <div className={`toc-group${isOpen ? " is-open" : ""}`} key={chapter.id}>
-        <Link data-toc-id={chapter.id} className={`toc-parent${activeId === chapter.id ? " is-active" : ""}`} aria-current={activeId === chapter.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${chapter.id}` }}>{chapter.title}{chapter.links.length > 0 && <b aria-hidden="true">⌄</b>}</Link>
+        <Link data-toc-id={chapter.id} className={`toc-parent${activeId === chapter.id ? " is-active" : ""}`} aria-current={activeId === chapter.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${chapter.id}` }}>{chapter.titleRuns ? <span><DocumentText runs={chapter.titleRuns} /></span> : chapter.title}{chapter.links.length > 0 && <b aria-hidden="true">⌄</b>}</Link>
         {chapter.links.length > 0 && <div className="toc-sublist">{chapter.links.map((link) => {
           const isActive = link.activeIds.has(activeId);
-          return <Link key={link.id} data-toc-id={link.id} className={isActive ? "is-active" : undefined} aria-current={isActive ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${link.id}` }}>{link.title}</Link>;
+          return <Link key={link.id} data-toc-id={link.id} className={isActive ? "is-active" : undefined} aria-current={isActive ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${link.id}` }}>{link.titleRuns ? <span><DocumentText runs={link.titleRuns} /></span> : link.title}</Link>;
         })}</div>}
       </div>;
     })}
@@ -424,6 +422,7 @@ function Article({ slug }: { slug: string }) {
   const tocSections: TocSection[] = page.sections.map((section, sectionIndex) => ({
     id: `section-${sectionIndex + 1}`,
     title: section.tocTitle ?? section.title,
+    titleRuns: section.tocTitle ? undefined : section.titleRuns,
     children: (section.blocks ?? []).flatMap((block, blockIndex) => {
       if (block.kind === 'heading') return [{ id: `section-${sectionIndex + 1}-heading-${blockIndex + 1}`, title: block.text }];
       if (block.kind === 'wet-lab-method') return block.headings;
@@ -434,14 +433,29 @@ function Article({ slug }: { slug: string }) {
     ...tocChapters(slug, tocSections).map((chapter) => ({ id: chapter.id, title: chapter.title })),
     ...(references.length > 0 ? [{ id: "references", title: "References" }] : []),
   ];
-  return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${isWetLab ? ' article-page--wet-lab' : ''}${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${group?.label === 'Human Practices' ? ' article-page--human-practices' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}${slug === 'experiments' ? ' article-page--experiments' : ''}${slug === 'notebook' ? ' article-page--notebook' : ''}${slug === 'team' ? ' article-page--team' : ''}${slug === 'attributions' ? ' article-page--attributions' : ''}${slug === 'collaboration' ? ' article-page--collaboration' : ''}`}>
+  const articleClassName = [
+    "article-page",
+    isWetLab ? ' article-page--wet-lab' : '',
+    group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : '',
+    group?.label === 'Human Practices' ? ' article-page--human-practices' : '',
+    slug === 'collaboration' ? ' article-page--collaboration' : '',
+    isModeling ? ' article-page--modeling' : '',
+    slug === 'dry-lab' ? ' article-page--overview' : '',
+    slug === 'hardware' ? ' article-page--hardware' : '',
+    slug === 'safety-and-security' ? ' article-page--safety' : '',
+    slug === 'experiments' ? ' article-page--experiments' : '',
+    slug === 'notebook' ? ' article-page--notebook' : '',
+    slug === 'team' ? ' article-page--team' : '',
+    slug === 'attributions' ? ' article-page--attributions' : '',
+  ].join("");
+  return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={articleClassName}>
     <header className="article-hero"><div><h1>{heroTitle}</h1></div></header>
     {slug === "attributions" && page.intro && <p className="attributions-introduction">{page.intro}</p>}
     {slug === 'team' && page.intro && <p className="team-introduction">{page.intro}</p>}
     {hasContent && <>
     <div className="article-layout"><ArticleToc slug={slug} sections={tocSections} hasReferences={references.length > 0} />
       <div className="article-body">{page.figure && <figure className="feature-figure"><img src={figureSrc} alt={page.figure.alt} loading="lazy" decoding="async" /><figcaption>{page.figure.caption}</figcaption></figure>}
-        <div className="article-sections">{page.sections.map((section, i) => <section id={`section-${i + 1}`} tabIndex={-1} key={`${i}-${section.title}`}><div className="section-number">{String(i + 1).padStart(2, "0")}</div><div><h2>{section.title}</h2>{section.body && <p>{renderCitations(section.body, referenceNumbers)}</p>}{section.blocks && <ArticleBlocks blocks={section.blocks} referenceNumbers={referenceNumbers} sectionId={`section-${i + 1}`} />}{section.items && <ul>{section.items.map((item) => <li key={item}>{renderCitations(item, referenceNumbers)}</li>)}</ul>}{section.note && <aside>{section.note}</aside>}</div></section>)}</div>
+        <div className="article-sections">{page.sections.map((section, i) => <section id={`section-${i + 1}`} tabIndex={-1} key={`${i}-${section.title}`}><div className="section-number">{String(i + 1).padStart(2, "0")}</div><div><h2>{section.titleRuns ? <DocumentText runs={section.titleRuns} /> : section.title}</h2>{section.body && <p>{renderCitations(section.body, referenceNumbers)}</p>}{section.blocks && <ArticleBlocks blocks={section.blocks} referenceNumbers={referenceNumbers} sectionId={`section-${i + 1}`} />}{section.items && <ul>{section.items.map((item) => <li key={item}>{renderCitations(item, referenceNumbers)}</li>)}</ul>}{section.note && <aside>{section.note}</aside>}</div></section>)}</div>
         {references.length > 0 && <section id="references" tabIndex={-1} className="article-references"><h2>References</h2><div className="reference-list">{references.map((reference, index) => <p id={`reference-${index + 1}`} key={reference.href}><a href={reference.href} target="_blank" rel="noreferrer">{reference.label}</a></p>)}</div></section>}
       </div>
     </div>
