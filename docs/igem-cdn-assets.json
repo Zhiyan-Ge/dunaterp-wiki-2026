@@ -1267,6 +1267,20 @@
     "url": "https://static.igem.wiki/teams/6212/wiki/design/design-04-astaxanthin-5b6aa1b04283.webp"
   },
   {
+    "source": "figures/design/04-beta-ionone-production.webp",
+    "sha256": "d6cb7f38602bdbcb7035307f6f00654ea1bbd9f39624d9fd3585d98fd62438ab",
+    "sourceSha256": "b7455e50df9273c0d27e0583a5923caa52b9737a8bd4cd1dc4aba32943466a4b",
+    "bytes": 38550,
+    "url": "https://static.igem.wiki/teams/6212/wiki/design/design-04-beta-ionone-d6cb7f38602b.webp"
+  },
+  {
+    "source": "figures/design/05-beta-citraurin-production.webp",
+    "sha256": "9c6fa4e05adcf437ea4c88aad201b783e1406a89b94a34be69e8459c32250a79",
+    "sourceSha256": "fb19db19cd4f63b3232d027663da9e4991b76b718181a511263649193250920c",
+    "bytes": 51634,
+    "url": "https://static.igem.wiki/teams/6212/wiki/design/design-05-beta-citraurin-9c6fa4e05adc.webp"
+  },
+  {
     "source": "figures/design/05-pdca1-activity.webp",
     "sha256": "6a48481fe10e8d1d2826f394ae63628d808e2f9cf6938d0ba4cffa0b7acd04dd",
     "sourceSha256": "d26873d80e75d9d5d1914bf44ce043d89130f9fe046183f1ec9147770159301f",
