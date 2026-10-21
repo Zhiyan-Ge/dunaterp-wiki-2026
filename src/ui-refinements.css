@@ -796,7 +796,7 @@ body:has(.article-page--light) { background: #f3f5ef; }
 
 /* Description: continuous reading layout and compact market figure. */
 body:has(.article-page--description) { background: #f3f5ef; }
-.article-page.article-page--description .article-body { padding: clamp(1.4rem, 3vw, 2.5rem); background: #fff; }
+.article-page.article-page--description .article-body { padding: clamp(1.4rem, 3vw, 2.5rem); background: transparent; }
 .article-page.article-page--description .article-sections { margin-bottom: 0; }
 .article-page.article-page--description .article-sections > section {
   grid-template-columns: 1.75rem minmax(0, 1fr);
