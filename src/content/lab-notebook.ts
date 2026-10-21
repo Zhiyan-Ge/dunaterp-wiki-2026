@@ -16,6 +16,22 @@ export const labNotebook: WikiPage = {
   status: 'team-draft',
   sections: [
     {
+      title: '2146 experiment module',
+      tocTitle: '2146 notebook',
+      body: 'This notebook records the dated bench work behind the pCAMBIA1302-based 2146 constructs, from medium preparation and plasmid amplification to target-gene cloning, homologous recombination, sequencing verification and the first Dunaliella salina transformation between July and September 2026.',
+      items: [
+        'Experimental overview: vector, target genes, hosts and reagents',
+        'LB and DM medium preparation for E. coli and D. salina',
+        'pCAMBIA1302 transformation, culture and plasmid extraction',
+        'Vector backbone and target-gene fragment amplification',
+        'Homologous recombination, colony PCR and sequencing verification',
+        'RBCS2 signal-peptide fusions and D. salina transformation',
+      ],
+      blocks: [
+        pdf('/protocols/Notebook_2146_EN.pdf', '2146 experiment notebook (PDF)'),
+      ],
+    },
+    {
       title: 'Astaxanthin and crocetin module',
       tocTitle: 'Astaxanthin / Crocetin',
       body: 'This notebook records the construction, screening and resequencing workflow for the astaxanthin and crocetin modules in Dunaliella salina from July to September 2026.',
@@ -29,6 +45,20 @@ export const labNotebook: WikiPage = {
       ],
       blocks: [
         pdf('/protocols/Notebook_Astaxanthin_Crocetin_EN.pdf', 'Astaxanthin and crocetin notebook (PDF)'),
+      ],
+    },
+    {
+      title: 'β-Ionone and β-citraurin module',
+      tocTitle: 'β-Ionone / β-Citraurin',
+      body: 'This notebook records the dated bench work for the β-ionone and β-citraurin routes, covering strain screening, metabolomics analysis, transcriptional validation and product verification.',
+      items: [
+        'Strain screening and single-colony isolation',
+        'Metabolomics sample preparation and analysis',
+        'Transcriptional validation of the target genes',
+        'Product verification of the biosynthesis routes',
+      ],
+      blocks: [
+        pdf('/protocols/Notebook_Beta_Ionone_Beta_Citraurin_EN.pdf', 'β-Ionone and β-citraurin notebook (PDF)'),
       ],
     },
     {
