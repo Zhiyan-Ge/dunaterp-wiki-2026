@@ -12,37 +12,21 @@ const pdf = (src: string, label: string): Extract<ContentBlock, { kind: 'pdf' }>
 export const labNotebook: WikiPage = {
   title: 'Lab Notebook',
   eyebrow: 'Lab / Notebook',
-  intro: 'Following the 2025-style notebook layout, this page keeps the chapter overview on-page and provides the full dated laboratory records as PDFs for direct reading and download.',
+  intro: 'Our detailed laboratory notebooks are provided as PDFs.',
   status: 'team-draft',
   sections: [
     {
       title: '2146 experiment module',
       tocTitle: '2146 notebook',
-      body: 'This notebook records the dated bench work behind the pCAMBIA1302-based 2146 constructs, from medium preparation and plasmid amplification to target-gene cloning, homologous recombination, sequencing verification and the first Dunaliella salina transformation between July and September 2026.',
-      items: [
-        'Experimental overview: vector, target genes, hosts and reagents',
-        'LB and DM medium preparation for E. coli and D. salina',
-        'pCAMBIA1302 transformation, culture and plasmid extraction',
-        'Vector backbone and target-gene fragment amplification',
-        'Homologous recombination, colony PCR and sequencing verification',
-        'RBCS2 signal-peptide fusions and D. salina transformation',
-      ],
+      body: '',
       blocks: [
-        pdf('/protocols/Notebook_2146_EN.pdf', '2146 experiment notebook (PDF)'),
+        pdf('/protocols/Notebook_CPP2146_EN.pdf', '2146 experiment notebook (PDF)'),
       ],
     },
     {
       title: 'Astaxanthin and crocetin module',
       tocTitle: 'Astaxanthin / Crocetin',
-      body: 'This notebook records the construction, screening and resequencing workflow for the astaxanthin and crocetin modules in Dunaliella salina from July to September 2026.',
-      items: [
-        'Experimental preparation and vector amplification',
-        'Fragment amplification and initial plasmid construction',
-        'Sequencing preparation and transformation-condition adjustment',
-        'Promoter and signal-peptide construct screening',
-        'Reconstruction after suspected cassette loss',
-        'End-of-September resequencing and candidate re-evaluation',
-      ],
+      body: '',
       blocks: [
         pdf('/protocols/Notebook_Astaxanthin_Crocetin_EN.pdf', 'Astaxanthin and crocetin notebook (PDF)'),
       ],
@@ -50,13 +34,7 @@ export const labNotebook: WikiPage = {
     {
       title: 'β-Ionone and β-citraurin module',
       tocTitle: 'β-Ionone / β-Citraurin',
-      body: 'This notebook records the dated bench work for the β-ionone and β-citraurin routes, covering strain screening, metabolomics analysis, transcriptional validation and product verification.',
-      items: [
-        'Strain screening and single-colony isolation',
-        'Metabolomics sample preparation and analysis',
-        'Transcriptional validation of the target genes',
-        'Product verification of the biosynthesis routes',
-      ],
+      body: '',
       blocks: [
         pdf('/protocols/Notebook_Beta_Ionone_Beta_Citraurin_EN.pdf', 'β-Ionone and β-citraurin notebook (PDF)'),
       ],
@@ -64,50 +42,9 @@ export const labNotebook: WikiPage = {
     {
       title: 'Safety module',
       tocTitle: 'Safety notebook',
-      body: 'This notebook records the salt-responsive safety-module work, including PDCA1 promoter amplification, reporter construction, MazF validation, transformation-condition optimisation and follow-up growth monitoring in D. salina.',
-      items: [
-        'PDCA1 promoter amplification from genomic DNA',
-        'p2301-PDCA1-EGFP reporter construction and verification',
-        'p1302-CaMV35S-mazF cloning and sequence confirmation',
-        'Transformation and recovery-condition optimisation',
-        'Hygromycin enrichment and mazF target detection',
-        'MazF growth-curve recording and Pip-mazF assembly follow-up',
-      ],
+      body: '',
       blocks: [
         pdf('/protocols/Notebook_Safety_EN.pdf', 'Safety notebook (PDF)'),
-      ],
-    },
-    {
-      title: 'β-ionone and β-citraurin module',
-      tocTitle: 'β-ionone / β-citraurin',
-      body: 'This notebook records CCD1- and CitCCD4-based biosynthesis work in Dunaliella salina FACHB-435 from August to October 2026, including expression-vector construction, transformation, molecular identification and expression verification.',
-      items: [
-        '35S and RBCS2 promoter constructs and chloroplast targeting',
-        'Backbone amplification, fragment assembly and clone screening',
-        'Dunaliella salina transformation, selection and cultivation',
-        'Colony PCR, sequencing and construct re-evaluation',
-        'Genomic PCR, RNA extraction and RT-qPCR',
-        'Metabolomic analysis and thin-layer chromatography assessment',
-      ],
-      blocks: [
-        pdf('/protocols/Notebook_Beta_Ionone_Beta_Citraurin_EN.pdf', 'β-ionone and β-citraurin notebook (PDF)'),
-      ],
-    },
-    {
-      title: '2146 experimental notebook',
-      tocTitle: '2146 notebook',
-      body: 'This daily experimental notebook covers July 27 to September 22, 2026. It records pCAMBIA1302-based cloning work involving 2146, HpBKT, GjCCD4a and GjALDH2C3, together with RBCS2 and signal-peptide constructs, plasmid verification and Dunaliella salina transformation.',
-      items: [
-        'Culture-medium preparation and vector amplification',
-        'Target-fragment PCR, electrophoresis and gel purification',
-        'Homologous recombination and bacterial transformation',
-        '2146 plasmid propagation, extraction and algal transformation',
-        'RBCS2 and signal-peptide construct screening',
-        'Sequencing, reconstruction and follow-up culture records',
-      ],
-      blocks: [
-        pdf('/protocols/Notebook_CPP2146_EN.pdf', '2146 experimental notebook (PDF)'),
-        { kind: 'download', src: '/protocols/Notebook_CPP2146_EN.docx', label: 'Download original DOCX' },
       ],
     },
   ],
