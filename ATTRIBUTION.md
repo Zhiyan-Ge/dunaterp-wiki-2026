@@ -125,3 +125,13 @@ and variation axes. No Apple system fonts are redistributed. The CSS aliases
 Duna Sans, Duna Serif and Duna Mono ensure the same files are selected on all
 platforms; native browser rasterization can still vary. Pixel-world bitmap
 signage, logo artwork and KaTeX fonts are unchanged.
+
+## 21 October 2026 — consolidated Engineering document
+
+Engineering text, experimental figures, primer tables and captions come from the
+team-supplied `Engineering 总.docx`. The import preserves the supplied wording,
+order, italic and bold spans, and subscripts; no scientific copy was generated.
+Images are lossless WebP exports (including the image crop specified in Word),
+served through the official iGEM CDN. Source and delivery hashes and the
+character-formatting audit are recorded in `docs/engineering-total-sources.json`.
+Codex assisted with document import, component integration and browser checks.

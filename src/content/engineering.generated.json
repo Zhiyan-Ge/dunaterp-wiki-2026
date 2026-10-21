@@ -1,0 +1,3685 @@
+{
+  "title": "Engineering",
+  "eyebrow": "Engineering",
+  "intro": "",
+  "status": "review-ready",
+  "sections": [
+    {
+      "title": "Engineering of the CPP2146 Regulatory Module",
+      "titleRuns": [
+        {
+          "text": "Engineering of the CPP2146 Regulatory Module"
+        }
+      ],
+      "body": "",
+      "blocks": [
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "This module investigates whether CPP2146 expression can influence carotenoid metabolism in Dunaliella salina. Following the Design framework, we constructed a CPP2146 expression vector, evaluated the expression of candidate carotenoid pathway genes by RT-qPCR, and analyzed carotenoid content and composition by LC-MS/MS. The engineering process addressed vector instability and an unexpected initial RT-qPCR result, and then refined our interpretation of the relationship between gene expression and pigment accumulation."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle I Initial Construction of the Recombinant Vector",
+          "runs": [
+            {
+              "text": "Cycle I Initial Construction of the Recombinant Vector",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "To test the proposed regulatory role of CPP2146, we first needed a correctly assembled expression vector. The initial vector contained two homologous CaMV 35S promoter sequences arranged in opposite orientations. We attempted to construct the CPP2146 recombinant vector using this original architecture and verify the resulting plasmids by sequencing."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-01-e3b1d2f74ad6.webp",
+          "alt": "Fig. 1The atlas of plasmid pCAMBIA1302-2146",
+          "caption": "Fig. 1The atlas of plasmid pCAMBIA1302-2146",
+          "width": 1063,
+          "height": 833,
+          "captionRuns": [
+            {
+              "text": "Fig. 1The atlas of plasmid pCAMBIA1302-2146"
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We carried out repeated cloning attempts and submitted candidate recombinant plasmids for sequencing. When the expected construct could not be reliably obtained, we compared the sequencing results from successive attempts with the intended vector sequence to identify a recurring source of instability."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Obtaining the intended recombinant vector remained difficult across repeated attempts. Sequencing repeatedly revealed discrepancies from the intended construct. Examination of the vector architecture identified the two oppositely oriented homologous CaMV 35S promoters as a potential source of instability during cloning."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-02-a42c7f0c1c9c.webp",
+          "alt": "Fig 2 Sequencing results of plasmid pCAMBIA1302-2146",
+          "caption": "Fig 2 Sequencing results of plasmid pCAMBIA1302-2146",
+          "width": 1280,
+          "height": 864,
+          "captionRuns": [
+            {
+              "text": "Fig 2 Sequencing results of plasmid pCAMBIA1302-2146"
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The repeated sequence discrepancies suggested that vector architecture, in addition to the assembly procedure, needed to be reconsidered. The homologous promoter sequences could provide a substrate for sequence rearrangement, although sequencing discrepancies alone did not establish the exact molecular mechanism. We therefore redesigned the vector to reduce promoter homology rather than continuing to repeat the same cloning strategy."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle II Optimization of Vector Stability",
+          "runs": [
+            {
+              "text": "Cycle II Optimization of Vector Stability",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "To address the suspected instability associated with the duplicated CaMV 35S sequences, we replaced one of the two promoters with the endogenous D. salina RBCS2 promoter. This modification was intended to reduce homology between the promoter regions while retaining a promoter suitable for the algal expression system."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We reconstructed the CPP2146 vector with the RBCS2 promoter substitution and repeated cloning and sequence verification. Candidate plasmid sequences were compared with the redesigned reference to determine whether the intended construct had been obtained."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Following promoter replacement, sequencing results matched the redesigned construct, resolving the recurring construction problem encountered with the original vector. The corrected recombinant vector was obtained for subsequent work with CPP2146-expressing algae."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-03-50ddc5dbb572.webp",
+          "alt": "Fig 3 Sequencing results of plasmid pCAMBIA1302-2146",
+          "caption": "Fig 3 Sequencing results of plasmid pCAMBIA1302-2146",
+          "width": 1319,
+          "height": 1001,
+          "captionRuns": [
+            {
+              "text": "Fig 3 Sequencing results of plasmid pCAMBIA1302-2146"
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Successful construction after replacing one promoter supported the interpretation that the homologous promoter arrangement contributed to the earlier cloning difficulty. Reducing repeated regulatory sequences provided a practical solution for this construct. This result verified the redesigned plasmid sequence; long-term stability during extended propagation would require a separate assessment."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle III Initial RT qPCR Evaluation",
+          "runs": [
+            {
+              "text": "Cycle III Initial RT qPCR Evaluation",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "With the vector construction problem resolved, we investigated whether CPP2146 expression was associated with changes in carotenoid pathway gene expression. Based on our working hypothesis, CPP2146 might promote the expression of candidate genes involved in carotenoid biosynthesis or branch allocation. We used RT-qPCR to compare the CPP2146-overexpressing line with wild-type algae."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "RNA was extracted from the CPP2146-overexpressing and wild-type samples and reverse-transcribed for RT-qPCR analysis. After the initial expression trend differed from our hypothesis, we reviewed sample processing and the RNA extraction workflow before assigning a biological explanation to the result."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The initial RT-qPCR results showed lower relative expression of the tested carotenoid pathway genes in the CPP2146 line than in WT, apparently suggesting a negative regulatory association. During data tracing and workflow review, we identified possible RNA degradation in the WT samples during extraction as a potential confounding factor."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-04-98e9d3ccd9f8.webp",
+          "alt": "Fig 4 qPCR results",
+          "caption": "Fig 4 qPCR results",
+          "width": 1319,
+          "height": 653,
+          "captionRuns": [
+            {
+              "text": "Fig 4 qPCR results"
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The unexpected trend could not be confidently attributed to CPP2146 because RNA quality might have affected the comparison. Unequal degradation of target and reference transcripts can bias normalized expression estimates, so suspected WT RNA degradation was a possible explanation rather than an established cause. We decided to repeat RNA extraction with a new kit and reassess the expression pattern."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle IV Reassessment after RNA Extraction Optimization",
+          "runs": [
+            {
+              "text": "Cycle IV Reassessment after RNA Extraction Optimization",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "To determine whether the initial expression pattern persisted after changing the RNA extraction procedure, we repeated the analysis using a new RNA extraction kit. The aim was to obtain a more reliable comparison and evaluate the CPP2146 hypothesis from the repeated measurements, without treating agreement with the expected trend as a validation criterion."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We re-extracted RNA using the new kit, performed reverse transcription, and repeated RT-qPCR analysis of the carotenoid pathway genes. The repeated results were compared between the CPP2146-overexpressing and WT samples and examined alongside the initial dataset."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The repeated RT-qPCR analysis showed upregulation of the tested carotenoid pathway genes in the CPP2146-overexpressing line relative to WT. This result differed from the initial dataset and supported a positive association between CPP2146 overexpression and the transcriptional activity of the tested pathway genes."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-05-5f6d86654da4.webp",
+          "alt": "Fig 5 qPCR results",
+          "caption": "Fig 5 qPCR results",
+          "width": 1319,
+          "height": 667,
+          "captionRuns": [
+            {
+              "text": "Fig 5 qPCR results"
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The repeated measurements supported our proposed role for CPP2146 in promoting carotenoid-related gene expression. However, changing the extraction kit did not independently prove that WT RNA degradation caused the original discrepancy. RT-qPCR also could not establish direct promoter binding or guarantee increased pigment accumulation. We therefore evaluated the metabolic phenotype using LC-MS/MS."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle V Evaluation of Carotenoid Content and Composition",
+          "runs": [
+            {
+              "text": "Cycle V Evaluation of Carotenoid Content and Composition",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "To assess whether the transcriptional changes were accompanied by a metabolic phenotype, we compared carotenoids in the CPP2146-overexpressing line and WT by LC-MS/MS. The analysis considered both total carotenoid content and the relative contributions of individual carotenoids, consistent with the Design hypothesis that CPP2146 might influence metabolic allocation."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Carotenoid samples from the CPP2146-overexpressing line and WT were analyzed by LC-MS/MS. After the initial comparison indicated reduced total carotenoid content in the CPP2146 line, we examined the individual carotenoid measurements in more detail and compared their relative proportions within the measured carotenoid pool."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The LC-MS/MS results showed lower total carotenoid content in the CPP2146-overexpressing line than in WT. Further analysis nevertheless revealed a change in carotenoid composition, with β-carotene accounting for a higher relative proportion in the CPP2146 line. Thus, the observed phenotype combined a decrease in total carotenoids with relative enrichment of β-carotene."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-06-a111fa7f10e7.webp",
+          "alt": "Fig 6 Results of LC-MS/MS analysis of carotenoids",
+          "caption": "Fig 6 Results of LC-MS/MS analysis of carotenoids",
+          "width": 1126,
+          "height": 975,
+          "captionRuns": [
+            {
+              "text": "Fig 6 Results of LC-MS/MS analysis of carotenoids"
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "These results refined our interpretation of CPP2146 function. Upregulation of the tested pathway genes did not translate into increased total carotenoid accumulation, whereas the altered composition suggested that CPP2146 may participate in carotenoid metabolic regulation. A higher β-carotene proportion does not establish an increase in its absolute content, particularly when the total pool is smaller, and it does not by itself demonstrate redirected metabolic flux. Future work should compare absolute β-carotene content and productivity using consistent cell or biomass normalization, assess growth, and test independent transformants with an empty-vector control. At this stage, the evidence supports transcriptional changes and altered carotenoid composition, while improved precursor supply for downstream synthesis remains to be demonstrated."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Synthesis of β-Ionone",
+      "titleRuns": [
+        {
+          "text": "The Synthesis of β-Ionone",
+          "bold": true
+        }
+      ],
+      "body": "",
+      "blocks": [
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "This module synthesizes β-ionone in "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": ". CCD1 cleaves β-carotene to yield β-ionone. The expression plasmid uses pCAMBIA1302 as the backbone, combining the CCD1 gene with the "
+            },
+            {
+              "text": "D. salina",
+              "italic": true
+            },
+            {
+              "text": " RBCS2 promoter and a signal peptide (SP)."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle I",
+          "runs": [
+            {
+              "text": "Cycle I",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The plasmid was assembled by linearizing the backbone by inverse PCR and amplifying the CCD1 insert by PCR, with sequences homologous to the backbone added to both ends of the fragment, followed by Gibson assembly. The high-fidelity polymerase KOD One was used for amplification, and the primers used for backbone linearization are listed below; the annealing temperature for the CCD1 fragment was set to 45 °C."
+            }
+          ]
+        },
+        {
+          "kind": "table",
+          "caption": "",
+          "columns": [
+            "Primer",
+            "Sequence (5' → 3')"
+          ],
+          "rows": [
+            [
+              "p1302-RBCS2-F",
+              "GGAGCACGACACACTTGTCTTTACTTTGCATGATGCAGCAAGCC"
+            ],
+            [
+              "p1302-RBCS2-R",
+              "TCAGGTCCATTCAAGTGAAGATGTTTAGGTGCAG"
+            ]
+          ],
+          "columnRuns": [
+            [
+              {
+                "text": "Primer"
+              }
+            ],
+            [
+              {
+                "text": "Sequence (5' → 3')"
+              }
+            ]
+          ],
+          "cellRuns": [
+            [
+              [
+                {
+                  "text": "p1302-RBCS2-F"
+                }
+              ],
+              [
+                {
+                  "text": "GGAGCACGACACACTTGTCTTTACTTTGCATGATGCAGCAAGCC"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "p1302-RBCS2-R"
+                }
+              ],
+              [
+                {
+                  "text": "TCAGGTCCATTCAAGTGAAGATGTTTAGGTGCAG"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The backbone was linearized by inverse PCR and the CCD1 fragment was amplified by PCR, with KOD One as the polymerase. The amplification products were examined by agarose gel electrophoresis and gel-extracted for Gibson assembly. The assembly products were transformed into DH5α and selected on kanamycin plates."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "As shown in Fig. 1, the backbone could be amplified, but the main band of the RBCS2 backbone was consistently accompanied by a weaker nonspecific band beneath it, and the band intensity varied among clones. The CCD1 fragment fared worse: as shown in Fig. 2, multiple nonspecific bands appeared at an annealing temperature of 45 °C, the target band was difficult to separate from the nonspecific ones, and the concentration did not meet the requirement for assembly."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-07-84a7e369ddb4.webp",
+          "alt": "Fig. 7 PCR amplification of the RBCS2 backbone. M: 2000 bp DNA marker; lanes 1–4 and 5–8: PCR products of the RBCS2 backbone",
+          "caption": "Fig. 7 PCR amplification of the RBCS2 backbone. M: 2000 bp DNA marker; lanes 1–4 and 5–8: PCR products of the RBCS2 backbone",
+          "width": 1010,
+          "height": 685,
+          "captionRuns": [
+            {
+              "text": "Fig. 7 PCR amplification of the RBCS2 backbone. M: 2000 bp DNA marker; lanes 1–4 and 5–8: PCR products of the RBCS2 backbone"
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-08-b49045977a08.webp",
+          "alt": "Fig. 8 PCR amplification of the CCD1 fragment. M: 2000 bp DNA marker; lanes 1–9: PCR products of the CCD1 fragment.",
+          "caption": "Fig. 8 PCR amplification of the CCD1 fragment. M: 2000 bp DNA marker; lanes 1–9: PCR products of the CCD1 fragment.",
+          "width": 1140,
+          "height": 630,
+          "captionRuns": [
+            {
+              "text": "Fig. 8 PCR amplification of the CCD1 fragment. M: 2000 bp DNA marker; lanes 1–9: PCR products of the CCD1 fragment."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "This round exposed two independent problems. The yield was insufficient, and repeated adjustments of the annealing temperature brought only limited improvement, indicating that the bottleneck lay in the amplification capacity of the polymerase. As for the nonspecific band of the RBCS2 backbone, raising the annealing temperature weakened it but could not eliminate it; we inferred that the primer had multiple binding sites on the plasmid, a problem that condition optimization alone could not solve. The next round planned to change both the polymerase and the primer."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle II",
+          "runs": [
+            {
+              "text": "Cycle II",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "To address the two problems found in the previous round, we redesigned the amplification strategy. The polymerase was replaced with Phanta, a high-fidelity enzyme with higher yield, and the reverse primer p1302-RBCS2-R for the RBCS2 backbone was redesigned to avoid the other binding sites on the plasmid, with the forward primer p1302-RBCS2-F kept unchanged; the new reverse primer is listed below."
+            }
+          ]
+        },
+        {
+          "kind": "table",
+          "caption": "",
+          "columns": [
+            "Primer",
+            "Sequence (5' → 3')"
+          ],
+          "rows": [
+            [
+              "p1302-RBCS2-F",
+              "GGAGCACGACACACTTGTCTTTACTTTGCATGATGCAGCAAGCC"
+            ],
+            [
+              "p1302-RBCS2-R (redesigned)",
+              "TCAGGTCCATTGTGTCTGACTGGGGTGG"
+            ]
+          ],
+          "columnRuns": [
+            [
+              {
+                "text": "Primer"
+              }
+            ],
+            [
+              {
+                "text": "Sequence (5' → 3')"
+              }
+            ]
+          ],
+          "cellRuns": [
+            [
+              [
+                {
+                  "text": "p1302-RBCS2-F"
+                }
+              ],
+              [
+                {
+                  "text": "GGAGCACGACACACTTGTCTTTACTTTGCATGATGCAGCAAGCC"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "p1302-RBCS2-R (redesigned)"
+                }
+              ],
+              [
+                {
+                  "text": "TCAGGTCCATTGTGTCTGACTGGGGTGG"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The backbones and inserts of all constructs were amplified with the new primer and Phanta, with the remaining conditions the same as in the previous round. The amplification products were examined by electrophoresis, gel-extracted, and assembled by Gibson assembly. The products were transformed into DH5α and selected on kanamycin plates. Colonies were picked for colony PCR and liquid-culture PCR, expanded, plasmid-extracted, and verified by Sanger sequencing."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "As shown in Figs. 3 and 4, the nonspecific bands disappeared, all bands were single and of the correct size, and the concentrations met the assembly requirements. After assembly, all plasmids passed sequencing verification."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-09-0186fb7c526c.webp",
+          "alt": "Fig. 9 PCR amplification of the RBCS2 backbone. M: 15000 bp DNA marker; lane 1: empty plasmid; lanes 2–5: PCR products of the RBCS2 backbone.",
+          "caption": "Fig. 9 PCR amplification of the RBCS2 backbone. M: 15000 bp DNA marker; lane 1: empty plasmid; lanes 2–5: PCR products of the RBCS2 backbone.",
+          "width": 1039,
+          "height": 1347,
+          "captionRuns": [
+            {
+              "text": "Fig. 9 PCR amplification of the RBCS2 backbone. M: 15000 bp DNA marker; lane 1: empty plasmid; lanes 2–5: PCR products of the RBCS2 backbone."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-10-ee5e492ff28e.webp",
+          "alt": "Fig. 10 PCR amplification of the CCD1 fragment. M: 2000 bp DNA marker; lanes 1–8: PCR products of the CCD1 fragment; the target band lies between 2000 and 1000 bp.",
+          "caption": "Fig. 10 PCR amplification of the CCD1 fragment. M: 2000 bp DNA marker; lanes 1–8: PCR products of the CCD1 fragment; the target band lies between 2000 and 1000 bp.",
+          "width": 1039,
+          "height": 777,
+          "captionRuns": [
+            {
+              "text": "Fig. 10 PCR amplification of the CCD1 fragment. M: 2000 bp DNA marker; lanes 1–8: PCR products of the CCD1 fragment; the target band lies between 2000 and 1000 bp."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Changing the polymerase solved the yield problem and changing the primer solved the specificity problem; the two could not substitute for each other, since the nonspecific bands persisted when only the enzyme was changed, and adjusting the annealing temperature alone could not eliminate them either. When the template contains homologous sequences, checking the primer binding sites in advance is more effective than repeatedly tuning the conditions. Only when both the backbone and the insert met the requirements could the assembly pass in one attempt. With the plasmids constructed, the next step was to verify whether the product was actually generated."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle III",
+          "runs": [
+            {
+              "text": "Cycle III",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "With the plasmids and transformants constructed, the next step was to confirm whether CCD1 actually produced β-ionone in the alga. Carotenoids and their cleavage products are mostly colored, so normal-phase silica thin-layer chromatography allows direct observation of spot colors, and we first used it for qualitative detection. Considering the low boiling point and high volatility of β-ionone, we planned to carry out extraction, spotting, and development entirely on ice to reduce losses."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The algal cultures were centrifuged to collect the cells, which were washed once with 0.5 mol/L sodium chloride. Then 0.5 mL of a 1:1 acetone–methanol mixture was added, and the cells were sonicated in an ice bath for 10 min for extraction. The supernatant was collected by centrifugation, the extraction was repeated once, and the extracts were combined. The combined extract was back-extracted with an equal volume of n-hexane, dried over anhydrous sodium sulfate, concentrated under a nitrogen stream, and redissolved in 50–100 µL of acetone. The GF254 silica gel plate was activated at 105 °C for 30 min, a baseline was drawn 1.2 cm from the bottom edge, and the samples were spotted with a capillary. After the developing chamber was pre-saturated, the plate was developed with petroleum ether until the solvent front reached about 1 cm from the top of the plate; extraction, spotting, and development were all performed on ice. The plate was observed under visible light and then under 254 nm UV."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Despite the ice-cold handling throughout, no spot consistent with the standard appeared on the plate, and thin-layer chromatography failed to demonstrate the production of β-ionone."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Volatilization losses were more severe than expected, and even ice-cold handling was not enough to retain the target compound. Thin-layer chromatography is unsuitable for products as volatile as this. To get around the obstacle of product volatility, we decided to switch to mass spectrometry."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle IV",
+          "runs": [
+            {
+              "text": "Cycle IV",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Thin-layer chromatography gave no positive result, and we attributed this to the volatility of β-ionone, so we sent the samples for mass spectrometry. We designed a widely targeted metabolomic analysis, using UPLC-MS/MS to perform an unbiased screen of whole-alga extracts and comparing two CCD1 lines driven by the RBCS2 promoter with the wild type, one line carrying SP and the other not."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The algal cultures were collected by centrifugation, and the cells were flash-frozen in liquid nitrogen and shipped to a metabolomics service company. The company lyophilized and ground the samples, extracted them with pre-chilled 70% methanol in water containing internal standards, and separated the filtrates on a C18 column with a water–acetonitrile gradient, acquiring data in MRM mode."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "In total, 1510 metabolites were detected. As shown in Fig. 5, the two CCD1 lines and the wild type separated along PC1, which explained 91.1% of the variance. β-Ionone in the two CCD1 lines was only 1.34- and 1.04-fold relative to the wild type, neither reaching the two-fold threshold, which is consistent with volatilization loss; however, the non-volatile C18 apocarotenoid cleavage products rose consistently by 2.1- to 4.5-fold in both lines, against a background of overall downregulation of terpenoids in the same batch. This counter-trend accumulation indicates that the introduced CCD1 was catalytically active. Further comparison between the cytosolic line and the chloroplast-targeted line showed that the transit peptide fusion did not increase product accumulation, while the upstream precursor mevalonic acid in the chloroplast-targeted line was 2.02-fold that of the cytosolic line, indicating that the limiting factor lies in the enzyme itself rather than in substrate supply."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-11-626d0dd9860e.webp",
+          "alt": "Fig. 11 PCA score plot of the widely targeted metabolomic analysis. C1 denotes the CCD1 line without SP, C3 the CCD1 line with SP, and WT the wild type; the three groups separate along PC1, which explains 91.1% of the variance.",
+          "caption": "Fig. 11 PCA score plot of the widely targeted metabolomic analysis. C1 denotes the CCD1 line without SP, C3 the CCD1 line with SP, and WT the wild type; the three groups separate along PC1, which explains 91.1% of the variance.",
+          "width": 1039,
+          "height": 611,
+          "captionRuns": [
+            {
+              "text": "Fig. 11 PCA score plot of the widely targeted metabolomic analysis. C1 denotes the CCD1 line without SP, C3 the CCD1 line with SP, and WT the wild type; the three groups separate along PC1, which explains 91.1% of the variance."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Although mass spectrometry did not provide direct evidence for the production of β-ionone, it yielded multiple mutually corroborating lines of indirect evidence. The direct product showed no significant increase owing to volatilization loss, whereas the non-volatile C18 apocarotenoid cleavage products rose against a background of overall terpenoid downregulation, with several entries consistent in direction and comparable in magnitude, collectively pointing to CCD1 functioning in the alga. To obtain direct evidence, losses during lyophilization and extraction must be circumvented, and we plan to use headspace gas chromatography–mass spectrometry for direct detection next."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Synthesis of Astaxanthin",
+      "titleRuns": [
+        {
+          "text": "The Synthesis of Astaxanthin",
+          "bold": true
+        }
+      ],
+      "body": "",
+      "blocks": [
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We introduced BKT from Haematococcus pluvialis into Dunaliella salina to explore astaxanthin synthesis using endogenous precursors and hydroxylation capacity. No heterologous β-carotene hydroxylase was introduced. We optimized construction, TLC conditions, the promoter, and chloroplast targeting. Product confirmation and quantification remain to be completed."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle I Initial Construction",
+          "runs": [
+            {
+              "text": "Cycle I Initial Construction",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "To construct the synthesis module, we used pCAMBIA1302-derived vectors and assembled PCR-amplified backbone and enzyme-coding fragments by Gibson assembly."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We amplified and purified the fragments, performed assembly and bacterial cloning, and checked candidate plasmids by sequencing."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Nonspecific amplification, insufficient PCR yield, and plasmid instability made it difficult to obtain the intended constructs reliably."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-12-f2973c635343.webp",
+          "alt": "Fig 12 Result of agarose gel electrophoresis of the target gene",
+          "caption": "Fig 12 Result of agarose gel electrophoresis of the target gene",
+          "width": 1933,
+          "height": 628,
+          "captionRuns": [
+            {
+              "text": "Fig 12 Result of agarose gel electrophoresis of the target gene"
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We decided to optimize amplification and plasmid propagation before proceeding with algal transformation."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle II Construction Optimization",
+          "runs": [
+            {
+              "text": "Cycle II Construction Optimization",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "To address these problems, we revised the problematic primers, changed the polymerase, and switched to Stbl3 for plasmid propagation."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We repeated amplification and assembly, adjusted transformation handling, and screened candidate clones by PCR and sequencing."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-13-c46dafba3107.webp",
+          "alt": "Fig 13 PCR results of BKT gene colonies",
+          "caption": "Fig 13 PCR results of BKT gene colonies",
+          "width": 1161,
+          "height": 793,
+          "captionRuns": [
+            {
+              "text": "Fig 13 PCR results of BKT gene colonies"
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The revised workflow yielded sequence-verified expression constructs for algal transformation."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Improving amplification and plasmid maintenance resolved the construction bottleneck. We then proceeded to select transformed algae."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle III Liquid Selection",
+          "runs": [
+            {
+              "text": "Cycle III Liquid Selection",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We initially used hygromycin-containing liquid medium to enrich transformed D. salina."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "After transformation, the algal cultures were transferred to selective liquid medium and cultured under illumination."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The cultures became green and grew, but individual colonies could not be isolated from the liquid culture."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Liquid selection provided a population-level observation. We therefore switched to solid medium to isolate separately maintained lines."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle IV Solid Selection",
+          "runs": [
+            {
+              "text": "Cycle IV Solid Selection",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "To obtain individual algal lines, we used hygromycin-containing solid medium."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We spread the transformed algae onto selective plates, picked separated green colonies, and expanded them in liquid medium."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Individual colonies could be recovered, expanded, and preserved for subsequent pigment analysis."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-14-51f548de8fe1.webp",
+          "alt": "Fig 14 Picture of a single algal colony on a solid culture medium",
+          "caption": "Fig 14 Picture of a single algal colony on a solid culture medium",
+          "width": 731,
+          "height": 548,
+          "captionRuns": [
+            {
+              "text": "Fig 14 Picture of a single algal colony on a solid culture medium"
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Solid selection enabled individual line isolation. The next step was to test whether the introduced pathway produced a detectable target-associated band."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle V TLC Screening and Solvent Optimization",
+          "runs": [
+            {
+              "text": "Cycle V TLC Screening and Solvent Optimization",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The initial BKT module used the original promoter without an added chloroplast transit peptide. We used TLC to screen for possible astaxanthin formation."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "After reviewing relevant literature, we tested several developing-solvent ratios and selected petroleum ether (boiling range 60–90 °C)/acetone at 6:4 (v/v). Pigment extracts were examined under visible light and UV."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Even with the selected solvent system, neither observation method allowed us to confidently identify an astaxanthin band in the initial BKT line."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-15-48b92c524968.webp",
+          "alt": "Fig 15 The thin-layer chromatography result of astaxanthin",
+          "caption": "Fig 15 The thin-layer chromatography result of astaxanthin",
+          "width": 728,
+          "height": 712,
+          "captionRuns": [
+            {
+              "text": "Fig 15 The thin-layer chromatography result of astaxanthin"
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We retained this solvent system for subsequent screening and next replaced the original promoter with RBCS2 to optimize the expression design."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle VI Promoter Optimization",
+          "runs": [
+            {
+              "text": "Cycle VI Promoter Optimization",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We replaced the original promoter with the endogenous D. salina RBCS2 promoter while retaining BKT without an added chloroplast transit peptide."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We obtained algae carrying the revised construct and analyzed their pigments by TLC using petroleum ether (60–90 °C)/acetone at 6:4 (v/v), alongside WT and an astaxanthin standard."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Under visible light, a band differing from WT appeared near the astaxanthin standard. Under UV, its contrast was weak, possibly because of interference from neighboring pigments."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-16-dd71bb9741fc.webp",
+          "alt": "Fig 16 The thin-layer chromatography result of astaxanthin",
+          "caption": "Fig 16 The thin-layer chromatography result of astaxanthin\nThe left picture is under natural light, while the right picture is under ultraviolet light.",
+          "width": 1428,
+          "height": 674,
+          "captionRuns": [
+            {
+              "text": "Fig 16 The thin-layer chromatography result of astaxanthin",
+              "bold": true
+            },
+            {
+              "text": "\n"
+            },
+            {
+              "text": "The left picture is under natural light, while the right picture is under ultraviolet light."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The candidate band suggested improved module performance after promoter replacement. We next added a chloroplast transit peptide to BKT to further optimize the design."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle VII Chloroplast Targeting",
+          "runs": [
+            {
+              "text": "Cycle VII Chloroplast Targeting",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "On the RBCS2 background, we added a chloroplast transit peptide to BKT to potentially improve access to carotenoid substrates."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We introduced the modified construct into D. salina and repeated TLC using petroleum ether (60–90 °C)/acetone at 6:4 (v/v), observing the plates under visible light and UV."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "A candidate band with the expected migration position and visible color appeared, and a corresponding band was distinguishable under UV."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-17-c88cf64c8ee5.webp",
+          "alt": "Fig 17 The thin-layer chromatography result of astaxanthin",
+          "caption": "Fig 17 The thin-layer chromatography result of astaxanthin\nThe left picture is under natural light, while the right picture is under ultraviolet light.",
+          "width": 1384,
+          "height": 693,
+          "captionRuns": [
+            {
+              "text": "Fig 17 The thin-layer chromatography result of astaxanthin",
+              "bold": true
+            },
+            {
+              "text": "\n"
+            },
+            {
+              "text": "The left picture is under natural light, while the right picture is under ultraviolet light."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "This supported further investigation of possible astaxanthin formation, but did not confirm product identity or increased expression and yield. LC-MS/MS has not yet been performed because of time constraints. We will compare the product with an authentic standard and quantify accumulation across BKT designs using biomass normalization."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The Synthesis of β-Citraurin",
+      "titleRuns": [
+        {
+          "text": "The Synthesis of β-Citraurin",
+          "bold": true
+        }
+      ],
+      "body": "",
+      "blocks": [
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "This module synthesizes β-citraurin in "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": ". CitCCD4 cleaves zeaxanthin to yield β-citraurin. The expression plasmid uses pCAMBIA1302 as the backbone, contains the CitCCD4 gene, and is driven by the "
+            },
+            {
+              "text": "D. salina",
+              "italic": true
+            },
+            {
+              "text": " RBCS2 promoter."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle I",
+          "runs": [
+            {
+              "text": "Cycle I",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "After the plasmids were transferred into "
+            },
+            {
+              "text": "D. salina",
+              "italic": true
+            },
+            {
+              "text": ", whether they remained intact in the alga had to be confirmed. We designed a sequencing comparison: transformed lines were subjected to whole-genome sequencing, the reads were mapped back to the constructed plasmids, and the coverage and sequence of the entire plasmid were checked against the design."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The transformed lines were expanded in culture, genomic DNA was extracted and submitted for whole-genome sequencing, and the reads were mapped back to the reference plasmids to check the coverage and sequence of the entire plasmid segment by segment."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "As shown in Fig. 1, the promoter of the 35S construct was lost entirely, while the backbone and the gene of interest remained."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-18-f963b51bf1ee.webp",
+          "alt": "Fig. 18 Sequencing comparison of the 35S construct. Red represents the alignment of sequencing reads to the reference plasmid, and the open segments are sequences missing from the reads; the 35S promoter falls exactly within this region.",
+          "caption": "Fig. 18 Sequencing comparison of the 35S construct. Red represents the alignment of sequencing reads to the reference plasmid, and the open segments are sequences missing from the reads; the 35S promoter falls exactly within this region.",
+          "width": 803,
+          "height": 314,
+          "captionRuns": [
+            {
+              "text": "Fig. 18 Sequencing comparison of the 35S construct. Red represents the alignment of sequencing reads to the reference plasmid, and the open segments are sequences missing from the reads; the 35S promoter falls exactly within this region."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The loss of the promoter as an entire segment was not anticipated in advance. The problem lay neither in the insert nor in the assembly, but in the step that had always been taken for granted. The loss of the whole segment rather than point mutations indicated that recombination had occurred, and the investigation traced the cause to plasmid propagation: DH5α is unreliable during serial passaging, and the plasmid can exchange sequences with the bacterial genome. The next round required a competent cell strain with higher fidelity that is specialized for plasmid propagation."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle II",
+          "runs": [
+            {
+              "text": "Cycle II",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The loss occurred during propagation, indicating that DH5α is unsuitable for amplifying constructs of this kind. stbl3 is a strain specifically designed for plasmid propagation; its recombination pathways are deficient, it accommodates large plasmids of over ten kb, and it suppresses recombination between long homologous sequences. We switched to stbl3 for plasmid amplification, reconstructed the constructs, and re-transformed "
+            },
+            {
+              "text": "D. salina",
+              "italic": true
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "We re-amplified the backbones, gel-extracted them for Gibson assembly, and selected on kanamycin plates; plasmid amplification was switched to stbl3. Colonies were picked for preliminary colony PCR screening, and positive clones were expanded and their plasmids extracted."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The initial transformation yielded no colonies on the plates. Colonies appeared only after the transformation procedure was adjusted, but they were scarce, with only a few scattered colonies on each of the two plates, as shown in Fig. 2. These clones were picked, expanded, and sequenced; all plasmids were successfully constructed, and the promoter of the 35S construct was no longer lost."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-19-176970b02030.webp",
+          "alt": "Fig. 19 Colonies grown on kanamycin plates. The left and right panels show two parallel plates; after switching to stbl3, the initial transformation produced no colonies, and only a few appeared after the procedure was adjusted.",
+          "caption": "Fig. 19 Colonies grown on kanamycin plates. The left and right panels show two parallel plates; after switching to stbl3, the initial transformation produced no colonies, and only a few appeared after the procedure was adjusted.",
+          "width": 1208,
+          "height": 620,
+          "captionRuns": [
+            {
+              "text": "Fig. 19 Colonies grown on kanamycin plates. The left and right panels show two parallel plates; after switching to stbl3, the initial transformation produced no colonies, and only a few appeared after the procedure was adjusted."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "stbl3 preserves plasmid fidelity well, but it is clearly harder to transform than DH5α: the same assembly products gave only a few scattered colonies, and initially not even one. Optimizing the transformation procedure recovered part of the efficiency, but sufficient plates and replicates must still be prepared, and yields should not be estimated from experience with DH5α."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle III",
+          "runs": [
+            {
+              "text": "Cycle III",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The transformed "
+            },
+            {
+              "text": "D. salina",
+              "italic": true
+            },
+            {
+              "text": " first had to be screened for cells that had actually acquired the resistance gene. We added hygromycin at 800 µg/mL to the liquid medium so that successfully transformed cells could grow while untransformed ones were suppressed."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The plasmids were introduced into "
+            },
+            {
+              "text": "D. salina",
+              "italic": true
+            },
+            {
+              "text": " by osmotic transformation. The algal suspension was inoculated into liquid medium containing 800 µg/mL hygromycin, cultured under illumination, and observed for greening and growth."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "As shown in Fig. 3, the algae in the liquid medium did turn green and dense, but the flask only showed whether the culture as a whole had grown, not which cell had given rise to it. Successfully transformed algae and untransformed algae were mixed together, so no single clone could be picked and no stock could be preserved."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-20-5f8803387e62.webp",
+          "alt": "Fig. 20 Transformed algae in liquid culture. The cultures turned green in hygromycin-containing liquid medium, but it was impossible to tell which line had been successfully transformed.",
+          "caption": "Fig. 20 Transformed algae in liquid culture. The cultures turned green in hygromycin-containing liquid medium, but it was impossible to tell which line had been successfully transformed.",
+          "width": 649,
+          "height": 664,
+          "captionRuns": [
+            {
+              "text": "Fig. 20 Transformed algae in liquid culture. The cultures turned green in hygromycin-containing liquid medium, but it was impossible to tell which line had been successfully transformed."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Liquid screening provides a population-level signal for the whole flask and cannot be resolved to individual cells. To obtain pure clones that could be stocked, the cells had to be allowed to grow separately on a solid surface."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle IV",
+          "runs": [
+            {
+              "text": "Cycle IV",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "In liquid culture all cells are soaked in the same flask, and there is no way to tell from the flask wall which cells were transformed and which were suppressed. To let every cell grow into a single colony, each cell must be given a fixed position. We therefore switched to solid medium, where cells occupy separate positions on the plate surface, and each spot that grows up is a clone that can be picked."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The transformed algal suspension was spread onto solid plates containing 300 µg/mL hygromycin and cultured under illumination until the colonies became visible to the naked eye. Single colonies were then picked into liquid medium, expanded, and stocked."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "As shown in Fig. 4, well-separated green colonies grew on the plates, and picking single colonies allowed expansion and stocking."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-21-5d04c37146bb.webp",
+          "alt": "Fig. 21 Transformed colonies on hygromycin solid plates. The transformed algal suspension was spread onto the plates, and only successfully transformed cells grew into green colonies; single colonies could be picked for expansion.",
+          "caption": "Fig. 21 Transformed colonies on hygromycin solid plates. The transformed algal suspension was spread onto the plates, and only successfully transformed cells grew into green colonies; single colonies could be picked for expansion.",
+          "width": 823,
+          "height": 700,
+          "captionRuns": [
+            {
+              "text": "Fig. 21 Transformed colonies on hygromycin solid plates. The transformed algal suspension was spread onto the plates, and only successfully transformed cells grew into green colonies; single colonies could be picked for expansion."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "With the same hygromycin selection, switching to solid medium changed the unit of interpretation from a whole flask to a single colony, and only then did the complete workflow of picking, expansion, and stocking become feasible. The working concentration also could not be transferred directly: liquid selection used 800 µg/mL, whereas solid plates required only 300 µg/mL."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle V",
+          "runs": [
+            {
+              "text": "Cycle V",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "With both the plasmids and the transformants verified, confirmation was still needed at the product level that CitCCD4 produced β-citraurin in the alga. β-Citraurin is a cleavage product of carotenoids and shows visible color on silica plates, so thin-layer chromatography suits the rapid screening of such colored products. The initial extraction followed the established 90% acetone protocol, and the developing solvent was petroleum ether/acetone at 7:3."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Algal cells were collected by centrifugation and the pigments were extracted with 90% acetone. The extract was spotted onto an activated GF254 silica plate, developed with petroleum ether/acetone (7:3), and observed under visible light and then under UV."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "As shown in Fig. 5, the spots were diffuse and showed tailing; no interpretable difference appeared between the CitCCD4 line and the WT, and no target spot was present on the plate."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-22-51f62e63b189.webp",
+          "alt": "Fig. 22 Thin-layer chromatography under the initial extraction and development conditions. Left: CitCCD4; right: WT. The spots were diffuse with tailing, and no target spot appeared.",
+          "caption": "Fig. 22 Thin-layer chromatography under the initial extraction and development conditions. Left: CitCCD4; right: WT. The spots were diffuse with tailing, and no target spot appeared.",
+          "width": 779,
+          "height": 1039,
+          "captionRuns": [
+            {
+              "text": "Fig. 22 Thin-layer chromatography under the initial extraction and development conditions. Left: CitCCD4; right: WT. The spots were diffuse with tailing, and no target spot appeared."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Both the extraction and the development were deficient. The water and salts carried in by the extraction solvent caused the spots to spread, and the polarity of the developing solvent failed to resolve the target band. The next round improved these two points separately."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle VI",
+          "runs": [
+            {
+              "text": "Cycle VI",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-heading",
+          "text": "Design",
+          "runs": [
+            {
+              "text": "Design",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The two deficiencies found in the previous round were corrected simultaneously in this round. The extraction solvent was changed to acetone/methanol (1:1) to reduce the salts and pigments introduced with the aqueous phase, and the developing solvent was changed to n-hexane/acetone (7:3) to bring the target band into an interpretable Rf range."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Build",
+          "runs": [
+            {
+              "text": "Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Algal cells were collected by centrifugation and extracted by 10-min ice-bath sonication in acetone/methanol (1:1). The extract was back-extracted with an equal volume of n-hexane, concentrated under nitrogen, and redissolved before being spotted onto an activated GF254 silica plate, which was developed with n-hexane/acetone (7:3) and observed under visible light and then under UV."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Test",
+          "runs": [
+            {
+              "text": "Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "As shown in Fig. 6, the CitCCD4 line showed a new spot at the expected position that was absent in the WT, indicating that CitCCD4 produced β-citraurin in the alga."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-23-a8bbdfa5a53c.webp",
+          "alt": "Fig. 23 Thin-layer chromatography under the optimized conditions. Left: WT; right: CitCCD4. The CitCCD4 line showed a new spot absent in the WT.",
+          "caption": "Fig. 23 Thin-layer chromatography under the optimized conditions. Left: WT; right: CitCCD4. The CitCCD4 line showed a new spot absent in the WT.",
+          "width": 866,
+          "height": 845,
+          "captionRuns": [
+            {
+              "text": "Fig. 23 Thin-layer chromatography under the optimized conditions. Left: WT; right: CitCCD4. The CitCCD4 line showed a new spot absent in the WT."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Learn",
+          "runs": [
+            {
+              "text": "Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The target spot appeared only after extraction and development were adjusted simultaneously, indicating that each of the two steps contributed substantially. The improved system can be used for rapid verification of subsequent transformants."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Safety Module",
+      "titleRuns": [
+        {
+          "text": "Safety Module",
+          "bold": true
+        }
+      ],
+      "body": "",
+      "blocks": [
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The suicide switch is the core of the biosafety design of our project: engineered "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": " cells survive under the high-salt working environment and automatically initiate a suicide program once they leave the high-salt environment and enter low-salt external waters. Because"
+            },
+            {
+              "text": " ",
+              "italic": true
+            },
+            {
+              "text": "MazF has clear toxicity to prokaryotes, whether it can be stably expressed and effectively kill cells in the eukaryotic chassis "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": " was the primary challenge in constructing this system. Through four iterative DBTL cycles, we progressively validated and optimised the toxin expression module and advanced the final assembly of the suicide switch."
+            }
+          ]
+        },
+        {
+          "kind": "figure-grid",
+          "figures": [
+            {
+              "src": "/figures/design/07-biosafety-high-salt.webp",
+              "alt": "Engineering Figure 24, panel 1",
+              "caption": "",
+              "width": 647,
+              "height": 364
+            },
+            {
+              "src": "/figures/design/08-biosafety-low-salt.webp",
+              "alt": "Engineering Figure 24, panel 2",
+              "caption": "",
+              "width": 588,
+              "height": 331
+            }
+          ],
+          "caption": "Figure 24. Working principle of the suicide switch.",
+          "captionRuns": [
+            {
+              "text": "Figure 24. Working principle of the suicide switch."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle I — Design",
+          "runs": [
+            {
+              "text": "Cycle I — Design",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "To verify the lethality and killing efficiency of MazF in the eukaryotic chassis the green alga Dunaliella salina, we constructed the verification plasmid pCAMBIA1302-CaMV 35S-mazF, in which "
+            },
+            {
+              "text": "mazF",
+              "italic": true
+            },
+            {
+              "text": " is driven by the strong constitutive CaMV 35S promoter. Three groups were set up "
+            },
+            {
+              "text": "(",
+              "italic": true
+            },
+            {
+              "text": "MazF transformants, empty-vector transformants EV, and wild-type WT), and the killing effect of MazF was evaluated by a continuous 10-day growth curve. Expected: if MazF exerts a killing effect in the alga, growth of the MazF group will be significantly inhibited."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle I — Build",
+          "runs": [
+            {
+              "text": "Cycle I — Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "i. The "
+            },
+            {
+              "text": "mazF",
+              "italic": true
+            },
+            {
+              "text": " gene was cloned downstream of the CaMV 35S promoter in the pCAMBIA1302 backbone by restriction-enzyme digestion, generating p1302-CaMV 35S-mazF. The plasmid was transformed into "
+            },
+            {
+              "text": "E. coli",
+              "italic": true
+            },
+            {
+              "text": " DH5α; single colonies were picked for colony PCR screening and sequence-verified."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "ii. The plasmid was delivered into "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": " by osmotic transformation: 1 M NaCl pre-adaptation for 8 h → resuspension in 0.1 M NaCl → 5.46 μg plasmid DNA + 15 μL of 0.1% Triton X-100 → vortexing for 90 s → recovery culture for 48 h."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "iii. Positive transformants were selected on hygromycin B (the vector carries the "
+            },
+            {
+              "text": "hptII",
+              "italic": true
+            },
+            {
+              "text": " resistance marker) to obtain independent transformed lines."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "iv. WT and empty-vector transformants served as controls; the three groups were inoculated at the same starting density in PKS/DM liquid medium containing 0.5 M NaCl (26 °C, 50 μmol photons m⁻² s⁻¹, 16 h light / 8 h dark), and OOD"
+            },
+            {
+              "text": "680",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " was measured daily for 10 consecutive days."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-25-a99267e88552.webp",
+          "alt": "Figure 25. Plasmid map of p1302-CaMV 35S-mazF.",
+          "caption": "Figure 25. Plasmid map of p1302-CaMV 35S-mazF.",
+          "width": 990,
+          "height": 854,
+          "captionRuns": [
+            {
+              "text": "Figure 25. Plasmid map of p1302-CaMV 35S-mazF."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-26-bd730c4d3632.webp",
+          "alt": "Figure 26. Colony PCR verification of p1302-CaMV 35S-mazF. M: DL2000 DNA marker; lanes 1–11: PCR products from individual colonies.",
+          "caption": "Figure 26. Colony PCR verification of p1302-CaMV 35S-mazF. M: DL2000 DNA marker; lanes 1–11: PCR products from individual colonies.",
+          "width": 1100,
+          "height": 409,
+          "captionRuns": [
+            {
+              "text": "Figure 26. Colony PCR verification of p1302-CaMV 35S-mazF. M: DL2000 DNA marker; lanes 1–11: PCR products from individual colonies."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-27-0f572425d269.webp",
+          "alt": "Figure 27. Sequencing result of p1302-CaMV 35S-mazF.",
+          "caption": "Figure 27. Sequencing result of p1302-CaMV 35S-mazF.",
+          "width": 1106,
+          "height": 347,
+          "captionRuns": [
+            {
+              "text": "Figure 27. Sequencing result of p1302-CaMV 35S-mazF."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle I — Test",
+          "runs": [
+            {
+              "text": "Cycle I — Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The measured growth curves showed that the MazF group barely grew over the 10-day period, with OD"
+            },
+            {
+              "text": "680",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " maintained at a very low level of 0.05–0.08 and significantly below the WT and EV control groups (two-way ANOVA, p < 0.001 on days 6–10). The WT group grew continuously to OD"
+            },
+            {
+              "text": "680",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " ≈ 0.36, while the EV group was slightly lower than WT but still grew steadily to about 0.28. These results indicate that MazF expression imposed strong growth inhibition on "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/kill-switch-engineering/killswitch-cycle1-growth-curve.png",
+          "alt": "Figure 28. Ten-day growth curves of Dunaliella salina transformants. WT: wild type; EV: empty-vector transformants; MazF: p1302-CaMV 35S-mazF transformants. Data are mean ± SEM (n = 3).",
+          "caption": "Figure 28. Ten-day growth curves of Dunaliella salina transformants. WT: wild type; EV: empty-vector transformants; MazF: p1302-CaMV 35S-mazF transformants. Data are mean ± SEM (n = 3).",
+          "width": 1336,
+          "height": 866,
+          "captionRuns": [
+            {
+              "text": "Figure 28. Ten-day growth curves of Dunaliella salina transformants. WT: wild type; EV: empty-vector transformants; MazF: p1302-CaMV 35S-mazF transformants. Data are mean ± SEM (n = 3)."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle I — Learn",
+          "runs": [
+            {
+              "text": "Cycle I — Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The experimental results confirmed that MazF retains its killing function in a eukaryotic microalgal host, which is a key prerequisite for the feasibility of the salt-controlled suicide switch. However, we noted that the MazF group ceased growing completely over 10 days and showed no recovery, indicating that CaMV 35S-driven toxin expression far exceeded the cellular tolerance threshold. We reasoned that high basal MazF expression would impose persistent selective pressure on the algal cells, which is unfavourable for the production and accumulation of target products under actual working conditions. The final circuit therefore cannot directly use a strong constitutive promoter; toxin expression must be down-regulated to a dose window that is low and maintainable yet killing upon induction, and the antitoxin protein MazE must be introduced for dynamic neutralisation."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle II — Design",
+          "runs": [
+            {
+              "text": "Cycle II — Design",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Based on the problems exposed in Cycle I, we made two engineering modifications to the toxin module: ① the backbone was replaced with pCAMBIA1302-Bar, in which the phosphinothricin-resistance marker (Bar) is substituted, to enable orthogonal double-resistance selection with the later hygromycin-marked antitoxin vector; ② the P"
+            },
+            {
+              "text": "ip ",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "promoter, which has low endogenous expression abundance in "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": ", was chosen to drive "
+            },
+            {
+              "text": "mazF",
+              "italic": true
+            },
+            {
+              "text": ", so that the toxin is maintained at a low basal level. Expected: P"
+            },
+            {
+              "text": "ip",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-driven MazF production is reduced, and transformants can survive for an extended period while retaining growth inhibition."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle II — Build",
+          "runs": [
+            {
+              "text": "Cycle II — Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "i. The P"
+            },
+            {
+              "text": "ip",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " promoter and "
+            },
+            {
+              "text": "mazF",
+              "italic": true
+            },
+            {
+              "text": " gene fragment were amplified by PCR; the pCAMBIA1302-Bar backbone was linearised, and p1302-Bar-P"
+            },
+            {
+              "text": "ip",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazF was assembled by multi-fragment homologous recombination."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "ii. The assembly product was transformed into "
+            },
+            {
+              "text": "E. coli",
+              "italic": true
+            },
+            {
+              "text": " DH5α and plated on kanamycin plates (50/100 μg/mL Kan) for selection; colony PCR verification and sequencing confirmed the correct construct."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "iii. The plasmid was delivered into "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": " by osmotic transformation, and resistance selection was completed on phosphinothricin-containing medium."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "iv. P"
+            },
+            {
+              "text": "ip",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazF transformants were cultured in parallel with the wild type, and OD"
+            },
+            {
+              "text": "680 ",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "was measured continuously to track growth kinetics."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-29-cfd220de0ca8.webp",
+          "alt": "Figure 29. Plasmid map of p1302-PiP-mazF.",
+          "caption": "Figure 29. Plasmid map of p1302-PiP-mazF.",
+          "width": 990,
+          "height": 914,
+          "captionRuns": [
+            {
+              "text": "Figure 29. Plasmid map of p1302-P"
+            },
+            {
+              "text": "iP",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazF."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-30-28b154fbbdc3.webp",
+          "alt": "Figure 30. Colony PCR verification of p1302-Bar-PiP-mazF. M: DL5000 DNA marker; lanes 1–5: PCR products from individual colonies. NTC: negative template control.",
+          "caption": "Figure 30. Colony PCR verification of p1302-Bar-PiP-mazF. M: DL5000 DNA marker; lanes 1–5: PCR products from individual colonies. NTC: negative template control.",
+          "width": 1100,
+          "height": 646,
+          "captionRuns": [
+            {
+              "text": "Figure 30. Colony PCR verification of p1302-Bar-P"
+            },
+            {
+              "text": "iP",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazF. M: DL5000 DNA marker; lanes 1–5: PCR products from individual colonies. NTC: negative template control."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-31-9a83cbe9db72.webp",
+          "alt": "Figure 31. Sequencing result of p1302-Bar-PiP-mazF.",
+          "caption": "Figure 31. Sequencing result of p1302-Bar-PiP-mazF.",
+          "width": 1901,
+          "height": 555,
+          "captionRuns": [
+            {
+              "text": "Figure 31. Sequencing result of p1302-Bar-P"
+            },
+            {
+              "text": "iP",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazF."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle II — Test",
+          "runs": [
+            {
+              "text": "Cycle II — Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/kill-switch-engineering/killswitch-cycle2-growth-curve.png",
+          "alt": "Figure 32. Six-day growth curves of Dunaliella salina transformants. WT: wild type; Pip-MazF: p1302-Bar-Pip-mazF transformants. Data are mean ± SEM (n = 3).",
+          "caption": "Figure 32. Six-day growth curves of Dunaliella salina transformants. WT: wild type; Pip-MazF: p1302-Bar-Pip-mazF transformants. Data are mean ± SEM (n = 3).",
+          "width": 1328,
+          "height": 862,
+          "captionRuns": [
+            {
+              "text": "Figure 32. Six-day growth curves of "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": " transformants. WT: wild type; P"
+            },
+            {
+              "text": "ip",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-MazF: p1302-Bar-P"
+            },
+            {
+              "text": "ip",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazF transformants. Data are mean ± SEM (n = 3)."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The growth curves showed that under 0.5 M NaCl, p1302-Bar-P"
+            },
+            {
+              "text": "ip",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazF transformants were able to maintain growth and did not show the complete lethality phenotype seen with the strong CaMV 35S promoter. Compared with WT, the P"
+            },
+            {
+              "text": "ip",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazF group showed significantly reduced growth rate throughout the culture period, with a pronounced growth trough on day 2 (OD"
+            },
+            {
+              "text": "680",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " ≈ 0.015), followed by gradual recovery; by day 6, the P"
+            },
+            {
+              "text": "ip",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazF group reached OD"
+            },
+            {
+              "text": "680",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " ≈ 0.165, about 69% of WT (OD"
+            },
+            {
+              "text": "680",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " ≈ 0.24). These results indicate that P"
+            },
+            {
+              "text": "ip",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " weak-promoter-driven MazF expression, although down-regulated to a tolerable level, still imposed a sustained inhibitory effect on algal growth."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle II — Learn",
+          "runs": [
+            {
+              "text": "Cycle II — Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Compared with the complete lethality of Cycle I, the P"
+            },
+            {
+              "text": "ip",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " weak promoter successfully down-regulated MazF expression to a tolerable level, and the transformants survived. The growth curves showed that the P"
+            },
+            {
+              "text": "ip",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazF group exhibited a pronounced growth trough on day 2 followed by gradual recovery, yet by day 6 the growth rate was still significantly lower than WT. This dynamic process suggests that P"
+            },
+            {
+              "text": "ip",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " basal activity maintains "
+            },
+            {
+              "text": "MazF",
+              "italic": true
+            },
+            {
+              "text": " at a \"viable but growth-inhibited\" level rather than completely shutting it off. However, relying solely on a weak promoter cannot achieve strict switch control: basal "
+            },
+            {
+              "text": "mazF",
+              "italic": true
+            },
+            {
+              "text": " expression persists at any salt concentration. A salt-responsive antitoxin system must be introduced to dynamically express MazE under high salt to neutralise MazF, and to allow MazF to dominate under low salt. Next, we verify the salt-responsive characteristics of the P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " promoter and construct the P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-driven "
+            },
+            {
+              "text": "mazE",
+              "italic": true
+            },
+            {
+              "text": " antitoxin vector."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle III — Design",
+          "runs": [
+            {
+              "text": "Cycle III — Design",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "To implement the \"survive in high salt, die in low salt\" switching logic, a salt-responsive element is needed to dynamically regulate antitoxin expression. P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " is an endogenous salt-regulated promoter of "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": ": its transcriptional activity is significantly enhanced under high-salt conditions and weakened under low-salt conditions. We constructed the p2301-P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-EGFP reporter vector, introduced the P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-EGFP module into the alga, and measured EGFP fluorescence at different NaCl concentrations to verify the salt-responsive characteristics of P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " and determine its dynamic range. Expected: EGFP fluorescence increases with increasing salinity."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle III — Build",
+          "runs": [
+            {
+              "text": "Cycle III — Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "i. The P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " promoter and "
+            },
+            {
+              "text": "EGFP",
+              "italic": true
+            },
+            {
+              "text": " reporter gene were assembled into the pCAMBIA2301 backbone by homologous recombination, generating p2301-P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-EGFP."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "ii. The product was transformed into "
+            },
+            {
+              "text": "E. coli",
+              "italic": true
+            },
+            {
+              "text": " DH5α; colony PCR screened positive clones, and sequencing confirmed correct assembly of the functional elements."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "iii. The reporter was delivered into "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": " by osmotic transformation to obtain positive transformants."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "iv. Transformants were inoculated into media containing different NaCl concentrations (0.5 M / 2 M / 3 M), and EGFP fluorescence was measured."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-33-ce837d4156f4.webp",
+          "alt": "Figure 33. Plasmid map of p2301-PDCA1-EGFP.",
+          "caption": "Figure 33. Plasmid map of p2301-PDCA1-EGFP.",
+          "width": 990,
+          "height": 873,
+          "captionRuns": [
+            {
+              "text": "Figure 33. Plasmid map of p2301-P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-EGFP."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-34-79d41858e33b.webp",
+          "alt": "Figure 34. Colony PCR verification of p2301-PDCA1-EGFP. M: DL5000 DNA marker; lanes 1–5: negative controls (NTC); lanes 6–8: PDCA1-EGFP colony PCR products.",
+          "caption": "Figure 34. Colony PCR verification of p2301-PDCA1-EGFP. M: DL5000 DNA marker; lanes 1–5: negative controls (NTC); lanes 6–8: PDCA1-EGFP colony PCR products.",
+          "width": 1100,
+          "height": 542,
+          "captionRuns": [
+            {
+              "text": "Figure 34. Colony PCR verification of p2301-P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-EGFP. M: DL5000 DNA marker; lanes 1–5: negative controls (NTC); lanes 6–8: P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-EGFP colony PCR products."
+            }
+          ]
+        },
+        {
+          "kind": "figure",
+          "src": "/figures/wet-lab/engineering-total/engineering-total-35-fc3cb8f9088c.webp",
+          "alt": "Figure 35. Sequencing result of p2301-PDCA1-EGFP.",
+          "caption": "Figure 35. Sequencing result of p2301-PDCA1-EGFP.",
+          "width": 1798,
+          "height": 557,
+          "captionRuns": [
+            {
+              "text": "Figure 35. Sequencing result of p2301-P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-EGFP."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle III — Test",
+          "runs": [
+            {
+              "text": "Cycle III — Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "After the p2301-P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-EGFP reporter vector was introduced into "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": ", clear EGFP green fluorescence was observed under high-salt (2 M NaCl) culture conditions, whereas the fluorescence signal was significantly weakened under low-salt (0.5 M NaCl) conditions, preliminarily confirming that P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " indeed has salt-concentration-responsive activity in "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": " and can drive expression of the downstream reporter gene."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle III — Learn",
+          "runs": [
+            {
+              "text": "Cycle III — Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "The above results confirm that the P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " promoter functions as expected in "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": ": activated under high salt and weakened under low salt. This dynamic range matches our design goal — under the high-salt working environment, P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " is activated and drives "
+            },
+            {
+              "text": "mazE",
+              "italic": true
+            },
+            {
+              "text": " expression to neutralise low-level MazF; under low-salt escape conditions, P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " activity declines, "
+            },
+            {
+              "text": "mazE",
+              "italic": true
+            },
+            {
+              "text": " expression is insufficient to continuously neutralise MazF, and MazF accumulates to initiate killing. To accurately characterise the salt-responsive properties of P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": ", further measurement of the fluorescence intensity curve across a salinity gradient will be carried out. At this stage, the functions of both the toxin module (P"
+            },
+            {
+              "text": "iP",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazF) and the salt-responsive control module (P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": ") have been preliminarily validated, and the next step is to assemble them into the complete switch for co-transformation validation."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle IV — Design",
+          "runs": [
+            {
+              "text": "Cycle IV — Design",
+              "bold": true
+            }
+          ],
+          "level": 3
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Based on the conclusions of the first three cycles, we designed the complete suicide-switch module: the P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-driven antitoxin vector p1302-P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazE will be co-transformed with p1302-Bar-P"
+            },
+            {
+              "text": "iP",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazF into "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": ". Under high salt, P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " is activated and MazE is expressed to neutralise low-level"
+            },
+            {
+              "text": " ",
+              "italic": true
+            },
+            {
+              "text": "MazF, so cells survive; under low salt, P"
+            },
+            {
+              "text": "DCA1 ",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "activity weakens, MazE expression drops, and MazF becomes relatively excessive and kills the cells. Double-positive transformants will be obtained by orthogonal double selection on hygromycin and phosphinothricin, and subjected to survival and growth assays under salt-switching (high salt → low salt) conditions."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle IV — Build",
+          "runs": [
+            {
+              "text": "Cycle IV — Build",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "i. The P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " promoter and "
+            },
+            {
+              "text": "mazE",
+              "italic": true
+            },
+            {
+              "text": " gene fragment will be amplified by PCR and assembled into the pCAMBIA2301 ("
+            },
+            {
+              "text": "hptII",
+              "italic": true
+            },
+            {
+              "text": " hygromycin marker) backbone by homologous recombination to generate p2301-P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazE."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "ii. p2301-P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazE will be mixed with p1302-Bar-P"
+            },
+            {
+              "text": "iP",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": "-mazF at an equal molar ratio and co-delivered into "
+            },
+            {
+              "text": "Dunaliella salina",
+              "italic": true
+            },
+            {
+              "text": " by osmotic transformation."
+            }
+          ]
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "iii. Cells will be plated on double-selective PKS/DM medium containing hygromycin B and phosphinothricin to screen double-positive transformants."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle IV — Test",
+          "runs": [
+            {
+              "text": "Cycle IV — Test",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Double-positive transformants will be cultured in high-salt (2 M NaCl) medium for 5 days, then transferred to low-salt (0.5 M NaCl) medium; OD"
+            },
+            {
+              "text": "680",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " will be measured continuously to observe the \"survive in high salt, die in low salt\" switching phenotype."
+            }
+          ]
+        },
+        {
+          "kind": "document-heading",
+          "text": "Cycle IV — Learn",
+          "runs": [
+            {
+              "text": "Cycle IV — Learn",
+              "bold": true
+            }
+          ],
+          "level": 4
+        },
+        {
+          "kind": "document-paragraph",
+          "runs": [
+            {
+              "text": "Based on the experience of Cycles I–III, we have pre-identified two potential risks: ① if double-positive transformants still fail to die under low salt, P"
+            },
+            {
+              "text": "DCA1",
+              "verticalAlign": "subscript"
+            },
+            {
+              "text": " residual activity under low salt may be too high, and basal MazE expression may be sufficient to continuously neutralise"
+            },
+            {
+              "text": " ",
+              "italic": true
+            },
+            {
+              "text": "MazF; ② if they die even under high salt, Pip promoter leaky expression may be too high, or plasmid copy number may become imbalanced after co-transformation. The growth-curve results obtained under salt-switching conditions will provide strong experimental evidence for validating the functional effectiveness of the complete suicide switch."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

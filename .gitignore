@@ -58,3 +58,8 @@ tools/preview/dunaterp-preview.html
 
 # Offline copies of site fonts; production uses the official iGEM CDN.
 /public/fonts/site/
+
+# Engineering document images are served by the official iGEM CDN.
+/public/figures/wet-lab/engineering-total/
+/public/figures/design/07-biosafety-high-salt.webp
+/public/figures/design/08-biosafety-low-salt.webp

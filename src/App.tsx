@@ -432,7 +432,7 @@ function Article({ slug }: { slug: string }) {
     titleRuns: section.tocTitle ? undefined : section.titleRuns,
     children: (section.blocks ?? []).flatMap((block, blockIndex) => {
       if (block.kind === 'heading') return [{ id: `section-${sectionIndex + 1}-heading-${blockIndex + 1}`, title: block.text }];
-      if (block.kind === 'document-heading') return [{ id: `section-${sectionIndex + 1}-heading-${blockIndex + 1}`, title: block.text, titleRuns: block.runs }];
+      if (block.kind === 'document-heading' && block.level !== 4) return [{ id: `section-${sectionIndex + 1}-heading-${blockIndex + 1}`, title: block.text, titleRuns: block.runs }];
       if (block.kind === 'wet-lab-method') return block.headings;
       return [];
     }),
@@ -459,6 +459,7 @@ function Article({ slug }: { slug: string }) {
     slug === 'attributions' ? ' article-page--attributions' : '',
     slug === 'project-description' ? ' article-page--description' : '',
     slug === 'design' ? ' article-page--design' : '',
+    slug === 'engineering' ? ' article-page--engineering' : '',
   ].join("");
   return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={articleClassName}>
     <header className="article-hero"><div><h1>{heroTitle}</h1></div></header>

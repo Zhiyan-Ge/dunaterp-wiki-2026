@@ -11,7 +11,7 @@ import { ihpBackgroundResearch, ihpProjectImprovement, ihpStakeholderAnalysis, i
 import { team } from './content/team';
 import { labSafety } from './content/lab-safety';
 import { labNotebook } from './content/lab-notebook';
-import { engineeringProductSections } from './content/engineering-products';
+import { engineering } from './content/engineering';
 
 export type WikiSection = {
   title: string;
@@ -87,105 +87,7 @@ export const pages: Record<string, WikiPage> = {
     ],
   },
   design,
-  engineering: {
-    title: "Engineering DunaTerp through iterative cycles", eyebrow: "Engineering", intro: "Our engineering work connects product synthesis with biological containment. Iterative Design–Build–Test–Learn cycles were used to construct and verify β-citraurin and β-ionone pathways, while the salt-responsive mazEF circuit was developed to separate controlled cultivation from release conditions.", status: "team-draft",
-    references: [refs.dca1, refs.mazf, refs.chen2009],
-    sections: [
-      {
-        eyebrow: "Kill switch architecture",
-        title: "Engineer a Salt-Controlled Suicide Switch",
-        body: "The suicide switch is the core of the biosafety design: engineered Dunaliella salina cells should survive in the high-salt working environment but automatically initiate a suicide program after escape into low-salt waters. The final engineering narrative develops this system through four iterative DBTL cycles that validate MazF toxicity, tune basal toxin output, test the salt-responsive PDCA1 input and prepare co-transformation of the complete switch.",
-        blocks: [
-          { kind: "paragraph", text: "Under high-salt conditions, PDCA1 is activated and drives mazE expression, so the MazE antitoxin can neutralise the low basal MazF toxin produced from the weak Pip promoter. Under low-salt conditions, PDCA1 activity weakens, mazE expression drops and MazF becomes relatively excessive, allowing toxicity to dominate." },
-          { kind: "paragraph", text: "Because MazF is clearly toxic in prokaryotes but had not yet been proven to function in the eukaryotic chassis D. salina, the engineering work first had to establish whether MazF remained effective, then reduce its basal burden and finally combine it with a salt-responsive neutralisation layer." },
-          {
-            kind: "figure-grid",
-            caption: "Fig. 1 Working principle of the salt-controlled suicide switch under high-salt and low-salt conditions.",
-            figures: [
-              { src: "/figures/wet-lab/biosafety-design-high-salt.png", alt: "Working principle of the salt-controlled suicide switch under high-salt conditions, where PDCA1 drives mazE expression and MazE neutralises MazF.", caption: "High-salt state" },
-              { src: "/figures/wet-lab/biosafety-design-low-salt.png", alt: "Working principle of the salt-controlled suicide switch under low-salt conditions, where PDCA1 activity weakens, MazE protection is lost and MazF kills the cells.", caption: "Low-salt state" },
-            ],
-          },
-        ],
-      },
-      {
-        eyebrow: "Cycle I",
-        title: "Validate MazF as the Killing Effector",
-        body: "Cycle I tested whether MazF could retain lethal activity in the eukaryotic chassis D. salina by forcing strong constitutive expression from the CaMV 35S promoter and tracking cell growth for 10 consecutive days.",
-        blocks: [
-          { kind: "heading", text: "Design" },
-          { kind: "paragraph", text: "To verify the lethality and killing efficiency of MazF in the green alga D. salina, we constructed the validation plasmid p1302-CaMV35S-mazF, in which mazF is driven by the strong constitutive CaMV 35S promoter. MazF transformants, empty-vector transformants and wild type were cultured in parallel so that growth inhibition could be tested directly." },
-          { kind: "heading", text: "Build" },
-          { kind: "paragraph", text: "The mazF gene was cloned downstream of CaMV 35S in the pCAMBIA1302 backbone by restriction-enzyme digestion. After transformation into E. coli DH5α, single colonies were screened by colony PCR and sequence-verified before the confirmed plasmid was delivered into D. salina by osmotic transformation." },
-          { kind: "paragraph", text: "The algal transformation workflow followed 1 M NaCl pre-adaptation for 8 h, resuspension in 0.1 M NaCl, addition of 5.46 μg plasmid DNA and 15 μL of 0.1% Triton X-100, 90 s vortexing and 48 h recovery culture. Because the vector carries hptII, positive transformants were selected on hygromycin B before the three groups were inoculated at the same starting density in 0.5 M NaCl PKS/DM liquid medium." },
-          { kind: "heading", text: "Test" },
-          { kind: "paragraph", text: "The MazF group barely grew during the 10-day assay: OD680 remained around 0.05-0.08 and stayed significantly below the WT and EV controls on days 6-10. WT rose to approximately 0.36, while EV reached about 0.28, showing that strong MazF expression imposed pronounced growth inhibition on D. salina." },
-          { kind: "figure", src: "/figures/wet-lab/kill-switch-engineering/killswitch-cycle1-map.png", alt: "Plasmid map of p1302-CaMV35S-mazF used for Cycle I MazF toxicity validation.", caption: "Fig. 2 Plasmid map of p1302-CaMV35S-mazF" },
-          { kind: "figure", src: "/figures/wet-lab/kill-switch-engineering/killswitch-cycle1-colony-pcr.png", alt: "Colony PCR verification of p1302-CaMV35S-mazF. M is the DL2000 DNA marker and lanes 1-11 are PCR products from individual colonies.", caption: "Fig. 3 Colony PCR verification of p1302-CaMV35S-mazF. M: DL2000 DNA marker; lanes 1-11: PCR products from individual colonies." },
-          { kind: "figure", src: "/figures/wet-lab/kill-switch-engineering/killswitch-cycle1-sequencing.png", alt: "Sequencing result confirming p1302-CaMV35S-mazF construction.", caption: "Fig. 4 Sequencing result of p1302-CaMV35S-mazF" },
-          { kind: "figure", src: "/figures/wet-lab/kill-switch-engineering/killswitch-cycle1-growth-curve.png", alt: "Ten-day growth curves of D. salina transformants comparing wild type, empty-vector and p1302-CaMV35S-mazF lines.", caption: "Fig. 5 Ten-day growth curves of D. salina transformants. WT: wild type; EV: empty-vector transformants; MazF: p1302-CaMV35S-mazF transformants. Data are mean ± SEM (n = 3)." },
-          { kind: "heading", text: "Learn" },
-          { kind: "paragraph", text: "Cycle I confirmed that MazF retains strong killing activity in the eukaryotic microalgal host, which is the key prerequisite for the suicide switch. At the same time, complete growth arrest showed that CaMV 35S-driven toxin output far exceeds the cellular tolerance window, so the final circuit cannot rely on a strong constitutive promoter and must instead reduce basal MazF expression while introducing dynamic neutralisation by MazE." },
-        ],
-      },
-      {
-        eyebrow: "Cycle II",
-        title: "Tune Basal MazF Expression with Pip",
-        body: "Cycle II redesigned the toxin module so that MazF remained inhibitory but no longer completely lethal during normal cultivation. This iteration introduced the bar marker for orthogonal selection and the weak endogenous Pip promoter to lower basal toxin output.",
-        blocks: [
-          { kind: "heading", text: "Design" },
-          { kind: "paragraph", text: "Based on the problems exposed in Cycle I, two engineering modifications were made. First, the backbone was replaced with pCAMBIA1302-Bar so that the toxin plasmid would carry phosphinothricin resistance and remain compatible with later orthogonal double selection. Second, the low-abundance endogenous Pip promoter was chosen to drive mazF and keep basal toxin production at a tolerable level." },
-          { kind: "heading", text: "Build" },
-          { kind: "paragraph", text: "The Pip promoter and mazF gene fragment were amplified by PCR, the pCAMBIA1302-Bar backbone was linearised, and p1302-Bar-Pip-mazF was assembled by multi-fragment homologous recombination. After transformation into E. coli DH5α, kanamycin selection, colony PCR and sequencing confirmed the correct construct before osmotic transformation into D. salina and resistance screening on phosphinothricin-containing medium." },
-          { kind: "paragraph", text: "Pip-mazF transformants were cultured in parallel with WT under 0.5 M NaCl conditions, and OD680 was measured continuously to determine whether weak-promoter toxin expression could remain viable while still suppressing growth." },
-          { kind: "heading", text: "Test" },
-          { kind: "paragraph", text: "Unlike the complete lethality seen in Cycle I, p1302-Bar-Pip-mazF transformants were able to survive and maintain growth. The Pip-mazF group showed a marked growth trough on day 2 at roughly OD680 0.015, then gradually recovered; by day 6 it reached about 0.165, which was approximately 69% of WT at the same time point. This indicates that weak-promoter-driven MazF is tolerable but still imposes sustained growth inhibition." },
-          { kind: "figure", src: "/figures/wet-lab/kill-switch-engineering/killswitch-cycle2-map.png", alt: "Plasmid map of p1302-Bar-Pip-mazF used in Cycle II to weaken toxin output.", caption: "Fig. 6 Plasmid map of p1302-Bar-Pip-mazF" },
-          { kind: "figure", src: "/figures/wet-lab/kill-switch-engineering/killswitch-cycle2-colony-pcr.png", alt: "Colony PCR verification of p1302-Bar-Pip-mazF. M is the DL5000 DNA marker, lanes 1-5 are PCR products from individual colonies, and NTC is the negative template control.", caption: "Fig. 7 Colony PCR verification of p1302-Bar-Pip-mazF. M: DL5000 DNA marker; lanes 1-5: PCR products from individual colonies; NTC: negative template control." },
-          { kind: "figure", src: "/figures/wet-lab/kill-switch-engineering/killswitch-cycle2-sequencing.png", alt: "Sequencing result confirming p1302-Bar-Pip-mazF construction.", caption: "Fig. 8 Sequencing result of p1302-Bar-Pip-mazF" },
-          { kind: "figure", src: "/figures/wet-lab/kill-switch-engineering/killswitch-cycle2-growth-curve.png", alt: "Six-day growth curves of D. salina transformants comparing wild type and p1302-Bar-Pip-mazF lines.", caption: "Fig. 9 Six-day growth curves of D. salina transformants. WT: wild type; Pip-MazF: p1302-Bar-Pip-mazF transformants. Data are mean ± SEM (n = 3)." },
-          { kind: "heading", text: "Learn" },
-          { kind: "paragraph", text: "Cycle II showed that the Pip weak promoter can reduce MazF to a viable but still growth-inhibited level. However, basal mazF expression persists at all salt concentrations, so a weak promoter alone cannot provide strict switch control. The next step must therefore introduce a salt-responsive antitoxin module in which PDCA1 drives mazE under high salt and allows MazF to dominate under low salt." },
-        ],
-      },
-      {
-        eyebrow: "Cycle III",
-        title: "Validate PDCA1 as the Salt-Responsive Input",
-        body: "Cycle III focused on the control layer of the switch. The PDCA1 promoter was coupled to EGFP so that its salt-response range could be measured directly in D. salina before building the complete antitoxin branch.",
-        blocks: [
-          { kind: "heading", text: "Design" },
-          { kind: "paragraph", text: "To implement the intended 'survive in high salt, die in low salt' logic, the circuit needs a salt-responsive element that can dynamically regulate antitoxin expression. PDCA1 is an endogenous salt-regulated promoter of D. salina whose transcriptional activity increases under high-salt conditions and weakens under low salt, so we constructed p2301-PDCA1-EGFP to test whether EGFP fluorescence rises with salinity." },
-          { kind: "heading", text: "Build" },
-          { kind: "paragraph", text: "The PDCA1 promoter and EGFP reporter gene were assembled into the pCAMBIA2301 backbone by homologous recombination, generating p2301-PDCA1-EGFP. After transformation into E. coli DH5α, positive clones were screened by colony PCR and sequencing, then introduced into D. salina by osmotic transformation." },
-          { kind: "paragraph", text: "Reporter transformants were inoculated into media containing 0.5 M, 2 M and 3 M NaCl so that EGFP fluorescence could be measured across a salinity gradient and used to define the usable response range of PDCA1." },
-          { kind: "heading", text: "Test" },
-          { kind: "paragraph", text: "After introducing p2301-PDCA1-EGFP into D. salina, clear EGFP fluorescence was observed under high-salt culture conditions at 2 M NaCl, whereas the fluorescence signal was significantly weakened under low-salt conditions at 0.5 M NaCl. This provides preliminary confirmation that PDCA1 has salt-concentration-responsive activity in D. salina and can drive downstream expression as intended." },
-          { kind: "figure", src: "/figures/wet-lab/kill-switch-engineering/killswitch-cycle3-map.png", alt: "Plasmid map of p2301-PDCA1-EGFP used to validate the salt-responsive PDCA1 promoter.", caption: "Fig. 10 Plasmid map of p2301-PDCA1-EGFP" },
-          { kind: "figure", src: "/figures/wet-lab/kill-switch-engineering/killswitch-cycle3-colony-pcr.png", alt: "Colony PCR verification of p2301-PDCA1-EGFP. M is the DL5000 DNA marker, lanes 1-5 are negative controls, and lanes 6-8 are PDCA1-EGFP colony PCR products.", caption: "Fig. 11 Colony PCR verification of p2301-PDCA1-EGFP. M: DL5000 DNA marker; lanes 1-5: negative controls (NTC); lanes 6-8: PDCA1-EGFP colony PCR products." },
-          { kind: "figure", src: "/figures/wet-lab/kill-switch-engineering/killswitch-cycle3-sequencing.png", alt: "Sequencing result confirming p2301-PDCA1-EGFP construction.", caption: "Fig. 12 Sequencing result of p2301-PDCA1-EGFP" },
-          { kind: "heading", text: "Learn" },
-          { kind: "paragraph", text: "The PDCA1 promoter behaved as expected in D. salina: it is activated under high salt and weakened under low salt, which matches the intended control logic of the switch. More detailed fluorescence measurements across the salinity gradient will refine the response curve, but the toxin module and the salt-responsive input have now both been validated well enough to support complete-switch assembly." },
-        ],
-      },
-      {
-        eyebrow: "Cycle IV",
-        title: "Assemble the Complete Suicide Switch",
-        body: "Cycle IV combines the validated toxin branch and the salt-responsive input into the complete switch. This stage remains an engineering plan for co-transformation and salt-switch testing of double-positive transformants.",
-        blocks: [
-          { kind: "heading", text: "Design" },
-          { kind: "paragraph", text: "Based on Cycles I-III, the complete suicide-switch module is designed by pairing the PDCA1-driven antitoxin vector p2301-PDCA1-mazE with p1302-Bar-Pip-mazF in D. salina. Under high salt, PDCA1 should activate mazE and neutralise low basal MazF; under low salt, PDCA1 activity should weaken, MazE should fall and MazF should become relatively excessive and kill the cells." },
-          { kind: "heading", text: "Build" },
-          { kind: "paragraph", text: "The PDCA1 promoter and mazE gene fragment will be amplified by PCR and assembled into the pCAMBIA2301 backbone carrying the hptII hygromycin marker to generate p2301-PDCA1-mazE. This plasmid will then be mixed with p1302-Bar-Pip-mazF at an equal molar ratio and co-delivered into D. salina by osmotic transformation." },
-          { kind: "paragraph", text: "Cells will be plated on double-selective PKS/DM medium containing hygromycin B and phosphinothricin so that double-positive transformants carrying both plasmids can be isolated for salt-switch validation." },
-          { kind: "heading", text: "Test" },
-          { kind: "paragraph", text: "Double-positive transformants will first be cultured in high-salt medium at 2 M NaCl for 5 days and then transferred into low-salt medium at 0.5 M NaCl. OD680 will be tracked continuously so that the intended 'survive in high salt, die in low salt' phenotype can be evaluated directly." },
-          { kind: "heading", text: "Learn" },
-          { kind: "paragraph", text: "Two risks are already visible before the final assay. If double-positive transformants still survive under low salt, residual PDCA1 activity may keep MazE high enough to neutralise MazF. If they die even under high salt, Pip leakiness may still be excessive or plasmid copy number may become imbalanced after co-transformation. The salt-switch growth curves from this stage will therefore provide the strongest evidence for whether the complete suicide switch functions as designed." },
-        ],
-      },
-      ...engineeringProductSections,
-    ],
-  },
+  engineering,
   experiments: {
     title: "Experiments", eyebrow: "Experiments", intro: "Our experimental work is organised into five connected modules. The overview below gathers the scope of every module in one place; the complete experimental documents follow for direct review and download.", status: "team-draft",
     sections: [
