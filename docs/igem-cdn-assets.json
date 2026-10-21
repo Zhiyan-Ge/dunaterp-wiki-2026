@@ -1881,5 +1881,61 @@
     "sha256": "ff2b9cea7f4e853bb1043fa2319e11350a49e8ec290286677ae8ad076601082b",
     "sourceSha256": "ff2b9cea7f4e853bb1043fa2319e11350a49e8ec290286677ae8ad076601082b",
     "bytes": 1059929
+  },
+  {
+    "source": "figures/wet-lab/product-experiments/experiment-product-fig-01.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/product-experiments/experiment-product-fig-01-7da56167774e.webp",
+    "sha256": "7da56167774ec82d26f003e421a4aa80a3eaab9508ba9c90e763f6e3df06d07f",
+    "sourceSha256": "7e9d391973cfc2775eb1477f3188f4540c6d059440a8aeef7730cd04d217ba1a",
+    "bytes": 35690
+  },
+  {
+    "source": "figures/wet-lab/product-experiments/experiment-product-fig-02.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/product-experiments/experiment-product-fig-02-11706bd9950d.webp",
+    "sha256": "11706bd9950d03b8a261109ee7eacf4ea7a711e300e3c35686aca9261666afc5",
+    "sourceSha256": "9145b7721d6b94f92d6ba98aa0668dbd47b1493643c86f904aa3e304f2c8d292",
+    "bytes": 38542
+  },
+  {
+    "source": "figures/wet-lab/product-experiments/experiment-product-fig-03.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/product-experiments/experiment-product-fig-03-4731f6fb69c7.webp",
+    "sha256": "4731f6fb69c790a7420130bbfdab9237cd46497636fb38430397215f8c85374c",
+    "sourceSha256": "77e26bd24c3400be1fc02d2b1039414c7f73e07cd559276f46eec42199478bc7",
+    "bytes": 37094
+  },
+  {
+    "source": "figures/wet-lab/product-experiments/experiment-product-fig-04.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/product-experiments/experiment-product-fig-04-0c61fc904873.webp",
+    "sha256": "0c61fc904873b75561a9c5de9fd364a107241fc37799b6c9351d58fb56417e40",
+    "sourceSha256": "4828734b09270ed60d29140e0987d93a49871ce22d5a40e96bb0ebf8dcfdd110",
+    "bytes": 38490
+  },
+  {
+    "source": "figures/wet-lab/product-experiments/experiment-product-fig-05.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/product-experiments/experiment-product-fig-05-6e34e20ad9c8.webp",
+    "sha256": "6e34e20ad9c8f9670b8e6a6a6de0871881f68e41a0354138b60f920264f3dbc6",
+    "sourceSha256": "4db3aa2e38ef032bbd28525b54f39804185e17ee6296ac0a06a9ebb78f1b7623",
+    "bytes": 37976
+  },
+  {
+    "source": "figures/wet-lab/product-experiments/experiment-product-fig-06.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/product-experiments/experiment-product-fig-06-61a0ad5793b3.webp",
+    "sha256": "61a0ad5793b35ac8a4709bfdd611275ef3d6339e6372161c91d8e05fa14d1e4d",
+    "sourceSha256": "175cd6f68eab5d6f61750f822fd66f5657c6a7a8edcb71793ef29222acf33752",
+    "bytes": 37974
+  },
+  {
+    "source": "figures/wet-lab/product-experiments/experiment-product-fig-07.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/product-experiments/experiment-product-fig-07-610bf2a351cb.webp",
+    "sha256": "610bf2a351cbfbed0bcf2dda2f6bc49863133ea6321b5d04c461566541710ad7",
+    "sourceSha256": "c353620ea4e148f251e713286d2c8275f8094543be60397b99d7700ed15b16f1",
+    "bytes": 120234
+  },
+  {
+    "source": "figures/wet-lab/product-experiments/experiment-product-fig-08.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/product-experiments/experiment-product-fig-08-73d8a1abf6e1.webp",
+    "sha256": "73d8a1abf6e16631e45e6ce94e3f7d9ab4363df57d09e39bbd170743af9ffa42",
+    "sourceSha256": "9966460c90918261aef9e07de0ae53072c91a0e6a02c01969a7badcb8ff63a99",
+    "bytes": 96938
   }
 ]
