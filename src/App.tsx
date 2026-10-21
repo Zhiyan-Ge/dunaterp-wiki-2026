@@ -366,7 +366,7 @@ function ArticleToc({ slug, sections, hasReferences }: { slug: string; sections:
     {chapters.map((chapter) => {
       const isOpen = chapter.activeIds.has(activeId);
       return <div className={`toc-group${isOpen ? " is-open" : ""}`} key={chapter.id}>
-        <Link data-toc-id={chapter.id} className={`toc-parent${activeId === chapter.id ? " is-active" : ""}`} aria-current={activeId === chapter.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${chapter.id}` }}>{chapter.titleRuns ? <span><DocumentText runs={chapter.titleRuns} /></span> : renderInlineText(chapter.title)}{chapter.links.length > 0 && <b aria-hidden="true">⌄</b>}</Link>
+        <Link data-toc-id={chapter.id} className={`toc-parent${activeId === chapter.id ? " is-active" : ""}`} aria-current={activeId === chapter.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${chapter.id}` }}><span>{chapter.titleRuns ? <DocumentText runs={chapter.titleRuns} /> : renderInlineText(chapter.title)}</span>{chapter.links.length > 0 && <b aria-hidden="true">⌄</b>}</Link>
         {chapter.links.length > 0 && <div className="toc-sublist">{chapter.links.map((link) => {
           const isActive = link.activeIds.has(activeId);
           return <Link key={link.id} data-toc-id={link.id} className={isActive ? "is-active" : undefined} aria-current={isActive ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${link.id}` }}>{link.titleRuns ? <span><DocumentText runs={link.titleRuns} /></span> : renderInlineText(link.title)}</Link>;
