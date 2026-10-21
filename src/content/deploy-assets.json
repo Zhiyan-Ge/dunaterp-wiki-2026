@@ -1,5 +1,5 @@
 {
-  "favicon.svg": "https://static.igem.wiki/teams/6212/wiki/dunaterp-adb0d34f1b37.svg",
+  "favicon.svg": "https://static.igem.wiki/teams/6212/wiki/brand/panda-favicon-9df39f7c8651.svg",
   "figures/dry-lab/01_gene_recovery.png": "https://static.igem.wiki/teams/6212/wiki/dunaterp-d3469451b6dd.webp",
   "figures/dry-lab/06_expression_qc.png": "https://static.igem.wiki/teams/6212/wiki/dunaterp-85b8e15f97d7.webp",
   "figures/dry-lab/07_differential_expression.png": "https://static.igem.wiki/teams/6212/wiki/dunaterp-f7cc1d1bffad.webp",
@@ -293,5 +293,7 @@
   "figures/wet-lab/product-experiments/experiment-product-fig-05.png": "https://static.igem.wiki/teams/6212/wiki/lab/product-experiments/experiment-product-fig-05-6e34e20ad9c8.webp",
   "figures/wet-lab/product-experiments/experiment-product-fig-06.png": "https://static.igem.wiki/teams/6212/wiki/lab/product-experiments/experiment-product-fig-06-61a0ad5793b3.webp",
   "figures/wet-lab/product-experiments/experiment-product-fig-07.png": "https://static.igem.wiki/teams/6212/wiki/lab/product-experiments/experiment-product-fig-07-610bf2a351cb.webp",
-  "figures/wet-lab/product-experiments/experiment-product-fig-08.png": "https://static.igem.wiki/teams/6212/wiki/lab/product-experiments/experiment-product-fig-08-73d8a1abf6e1.webp"
+  "figures/wet-lab/product-experiments/experiment-product-fig-08.png": "https://static.igem.wiki/teams/6212/wiki/lab/product-experiments/experiment-product-fig-08-73d8a1abf6e1.webp",
+  "images/brand/panda-icon.webp": "https://static.igem.wiki/teams/6212/wiki/brand/panda-icon-65b54d9eb396.webp",
+  "images/brand/panda-footer.webp": "https://static.igem.wiki/teams/6212/wiki/brand/panda-footer-d79ab92c4c5f.webp"
 }

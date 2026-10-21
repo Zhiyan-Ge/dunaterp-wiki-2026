@@ -39,7 +39,7 @@ for (const file of walk('dist/assets').filter(f => f.endsWith('.css'))) {
   fs.writeFileSync(file, css);
 }
 const index = 'dist/index.html';
-fs.writeFileSync(index, fs.readFileSync(index, 'utf8').replace(/href="[^"]*favicon\.svg"/, `href="${mapping['favicon.svg']}"`));
+fs.writeFileSync(index, fs.readFileSync(index, 'utf8').replace(/(<link\b[^>]*\brel="icon"[^>]*\bhref=")[^"]*(")/, (_, before, after) => `${before}${mapping['favicon.svg']}${after}`));
 for (const file of walk('dist').filter(f => /\.(png|jpe?g|webp|avif|svg|pdf|pdb|woff2?|ttf)$/i.test(f))) {
   if (!bundledAssets.has(file)) fs.unlinkSync(file);
 }

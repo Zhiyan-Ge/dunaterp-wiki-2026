@@ -27,14 +27,7 @@ function normalizePath(pathname: string) {
 
 
 function BrandMark() {
-  return <span className="brand-mark" aria-hidden="true">
-    <svg viewBox="0 0 48 48" role="img">
-      <path className="brand-mark__flagella" d="M16 13C12 8 12 5 15 2M31 13c5-5 5-8 2-11" />
-      <path className="brand-mark__cell" d="M12 10h24v4h4v20h-4v4H12v-4H8V14h4z" />
-      <path className="brand-mark__hub" d="M19 18h10v3h3v8h-3v3H19v-3h-3v-8h3z" />
-      <path className="brand-mark__branch" d="M13 17h4M31 17h4M13 31h4M31 31h4" />
-    </svg>
-  </span>;
+  return <img className="brand-mark" src={resolveFigureSrc('images/brand/panda-icon.webp')} alt="" aria-hidden="true" width={256} height={256} decoding="async" />;
 }
 
 function BootLoadingScreen() {
@@ -123,9 +116,8 @@ function Footer() {
         <div className="footer-marks">
           <img src="https://static.igem.wiki/teams/5810/scu/scu11.webp" alt="Sichuan University emblem" loading="lazy" decoding="async" />
           <img src="https://static.igem.wiki/teams/5810/scu/scu12.webp" alt="College of Life Sciences, Sichuan University emblem" loading="lazy" decoding="async" />
-          <div className="footer-project-mark" aria-label="DunaTerp, SCU-China iGEM 2026">
-            <BrandMark />
-            <span><strong>DunaTerp</strong><small>SCU–CHINA · iGEM 2026</small></span>
+          <div className="footer-project-mark">
+            <img className="footer-project-logo" src={resolveFigureSrc('images/brand/panda-footer.webp')} alt="DunaTerp — SCU-China iGEM 2026" width={640} height={640} loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
