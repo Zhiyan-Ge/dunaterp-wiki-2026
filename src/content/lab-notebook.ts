@@ -47,5 +47,38 @@ export const labNotebook: WikiPage = {
         pdf('/protocols/Notebook_Safety_EN.pdf', 'Safety notebook (PDF)'),
       ],
     },
+    {
+      title: 'β-ionone and β-citraurin module',
+      tocTitle: 'β-ionone / β-citraurin',
+      body: 'This notebook records CCD1- and CitCCD4-based biosynthesis work in Dunaliella salina FACHB-435 from August to October 2026, including expression-vector construction, transformation, molecular identification and expression verification.',
+      items: [
+        '35S and RBCS2 promoter constructs and chloroplast targeting',
+        'Backbone amplification, fragment assembly and clone screening',
+        'Dunaliella salina transformation, selection and cultivation',
+        'Colony PCR, sequencing and construct re-evaluation',
+        'Genomic PCR, RNA extraction and RT-qPCR',
+        'Metabolomic analysis and thin-layer chromatography assessment',
+      ],
+      blocks: [
+        pdf('/protocols/Notebook_Beta_Ionone_Beta_Citraurin_EN.pdf', 'β-ionone and β-citraurin notebook (PDF)'),
+      ],
+    },
+    {
+      title: '2146 experimental notebook',
+      tocTitle: '2146 notebook',
+      body: 'This daily experimental notebook covers July 27 to September 22, 2026. It records pCAMBIA1302-based cloning work involving 2146, HpBKT, GjCCD4a and GjALDH2C3, together with RBCS2 and signal-peptide constructs, plasmid verification and Dunaliella salina transformation.',
+      items: [
+        'Culture-medium preparation and vector amplification',
+        'Target-fragment PCR, electrophoresis and gel purification',
+        'Homologous recombination and bacterial transformation',
+        '2146 plasmid propagation, extraction and algal transformation',
+        'RBCS2 and signal-peptide construct screening',
+        'Sequencing, reconstruction and follow-up culture records',
+      ],
+      blocks: [
+        pdf('/protocols/Notebook_CPP2146_EN.pdf', '2146 experimental notebook (PDF)'),
+        { kind: 'download', src: '/protocols/Notebook_CPP2146_EN.docx', label: 'Download original DOCX' },
+      ],
+    },
   ],
 };

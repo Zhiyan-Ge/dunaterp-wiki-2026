@@ -1,0 +1,27 @@
+{
+  "files": [
+    {
+      "source": "notebook_Biosynthesis of β-ionone and β-citraurin.pdf",
+      "sourceSha256": "f421d1573e033c1247cdc0e0271a583997336cfe6c9a4380113e7e966a53d29b",
+      "output": "/protocols/Notebook_Beta_Ionone_Beta_Citraurin_EN.pdf",
+      "outputSha256": "f421d1573e033c1247cdc0e0271a583997336cfe6c9a4380113e7e966a53d29b",
+      "conversion": "Original PDF copied without modification",
+      "pages": 34
+    },
+    {
+      "source": "2146 Experiment  Notebook (1).docx",
+      "sourceSha256": "d73d9b8ef50673fad5c0000dcec6221fc792905b3f1e6d3ffbff0bb950e4ebea",
+      "output": "/protocols/Notebook_CPP2146_EN.pdf",
+      "outputSha256": "5114cf428f960140d6a7c94da0991bb2d829f6115c12afc58877c666a6f04a2b",
+      "conversion": "Microsoft Word PDF export; source opened read-only without editing",
+      "pages": 35
+    },
+    {
+      "source": "2146 Experiment  Notebook (1).docx",
+      "sourceSha256": "d73d9b8ef50673fad5c0000dcec6221fc792905b3f1e6d3ffbff0bb950e4ebea",
+      "output": "/protocols/Notebook_CPP2146_EN.docx",
+      "outputSha256": "d73d9b8ef50673fad5c0000dcec6221fc792905b3f1e6d3ffbff0bb950e4ebea",
+      "conversion": "Original DOCX copied without modification"
+    }
+  ]
+}
