@@ -9,6 +9,7 @@ import { dryLabNavigation, dryLabIndex, hardware, hardwareDesign, metabolomics, 
 import { collaboration, cooperation, education } from './content/human-practices';
 import { stakeholderAnalysis } from './content/stakeholder-analysis';
 import { team } from './content/team';
+import { labSafety } from './content/lab-safety';
 
 export type WikiSection = {
   title: string;
@@ -258,15 +259,7 @@ export const pages: Record<string, WikiPage> = {
       },
     ],
   },
-  "lab-safety": {
-    title: "Lab Safety",
-    eyebrow: "Lab",
-    intro: "This page is reserved for lab safety content and will be completed when the material is ready.",
-    status: "structure-only",
-    sections: [
-      { title: "Content in preparation", body: "Team input required: add the lab-specific safety content for this section." },
-    ],
-  },
+  "lab-safety": labSafety,
   "lab-notebook": {
     title: "Lab Notebook",
     eyebrow: "Lab",

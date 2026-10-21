@@ -1,0 +1,44 @@
+{
+  "archive": "Lab Safety.zip",
+  "archiveSha256": "a666449b6daf602e3b489b334f3dd9cbacae4028c81625f33a90e1a47621da45",
+  "document": "Lab Safety.docx",
+  "documentSha256": "1232ce56d9f54ac07423d9019cc5210b504d5e485abb67d61b1c5471de774a04",
+  "figures": [
+    {
+      "source": "Fig1.jpg",
+      "sourceSha256": "f5abbab648ba3b7cd5c23978c3028706fba6bc5da4ca57878b457f8cab6e5fab",
+      "output": "figures/lab-safety/chemical-storage-cabinet.webp",
+      "sha256": "5bdc0557d1c2d940df6d885e75a1bf0264f44cb602dcd2feff600ccd38952bf4",
+      "bytes": 153238,
+      "width": 2000,
+      "height": 1500
+    },
+    {
+      "source": "Fig2.jpg",
+      "sourceSha256": "fbf8be6e5f077d00802f1e93468a58ac7cf251a11f24688888140c64b1dab2c9",
+      "output": "figures/lab-safety/explosion-proof-cabinet.webp",
+      "sha256": "f091b7d515c79df1fa9d2920f6902c14f5bbc3458015c32722a8deb193503608",
+      "bytes": 263630,
+      "width": 1500,
+      "height": 2000
+    },
+    {
+      "source": "Fig3.jpg",
+      "sourceSha256": "a05962b66cc432e10783374d0416ea9ce23ac8a4fa18e79bb11634db1b76e70c",
+      "output": "figures/lab-safety/laboratory-bench.webp",
+      "sha256": "d280b73223b9ad5be7d6e836b2316f05297abdb160512be72e7f31128f5b4408",
+      "bytes": 341456,
+      "width": 2000,
+      "height": 1500
+    },
+    {
+      "source": "Fig4.jpg",
+      "sourceSha256": "d56c3ee123b88831f7e7f76b5712f7572c12dd16917f47336d40be1fe5569772",
+      "output": "figures/lab-safety/biological-safety-cabinet.webp",
+      "sha256": "4450e7b1c49fa3a3898ba753acbe2848baca66124039e0968ef69da534ac1434",
+      "bytes": 146404,
+      "width": 2000,
+      "height": 1500
+    }
+  ]
+}
