@@ -1,7 +1,7 @@
 .docking-scroll{height:150vh;min-height:950px;margin:2rem 0;position:relative}
 .docking-card{position:sticky;top:100px;background:#fffaf0;border:3px solid var(--ink);border-radius:0;overflow:hidden;box-shadow:5px 5px 0 var(--article-accent);color:var(--ink);font-family:inherit}
 .docking-title{padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--line)}
-.docking-title>div>span{font-size:.6rem;letter-spacing:.15em;font-weight:650;color:var(--ink)}.docking-title h3{font-family:ui-monospace,Menlo,monospace;font-weight:800;font-size:1.6rem;letter-spacing:-.035em;margin:.25rem 0 0!important;color:var(--ink)}
+.docking-title>div>span{font-size:.6rem;letter-spacing:.15em;font-weight:650;color:var(--ink)}.docking-title h3{font-family: var(--font-mono);font-weight:800;font-size:1.6rem;letter-spacing:-.035em;margin:.25rem 0 0!important;color:var(--ink)}
 .docking-title>span{font-size:.65rem;border-radius:0;padding:.35rem .7rem;background:var(--article-accent);border:1px solid var(--ink);color:var(--ink);white-space:nowrap}
 .docking-stage{height:clamp(250px,40vh,420px);position:relative;background:var(--cream)}.docking-canvas,.docking-canvas canvas{width:100%;height:100%;display:block}
 .docking-legend{position:absolute;left:12px;top:12px;display:flex;gap:12px;font-size:.65rem;pointer-events:none;color:var(--ink);background:color-mix(in srgb,#fffaf0 94%,transparent);padding:.4rem .65rem;border-radius:0}.docking-legend span:nth-child(2){color:#9c651b}.docking-legend span:nth-child(3){color:#85509b}
@@ -20,7 +20,7 @@
 @media(prefers-reduced-motion:reduce){.docking-scroll{height:auto;min-height:0}.docking-card{position:relative;top:auto}.docking-card *{transition:none!important}}
 .docking-phase{position:absolute;right:12px;bottom:12px;padding:.35rem .6rem;border-radius:0;background:color-mix(in srgb,#fffaf0 94%,transparent);color:var(--ink);font-size:.62rem;letter-spacing:.02em;pointer-events:none}.docking-legend span:nth-child(3){color:#887963}
 
-.docking-title>div>span,.docking-title>span,.docking-card button,.docking-phase,.docking-progress{font-family:ui-monospace,Menlo,monospace}
+.docking-title>div>span,.docking-title>span,.docking-card button,.docking-phase,.docking-progress{font-family: var(--font-mono)}
 .docking-layers button span{border:1px solid var(--ink)}
 .docking-layers button[aria-checked=true] span{background:var(--article-accent)}
 .docking-layers button span:after{background:var(--ink);width:8px;height:8px}

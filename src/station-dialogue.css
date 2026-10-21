@@ -48,13 +48,13 @@
   border: 3px solid var(--station-ink);
   background: var(--station-ink);
   color: var(--station-paper);
-  font: 900 1.35rem/1 ui-monospace, Menlo, monospace;
+  font: 900 1.35rem/1 var(--font-mono);
 }
 
 .station-dialogue__header p,
 .station-dialogue__header h2 { margin: 0; }
-.station-dialogue__header p { font: 900 .72rem/1.2 ui-monospace, Menlo, monospace; letter-spacing: .12em; }
-.station-dialogue__header h2 { margin-top: .25rem; font: 900 clamp(1rem, 1.7vw, 1.35rem)/1.15 ui-monospace, Menlo, monospace; text-transform: uppercase; }
+.station-dialogue__header p { font: 900 .72rem/1.2 var(--font-mono); letter-spacing: .12em; }
+.station-dialogue__header h2 { margin-top: .25rem; font: 900 clamp(1rem, 1.7vw, 1.35rem)/1.15 var(--font-mono); text-transform: uppercase; }
 
 .station-dialogue__header button {
   width: 2.3rem;
@@ -64,7 +64,7 @@
   background: var(--station-paper);
   color: var(--station-ink);
   cursor: pointer;
-  font: 900 1.35rem/1 ui-monospace, Menlo, monospace;
+  font: 900 1.35rem/1 var(--font-mono);
   box-shadow: 3px 3px 0 var(--station-ink);
 }
 
@@ -83,7 +83,7 @@
 .station-dialogue__spread > aside > p {
   margin: 0 0 1.2rem;
   color: #40534e;
-  font: 900 .72rem/1 ui-monospace, Menlo, monospace;
+  font: 900 .72rem/1 var(--font-mono);
   letter-spacing: .16em;
 }
 
@@ -101,7 +101,7 @@
   box-shadow: 3px 3px 0 var(--station-ink);
   cursor: pointer;
   text-align: left;
-  font: 900 .72rem/1.35 ui-monospace, Menlo, monospace;
+  font: 900 .72rem/1.35 var(--font-mono);
 }
 .station-dialogue__spread > aside button span { color: #546760; }
 .station-dialogue__spread > aside button:is(:hover, :focus-visible, .is-current) { background: var(--station-accent); transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--station-ink); }
@@ -115,10 +115,10 @@
   background: linear-gradient(90deg, rgba(6,34,31,.035) 1px, transparent 1px), linear-gradient(rgba(6,34,31,.035) 1px, transparent 1px), #fffaf0;
   background-size: 16px 16px;
 }
-.station-dialogue__page > p:first-child { margin: 0 0 1rem; color: color-mix(in srgb, var(--station-accent) 58%, var(--station-ink)); font: 900 .78rem/1.2 ui-monospace, Menlo, monospace; letter-spacing: .14em; }
-.station-dialogue__page h3 { max-width: 30ch; margin: 0 0 1rem; font: 900 clamp(1.3rem, 2.2vw, 2.15rem)/1.1 ui-monospace, Menlo, monospace; text-transform: uppercase; }
+.station-dialogue__page > p:first-child { margin: 0 0 1rem; color: color-mix(in srgb, var(--station-accent) 58%, var(--station-ink)); font: 900 .78rem/1.2 var(--font-mono); letter-spacing: .14em; }
+.station-dialogue__page h3 { max-width: 30ch; margin: 0 0 1rem; font: 900 clamp(1.3rem, 2.2vw, 2.15rem)/1.1 var(--font-mono); text-transform: uppercase; }
 .station-dialogue__page > p:nth-of-type(2) { max-width: 58ch; margin: 0; font-size: clamp(.94rem, 1.2vw, 1.05rem); font-weight: 500; line-height: 1.65; }
-.station-dialogue__stamp { position: absolute; right: 1.3rem; bottom: 1.1rem; display: flex; gap: .55rem; align-items: center; color: rgba(6,34,31,.42); font: 900 .64rem/1 ui-monospace, Menlo, monospace; letter-spacing: .1em; }
+.station-dialogue__stamp { position: absolute; right: 1.3rem; bottom: 1.1rem; display: flex; gap: .55rem; align-items: center; color: rgba(6,34,31,.42); font: 900 .64rem/1 var(--font-mono); letter-spacing: .1em; }
 .station-dialogue__stamp span { display: grid; place-items: center; width: 2.1rem; height: 2.1rem; border: 2px solid currentColor; }
 
 .station-dialogue > footer {
@@ -131,9 +131,9 @@
   color: var(--station-paper);
 }
 
-.station-dialogue > footer > span { font: 700 .72rem/1.4 ui-monospace, Menlo, monospace; opacity: .76; }
+.station-dialogue > footer > span { font: 700 .72rem/1.4 var(--font-mono); opacity: .76; }
 .station-dialogue__pager { display: flex; gap: 1rem; align-items: center; }
-.station-dialogue > footer button { border: 0; background: transparent; color: var(--station-accent); cursor: pointer; font: 900 .76rem/1.3 ui-monospace, Menlo, monospace; letter-spacing: .06em; }
+.station-dialogue > footer button { border: 0; background: transparent; color: var(--station-accent); cursor: pointer; font: 900 .76rem/1.3 var(--font-mono); letter-spacing: .06em; }
 .station-dialogue > footer button:disabled { color: #80908b; cursor: default; }
 
 @media (max-width: 760px) {

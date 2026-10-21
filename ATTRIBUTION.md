@@ -112,3 +112,16 @@ face and eye highlights. Delivery images are resized and
 encoded as lossless WebP; the favicon is a self-contained SVG containing the
 64px PNG icon. Official CDN URLs, byte counts and source/delivery SHA-256 values
 are recorded in `docs/brand-assets.json` and `docs/igem-cdn-assets.json`.
+
+## 21 October 2026 — consistent cross-platform typography
+
+Inter (The Inter Project Authors), Gelasio (The Gelasio Project Authors), and
+Noto Sans Mono (The Noto Project Authors) are served from the official iGEM CDN
+under the SIL Open Font License 1.1. Copies of all three licences are included
+in `docs/font-licenses/`. Official Google Fonts upstream URLs, source and WOFF2
+SHA-256 values, variable axes and processing details are recorded in
+`docs/typography-assets.json`. WOFF2 delivery files preserve the original glyphs
+and variation axes. No Apple system fonts are redistributed. The CSS aliases
+Duna Sans, Duna Serif and Duna Mono ensure the same files are selected on all
+platforms; native browser rasterization can still vary. Pixel-world bitmap
+signage, logo artwork and KaTeX fonts are unchanged.

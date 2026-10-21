@@ -9,9 +9,9 @@
 .safety-results-header{display:flex;justify-content:space-between;align-items:start;gap:1rem}
 .safety-results-header h3{font-size:1.6rem;margin:0 0 1.5rem!important;line-height:1.2}
 .safety-results-header .safety-kicker{margin-bottom:.6rem!important}
-.safety-tag{font-size:.66rem;white-space:nowrap;border:1px solid var(--ink);padding:.35rem .6rem;border-radius:0;background:var(--article-accent);color:var(--ink);font-family:ui-monospace,Menlo,monospace;font-weight:700}
+.safety-tag{font-size:.66rem;white-space:nowrap;border:1px solid var(--ink);padding:.35rem .6rem;border-radius:0;background:var(--article-accent);color:var(--ink);font-family: var(--font-mono);font-weight:700}
 .safety-switch{display:flex;gap:.4rem;padding:5px;background:var(--cream);border:2px solid var(--ink);border-radius:0}
-.safety-switch button{flex:1;border:2px solid transparent;border-radius:0;padding:.8rem .6rem;background:transparent;font:inherit;font-size:.83rem;cursor:pointer;color:var(--ink);line-height:1.6}
+.safety-switch button{flex:1;border:2px solid transparent;border-radius:0;padding:.8rem .6rem;background:transparent;font: inherit;font-size:.83rem;cursor:pointer;color:var(--ink);line-height:1.6}
 .safety-switch button span{display:block;font-size:.7rem;font-variant-numeric:tabular-nums}
 .safety-switch button[aria-pressed=true]{background:var(--article-accent);color:var(--ink);border-color:var(--ink);box-shadow:2px 2px 0 var(--ink);font-weight:700}
 .safety-switch button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
@@ -29,5 +29,5 @@
 @media(max-width:650px){.safety-flow{grid-template-columns:1fr;gap:1rem}.safety-flow>div+div{border-left:0;border-top:1px solid var(--line);padding:1rem 0 0}.safety-bar-row{grid-template-columns:1fr;gap:.4rem}.safety-ticks{margin-left:0}.safety-results-header h3{font-size:1.3rem}.safety-tag{display:none}.safety-scenario-description{min-height:0}}
 
 .safety-switch button:hover:not([aria-pressed=true]){background:color-mix(in srgb,var(--article-accent) 25%,#fffaf0)}
-.safety-kicker,.safety-flow span,.safety-tag,.safety-axis-label,.safety-ticks{font-family:ui-monospace,Menlo,monospace}
+.safety-kicker,.safety-flow span,.safety-tag,.safety-axis-label,.safety-ticks{font-family: var(--font-mono)}
 @media(max-width:650px){.safety-switch{gap:.3rem}.safety-switch button{padding:.65rem .35rem}.safety-overview,.safety-results{box-shadow:3px 3px 0 var(--article-accent)}}

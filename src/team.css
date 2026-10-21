@@ -37,7 +37,7 @@
 .article-page--team .team-member__caption h3 {
   margin: 0;
   color: var(--ink);
-  font: 800 clamp(1rem, 1.5vw, 1.25rem)/1.35 ui-monospace, Menlo, monospace;
+  font: 800 clamp(1rem, 1.5vw, 1.25rem)/1.35 var(--font-mono);
   letter-spacing: -.035em;
   text-transform: none;
   overflow-wrap: anywhere;

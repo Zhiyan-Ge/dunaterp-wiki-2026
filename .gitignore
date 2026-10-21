@@ -55,3 +55,6 @@ tools/preview/dunaterp-preview.html
 
 # Brand image originals are hosted on the official iGEM asset library.
 /public/images/brand/
+
+# Offline copies of site fonts; production uses the official iGEM CDN.
+/public/fonts/site/

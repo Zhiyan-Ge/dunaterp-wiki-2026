@@ -71,7 +71,7 @@
   border-radius: 0;
   background: var(--px-cream);
   color: var(--px-ink);
-  font: 800 .9rem/1 ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, monospace;
+  font: 800 .9rem/1 var(--font-mono);
   letter-spacing: .08em;
   text-transform: uppercase;
   text-decoration: none;
@@ -94,7 +94,7 @@
   border: 2px solid var(--px-ink);
   background: var(--px-cream);
   color: var(--px-ink);
-  font: 800 .72rem/1 ui-monospace, Menlo, monospace;
+  font: 800 .72rem/1 var(--font-mono);
   box-shadow: 0 2px 0 var(--px-ink);
 }
 
@@ -145,7 +145,7 @@
 .px-trailhead__mark i:nth-child(2) { left: 1.1rem; top: .4rem; }
 .px-trailhead__mark i:nth-child(3) { left: 1.75rem; top: .4rem; }
 .px-trailhead__copy { min-width: 0; }
-.px-trailhead__copy h2 { margin: 0; font: 900 clamp(1.08rem, 1.8vw, 1.4rem)/1.15 ui-monospace, Menlo, monospace; letter-spacing: .03em; text-transform: uppercase; white-space: nowrap; }
+.px-trailhead__copy h2 { margin: 0; font: 900 clamp(1.08rem, 1.8vw, 1.4rem)/1.15 var(--font-mono); letter-spacing: .03em; text-transform: uppercase; white-space: nowrap; }
 .px-trailhead__keys {
   position: absolute;
   z-index: 20;
@@ -164,7 +164,7 @@
   backdrop-filter: blur(5px);
   pointer-events: none;
 }
-.px-trailhead__keys span { display: inline-flex; align-items: center; gap: .38rem; color: rgba(253, 246, 227, .9); font: 760 .8rem/1.4 ui-monospace, Menlo, monospace; white-space: nowrap; }
+.px-trailhead__keys span { display: inline-flex; align-items: center; gap: .38rem; color: rgba(253, 246, 227, .9); font: 760 .8rem/1.4 var(--font-mono); white-space: nowrap; }
 .px-trailhead__keys kbd { border-color: var(--px-cream); background: transparent; color: var(--px-cream); box-shadow: none; }
 .px-world.is-started .px-trailhead,
 .px-world.is-started .px-trailhead__keys,
@@ -210,8 +210,8 @@
 }
 
 .px-route-egg__copy small,
-.px-route-egg__copy em { color: var(--egg-accent); font: 900 .55rem/1.2 ui-monospace, Menlo, monospace; letter-spacing: .11em; font-style: normal; }
-.px-route-egg__copy strong { font: 850 .72rem/1.25 ui-monospace, Menlo, monospace; }
+.px-route-egg__copy em { color: var(--egg-accent); font: 900 .55rem/1.2 var(--font-mono); letter-spacing: .11em; font-style: normal; }
+.px-route-egg__copy strong { font: 850 .72rem/1.25 var(--font-mono); }
 .px-route-egg__copy em { opacity: .72; }
 .px-route-egg:hover .px-route-egg__artifact,
 .px-route-egg:focus-visible .px-route-egg__artifact { transform: translateY(-3px); }
@@ -329,7 +329,7 @@
 
 .px-loading-title {
   margin: 0;
-  font: 900 clamp(2.4rem, 7vw, 4.5rem)/1 ui-monospace, Menlo, monospace;
+  font: 900 clamp(2.4rem, 7vw, 4.5rem)/1 var(--font-mono);
   letter-spacing: .22em;
   text-indent: .22em;
 }
@@ -338,7 +338,7 @@
 .px-loading-pct {
   margin: 0;
   color: var(--px-cream);
-  font: 700 .82rem/1.4 ui-monospace, Menlo, monospace;
+  font: 700 .82rem/1.4 var(--font-mono);
   letter-spacing: .16em;
   text-transform: uppercase;
 }
@@ -367,7 +367,7 @@
   gap: .6rem;
   margin: 0;
   color: var(--px-lime);
-  font: 800 .78rem/1 ui-monospace, Menlo, monospace;
+  font: 800 .78rem/1 var(--font-mono);
   letter-spacing: .16em;
 }
 
@@ -394,20 +394,20 @@
   border: 3px solid var(--px-ink);
   background: var(--px-lime);
   color: var(--px-ink);
-  font: 950 1.45rem/1 Georgia, serif;
+  font: 950 1.45rem/1 var(--font-serif);
   box-shadow: 3px 3px 0 var(--px-ink);
 }
 
 .px-worldmark > div > p {
   margin: .45rem 0 0;
   color: rgba(253, 246, 227, .7);
-  font: 850 .58rem/1 ui-monospace, Menlo, monospace;
+  font: 850 .58rem/1 var(--font-mono);
   letter-spacing: .16em;
 }
 
 .px-intro h1 {
   margin: 0;
-  font: 950 clamp(2.8rem, 8vw, 5.4rem)/.72 ui-monospace, Menlo, monospace;
+  font: 950 clamp(2.8rem, 8vw, 5.4rem)/.72 var(--font-mono);
   letter-spacing: -.09em;
   text-transform: uppercase;
   text-shadow: 4px 4px 0 var(--px-ink);
@@ -434,7 +434,7 @@
 .px-hint {
   margin: 0;
   color: rgba(253, 246, 227, .66);
-  font: 700 .78rem/1.6 ui-monospace, Menlo, monospace;
+  font: 700 .78rem/1.6 var(--font-mono);
   letter-spacing: .08em;
   text-transform: uppercase;
 }
@@ -463,12 +463,12 @@
   height: 2.2rem;
   border: var(--px-edge) solid var(--px-ink);
   background: var(--px-accent);
-  font: 900 1rem/1 ui-monospace, Menlo, monospace;
+  font: 900 1rem/1 var(--font-mono);
 }
 
 .px-prompt p {
   margin: 0 0 .25rem;
-  font: 800 .72rem/1 ui-monospace, Menlo, monospace;
+  font: 800 .72rem/1 var(--font-mono);
   letter-spacing: .14em;
 }
 
@@ -477,7 +477,7 @@
   border: 0;
   background: none;
   color: var(--px-ink);
-  font: 900 1rem/1.2 ui-monospace, Menlo, monospace;
+  font: 900 1rem/1.2 var(--font-mono);
   text-align: left;
   cursor: pointer;
   text-decoration: underline;
@@ -502,7 +502,7 @@
   border: var(--px-edge) solid var(--px-ink);
   background: var(--px-cream);
   color: var(--px-ink);
-  font: 800 .82rem/1 ui-monospace, Menlo, monospace;
+  font: 800 .82rem/1 var(--font-mono);
   letter-spacing: .1em;
   text-transform: uppercase;
   cursor: pointer;
@@ -516,7 +516,7 @@
   padding: .5rem .6rem;
   background: rgba(6, 34, 31, .88);
   color: rgba(253, 246, 227, .82);
-  font: 700 .72rem/1.5 ui-monospace, Menlo, monospace;
+  font: 700 .72rem/1.5 var(--font-mono);
 }
 
 .px-restart {
@@ -529,7 +529,7 @@
   border: var(--px-edge) solid var(--px-ink);
   background: var(--px-cream);
   color: var(--px-ink);
-  font: 900 1rem/1 ui-monospace, Menlo, monospace;
+  font: 900 1rem/1 var(--font-mono);
   cursor: pointer;
   box-shadow: 3px 3px 0 var(--px-ink);
 }
@@ -585,7 +585,7 @@
   background: transparent;
   color: rgba(253, 246, 227, .82);
   text-align: left;
-  font: 760 .6rem/1.2 ui-monospace, Menlo, monospace;
+  font: 760 .6rem/1.2 var(--font-mono);
   cursor: pointer;
   pointer-events: auto;
   transition: color .18s ease, transform .18s ease;
@@ -660,12 +660,12 @@
   padding: .42rem .55rem;
   background: var(--px-ink);
   color: var(--px-lime);
-  font: 800 .68rem/1 ui-monospace, Menlo, monospace;
+  font: 800 .68rem/1 var(--font-mono);
   letter-spacing: .14em;
 }
 .px-archive > header h2 {
   margin: 0;
-  font: 900 clamp(1.35rem, 2.5vw, 2rem)/1.05 ui-monospace, Menlo, monospace;
+  font: 900 clamp(1.35rem, 2.5vw, 2rem)/1.05 var(--font-mono);
 }
 .px-archive-grid {
   display: grid;
@@ -701,12 +701,12 @@
   margin: 0;
   background: var(--px-accent);
   color: var(--px-ink);
-  font: 900 .72rem/1 ui-monospace, Menlo, monospace;
+  font: 900 .72rem/1 var(--font-mono);
   letter-spacing: .08em;
 }
 .px-archive-grid h3 {
   margin: 0;
-  font: 900 1rem/1.1 ui-monospace, Menlo, monospace;
+  font: 900 1rem/1.1 var(--font-mono);
 }
 .px-archive-grid nav {
   grid-column: 1 / -1;
@@ -726,7 +726,7 @@
   background: var(--px-mid);
   color: var(--px-salt);
   text-align: left;
-  font: 800 .68rem/1.25 ui-monospace, Menlo, monospace;
+  font: 800 .68rem/1.25 var(--font-mono);
   cursor: pointer;
 }
 .px-archive-card b { color: var(--px-accent); }
@@ -782,12 +782,12 @@
   gap: .6rem;
   margin: 0 0 .8rem;
   color: var(--px-accent);
-  font: 800 .74rem/1 ui-monospace, Menlo, monospace;
+  font: 800 .74rem/1 var(--font-mono);
   letter-spacing: .14em;
 }
 
 .px-chapter-tag span { padding: .3rem .4rem; border: 2px solid currentColor; }
-.px-scroll-chapter h2 { margin: 0 0 .7rem; font: 900 1.7rem/1.1 ui-monospace, Menlo, monospace; }
+.px-scroll-chapter h2 { margin: 0 0 .7rem; font: 900 1.7rem/1.1 var(--font-mono); }
 .px-scroll-chapter p { margin: 0; line-height: 1.6; color: rgba(253, 246, 227, .8); }
 .px-scroll-chapter a { display: inline-block; margin-top: .9rem; color: var(--px-accent); font-weight: 800; }
 
@@ -916,7 +916,7 @@
 
 /* Whole-card chapter navigation, with no nested interactive targets. */
 .px-fallback-card { color: inherit; font: inherit; text-align: left; cursor: pointer; }
-.px-card-action { display: block; margin-top: .75rem; color: var(--px-accent); font: 800 .72rem monospace; text-transform: uppercase; }
+.px-card-action { display: block; margin-top: .75rem; color: var(--px-accent); font: 800 .72rem var(--font-mono); text-transform: uppercase; }
 .px-fallback-card:hover { border-color: var(--px-accent); }
 
 @media (max-width: 650px) {
