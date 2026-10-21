@@ -778,10 +778,10 @@
   },
   {
     "source": "images/heroes/human-practices.webp",
-    "url": "https://static.igem.wiki/teams/6212/wiki/dunaterp-15dc9769a9fa.webp",
-    "sha256": "15dc9769a9facc92228e105a3300434388d198552d1987e06c3311382d5f6759",
-    "sourceSha256": "15dc9769a9facc92228e105a3300434388d198552d1987e06c3311382d5f6759",
-    "bytes": 82818
+    "url": "https://static.igem.wiki/teams/6212/wiki/heroes/human-practices-hero-127114f5c566.webp",
+    "sha256": "127114f5c566be4b23ce1140b6c44a61a8cfed1061a08e994ee0818efcf0a7b3",
+    "sourceSha256": "127114f5c566be4b23ce1140b6c44a61a8cfed1061a08e994ee0818efcf0a7b3",
+    "bytes": 291080
   },
   {
     "source": "images/heroes/people.webp",
@@ -1156,10 +1156,10 @@
   },
   {
     "source": "figures/hp/cooperation-1.webp",
-    "url": "https://static.igem.wiki/teams/6212/wiki/hp/hp-cooperation-1-dc844ee19a6a.webp",
-    "sha256": "dc844ee19a6a0f450457be93c6d9d493194c0dcca4d5d1c7e91add5e3b3e5706",
-    "sourceSha256": "74031d110a1d4b30208c44475df7639132f7c301c30c926b9f1869c60d0786a1",
-    "bytes": 47198
+    "url": "https://static.igem.wiki/teams/6212/wiki/hp/abg-group-86ffadab5896.webp",
+    "sha256": "86ffadab5896c63ab2f87755cec8b1caa62701f443368715319e3ddadf480e6a",
+    "sourceSha256": "86ffadab5896c63ab2f87755cec8b1caa62701f443368715319e3ddadf480e6a",
+    "bytes": 146412
   },
   {
     "source": "figures/hp/cooperation-4-1.webp",
@@ -1737,10 +1737,10 @@
   },
   {
     "source": "figures/hp/ihp/ihp-improvement-fig-23.webp",
-    "url": "https://static.igem.wiki/teams/6212/wiki/hp/ihp-improvement-fig-23-6de6161779ad.webp",
-    "sha256": "6de6161779ad8599413cb476d80c3731bd2fd1ef744ed4ccc89b0ae259b3e6da",
-    "sourceSha256": "6de6161779ad8599413cb476d80c3731bd2fd1ef744ed4ccc89b0ae259b3e6da",
-    "bytes": 170962
+    "url": "https://static.igem.wiki/teams/6212/wiki/hp/abg-group-86ffadab5896.webp",
+    "sha256": "86ffadab5896c63ab2f87755cec8b1caa62701f443368715319e3ddadf480e6a",
+    "sourceSha256": "86ffadab5896c63ab2f87755cec8b1caa62701f443368715319e3ddadf480e6a",
+    "bytes": 146412
   },
   {
     "source": "figures/hp/ihp/ihp-improvement-fig-24.webp",

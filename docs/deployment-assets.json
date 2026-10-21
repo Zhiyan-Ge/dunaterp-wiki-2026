@@ -879,13 +879,13 @@
       "source": "public/images/heroes/human-practices.webp",
       "target": "public/images/heroes/human-practices.webp",
       "mode": "photo-webp",
-      "originalSha256": "15dc9769a9facc92228e105a3300434388d198552d1987e06c3311382d5f6759",
-      "originalWidth": 1200,
-      "originalHeight": 380,
-      "maxEdge": 1100,
-      "originalBytes": 82818,
-      "bytes": 20918,
-      "quality": 60
+      "originalSha256": "127114f5c566be4b23ce1140b6c44a61a8cfed1061a08e994ee0818efcf0a7b3",
+      "originalWidth": 1859,
+      "originalHeight": 1080,
+      "maxEdge": 1859,
+      "originalBytes": 291080,
+      "bytes": 291080,
+      "quality": 84
     },
     {
       "source": "public/images/heroes/people.webp",

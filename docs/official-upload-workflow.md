@@ -1,5 +1,21 @@
 # Official iGEM upload and release workflow
 
+## Source-document heading hierarchy
+
+When converting supplied Word documents into Wiki content, preserve the
+author's visual hierarchy instead of inferring headings from font size or
+paragraph position alone:
+
+- **Bold and centred text** is a major section heading and should become a
+  top-level content section on the page.
+- **Bold but not centred text** is a minor heading inside the current major
+  section.
+- Body paragraphs remain body copy even when they immediately follow an image,
+  table or page break.
+
+If Word style names conflict with the visible formatting, the visible
+alignment-and-weight rule above takes priority.
+
 This repository cannot contain images, video or audio. The official GitLab
 pre-receive hook rejects those files even when the Pages archive would remain
 below its size limit. Images and PDFs must be uploaded to iGEM's asset service
