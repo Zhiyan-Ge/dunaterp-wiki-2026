@@ -4,6 +4,7 @@ import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { archiveNavigation, navigation, pageOrder, pages } from "./site-data";
 import { dryLabMenuGroups } from "./content/dry-lab";
 import { ArticleBlocks } from './ArticleBlocks';
+import { renderInlineText } from './inline-text';
 import { DocumentText } from './DocumentText';
 import type { DocumentTextRun, WikiReference } from './content/types';
 
@@ -166,10 +167,10 @@ function firstPageFigure(page: (typeof pages)[string]) {
 }
 
 function renderCitations(text: string, referenceNumbers: Map<string, number>) {
-  if (referenceNumbers.size === 0) return text;
+  if (referenceNumbers.size === 0) return renderInlineText(text);
   const parts = text.split(/\[(\d+)\]/g);
   return parts.map((part, index) => {
-    if (index % 2 === 0) return part;
+    if (index % 2 === 0) return renderInlineText(part, index);
     const number = Number(part);
     return number > 0 && number <= referenceNumbers.size
       ? <a className="inline-citation" href={`#reference-${number}`} key={`${index}-${number}`}>[{number}]</a>
@@ -446,6 +447,7 @@ function Article({ slug }: { slug: string }) {
     slug === 'experiments' ? ' article-page--experiments' : '',
     slug === 'notebook' ? ' article-page--notebook' : '',
     slug === 'team' ? ' article-page--team' : '',
+    slug === 'parts' ? ' article-page--parts' : '',
     slug === 'attributions' ? ' article-page--attributions' : '',
   ].join("");
   return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={articleClassName}>

@@ -759,3 +759,6 @@ body:has(.article-page--description) { background: #f3f5ef; }
   border-left: 6px solid var(--article-accent);
   background: #fffaf0;
 }
+
+/* Keep Registry part identifiers intact in the Parts tables. */
+.article-page--parts .research-table-scroll th[scope="row"] { white-space: nowrap; }
