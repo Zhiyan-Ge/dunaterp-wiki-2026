@@ -2157,9 +2157,9 @@ export const design: WikiPage = {
         },
         {
           "kind": "figure",
-          "src": "/figures/design/06-promoter-comparison.webp",
-          "width": 1269,
-          "height": 481,
+          "src": "/figures/design/06-promoter-comparison-panel-b.webp",
+          "width": 1496,
+          "height": 1273,
           "alt": "Comparison of the transcriptional activities of five endogenous promoters from Dunaliella salina.",
           "caption": "Figure 6. Comparison of the transcriptional activities of five endogenous promoters from Dunaliella salina.",
           "captionRuns": [
