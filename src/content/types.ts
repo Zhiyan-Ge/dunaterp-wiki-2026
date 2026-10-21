@@ -6,7 +6,7 @@ export type ContentBlock =
   | { kind: 'details'; summary: string; blocks: ContentBlock[]; open?: boolean }
   | { kind: 'equation'; text: string; label: string }
   | { kind: 'code'; text: string; label: string }
-  | { kind: 'figure'; src: string; alt: string; caption: string; captionRuns?: DocumentTextRun[]; width?: number; height?: number }
+  | { kind: 'figure'; src: string; alt: string; caption: string; captionRuns?: DocumentTextRun[]; width?: number; height?: number; rotation?: 90 }
   | { kind: 'figure-grid'; figures: { src: string; alt: string; caption: string; width?: number; height?: number }[]; caption?: string; captionRuns?: DocumentTextRun[]; className?: string }
   | { kind: 'member-grid'; members: TeamMember[] }
   | { kind: 'chapter-grid'; items: { index: string; title: string; text: string; href: string }[] }

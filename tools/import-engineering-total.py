@@ -171,6 +171,9 @@ def main(source: Path):
                 figures.append({'src': public_path, 'alt': f'Engineering Figure {figure_number}' + (f', panel {panel+1}' if len(image_nodes)>1 else ''), 'caption': '', 'width': image.width, 'height': image.height})
                 assets.append({'figure': figure_number, 'bodyIndex': index, 'source': member, 'sourceSha256': source_hash, 'output': public_path, 'sha256': output_hash, 'bytes': output_bytes, 'width': image.width, 'height': image.height, 'crop': crop, 'url': url, 'uploadFile': upload_file})
             block = {'kind': 'figure-grid', 'figures': figures, 'caption': ''} if len(figures)>1 else {'kind': 'figure', **figures[0]}
+            # Team-requested display orientation; keep the source image unchanged.
+            if figure_number == 15:
+                block['rotation'] = 90
             section['blocks'].append(block)
             last_figure = block
         if not text:

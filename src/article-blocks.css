@@ -8,6 +8,9 @@
 .research-blocks a { color: #176c82; text-underline-offset: .2em; }
 .research-blocks .research-figure { margin: 2rem auto; padding: .75rem; border-radius: .4rem; }
 .research-figure a, .research-figure img { display: block; width: 100%; }
+.article-page .research-blocks .research-figure--rotated { width: min(100%, 34rem); margin-inline: auto; }
+.research-figure-rotated { display: block; position: relative; width: 100%; overflow: hidden; }
+.research-figure .research-figure-rotated img { position: absolute; left: 50%; top: 50%; max-width: none; max-height: none; transform: translate(-50%, -50%) rotate(90deg); }
 .research-figure-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: 2rem 0; }
 .research-figure-grid .research-figure { display: flex; flex-direction: column; margin: 0; min-width: 0; }
 .research-figure-grid .research-figure a { display: grid; place-items: center; flex: 1; min-height: 20rem; }

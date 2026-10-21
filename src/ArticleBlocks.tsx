@@ -60,9 +60,11 @@ function Equation({ block }: { block: Extract<ContentBlock, { kind: 'equation' }
   return <div className="research-equation" role="region" aria-label={block.label} tabIndex={0} dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
-function ResearchFigure({ figure, compact = false }: { figure: { src: string; alt: string; caption: string; captionRuns?: DocumentTextRun[]; width?: number; height?: number }; compact?: boolean }) {
-  return <figure className={`feature-figure research-figure${compact ? ' research-figure--compact' : ''}`}>
-    <a href={resolveAsset(figure.src)} aria-label={`Open full-size figure: ${figure.alt}`}><img src={resolveAsset(figure.src)} alt={figure.alt} width={figure.width} height={figure.height} loading="lazy" decoding="async" /></a>
+function ResearchFigure({ figure, compact = false }: { figure: { src: string; alt: string; caption: string; captionRuns?: DocumentTextRun[]; width?: number; height?: number; rotation?: 90 }; compact?: boolean }) {
+  const rotated = figure.rotation === 90 && figure.width && figure.height;
+  const picture = <img src={resolveAsset(figure.src)} alt={figure.alt} width={figure.width} height={figure.height} loading="lazy" decoding="async" style={rotated ? { width: `${figure.width! / figure.height! * 100}%` } : undefined} />;
+  return <figure className={`feature-figure research-figure${compact ? ' research-figure--compact' : ''}${rotated ? ' research-figure--rotated' : ''}`}>
+    <a href={resolveAsset(figure.src)} aria-label={`Open full-size figure: ${figure.alt}`}>{rotated ? <span className="research-figure-rotated" style={{ aspectRatio: `${figure.height} / ${figure.width}` }}>{picture}</span> : picture}</a>
     {figure.caption && <figcaption>{figure.captionRuns ? <DocumentText runs={figure.captionRuns} /> : figure.caption}</figcaption>}
   </figure>;
 }
