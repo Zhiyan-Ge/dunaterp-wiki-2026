@@ -1209,5 +1209,33 @@
     "sha256": "db552c0b1fc4ce8616cd61f366bb280cda5566c405ba89ccb45d8d6a850f61a7",
     "sourceSha256": "f5369cf7fa39c7158232aa0b45063cb2648a9483a04ab986ad62439fee211301",
     "bytes": 108000
+  },
+  {
+    "source": "figures/description/01-market.png",
+    "sha256": "4e9fc9436eb2d4eb5fc7e0e0a250116c483cb739e84c2e7842a5510c17c1b324",
+    "sourceSha256": "3e472bb52ef175fb33e26b97f5262715a6f7d353aa4a34a563be717176e59949",
+    "bytes": 78094,
+    "url": "https://static.igem.wiki/teams/6212/wiki/project-description/description-01-market-4e9fc9436eb2.webp"
+  },
+  {
+    "source": "figures/description/02-chassis-benefits.png",
+    "sha256": "cf7c3e635f057691659ca3d490e08718bcb386991cf07440fa7b180dc3c527c4",
+    "sourceSha256": "0cabc3e4402485f1fe5f910ee6075a29e39edd9c010c75b5172e9591ededf175",
+    "bytes": 616006,
+    "url": "https://static.igem.wiki/teams/6212/wiki/project-description/description-02-chassis-benefits-cf7c3e635f05.webp"
+  },
+  {
+    "source": "figures/description/03-biosafety-switch.png",
+    "sha256": "30ef5d8f140d5b0c14b7b6edc419bb61a6e8931c93b3cfbc4e237b8b94720243",
+    "sourceSha256": "1ef19ca240e58746872039f37b5cdb026b0bcd5919edd9534c76f2c00d0c64f9",
+    "bytes": 31434,
+    "url": "https://static.igem.wiki/teams/6212/wiki/project-description/description-03-biosafety-switch-30ef5d8f140d.webp"
+  },
+  {
+    "source": "figures/description/04-industrial-hardware.png",
+    "sha256": "acbbb91992abe8b4f151b57296f6a855ffc072a3ed226029b0b03552c7d8c31b",
+    "sourceSha256": "6ad37aba8cd20cd9aea556e40c29808ca02b41d4cefb152fd0b10a431fe5f095",
+    "bytes": 66094,
+    "url": "https://static.igem.wiki/teams/6212/wiki/project-description/description-04-industrial-hardware-acbbb91992ab.webp"
   }
 ]

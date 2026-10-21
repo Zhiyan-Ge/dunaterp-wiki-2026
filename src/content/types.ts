@@ -1,8 +1,9 @@
 export type ContentBlock =
   | { kind: 'paragraph' | 'heading'; text: string }
+  | { kind: 'document-paragraph'; runs: DocumentTextRun[]; id?: string }
   | { kind: 'equation'; text: string; label: string }
   | { kind: 'code'; text: string; label: string }
-  | { kind: 'figure'; src: string; alt: string; caption: string }
+  | { kind: 'figure'; src: string; alt: string; caption: string; captionRuns?: DocumentTextRun[]; width?: number; height?: number }
   | { kind: 'figure-grid'; figures: { src: string; alt: string; caption: string }[] }
   | { kind: 'member-grid'; members: TeamMember[] }
   | { kind: 'chapter-grid'; items: { index: string; title: string; text: string; href: string }[] }
@@ -16,6 +17,13 @@ export type ContentBlock =
   | { kind: 'pdf'; src: string; downloadSrc: string; label: string; downloadLabel?: string }
   | { kind: 'pbr-widget' | 'docking-viewer' }
   | { kind: 'safety-overview' | 'safety-results' };
+
+export type DocumentTextRun = {
+  text: string;
+  italic?: boolean;
+  bold?: boolean;
+  href?: string;
+};
 
 export type TeamMember = {
   givenName: string;
