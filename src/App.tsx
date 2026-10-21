@@ -170,7 +170,7 @@ function renderCitations(text: string, referenceNumbers: Map<string, number>) {
   if (referenceNumbers.size === 0) return renderInlineText(text);
   const parts = text.split(/\[(\d+)\]/g);
   return parts.map((part, index) => {
-    if (index % 2 === 0) return renderInlineText(part);
+    if (index % 2 === 0) return renderInlineText(part, index);
     const number = Number(part);
     return number > 0 && number <= referenceNumbers.size
       ? <a className="inline-citation" href={`#reference-${number}`} key={`${index}-${number}`}>[{number}]</a>
