@@ -213,11 +213,11 @@ export const pages: Record<string, WikiPage> = {
     title: "Parts",
     eyebrow: "Parts",
     intro: "DunaTerp's Registry record brings together the regulatory elements, coding sequences, targeting element, vector and composite expression constructs used across the project. Each Part number below links directly to its official iGEM Registry record.",
-    status: "team-draft",
+    status: "review-ready",
     sections: [
       {
-        title: "SCU-China 2026 Registry record",
-        body: "The official team record currently contains 16 Parts: 14 published records and two draft records. The team-level Registry page is the authoritative index for this collection.",
+        title: "Overview",
+        body: "This collection presents 11 basic parts and 5 composite parts used in DunaTerp. The basic parts include promoters, coding sequences, a chloroplast transit peptide and a plasmid vector. The composite parts combine these elements into expression constructs for our *Dunaliella salina* platform. Each entry links to its official iGEM Registry record.",
         blocks: [
           { kind: "links", links: [
             { label: "Open the official SCU-China (2026) Registry record", href: "https://registry.igem.org/organisations/b53d8950-5efe-4d5a-89b8-294aa00758ab" },
@@ -225,34 +225,34 @@ export const pages: Record<string, WikiPage> = {
         ],
       },
       {
-        title: "Published Parts",
-        body: "These records are published in the iGEM Registry. The table preserves the official Part number, title, role and sequence length shown in the Registry.",
+        title: "Basic Parts",
+        body: "The building blocks of our platform provide transcriptional control, protein coding sequences, chloroplast targeting and the vector backbone.",
         blocks: [
-          { kind: "table", caption: "Published iGEM Registry Parts · SCU-China 2026", columns: ["Part number", "Official title", "Registry role", "Length", "Official record"], rows: [
-            ["BBa_26A1VMDJ", "PDCA1 salt-responsive promoter", "Promoter", "1,369 bp", "https://registry.igem.org/parts/bba-26a1vmdj"],
-            ["BBa_26S2808C", "Pip weak promoter", "Promoter", "2,044 bp", "https://registry.igem.org/parts/bba-26s2808c"],
-            ["BBa_261OJ38D", "CitCCD4", "CDS", "1,692 bp", "https://registry.igem.org/parts/bba-261oj38d"],
-            ["BBa_2697BHS2", "CCD1", "CDS", "1,617 bp", "https://registry.igem.org/parts/bba-2697bhs2"],
-            ["BBa_26EJ70BX", "DtRBCS2 Promoter", "Promoter", "419 bp", "https://registry.igem.org/parts/bba-26ej70bx"],
-            ["BBa_26HXFBCU", "pRBCS2-CitCCD4", "Engineered Region", "2,111 bp", "https://registry.igem.org/parts/bba-26hxfbcu"],
-            ["BBa_26FN67DL", "MazE antitoxin CDS", "CDS", "249 bp", "https://registry.igem.org/parts/bba-26fn67dl"],
-            ["BBa_26LDQ026", "p35S-CitCCD4", "Engineered Region", "2,068 bp", "https://registry.igem.org/parts/bba-26ldq026"],
-            ["BBa_265TD6LS", "DtRBCS2 Chloroplast Transit Peptide", "Transit Peptide", "144 bp", "https://registry.igem.org/parts/bba-265td6ls"],
-            ["BBa_261RCD6J", "pRBCS2-CCD1", "Engineered Region", "2,036 bp", "https://registry.igem.org/parts/bba-261rcd6j"],
-            ["BBa_2682BGY8", "p35S-CCD1", "Engineered Region", "1,993 bp", "https://registry.igem.org/parts/bba-2682bgy8"],
+          { kind: "table", caption: "Basic Parts · SCU-China 2026", columns: ["Part number", "Part name", "Type", "Length", "Registry link"], rows: [
+            ["BBa_26A1VMDJ", "*PDCA1* salt-responsive promoter", "Promoter", "1,369 bp", "https://registry.igem.org/parts/bba-26a1vmdj"],
+            ["BBa_26S2808C", "*Pip* weak promoter", "Promoter", "2,044 bp", "https://registry.igem.org/parts/bba-26s2808c"],
+            ["BBa_26EJ70BX", "*DtRBCS2* Promoter", "Promoter", "419 bp", "https://registry.igem.org/parts/bba-26ej70bx"],
+            ["BBa_26TQTS2R", "CaMV 35S promoter", "Promoter", "346 bp", "https://registry.igem.org/parts/bba-26tqts2r"],
+            ["BBa_261OJ38D", "*CitCCD4*", "CDS", "1,692 bp", "https://registry.igem.org/parts/bba-261oj38d"],
+            ["BBa_2697BHS2", "*CCD1*", "CDS", "1,617 bp", "https://registry.igem.org/parts/bba-2697bhs2"],
+            ["BBa_26FN67DL", "*MazE* antitoxin CDS", "CDS", "249 bp", "https://registry.igem.org/parts/bba-26fn67dl"],
+            ["BBa_26VRE9P8", "*MazF* toxin CDS", "CDS", "336 bp", "https://registry.igem.org/parts/bba-26vre9p8"],
+            ["BBa_26RSNHS8", "*GFP* reporter CDS", "CDS", "717 bp", "https://registry.igem.org/parts/bba-26rsnhs8"],
+            ["BBa_265TD6LS", "*DtRBCS2* Chloroplast Transit Peptide", "Transit Peptide", "144 bp", "https://registry.igem.org/parts/bba-265td6ls"],
             ["BBa_26QLEIH2", "pCAMBIA1302", "Plasmid Vector", "10,549 bp", "https://registry.igem.org/parts/bba-26qleih2"],
-            ["BBa_26VRE9P8", "MazF toxin CDS", "CDS", "336 bp", "https://registry.igem.org/parts/bba-26vre9p8"],
-            ["BBa_267QXDD3", "pRBCS2-Transit Peptide-CCD1", "Engineered Region", "2,177 bp", "https://registry.igem.org/parts/bba-267qxdd3"],
           ] },
         ],
       },
       {
-        title: "Draft Registry records",
-        body: "The following two records exist in the official Registry but remain in draft status. Their Registry documentation should be reviewed and published before the Registry Contributions deadline.",
+        title: "Composite Parts",
+        body: "These expression constructs combine promoters and coding sequences, with a chloroplast transit peptide included in the targeted *CCD1* construct.",
         blocks: [
-          { kind: "table", caption: "Draft iGEM Registry Parts · publication pending", columns: ["Part number", "Official title", "Registry role", "Length", "Official record"], rows: [
-            ["BBa_26TQTS2R", "CaMV 35S promoter", "Promoter", "346 bp", "https://registry.igem.org/parts/bba-26tqts2r"],
-            ["BBa_26RSNHS8", "GFP reporter CDS", "CDS", "717 bp", "https://registry.igem.org/parts/bba-26rsnhs8"],
+          { kind: "table", caption: "Composite Parts · SCU-China 2026", columns: ["Part number", "Part name", "Type", "Length", "Registry link"], rows: [
+            ["BBa_26HXFBCU", "p*RBCS2*-*CitCCD4*", "Engineered Region", "2,111 bp", "https://registry.igem.org/parts/bba-26hxfbcu"],
+            ["BBa_26LDQ026", "p35S-*CitCCD4*", "Engineered Region", "2,068 bp", "https://registry.igem.org/parts/bba-26ldq026"],
+            ["BBa_261RCD6J", "p*RBCS2*-*CCD1*", "Engineered Region", "2,036 bp", "https://registry.igem.org/parts/bba-261rcd6j"],
+            ["BBa_2682BGY8", "p35S-*CCD1*", "Engineered Region", "1,993 bp", "https://registry.igem.org/parts/bba-2682bgy8"],
+            ["BBa_267QXDD3", "p*RBCS2*-Transit Peptide-*CCD1*", "Engineered Region", "2,177 bp", "https://registry.igem.org/parts/bba-267qxdd3"],
           ] },
         ],
       },

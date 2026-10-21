@@ -528,6 +528,7 @@ main:focus:not(:focus-visible) { outline: none; }
 }
 .article-page.article-page--wet-lab .article-hero { background-color: #d7cfb2; }
 .article-page.article-page--human-practices .article-hero { background-position: center; }
+.article-page.article-page--collaboration .article-hero { background-position: center bottom; }
 .article-page .article-layout { padding-top: 4rem; }
 .article-page .article-toc {
   position: sticky;
@@ -760,3 +761,6 @@ body:has(.article-page--description), body:has(.article-page--design) { backgrou
   border-left: 6px solid var(--article-accent);
   background: #fffaf0;
 }
+
+/* Keep Registry part identifiers intact in the Parts tables. */
+.article-page--parts .research-table-scroll th[scope="row"] { white-space: nowrap; }

@@ -3,6 +3,7 @@ import { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import katex from 'katex';
 import type { ContentBlock } from './content/types';
+import { renderInlineText } from './inline-text';
 import { DocumentText } from './DocumentText';
 import type { DocumentTextRun } from './content/types';
 import { PBRWidget } from './PBRWidget';
@@ -16,7 +17,7 @@ const DockingViewer = lazy(() => import('./DockingViewer').then(module => ({ def
 
 function renderTableCell(text: string) {
   return text.split(/(\$[^$]+\$)/g).map((part, index) => {
-    if (!part.startsWith("$") || !part.endsWith("$")) return part;
+    if (!part.startsWith("$") || !part.endsWith("$")) return renderInlineText(part, index);
     try {
       const html = katex.renderToString(part.slice(1, -1), { displayMode: false, throwOnError: true, trust: false });
       return <span className="research-table-math" key={`${index}-${part}`} dangerouslySetInnerHTML={{ __html: html }} />;
@@ -130,10 +131,10 @@ export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, numbe
 }
 
 function renderCitations(text: string, referenceNumbers: Map<string, number>) {
-  if (referenceNumbers.size === 0) return text;
+  if (referenceNumbers.size === 0) return renderInlineText(text);
   const parts = text.split(/\[(\d+)\]/g);
   return parts.map((part, index) => {
-    if (index % 2 === 0) return part;
+    if (index % 2 === 0) return renderInlineText(part, index);
     const number = Number(part);
     return number > 0 && number <= referenceNumbers.size
       ? <a className="inline-citation" href={`#reference-${number}`} key={`${index}-${number}`}>[{number}]</a>
