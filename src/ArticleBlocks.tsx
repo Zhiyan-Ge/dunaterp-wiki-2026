@@ -30,7 +30,8 @@ function DataTable({ block }: { block: Extract<ContentBlock, { kind: 'table' }> 
   const content = <div className="research-table-scroll" role="region" aria-label={block.caption} tabIndex={0}>
     <table><caption>{block.caption}</caption><thead><tr>{block.columns.map((name) => <th key={name} scope="col">{name}</th>)}</tr></thead>
       <tbody>{block.rows.map((row, i) => <tr key={i}>{row.map((cell, j) => {
-        const value = /^https?:\/\//.test(cell) ? <a href={cell}>Reference ↗</a> : renderTableCell(cell);
+        const runs = block.cellRuns?.[i]?.[j];
+        const value = runs ? <DocumentText runs={runs} /> : /^https?:\/\//.test(cell) ? <a href={cell}>Reference ↗</a> : renderTableCell(cell);
         return j === 0 ? <th scope="row" key={j}>{value}</th> : <td key={j}>{value}</td>;
       })}</tr>)}</tbody>
     </table>
@@ -61,7 +62,7 @@ function Equation({ block }: { block: Extract<ContentBlock, { kind: 'equation' }
 function ResearchFigure({ figure, compact = false }: { figure: { src: string; alt: string; caption: string; captionRuns?: DocumentTextRun[]; width?: number; height?: number }; compact?: boolean }) {
   return <figure className={`feature-figure research-figure${compact ? ' research-figure--compact' : ''}`}>
     <a href={resolveAsset(figure.src)} aria-label={`Open full-size figure: ${figure.alt}`}><img src={resolveAsset(figure.src)} alt={figure.alt} width={figure.width} height={figure.height} loading="lazy" decoding="async" /></a>
-    <figcaption>{figure.captionRuns ? <DocumentText runs={figure.captionRuns} /> : figure.caption}</figcaption>
+    {figure.caption && <figcaption>{figure.captionRuns ? <DocumentText runs={figure.captionRuns} /> : figure.caption}</figcaption>}
   </figure>;
 }
 
@@ -81,11 +82,15 @@ export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, numbe
     switch (block.kind) {
       case 'paragraph': return <p key={i}>{renderCitations(block.text, referenceNumbers)}</p>;
       case 'document-paragraph': return <p className="document-paragraph" id={block.id} key={i}><DocumentText runs={block.runs} /></p>;
+      case 'document-heading': return <h3 id={sectionId ? `${sectionId}-heading-${i + 1}` : undefined} tabIndex={sectionId ? -1 : undefined} key={i}><DocumentText runs={block.runs} /></h3>;
+      case 'document-list': return block.ordered
+        ? <ol key={i}>{block.items.map((runs, index) => <li key={index}><DocumentText runs={runs} /></li>)}</ol>
+        : <ul key={i}>{block.items.map((runs, index) => <li key={index}><DocumentText runs={runs} /></li>)}</ul>;
       case 'heading': return <h3 id={sectionId ? `${sectionId}-heading-${i + 1}` : undefined} tabIndex={sectionId ? -1 : undefined} key={i}>{block.text}</h3>;
       case 'equation': return <Equation key={i} block={block} />;
       case 'code': return <div className="research-code" key={i}><p>{block.label}</p><pre tabIndex={0}><code>{block.text}</code></pre></div>;
       case 'figure': return <ResearchFigure key={i} figure={block} />;
-      case 'figure-grid': return <div className="research-figure-grid" key={i}>{block.figures.map((figure) => <ResearchFigure key={figure.src} figure={figure} compact />)}</div>;
+      case 'figure-grid': return <div key={i}><div className="research-figure-grid">{block.figures.map((figure) => <ResearchFigure key={figure.src} figure={figure} compact />)}</div>{block.caption && <p className="research-shared-caption">{block.captionRuns ? <DocumentText runs={block.captionRuns} /> : block.caption}</p>}</div>;
       case 'member-grid': return <ul className="team-roster" key={i}>{block.members.map((member) => {
         const name = `${member.givenName} ${member.familyName}`;
         return <li className="team-member" key={member.src}>

@@ -1,0 +1,194 @@
+{
+  "sourceDirectory": "D:/IGEM/design",
+  "documents": [
+    {
+      "filename": "Biosafety-Design.docx",
+      "sha256": "73bd3a26ab9b0bd6feeeb33a7e70b17574407f4a3ad488cedad7adde0b6174a5",
+      "coveredParagraphs": 15,
+      "excludedCoverParagraphs": []
+    },
+    {
+      "filename": "Design — Transcription factor CPP2146翻译.docx",
+      "sha256": "8deea5a8cf207552a5ec271e90f9a5bd4073ce615a5d9c5dbac70ca7656d5108",
+      "coveredParagraphs": 12,
+      "excludedCoverParagraphs": [
+        0
+      ]
+    },
+    {
+      "filename": "Design_English_Revised(藏红花酸).docx",
+      "sha256": "8cf8c2606062bfd8ce0aa6c68c516d6b23a02ee4a9ed6a25631529e10c2459e6",
+      "coveredParagraphs": 22,
+      "excludedCoverParagraphs": [
+        0
+      ]
+    },
+    {
+      "filename": "SCU-China_iGEM_Design_English.docx",
+      "sha256": "8b06fda94b89a9f86abeab3546f84f11ace7b3de6eaeceb8e0dfa7f9e24cad19",
+      "coveredParagraphs": 48,
+      "excludedCoverParagraphs": [
+        0
+      ]
+    }
+  ],
+  "moduleOrder": [
+    "CPP2146",
+    "beta-ionone",
+    "crocetin",
+    "astaxanthin",
+    "beta-citraurin",
+    "biosafety"
+  ],
+  "wordingChanged": false,
+  "layoutChanges": [
+    "Modules reordered as requested; crocetin placed before astaxanthin.",
+    "Three duplicate document cover titles omitted; body text and references retained.",
+    "Figure labels renumbered sequentially from 1 to 7; eight original images retained.",
+    "Shared construct table, promoter selection, screening and workflow retained in the beta-citraurin section."
+  ],
+  "captionNumbering": [
+    {
+      "sourceCaption": "Figure 1. Schematic of the CPP2146 candidate transcriptional regulatory module and its functional validation.",
+      "displayCaption": "Figure 1. Schematic of the CPP2146 candidate transcriptional regulatory module and its functional validation."
+    },
+    {
+      "sourceCaption": "Figure 1. Schematic of the carotenoid metabolic pathway and target product synthesis in this project. The endogenous MEP pathway supplies IPP/DMAPP precursors for carotenoid biosynthesis in Dunaliella salina. β-Carotene is cleaved by AtCCD1 to produce β-ionone; zeaxanthin and β-cryptoxanthin are cleaved by CitCCD4 to produce β-citraurin.",
+      "displayCaption": "Figure 2. Schematic of the carotenoid metabolic pathway and target product synthesis in this project. The endogenous MEP pathway supplies IPP/DMAPP precursors for carotenoid biosynthesis in Dunaliella salina. β-Carotene is cleaved by AtCCD1 to produce β-ionone; zeaxanthin and β-cryptoxanthin are cleaved by CitCCD4 to produce β-citraurin."
+    },
+    {
+      "sourceCaption": "Figure 3. Design of the GjCCD4a- and GjALDH2C3-mediated crocetin biosynthetic pathway.",
+      "displayCaption": "Figure 3. Design of the GjCCD4a- and GjALDH2C3-mediated crocetin biosynthetic pathway."
+    },
+    {
+      "sourceCaption": "Figure 2. BKT-mediated astaxanthin synthesis pathway and expression optimization design.",
+      "displayCaption": "Figure 4. BKT-mediated astaxanthin synthesis pathway and expression optimization design."
+    },
+    {
+      "sourceCaption": "Figure X. Changes in the transcriptional activity of the endogenous PDCA1 promoter of Dunaliella salina at different salt concentrations (D1–D6 represent different truncated forms of PDCA1).",
+      "displayCaption": "Figure 5. Changes in the transcriptional activity of the endogenous PDCA1 promoter of Dunaliella salina at different salt concentrations (D1–D6 represent different truncated forms of PDCA1)."
+    },
+    {
+      "sourceCaption": "Figure Y. Comparison of the transcriptional activities of five endogenous promoters from Dunaliella salina.",
+      "displayCaption": "Figure 6. Comparison of the transcriptional activities of five endogenous promoters from Dunaliella salina."
+    },
+    {
+      "sourceCaption": "Figure Z. Mechanism of action of the salt-concentration-regulated suicide system.",
+      "displayCaption": "Figure 7. Mechanism of action of the salt-concentration-regulated suicide system."
+    }
+  ],
+  "figures": [
+    {
+      "source": "figures/design/01-cpp2146.webp",
+      "filename": "design-01-cpp2146-cda11638163e.webp",
+      "document": "Design — Transcription factor CPP2146翻译.docx",
+      "sourceImage": "doc-02\\image1.jpeg",
+      "sha256": "cda11638163e2a5901a91a0583df86f01409c9b769f47bf955be4b9bf205e582",
+      "sourceSha256": "b7cf483a89d15efd691f000cc9be998b8025d49d0a3500c0abe762d417405dd5",
+      "bytes": 96140,
+      "width": 1024,
+      "height": 326,
+      "pixelIdenticalToDocx": true,
+      "url": "https://static.igem.wiki/teams/6212/wiki/design/design-01-cpp2146-cda11638163e.webp"
+    },
+    {
+      "source": "figures/design/02-metabolic-pathways.webp",
+      "filename": "design-02-metabolic-pathways-ca78ab7afcb1.webp",
+      "document": "SCU-China_iGEM_Design_English.docx",
+      "sourceImage": "doc-05\\image1.png",
+      "sha256": "ca78ab7afcb14e6619094777b737b63a0cec3f1ef5149a0c01e7a08b8357807a",
+      "sourceSha256": "df2fbac4c5eab22f28d3080490665229c6a7ee0a2c391b87b27247ab67e646ca",
+      "bytes": 78594,
+      "width": 1280,
+      "height": 1148,
+      "pixelIdenticalToDocx": true,
+      "url": "https://static.igem.wiki/teams/6212/wiki/design/design-02-metabolic-pathways-ca78ab7afcb1.webp"
+    },
+    {
+      "source": "figures/design/03-crocetin.webp",
+      "filename": "design-03-crocetin-476f6e07cbab.webp",
+      "document": "Design_English_Revised(藏红花酸).docx",
+      "sourceImage": "doc-04\\image2.png",
+      "sha256": "476f6e07cbabc086a69fd8438887e485fb6a28ca7537b05ceade674e34bff629",
+      "sourceSha256": "031382ccea6710089aec8c98362c43ce4e06355fc109d8052ded902ed00836f7",
+      "bytes": 69226,
+      "width": 1269,
+      "height": 449,
+      "pixelIdenticalToDocx": true,
+      "url": "https://static.igem.wiki/teams/6212/wiki/design/design-03-crocetin-476f6e07cbab.webp"
+    },
+    {
+      "source": "figures/design/04-astaxanthin.webp",
+      "filename": "design-04-astaxanthin-5b6aa1b04283.webp",
+      "document": "Design_English_Revised(藏红花酸).docx",
+      "sourceImage": "doc-04\\image1.png",
+      "sha256": "5b6aa1b042839a14ebb5454288f11fdeb78e46f128146be0b3682ee6a16f2ccd",
+      "sourceSha256": "8a3ae883e7a70fdd3618e6726f4a22a3db6ea1f66c164c274eb5e203cbfe5760",
+      "bytes": 77234,
+      "width": 1269,
+      "height": 555,
+      "pixelIdenticalToDocx": true,
+      "url": "https://static.igem.wiki/teams/6212/wiki/design/design-04-astaxanthin-5b6aa1b04283.webp"
+    },
+    {
+      "source": "figures/design/05-pdca1-activity.webp",
+      "filename": "design-05-pdca1-activity-6a48481fe10e.webp",
+      "document": "Biosafety-Design.docx",
+      "sourceImage": "doc-01\\image1.png",
+      "sha256": "6a48481fe10e8d1d2826f394ae63628d808e2f9cf6938d0ba4cffa0b7acd04dd",
+      "sourceSha256": "d26873d80e75d9d5d1914bf44ce043d89130f9fe046183f1ec9147770159301f",
+      "bytes": 46796,
+      "width": 872,
+      "height": 488,
+      "pixelIdenticalToDocx": true,
+      "url": "https://static.igem.wiki/teams/6212/wiki/design/design-05-pdca1-activity-6a48481fe10e.webp"
+    },
+    {
+      "source": "figures/design/06-promoter-comparison.webp",
+      "filename": "design-06-promoter-comparison-3c5c25e8f359.webp",
+      "document": "Biosafety-Design.docx",
+      "sourceImage": "doc-01\\image2.png",
+      "sha256": "3c5c25e8f359899ce49ec9410fd9c7868e760b5d7724bc68af1588b361cf7a44",
+      "sourceSha256": "85362e70ca0c7a0e5745ef9977aa29481b78e6fc45faf899c050095d86ed5d0f",
+      "bytes": 71194,
+      "width": 1269,
+      "height": 481,
+      "pixelIdenticalToDocx": true,
+      "url": "https://static.igem.wiki/teams/6212/wiki/design/design-06-promoter-comparison-3c5c25e8f359.webp"
+    },
+    {
+      "source": "figures/design/07-biosafety-high-salt.webp",
+      "filename": "design-07-biosafety-high-salt-8377809bc8be.webp",
+      "document": "Biosafety-Design.docx",
+      "sourceImage": "doc-01\\image3.png",
+      "sha256": "8377809bc8becde675b6ee7674fc85c5070c71987ab681656fdf832b16e51506",
+      "sourceSha256": "75556d95680931c1e6e297f7befb3d14923dfd86c8c27fe8fc83c231fdc16a8a",
+      "bytes": 10270,
+      "width": 647,
+      "height": 364,
+      "pixelIdenticalToDocx": true,
+      "url": "https://static.igem.wiki/teams/6212/wiki/design/design-07-biosafety-high-salt-8377809bc8be.webp"
+    },
+    {
+      "source": "figures/design/08-biosafety-low-salt.webp",
+      "filename": "design-08-biosafety-low-salt-2a76e0462185.webp",
+      "document": "Biosafety-Design.docx",
+      "sourceImage": "doc-01\\image4.png",
+      "sha256": "2a76e0462185a19c0fc99d80c2c1288e9a600c2d1c905472de4144ffe26b317b",
+      "sourceSha256": "25609d368fb86d5ebf93afded8e43267358d3e1aa1474e5ac4446f5c0bba037d",
+      "bytes": 9266,
+      "width": 588,
+      "height": 331,
+      "pixelIdenticalToDocx": true,
+      "url": "https://static.igem.wiki/teams/6212/wiki/design/design-08-biosafety-low-salt-2a76e0462185.webp"
+    }
+  ],
+  "verification": {
+    "textUnitsMatched": 90,
+    "tableCellsMatched": 24,
+    "scientificNameOccurrencesChecked": 154,
+    "missingItalics": 0,
+    "officialCdnHashesMatched": 8,
+    "englishOnlyRevisionMatchesBilingualEnglish": true
+  }
+}

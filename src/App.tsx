@@ -177,7 +177,7 @@ function renderCitations(text: string, referenceNumbers: Map<string, number>) {
   });
 }
 
-type TocSection = { id: string; title: string; titleRuns?: DocumentTextRun[]; children: Array<{ id: string; title: string }> };
+type TocSection = { id: string; title: string; titleRuns?: DocumentTextRun[]; children: Array<{ id: string; title: string; titleRuns?: DocumentTextRun[] }> };
 
 type TocChapterDefinition = { title: string; start: number; end: number };
 
@@ -425,6 +425,7 @@ function Article({ slug }: { slug: string }) {
     titleRuns: section.tocTitle ? undefined : section.titleRuns,
     children: (section.blocks ?? []).flatMap((block, blockIndex) => {
       if (block.kind === 'heading') return [{ id: `section-${sectionIndex + 1}-heading-${blockIndex + 1}`, title: block.text }];
+      if (block.kind === 'document-heading') return [{ id: `section-${sectionIndex + 1}-heading-${blockIndex + 1}`, title: block.text, titleRuns: block.runs }];
       if (block.kind === 'wet-lab-method') return block.headings;
       return [];
     }),
@@ -433,7 +434,7 @@ function Article({ slug }: { slug: string }) {
     ...tocChapters(slug, tocSections).map((chapter) => ({ id: chapter.id, title: chapter.title })),
     ...(references.length > 0 ? [{ id: "references", title: "References" }] : []),
   ];
-  return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${isWetLab ? ' article-page--wet-lab' : ''}${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${group?.label === 'Human Practices' ? ' article-page--human-practices' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}${slug === 'experiments' ? ' article-page--experiments' : ''}${slug === 'notebook' ? ' article-page--notebook' : ''}${slug === 'team' ? ' article-page--team' : ''}${slug === 'attributions' ? ' article-page--attributions' : ''}${slug === 'project-description' ? ' article-page--description' : ''}`}>
+  return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={`article-page${isWetLab ? ' article-page--wet-lab' : ''}${group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : ''}${group?.label === 'Human Practices' ? ' article-page--human-practices' : ''}${isModeling ? ' article-page--modeling' : ''}${slug === 'dry-lab' ? ' article-page--overview' : ''}${slug === 'hardware' ? ' article-page--hardware' : ''}${slug === 'safety-and-security' ? ' article-page--safety' : ''}${slug === 'experiments' ? ' article-page--experiments' : ''}${slug === 'notebook' ? ' article-page--notebook' : ''}${slug === 'team' ? ' article-page--team' : ''}${slug === 'attributions' ? ' article-page--attributions' : ''}${slug === 'project-description' ? ' article-page--description' : ''}${slug === 'design' ? ' article-page--design' : ''}`}>
     <header className="article-hero"><div><h1>{heroTitle}</h1></div></header>
     {slug === "attributions" && page.intro && <p className="attributions-introduction">{page.intro}</p>}
     {slug === 'team' && page.intro && <p className="team-introduction">{page.intro}</p>}

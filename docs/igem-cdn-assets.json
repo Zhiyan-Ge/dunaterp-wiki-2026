@@ -1237,5 +1237,61 @@
     "sourceSha256": "6ad37aba8cd20cd9aea556e40c29808ca02b41d4cefb152fd0b10a431fe5f095",
     "bytes": 66094,
     "url": "https://static.igem.wiki/teams/6212/wiki/project-description/description-04-industrial-hardware-acbbb91992ab.webp"
+  },
+  {
+    "source": "figures/design/01-cpp2146.webp",
+    "sha256": "cda11638163e2a5901a91a0583df86f01409c9b769f47bf955be4b9bf205e582",
+    "sourceSha256": "b7cf483a89d15efd691f000cc9be998b8025d49d0a3500c0abe762d417405dd5",
+    "bytes": 96140,
+    "url": "https://static.igem.wiki/teams/6212/wiki/design/design-01-cpp2146-cda11638163e.webp"
+  },
+  {
+    "source": "figures/design/02-metabolic-pathways.webp",
+    "sha256": "ca78ab7afcb14e6619094777b737b63a0cec3f1ef5149a0c01e7a08b8357807a",
+    "sourceSha256": "df2fbac4c5eab22f28d3080490665229c6a7ee0a2c391b87b27247ab67e646ca",
+    "bytes": 78594,
+    "url": "https://static.igem.wiki/teams/6212/wiki/design/design-02-metabolic-pathways-ca78ab7afcb1.webp"
+  },
+  {
+    "source": "figures/design/03-crocetin.webp",
+    "sha256": "476f6e07cbabc086a69fd8438887e485fb6a28ca7537b05ceade674e34bff629",
+    "sourceSha256": "031382ccea6710089aec8c98362c43ce4e06355fc109d8052ded902ed00836f7",
+    "bytes": 69226,
+    "url": "https://static.igem.wiki/teams/6212/wiki/design/design-03-crocetin-476f6e07cbab.webp"
+  },
+  {
+    "source": "figures/design/04-astaxanthin.webp",
+    "sha256": "5b6aa1b042839a14ebb5454288f11fdeb78e46f128146be0b3682ee6a16f2ccd",
+    "sourceSha256": "8a3ae883e7a70fdd3618e6726f4a22a3db6ea1f66c164c274eb5e203cbfe5760",
+    "bytes": 77234,
+    "url": "https://static.igem.wiki/teams/6212/wiki/design/design-04-astaxanthin-5b6aa1b04283.webp"
+  },
+  {
+    "source": "figures/design/05-pdca1-activity.webp",
+    "sha256": "6a48481fe10e8d1d2826f394ae63628d808e2f9cf6938d0ba4cffa0b7acd04dd",
+    "sourceSha256": "d26873d80e75d9d5d1914bf44ce043d89130f9fe046183f1ec9147770159301f",
+    "bytes": 46796,
+    "url": "https://static.igem.wiki/teams/6212/wiki/design/design-05-pdca1-activity-6a48481fe10e.webp"
+  },
+  {
+    "source": "figures/design/06-promoter-comparison.webp",
+    "sha256": "3c5c25e8f359899ce49ec9410fd9c7868e760b5d7724bc68af1588b361cf7a44",
+    "sourceSha256": "85362e70ca0c7a0e5745ef9977aa29481b78e6fc45faf899c050095d86ed5d0f",
+    "bytes": 71194,
+    "url": "https://static.igem.wiki/teams/6212/wiki/design/design-06-promoter-comparison-3c5c25e8f359.webp"
+  },
+  {
+    "source": "figures/design/07-biosafety-high-salt.webp",
+    "sha256": "8377809bc8becde675b6ee7674fc85c5070c71987ab681656fdf832b16e51506",
+    "sourceSha256": "75556d95680931c1e6e297f7befb3d14923dfd86c8c27fe8fc83c231fdc16a8a",
+    "bytes": 10270,
+    "url": "https://static.igem.wiki/teams/6212/wiki/design/design-07-biosafety-high-salt-8377809bc8be.webp"
+  },
+  {
+    "source": "figures/design/08-biosafety-low-salt.webp",
+    "sha256": "2a76e0462185a19c0fc99d80c2c1288e9a600c2d1c905472de4144ffe26b317b",
+    "sourceSha256": "25609d368fb86d5ebf93afded8e43267358d3e1aa1474e5ac4446f5c0bba037d",
+    "bytes": 9266,
+    "url": "https://static.igem.wiki/teams/6212/wiki/design/design-08-biosafety-low-salt-2a76e0462185.webp"
   }
 ]
