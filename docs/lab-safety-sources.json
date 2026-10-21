@@ -11,7 +11,9 @@
       "sha256": "5bdc0557d1c2d940df6d885e75a1bf0264f44cb602dcd2feff600ccd38952bf4",
       "bytes": 153238,
       "width": 2000,
-      "height": 1500
+      "height": 1500,
+      "uploadFile": "lab/chemical-storage-cabinet-5bdc0557d1c2.webp",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/chemical-storage-cabinet-5bdc0557d1c2.webp"
     },
     {
       "source": "Fig2.jpg",
@@ -20,7 +22,9 @@
       "sha256": "f091b7d515c79df1fa9d2920f6902c14f5bbc3458015c32722a8deb193503608",
       "bytes": 263630,
       "width": 1500,
-      "height": 2000
+      "height": 2000,
+      "uploadFile": "lab/explosion-proof-cabinet-f091b7d515c7.webp",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/explosion-proof-cabinet-f091b7d515c7.webp"
     },
     {
       "source": "Fig3.jpg",
@@ -29,7 +33,9 @@
       "sha256": "d280b73223b9ad5be7d6e836b2316f05297abdb160512be72e7f31128f5b4408",
       "bytes": 341456,
       "width": 2000,
-      "height": 1500
+      "height": 1500,
+      "uploadFile": "lab/laboratory-bench-d280b73223b9.webp",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/laboratory-bench-d280b73223b9.webp"
     },
     {
       "source": "Fig4.jpg",
@@ -38,7 +44,9 @@
       "sha256": "4450e7b1c49fa3a3898ba753acbe2848baca66124039e0968ef69da534ac1434",
       "bytes": 146404,
       "width": 2000,
-      "height": 1500
+      "height": 1500,
+      "uploadFile": "lab/biological-safety-cabinet-4450e7b1c49f.webp",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/biological-safety-cabinet-4450e7b1c49f.webp"
     }
   ]
 }

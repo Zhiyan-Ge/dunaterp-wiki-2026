@@ -1748,5 +1748,33 @@
     "sha256": "9be30b81723a263c06d4324c4b7bdb43a26fe939307389781faf9c929e92ce11",
     "sourceSha256": "9be30b81723a263c06d4324c4b7bdb43a26fe939307389781faf9c929e92ce11",
     "bytes": 459290
+  },
+  {
+    "source": "figures/lab-safety/biological-safety-cabinet.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/biological-safety-cabinet-4450e7b1c49f.webp",
+    "sha256": "4450e7b1c49fa3a3898ba753acbe2848baca66124039e0968ef69da534ac1434",
+    "sourceSha256": "4450e7b1c49fa3a3898ba753acbe2848baca66124039e0968ef69da534ac1434",
+    "bytes": 146404
+  },
+  {
+    "source": "figures/lab-safety/chemical-storage-cabinet.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/chemical-storage-cabinet-5bdc0557d1c2.webp",
+    "sha256": "5bdc0557d1c2d940df6d885e75a1bf0264f44cb602dcd2feff600ccd38952bf4",
+    "sourceSha256": "5bdc0557d1c2d940df6d885e75a1bf0264f44cb602dcd2feff600ccd38952bf4",
+    "bytes": 153238
+  },
+  {
+    "source": "figures/lab-safety/explosion-proof-cabinet.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/explosion-proof-cabinet-f091b7d515c7.webp",
+    "sha256": "f091b7d515c79df1fa9d2920f6902c14f5bbc3458015c32722a8deb193503608",
+    "sourceSha256": "f091b7d515c79df1fa9d2920f6902c14f5bbc3458015c32722a8deb193503608",
+    "bytes": 263630
+  },
+  {
+    "source": "figures/lab-safety/laboratory-bench.webp",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/laboratory-bench-d280b73223b9.webp",
+    "sha256": "d280b73223b9ad5be7d6e836b2316f05297abdb160512be72e7f31128f5b4408",
+    "sourceSha256": "d280b73223b9ad5be7d6e836b2316f05297abdb160512be72e7f31128f5b4408",
+    "bytes": 341456
   }
 ]
