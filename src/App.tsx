@@ -447,7 +447,7 @@ function Article({ slug }: { slug: string }) {
     slug === 'hardware' ? ' article-page--hardware' : '',
     slug === 'safety-and-security' ? ' article-page--safety' : '',
     slug === 'experiments' ? ' article-page--experiments' : '',
-    slug === 'notebook' ? ' article-page--notebook' : '',
+    slug === 'lab-notebook' ? ' article-page--notebook' : '',
     slug === 'team' ? ' article-page--team' : '',
     slug === 'parts' ? ' article-page--parts' : '',
     slug === 'attributions' ? ' article-page--attributions' : '',

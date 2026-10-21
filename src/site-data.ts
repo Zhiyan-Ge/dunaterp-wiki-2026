@@ -10,6 +10,8 @@ import { collaboration, cooperation, education } from './content/human-practices
 import { stakeholderAnalysis } from './content/stakeholder-analysis';
 import { team } from './content/team';
 import { labSafety } from './content/lab-safety';
+import { labNotebook } from './content/lab-notebook';
+import { engineeringProductSections } from './content/engineering-products';
 
 export type WikiSection = {
   title: string;
@@ -86,7 +88,7 @@ export const pages: Record<string, WikiPage> = {
   },
   design,
   engineering: {
-    title: "Building a salt-controlled safeguard", eyebrow: "Engineering", intro: "The containment design developed through three linked questions: can MazF suppress Dunaliella salina growth, can its expression be reduced to a controllable level, and can salt-responsive MazE protection separate cultivation from release conditions?", status: "team-draft",
+    title: "Engineering DunaTerp through iterative cycles", eyebrow: "Engineering", intro: "Our engineering work connects product synthesis with biological containment. Iterative Design–Build–Test–Learn cycles were used to construct and verify β-citraurin and β-ionone pathways, while the salt-responsive mazEF circuit was developed to separate controlled cultivation from release conditions.", status: "team-draft",
     references: [refs.dca1, refs.mazf, refs.chen2009],
     sections: [
       {
@@ -136,6 +138,7 @@ export const pages: Record<string, WikiPage> = {
           { kind: "paragraph", text: "The final engineering test is a salt-switch assay from high salt to low salt. Success means robust growth in high salt, loss of protection after the switch, and clear survival or growth differences once the full circuit is triggered." },
         ],
       },
+      ...engineeringProductSections,
     ],
   },
   experiments: {
@@ -260,15 +263,7 @@ export const pages: Record<string, WikiPage> = {
     ],
   },
   "lab-safety": labSafety,
-  "lab-notebook": {
-    title: "Lab Notebook",
-    eyebrow: "Lab",
-    intro: "This page is reserved for lab notebook content and will be completed when the material is ready.",
-    status: "structure-only",
-    sections: [
-      { title: "Content in preparation", body: "Team input required: add the lab notebook content for this section." },
-    ],
-  },
+  "lab-notebook": labNotebook,
   "alternative-platform": {
     title: "Engineering beyond the usual chassis", eyebrow: "Alternative Platform", intro: "Dunaliella salina combines extreme halotolerance, photosynthetic carbon fixation and native carotenoid accumulation. DunaTerp uses those traits as functional parts of the engineering strategy rather than treating the alga as an interchangeable host.", status: "team-draft",
     references: [refs.oren2005, refs.lan2022, refs.fachet2020],

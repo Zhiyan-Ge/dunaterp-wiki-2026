@@ -87,6 +87,10 @@ export function ArticleBlocks({ blocks, referenceNumbers = new Map<string, numbe
       case 'document-list': return block.ordered
         ? <ol key={i}>{block.items.map((runs, index) => <li key={index}><DocumentText runs={runs} /></li>)}</ol>
         : <ul key={i}>{block.items.map((runs, index) => <li key={index}><DocumentText runs={runs} /></li>)}</ul>;
+      case 'details': return <details className="research-details" open={block.open} key={i}>
+        <summary>{block.summary}</summary>
+        <ArticleBlocks blocks={block.blocks} referenceNumbers={referenceNumbers} />
+      </details>;
       case 'heading': return <h3 id={sectionId ? `${sectionId}-heading-${i + 1}` : undefined} tabIndex={sectionId ? -1 : undefined} key={i}>{block.text}</h3>;
       case 'equation': return <Equation key={i} block={block} />;
       case 'code': return <div className="research-code" key={i}><p>{block.label}</p><pre tabIndex={0}><code>{block.text}</code></pre></div>;

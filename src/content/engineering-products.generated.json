@@ -1,0 +1,658 @@
+[
+  {
+    "title": "The Synthesis of β-Citraurin",
+    "body": "This module synthesizes β-citraurin in Dunaliella salina. CitCCD4 cleaves zeaxanthin to yield β-citraurin. The expression plasmid uses pCAMBIA1302 as the backbone, contains the CitCCD4 gene, and is driven by the D. salina RBCS2 promoter.",
+    "blocks": [
+      {
+        "kind": "details",
+        "summary": "Cycle I",
+        "open": true,
+        "blocks": [
+          {
+            "kind": "heading",
+            "text": "Design"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "After the plasmids were transferred into "
+              },
+              {
+                "text": "D. salina",
+                "italic": true
+              },
+              {
+                "text": ", whether they remained intact in the alga had to be confirmed. We designed a sequencing comparison: transformed lines were subjected to whole-genome sequencing, the reads were mapped back to the constructed plasmids, and the coverage and sequence of the entire plasmid were checked against the design."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Build"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The transformed lines were expanded in culture, genomic DNA was extracted and submitted for whole-genome sequencing, and the reads were mapped back to the reference plasmids to check the coverage and sequence of the entire plasmid segment by segment."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Test"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "As shown in Fig. 1, the promoter of the 35S construct was lost entirely, while the backbone and the gene of interest remained."
+              }
+            ]
+          },
+          {
+            "kind": "figure",
+            "src": "/figures/wet-lab/engineering/engineering-beta-citraurin-fig-01.webp",
+            "alt": "Fig. 1 Sequencing comparison of the 35S construct. Red represents the alignment of sequencing reads to the reference plasmid, and the open segments are sequences missing from the reads; the 35S promoter falls exactly within this region.",
+            "caption": "Fig. 1 Sequencing comparison of the 35S construct. Red represents the alignment of sequencing reads to the reference plasmid, and the open segments are sequences missing from the reads; the 35S promoter falls exactly within this region."
+          },
+          {
+            "kind": "heading",
+            "text": "Learn"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The loss of the promoter as an entire segment was not anticipated in advance. The problem lay neither in the insert nor in the assembly, but in the step that had always been taken for granted. The loss of the whole segment rather than point mutations indicated that recombination had occurred, and the investigation traced the cause to plasmid propagation: DH5α is unreliable during serial passaging, and the plasmid can exchange sequences with the bacterial genome. The next round required a competent cell strain with higher fidelity that is specialized for plasmid propagation."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "details",
+        "summary": "Cycle II",
+        "open": true,
+        "blocks": [
+          {
+            "kind": "heading",
+            "text": "Design"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The loss occurred during propagation, indicating that DH5α is unsuitable for amplifying constructs of this kind. stbl3 is a strain specifically designed for plasmid propagation; its recombination pathways are deficient, it accommodates large plasmids of over ten kb, and it suppresses recombination between long homologous sequences. We switched to stbl3 for plasmid amplification, reconstructed the constructs, and re-transformed "
+              },
+              {
+                "text": "D. salina",
+                "italic": true
+              },
+              {
+                "text": "."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Build"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "We re-amplified the backbones, gel-extracted them for Gibson assembly, and selected on kanamycin plates; plasmid amplification was switched to stbl3. Colonies were picked for preliminary colony PCR screening, and positive clones were expanded and their plasmids extracted."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Test"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The initial transformation yielded no colonies on the plates. Colonies appeared only after the transformation procedure was adjusted, but they were scarce, with only a few scattered colonies on each of the two plates, as shown in Fig. 2. These clones were picked, expanded, and sequenced; all plasmids were successfully constructed, and the promoter of the 35S construct was no longer lost."
+              }
+            ]
+          },
+          {
+            "kind": "figure",
+            "src": "/figures/wet-lab/engineering/engineering-beta-citraurin-fig-02.webp",
+            "alt": "Fig. 2 Colonies grown on kanamycin plates. The left and right panels show two parallel plates; after switching to stbl3, the initial transformation produced no colonies, and only a few appeared after the procedure was adjusted.",
+            "caption": "Fig. 2 Colonies grown on kanamycin plates. The left and right panels show two parallel plates; after switching to stbl3, the initial transformation produced no colonies, and only a few appeared after the procedure was adjusted."
+          },
+          {
+            "kind": "heading",
+            "text": "Learn"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "stbl3 preserves plasmid fidelity well, but it is clearly harder to transform than DH5α: the same assembly products gave only a few scattered colonies, and initially not even one. Optimizing the transformation procedure recovered part of the efficiency, but sufficient plates and replicates must still be prepared, and yields should not be estimated from experience with DH5α."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "details",
+        "summary": "Cycle III",
+        "open": true,
+        "blocks": [
+          {
+            "kind": "heading",
+            "text": "Design"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The transformed "
+              },
+              {
+                "text": "D. salina",
+                "italic": true
+              },
+              {
+                "text": " first had to be screened for cells that had actually acquired the resistance gene. We added hygromycin at 800 µg/mL to the liquid medium so that successfully transformed cells could grow while untransformed ones were suppressed."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Build"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The plasmids were introduced into "
+              },
+              {
+                "text": "D. salina",
+                "italic": true
+              },
+              {
+                "text": " by osmotic transformation. The algal suspension was inoculated into liquid medium containing 800 µg/mL hygromycin, cultured under illumination, and observed for greening and growth."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Test"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "As shown in Fig. 3, the algae in the liquid medium did turn green and dense, but the flask only showed whether the culture as a whole had grown, not which cell had given rise to it. Successfully transformed algae and untransformed algae were mixed together, so no single clone could be picked and no stock could be preserved."
+              }
+            ]
+          },
+          {
+            "kind": "figure",
+            "src": "/figures/wet-lab/engineering/engineering-beta-citraurin-fig-03.webp",
+            "alt": "Fig. 3 Transformed algae in liquid culture. The cultures turned green in hygromycin-containing liquid medium, but it was impossible to tell which line had been successfully transformed.",
+            "caption": "Fig. 3 Transformed algae in liquid culture. The cultures turned green in hygromycin-containing liquid medium, but it was impossible to tell which line had been successfully transformed."
+          },
+          {
+            "kind": "heading",
+            "text": "Learn"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "Liquid screening provides a population-level signal for the whole flask and cannot be resolved to individual cells. To obtain pure clones that could be stocked, the cells had to be allowed to grow separately on a solid surface."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "details",
+        "summary": "Cycle IV",
+        "open": true,
+        "blocks": [
+          {
+            "kind": "heading",
+            "text": "Design"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "In liquid culture all cells are soaked in the same flask, and there is no way to tell from the flask wall which cells were transformed and which were suppressed. To let every cell grow into a single colony, each cell must be given a fixed position. We therefore switched to solid medium, where cells occupy separate positions on the plate surface, and each spot that grows up is a clone that can be picked."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Build"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The transformed algal suspension was spread onto solid plates containing 300 µg/mL hygromycin and cultured under illumination until the colonies became visible to the naked eye. Single colonies were then picked into liquid medium, expanded, and stocked."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Test"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "As shown in Fig. 4, well-separated green colonies grew on the plates, and picking single colonies allowed expansion and stocking."
+              }
+            ]
+          },
+          {
+            "kind": "figure",
+            "src": "/figures/wet-lab/engineering/engineering-beta-citraurin-fig-04.webp",
+            "alt": "Fig. 4 Transformed colonies on hygromycin solid plates. The transformed algal suspension was spread onto the plates, and only successfully transformed cells grew into green colonies; single colonies could be picked for expansion.",
+            "caption": "Fig. 4 Transformed colonies on hygromycin solid plates. The transformed algal suspension was spread onto the plates, and only successfully transformed cells grew into green colonies; single colonies could be picked for expansion."
+          },
+          {
+            "kind": "heading",
+            "text": "Learn"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "With the same hygromycin selection, switching to solid medium changed the unit of interpretation from a whole flask to a single colony, and only then did the complete workflow of picking, expansion, and stocking become feasible. The working concentration also could not be transferred directly: liquid selection used 800 µg/mL, whereas solid plates required only 300 µg/mL."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "details",
+        "summary": "Cycle V",
+        "open": true,
+        "blocks": [
+          {
+            "kind": "heading",
+            "text": "Design"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "With both the plasmids and the transformants verified, confirmation was still needed at the product level that CitCCD4 produced β-citraurin in the alga. β-Citraurin is a cleavage product of carotenoids and shows visible color on silica plates, so thin-layer chromatography suits the rapid screening of such colored products. The initial extraction followed the established 90% acetone protocol, and the developing solvent was petroleum ether/acetone at 7:3."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Build"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "Algal cells were collected by centrifugation and the pigments were extracted with 90% acetone. The extract was spotted onto an activated GF254 silica plate, developed with petroleum ether/acetone (7:3), and observed under visible light and then under UV."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Test"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "As shown in Fig. 5, the spots were diffuse and showed tailing; no interpretable difference appeared between the CitCCD4 line and the WT, and no target spot was present on the plate."
+              }
+            ]
+          },
+          {
+            "kind": "figure",
+            "src": "/figures/wet-lab/engineering/engineering-beta-citraurin-fig-05.webp",
+            "alt": "Fig. 5 Thin-layer chromatography under the initial extraction and development conditions. Left: CitCCD4; right: WT. The spots were diffuse with tailing, and no target spot appeared.",
+            "caption": "Fig. 5 Thin-layer chromatography under the initial extraction and development conditions. Left: CitCCD4; right: WT. The spots were diffuse with tailing, and no target spot appeared."
+          },
+          {
+            "kind": "heading",
+            "text": "Learn"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "Both the extraction and the development were deficient. The water and salts carried in by the extraction solvent caused the spots to spread, and the polarity of the developing solvent failed to resolve the target band. The next round improved these two points separately."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "details",
+        "summary": "Cycle VI",
+        "open": true,
+        "blocks": [
+          {
+            "kind": "heading",
+            "text": "Design"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The two deficiencies found in the previous round were corrected simultaneously in this round. The extraction solvent was changed to acetone/methanol (1:1) to reduce the salts and pigments introduced with the aqueous phase, and the developing solvent was changed to n-hexane/acetone (7:3) to bring the target band into an interpretable Rf range."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Build"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "Algal cells were collected by centrifugation and extracted by 10-min ice-bath sonication in acetone/methanol (1:1). The extract was back-extracted with an equal volume of n-hexane, concentrated under nitrogen, and redissolved before being spotted onto an activated GF254 silica plate, which was developed with n-hexane/acetone (7:3) and observed under visible light and then under UV."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Test"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "As shown in Fig. 6, the CitCCD4 line showed a new spot at the expected position that was absent in the WT, indicating that CitCCD4 produced β-citraurin in the alga."
+              }
+            ]
+          },
+          {
+            "kind": "figure",
+            "src": "/figures/wet-lab/engineering/engineering-beta-citraurin-fig-06.webp",
+            "alt": "Fig. 6 Thin-layer chromatography under the optimized conditions. Left: WT; right: CitCCD4. The CitCCD4 line showed a new spot absent in the WT.",
+            "caption": "Fig. 6 Thin-layer chromatography under the optimized conditions. Left: WT; right: CitCCD4. The CitCCD4 line showed a new spot absent in the WT."
+          },
+          {
+            "kind": "heading",
+            "text": "Learn"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The target spot appeared only after extraction and development were adjusted simultaneously, indicating that each of the two steps contributed substantially. The improved system can be used for rapid verification of subsequent transformants."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "The Synthesis of β-Ionone",
+    "body": "This module synthesizes β-ionone in Dunaliella salina. CCD1 cleaves β-carotene to yield β-ionone. The expression plasmid uses pCAMBIA1302 as the backbone, combining the CCD1 gene with the D. salina RBCS2 promoter and a signal peptide (SP).",
+    "blocks": [
+      {
+        "kind": "details",
+        "summary": "Cycle I",
+        "open": true,
+        "blocks": [
+          {
+            "kind": "heading",
+            "text": "Design"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The plasmid was assembled by linearizing the backbone by inverse PCR and amplifying the CCD1 insert by PCR, with sequences homologous to the backbone added to both ends of the fragment, followed by Gibson assembly. The high-fidelity polymerase KOD One was used for amplification. The reverse primer for the RBCS2 backbone was p1302-RBCS2-R, with the sequence TCAGGTCCATTCAAGTGAAGATGTTTAGGTGCAG, and the annealing temperature for the CCD1 fragment was set to 45 °C."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Build"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The backbone was linearized by inverse PCR and the CCD1 fragment was amplified by PCR, with KOD One as the polymerase. The amplification products were examined by agarose gel electrophoresis and gel-extracted for Gibson assembly. The assembly products were transformed into DH5α and selected on kanamycin plates."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Test"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "As shown in Fig. 1, the backbone could be amplified, but the main band of the RBCS2 backbone was consistently accompanied by a weaker nonspecific band beneath it, and the band intensity varied among clones. The CCD1 fragment fared worse: as shown in Fig. 2, multiple nonspecific bands appeared at an annealing temperature of 45 °C, the target band was difficult to separate from the nonspecific ones, and the concentration did not meet the requirement for assembly."
+              }
+            ]
+          },
+          {
+            "kind": "figure",
+            "src": "/figures/wet-lab/engineering/engineering-beta-ionone-fig-01.webp",
+            "alt": "Fig. 1 PCR amplification of the RBCS2 backbone. M: 2000 bp DNA marker; lanes 1–4 and 5–8: PCR products of the RBCS2 backbone",
+            "caption": "Fig. 1 PCR amplification of the RBCS2 backbone. M: 2000 bp DNA marker; lanes 1–4 and 5–8: PCR products of the RBCS2 backbone"
+          },
+          {
+            "kind": "figure",
+            "src": "/figures/wet-lab/engineering/engineering-beta-ionone-fig-02.webp",
+            "alt": "Fig. 2 PCR amplification of the CCD1 fragment. M: 2000 bp DNA marker; lanes 1–9: PCR products of the CCD1 fragment.",
+            "caption": "Fig. 2 PCR amplification of the CCD1 fragment. M: 2000 bp DNA marker; lanes 1–9: PCR products of the CCD1 fragment."
+          },
+          {
+            "kind": "heading",
+            "text": "Learn"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "This round exposed two independent problems. The yield was insufficient, and repeated adjustments of the annealing temperature brought only limited improvement, indicating that the bottleneck lay in the amplification capacity of the polymerase. As for the nonspecific band of the RBCS2 backbone, raising the annealing temperature weakened it but could not eliminate it; we inferred that the primer had multiple binding sites on the plasmid, a problem that condition optimization alone could not solve. The next round planned to change both the polymerase and the primer."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "details",
+        "summary": "Cycle II",
+        "open": true,
+        "blocks": [
+          {
+            "kind": "heading",
+            "text": "Design"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "To address the two problems found in the previous round, we redesigned the amplification strategy. The polymerase was replaced with Phanta, a high-fidelity enzyme with higher yield, and the reverse primer for the RBCS2 backbone was redesigned: p1302-RBCS2-R was replaced by TCAGGTCCATTGTGTCTGACTGGGGTGG, which avoids the other binding sites on the plasmid."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Build"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The backbones and inserts of all constructs were amplified with the new primer and Phanta, with the remaining conditions the same as in the previous round. The amplification products were examined by electrophoresis, gel-extracted, and assembled by Gibson assembly. The products were transformed into DH5α and selected on kanamycin plates. Colonies were picked for colony PCR and liquid-culture PCR, expanded, plasmid-extracted, and verified by Sanger sequencing."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Test"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "As shown in Figs. 3 and 4, the nonspecific bands disappeared, all bands were single and of the correct size, and the concentrations met the assembly requirements. After assembly, all plasmids passed sequencing verification."
+              }
+            ]
+          },
+          {
+            "kind": "figure",
+            "src": "/figures/wet-lab/engineering/engineering-beta-ionone-fig-03.webp",
+            "alt": "Fig. 3 PCR amplification of the RBCS2 backbone. M: 15000 bp DNA marker; lane 1: empty plasmid; lanes 2–5: PCR products of the RBCS2 backbone.",
+            "caption": "Fig. 3 PCR amplification of the RBCS2 backbone. M: 15000 bp DNA marker; lane 1: empty plasmid; lanes 2–5: PCR products of the RBCS2 backbone."
+          },
+          {
+            "kind": "figure",
+            "src": "/figures/wet-lab/engineering/engineering-beta-ionone-fig-04.webp",
+            "alt": "Fig. 4 PCR amplification of the CCD1 fragment. M: 2000 bp DNA marker; lanes 1–8: PCR products of the CCD1 fragment; the target band lies between 2000 and 1000 bp.",
+            "caption": "Fig. 4 PCR amplification of the CCD1 fragment. M: 2000 bp DNA marker; lanes 1–8: PCR products of the CCD1 fragment; the target band lies between 2000 and 1000 bp."
+          },
+          {
+            "kind": "heading",
+            "text": "Learn"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "Changing the polymerase solved the yield problem and changing the primer solved the specificity problem; the two could not substitute for each other, since the nonspecific bands persisted when only the enzyme was changed, and adjusting the annealing temperature alone could not eliminate them either. When the template contains homologous sequences, checking the primer binding sites in advance is more effective than repeatedly tuning the conditions. Only when both the backbone and the insert met the requirements could the assembly pass in one attempt. With the plasmids constructed, the next step was to verify whether the product was actually generated."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "details",
+        "summary": "Cycle III",
+        "open": true,
+        "blocks": [
+          {
+            "kind": "heading",
+            "text": "Design"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "With the transformants obtained, the next step was to confirm whether CCD1 actually produced β-ionone in the alga. We designed a widely targeted metabolomic analysis, using UPLC-MS/MS to perform an unbiased screen of whole-alga extracts and comparing two CCD1 lines driven by the RBCS2 promoter with the wild type, one line carrying SP and the other not."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Build"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The algal cultures were collected by centrifugation, and the cells were flash-frozen in liquid nitrogen and shipped to a metabolomics service company. The company lyophilized and ground the samples, extracted them with pre-chilled 70% methanol in water containing internal standards, and separated the filtrates on a C18 column with a water–acetonitrile gradient, acquiring data in MRM mode."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Test"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "In total, 1510 metabolites were detected. As shown in Fig. 5, the two CCD1 lines and the wild type separated along PC1, which explained 91.1% of the variance. β-Ionone in the two CCD1 lines was only 1.34- and 1.04-fold relative to the wild type, neither reaching the two-fold threshold, while the less volatile C18 apocarotenoid cleavage products in the same batch rose 2.1- to 4.5-fold."
+              }
+            ]
+          },
+          {
+            "kind": "figure",
+            "src": "/figures/wet-lab/engineering/engineering-beta-ionone-fig-05.webp",
+            "alt": "Fig. 5 PCA score plot of the widely targeted metabolomic analysis. C1 denotes the CCD1 line without SP, C3 the CCD1 line with SP, and WT the wild type; the three groups separate along PC1, which explains 91.1% of the variance.",
+            "caption": "Fig. 5 PCA score plot of the widely targeted metabolomic analysis. C1 denotes the CCD1 line without SP, C3 the CCD1 line with SP, and WT the wild type; the three groups separate along PC1, which explains 91.1% of the variance."
+          },
+          {
+            "kind": "heading",
+            "text": "Learn"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "β-Ionone has a low boiling point, and its losses during lyophilization and extraction were substantial, so the peak areas could not reflect the true yield. The C18 apocarotenoid cleavage products are not typical products of CCD1; their increase only indicates enhanced carotenoid turnover and cannot by itself serve as evidence of enzyme activity. To confirm the product, a method that directly observes the target compound had to be adopted instead of relying on ionization efficiency and peak areas."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "details",
+        "summary": "Cycle IV",
+        "open": true,
+        "blocks": [
+          {
+            "kind": "heading",
+            "text": "Design"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "Since the widely targeted metabolomics gave no direct evidence of β-ionone production, a method capable of directly observing the product spots was needed. Carotenoids and their cleavage products are mostly colored, so normal-phase silica thin-layer chromatography allows direct observation of spot colors. Considering the low boiling point and high volatility of β-ionone, we planned to carry out extraction, spotting, and development entirely on ice to reduce losses."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Build"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "The algal cultures were centrifuged to collect the cells, which were washed once with 0.5 mol/L sodium chloride. Then 0.5 mL of a 1:1 acetone–methanol mixture was added, and the cells were sonicated in an ice bath for 10 min for extraction. The supernatant was collected by centrifugation, the extraction was repeated once, and the extracts were combined. The combined extract was back-extracted with an equal volume of n-hexane, dried over anhydrous sodium sulfate, concentrated under a nitrogen stream, and redissolved in 50–100 µL of acetone. The GF254 silica gel plate was activated at 105 °C for 30 min, a baseline was drawn 1.2 cm from the bottom edge, and the samples were spotted with a capillary. After the developing chamber was pre-saturated, the plate was developed with petroleum ether until the solvent front reached about 1 cm from the top of the plate; extraction, spotting, and development were all performed on ice. The plate was observed under visible light and then under 254 nm UV."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Test"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "Despite the ice-cold handling throughout, no spot consistent with the standard appeared on the plate, and thin-layer chromatography failed to demonstrate the production of β-ionone."
+              }
+            ]
+          },
+          {
+            "kind": "heading",
+            "text": "Learn"
+          },
+          {
+            "kind": "document-paragraph",
+            "runs": [
+              {
+                "text": "Volatilization losses were more severe than expected, and even ice-cold handling was not enough to retain the target compound. Thin-layer chromatography is unsuitable for products as volatile as this, and gas chromatography will be adopted next."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

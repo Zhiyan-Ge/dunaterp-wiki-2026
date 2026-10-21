@@ -40,6 +40,11 @@
 .research-code>p { font-size: .875rem; margin-bottom: -.75rem; font-weight: 600; }
 .research-links { padding: 0; list-style: none; }
 .research-links li { margin: .45rem 0; }
+.research-details { margin: 1rem 0; border: 2px solid var(--ink); background: #fffaf0; box-shadow: 4px 4px 0 var(--article-accent); }
+.research-details > summary { cursor: pointer; padding: 1rem 1.2rem; color: var(--ink); font: 900 .95rem/1.4 ui-monospace,Menlo,monospace; text-transform: uppercase; }
+.research-details[open] > summary { border-bottom: 2px solid var(--ink); }
+.research-details > .research-blocks { padding: .3rem 1.25rem 1.25rem; }
+.research-details .research-details { box-shadow: 3px 3px 0 #c4d2c8; }
 .wet-lab-protocol h3 { padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .wet-lab-protocol h4 { margin: 2rem 0 1rem; font-size: 1.125rem; line-height: 1.5; color: var(--ink); }
 .wet-lab-protocol h4 em { font-style: normal; }

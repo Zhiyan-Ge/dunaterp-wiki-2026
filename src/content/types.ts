@@ -3,6 +3,7 @@ export type ContentBlock =
   | { kind: 'document-paragraph'; runs: DocumentTextRun[]; id?: string }
   | { kind: 'document-heading'; text: string; runs: DocumentTextRun[] }
   | { kind: 'document-list'; items: DocumentTextRun[][]; ordered?: boolean }
+  | { kind: 'details'; summary: string; blocks: ContentBlock[]; open?: boolean }
   | { kind: 'equation'; text: string; label: string }
   | { kind: 'code'; text: string; label: string }
   | { kind: 'figure'; src: string; alt: string; caption: string; captionRuns?: DocumentTextRun[]; width?: number; height?: number }

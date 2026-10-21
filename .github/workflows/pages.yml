@@ -47,7 +47,7 @@ jobs:
             project-description \
             engineering \
             experiments \
-            notebook \
+            lab-notebook \
             results \
             dry-lab \
             transcriptomics \

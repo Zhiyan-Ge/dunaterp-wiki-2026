@@ -1,0 +1,368 @@
+{
+  "sources": [
+    {
+      "role": "dailyNotebook",
+      "file": "iGEM  2026  Experiment  Notebook.docx",
+      "sha256": "d73d9b8ef50673fad5c0000dcec6221fc792905b3f1e6d3ffbff0bb950e4ebea",
+      "bytes": 2188686
+    },
+    {
+      "role": "summaryNotebook",
+      "file": "iGEM 2026   Notebook   Astaxanthin and Crocetin.docx",
+      "sha256": "d531a95150409228e84b19627f779cfb4e52852bf02caa19cd730fefff802349",
+      "bytes": 330154
+    },
+    {
+      "role": "citraurinEngineering",
+      "file": "iGEM2026_SCU-China_Engineering_β-Citraurin_EN.docx",
+      "sha256": "c9b9e25477c5b493518bd22d4c96acbb8cb0330f00f80b547f96ded629a39e56",
+      "bytes": 10042919
+    },
+    {
+      "role": "iononeEngineering",
+      "file": "iGEM2026_SCU-China_Engineering_β-Ionone_EN.docx",
+      "sha256": "8c4b59e061adb181e00a79a1b156fdd55271a71c4de1dd54e362dd440f7f2cb2",
+      "bytes": 4540676
+    }
+  ],
+  "generatedAssets": [
+    {
+      "source": "word/media/image1.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-summary-fig-01.webp",
+      "sourceBytes": 14942,
+      "outputBytes": 73424,
+      "sha256": "2d80c68c46967323c304518ad621e970d40c0b37fd6c2a56ae5a6c3308791c62",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-summary-fig-01-2d80c68c4696.webp"
+    },
+    {
+      "source": "word/media/image2.png",
+      "output": "/figures/wet-lab/notebook/notebook-summary-fig-02.webp",
+      "sourceBytes": 70705,
+      "outputBytes": 46060,
+      "sha256": "8074d163120ae42f8664bc96f32c5554027149fe374989bc30c190073e36861e",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-summary-fig-02-8074d163120a.webp"
+    },
+    {
+      "source": "word/media/image3.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-summary-fig-03.webp",
+      "sourceBytes": 9816,
+      "outputBytes": 52578,
+      "sha256": "c3707e7ca3cd55958139de564e22cd6521de40b683ba6d48d982bf3685682f58",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-summary-fig-03-c3707e7ca3cd.webp"
+    },
+    {
+      "source": "word/media/image4.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-summary-fig-04.webp",
+      "sourceBytes": 10510,
+      "outputBytes": 48036,
+      "sha256": "1b0f96075656396a0d16e00f30005e1e466720bac72583eb7a95cda87f872d13",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-summary-fig-04-1b0f96075656.webp"
+    },
+    {
+      "source": "word/media/image5.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-summary-fig-05.webp",
+      "sourceBytes": 9821,
+      "outputBytes": 21854,
+      "sha256": "2d6bb93d90b609e0d9e4a52db18f5e544c172495eaa753ea903f100101416c60",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-summary-fig-05-2d6bb93d90b6.webp"
+    },
+    {
+      "source": "word/media/image1.png",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-01.webp",
+      "sourceBytes": 120566,
+      "outputBytes": 72140,
+      "sha256": "a000e87fe6d63353b8655741c5a776ebff55b66b1a7354ca2f43486f560a9af1",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-01-a000e87fe6d6.webp"
+    },
+    {
+      "source": "word/media/image2.png",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-02.webp",
+      "sourceBytes": 89694,
+      "outputBytes": 53304,
+      "sha256": "fd801ccfe0c4750f8d10b7643296277faad9a99ffb971452b5ec540e48273244",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-02-fd801ccfe0c4.webp"
+    },
+    {
+      "source": "word/media/image3.png",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-03.webp",
+      "sourceBytes": 71243,
+      "outputBytes": 44122,
+      "sha256": "10dee8d2874aed4d6697c813e47e8698caf3575e810f214d90a4adcdf16d7c7f",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-03-10dee8d2874a.webp"
+    },
+    {
+      "source": "word/media/image4.png",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-04.webp",
+      "sourceBytes": 103362,
+      "outputBytes": 61700,
+      "sha256": "a1c324d9d4633a78779812f27dec17f8e692c56ccff7bff490f13aafbb3613e6",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-04-a1c324d9d463.webp"
+    },
+    {
+      "source": "word/media/image5.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-05.webp",
+      "sourceBytes": 14172,
+      "outputBytes": 67090,
+      "sha256": "bf26bb942c3d6b8c07fcbc751e15920517384d93d1443b8651d097fc73cee1ee",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-05-bf26bb942c3d.webp"
+    },
+    {
+      "source": "word/media/image6.png",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-06.webp",
+      "sourceBytes": 154457,
+      "outputBytes": 92176,
+      "sha256": "1070b82e978936122bbfdcb89952576923fbbee76ba17f9810990d664fc4d8e1",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-06-1070b82e9789.webp"
+    },
+    {
+      "source": "word/media/image7.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-07.webp",
+      "sourceBytes": 14288,
+      "outputBytes": 67634,
+      "sha256": "d7d5fe808d9924a8ac5756be78cba6734a512ba487aa7964e9c694e03a663ec7",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-07-d7d5fe808d99.webp"
+    },
+    {
+      "source": "word/media/image8.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-08.webp",
+      "sourceBytes": 12612,
+      "outputBytes": 57956,
+      "sha256": "85859b027acd94dc4d64c004a94799aeeef498c8267dea549cc68d171760137a",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-08-85859b027acd.webp"
+    },
+    {
+      "source": "word/media/image9.png",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-09.webp",
+      "sourceBytes": 133139,
+      "outputBytes": 86750,
+      "sha256": "e1d1808fd4b13eeb6e1eef36bfa1d84f54992cafb1af10b724341c184bfaa8b5",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-09-e1d1808fd4b1.webp"
+    },
+    {
+      "source": "word/media/image10.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-10.webp",
+      "sourceBytes": 39092,
+      "outputBytes": 191230,
+      "sha256": "9e94302bcdbd538a941e8b9688fa9316a6e73bcab8d97c3551087b093dd340bd",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-10-9e94302bcdbd.webp"
+    },
+    {
+      "source": "word/media/image11.png",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-11.webp",
+      "sourceBytes": 104369,
+      "outputBytes": 66386,
+      "sha256": "d003016baea527ee3ff8c20e405f1ce449a127daad867bccfb24a29bf376414a",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-11-d003016baea5.webp"
+    },
+    {
+      "source": "word/media/image12.png",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-12.webp",
+      "sourceBytes": 342666,
+      "outputBytes": 189090,
+      "sha256": "8de75e2c58fe82a0d1b4ef98270b749a57cf7782adcf64cf46aa20aacf4915bc",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-12-8de75e2c58fe.webp"
+    },
+    {
+      "source": "word/media/image13.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-13.webp",
+      "sourceBytes": 38723,
+      "outputBytes": 166112,
+      "sha256": "c5098573653aad2e839bff87978a121a8dd1101e2a0562db1b2037d933952063",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-13-c5098573653a.webp"
+    },
+    {
+      "source": "word/media/image14.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-14.webp",
+      "sourceBytes": 39651,
+      "outputBytes": 194864,
+      "sha256": "c05d77f2b7508a62d4864a5b6682a4baa25fbd1053b9e5ce61d2722a31fa2d78",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-14-c05d77f2b750.webp"
+    },
+    {
+      "source": "word/media/image15.png",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-15.webp",
+      "sourceBytes": 232702,
+      "outputBytes": 134874,
+      "sha256": "14955356b31e9523451a0a5d1e176f91de4fe2c6ff0936e51694c3e39e58976b",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-15-14955356b31e.webp"
+    },
+    {
+      "source": "word/media/image16.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-16.webp",
+      "sourceBytes": 36876,
+      "outputBytes": 159530,
+      "sha256": "7bd576c0e0893856695705c3218caa68b461a90d2e86d306c2f541bd4491c780",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-16-7bd576c0e089.webp"
+    },
+    {
+      "source": "word/media/image17.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-17.webp",
+      "sourceBytes": 25009,
+      "outputBytes": 137806,
+      "sha256": "8abf2ca6be0cbf65c8c3ef96a3f29b164c9f381e5aaf5d68d011f53b6b7f7404",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-17-8abf2ca6be0c.webp"
+    },
+    {
+      "source": "word/media/image18.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-18.webp",
+      "sourceBytes": 65757,
+      "outputBytes": 296680,
+      "sha256": "e3ab9ec265c6d63538babb2b68d76ea2fbdef92ba0f0d6373764aa5546793883",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-18-e3ab9ec265c6.webp"
+    },
+    {
+      "source": "word/media/image19.png",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-19.webp",
+      "sourceBytes": 66683,
+      "outputBytes": 41400,
+      "sha256": "ef4e86b4e0f4c3b2d22241b5472b9695425b3920f46accd05cf626fdf56816b2",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-19-ef4e86b4e0f4.webp"
+    },
+    {
+      "source": "word/media/image20.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-20.webp",
+      "sourceBytes": 21458,
+      "outputBytes": 91332,
+      "sha256": "5e22ff37d45e6a025dd9041226c21846964d1ed128df46ed649e005f8e4c7ce0",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-20-5e22ff37d45e.webp"
+    },
+    {
+      "source": "word/media/image21.png",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-21.webp",
+      "sourceBytes": 111816,
+      "outputBytes": 68268,
+      "sha256": "b6dfb8f5ff1f29ebb096f26c2e7308d33b6385a961293ef0d82a7325e32c6094",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-21-b6dfb8f5ff1f.webp"
+    },
+    {
+      "source": "word/media/image22.png",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-22.webp",
+      "sourceBytes": 143685,
+      "outputBytes": 83016,
+      "sha256": "52f12a3895c4bda598d2dd675cb02ecf1a2f21d7ca7887fc27c397c2f2857d73",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-22-52f12a3895c4.webp"
+    },
+    {
+      "source": "word/media/image23.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-23.webp",
+      "sourceBytes": 23455,
+      "outputBytes": 99030,
+      "sha256": "ba3c3fee6a0240140e7b029b8c17b592507601bb19271ca1de72388f11edb758",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-23-ba3c3fee6a02.webp"
+    },
+    {
+      "source": "word/media/image24.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-24.webp",
+      "sourceBytes": 12708,
+      "outputBytes": 57162,
+      "sha256": "b0441684ff98fa5e99bebc9db70063c9d12af64dbf60c39f1cc1cbc8b1a43bd9",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-24-b0441684ff98.webp"
+    },
+    {
+      "source": "word/media/image25.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-25.webp",
+      "sourceBytes": 16571,
+      "outputBytes": 71984,
+      "sha256": "f274245c4bda5c7d4923a3a907618e22caf5d17c2b4a1ded973a5c5e54b4bc23",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-25-f274245c4bda.webp"
+    },
+    {
+      "source": "word/media/image26.jpeg",
+      "output": "/figures/wet-lab/notebook/notebook-daily-fig-26.webp",
+      "sourceBytes": 17394,
+      "outputBytes": 79648,
+      "sha256": "128c130fe23e0c6ac55806622c84ee1fafff851f56d11f118babeb830379f586",
+      "url": "https://static.igem.wiki/teams/6212/wiki/lab/notebook-daily-fig-26-128c130fe23e.webp"
+    },
+    {
+      "source": "word/media/image1.png",
+      "output": "/figures/wet-lab/engineering/engineering-beta-citraurin-fig-01.webp",
+      "sourceBytes": 14549,
+      "outputBytes": 6140,
+      "sha256": "b31fe96d7d69ddeba97d58985c0dd90ad7628215223e19850a0855e670a0eb5f",
+      "url": "https://static.igem.wiki/teams/6212/wiki/engineering/engineering-beta-citraurin-fig-01-b31fe96d7d69.webp"
+    },
+    {
+      "source": "word/media/image2.png",
+      "output": "/figures/wet-lab/engineering/engineering-beta-citraurin-fig-02.webp",
+      "sourceBytes": 3897993,
+      "outputBytes": 308396,
+      "sha256": "33f4a989016b2611125fd666e4e1dfd90aa43a4dcb683f8bb9bbe40d05e20d41",
+      "url": "https://static.igem.wiki/teams/6212/wiki/engineering/engineering-beta-citraurin-fig-02-33f4a989016b.webp"
+    },
+    {
+      "source": "word/media/image3.png",
+      "output": "/figures/wet-lab/engineering/engineering-beta-citraurin-fig-03.webp",
+      "sourceBytes": 1259471,
+      "outputBytes": 93314,
+      "sha256": "323b53fe202c50e73bbf71e6de3eeb169afad28d7b1766e3fe36055261875eb6",
+      "url": "https://static.igem.wiki/teams/6212/wiki/engineering/engineering-beta-citraurin-fig-03-323b53fe202c.webp"
+    },
+    {
+      "source": "word/media/image4.png",
+      "output": "/figures/wet-lab/engineering/engineering-beta-citraurin-fig-04.webp",
+      "sourceBytes": 3121633,
+      "outputBytes": 432884,
+      "sha256": "5c3bc3890e3e8d5efcc80cd356fe90f74ae6123df7eea67de4df7217b862213c",
+      "url": "https://static.igem.wiki/teams/6212/wiki/engineering/engineering-beta-citraurin-fig-04-5c3bc3890e3e.webp"
+    },
+    {
+      "source": "word/media/image5.png",
+      "output": "/figures/wet-lab/engineering/engineering-beta-citraurin-fig-05.webp",
+      "sourceBytes": 857618,
+      "outputBytes": 60314,
+      "sha256": "85c04511fb4f69af12de0544d74ffe95437889b14f4bea50047777ff6e8a0e02",
+      "url": "https://static.igem.wiki/teams/6212/wiki/engineering/engineering-beta-citraurin-fig-05-85c04511fb4f.webp"
+    },
+    {
+      "source": "word/media/image6.png",
+      "output": "/figures/wet-lab/engineering/engineering-beta-citraurin-fig-06.webp",
+      "sourceBytes": 872948,
+      "outputBytes": 67208,
+      "sha256": "19e632ecf04a2c3e750d8994e0be16c4054880e5d0e3710525dada28c1205110",
+      "url": "https://static.igem.wiki/teams/6212/wiki/engineering/engineering-beta-citraurin-fig-06-19e632ecf04a.webp"
+    },
+    {
+      "source": "word/media/image11.png",
+      "output": "/figures/wet-lab/engineering/engineering-beta-ionone-fig-01.webp",
+      "sourceBytes": 440284,
+      "outputBytes": 76704,
+      "sha256": "d499ed5d1300df77ff6561654879526bd5d033612a3602d4c0c242759eca2bcc",
+      "url": "https://static.igem.wiki/teams/6212/wiki/engineering/engineering-beta-ionone-fig-01-d499ed5d1300.webp"
+    },
+    {
+      "source": "word/media/image12.png",
+      "output": "/figures/wet-lab/engineering/engineering-beta-ionone-fig-02.webp",
+      "sourceBytes": 458967,
+      "outputBytes": 59984,
+      "sha256": "465c495b57a299948dc00af324bfae3e3bf46533926740d872d53acf2f37d58b",
+      "url": "https://static.igem.wiki/teams/6212/wiki/engineering/engineering-beta-ionone-fig-02-465c495b57a2.webp"
+    },
+    {
+      "source": "word/media/image8.png",
+      "output": "/figures/wet-lab/engineering/engineering-beta-ionone-fig-03.webp",
+      "sourceBytes": 960170,
+      "outputBytes": 139784,
+      "sha256": "dccf858eff667f1a08a6b61f32799ae3c1904755f83ea7828536427a96cb538f",
+      "url": "https://static.igem.wiki/teams/6212/wiki/engineering/engineering-beta-ionone-fig-03-dccf858eff66.webp"
+    },
+    {
+      "source": "word/media/image9.png",
+      "output": "/figures/wet-lab/engineering/engineering-beta-ionone-fig-04.webp",
+      "sourceBytes": 308209,
+      "outputBytes": 208578,
+      "sha256": "db75b9dca60040e4831ca41f129098cf254d4fb1cbd142d8446f3f9542a06137",
+      "url": "https://static.igem.wiki/teams/6212/wiki/engineering/engineering-beta-ionone-fig-04-db75b9dca600.webp"
+    },
+    {
+      "source": "word/media/image5.png",
+      "output": "/figures/wet-lab/engineering/engineering-beta-ionone-fig-05.webp",
+      "sourceBytes": 48973,
+      "outputBytes": 17488,
+      "sha256": "0f33ed4c84bb8eb92fe45a5cf60b17cd5f5e76785b3c0ccd4b108bdb671bc13b",
+      "url": "https://static.igem.wiki/teams/6212/wiki/engineering/engineering-beta-ionone-fig-05-0f33ed4c84bb.webp"
+    }
+  ],
+  "notebookSections": 10,
+  "engineeringModules": 2
+}
