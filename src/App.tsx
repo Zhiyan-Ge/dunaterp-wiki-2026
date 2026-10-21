@@ -464,7 +464,6 @@ function Article({ slug }: { slug: string }) {
     slug === 'safety-and-security' ? ' article-page--safety' : '',
     slug === 'experiments' ? ' article-page--experiments' : '',
     slug === 'lab-notebook' ? ' article-page--notebook' : '',
-    slug === 'lab-safety' ? ' article-page--lab-safety' : '',
     slug === 'team' ? ' article-page--team' : '',
     slug === 'parts' ? ' article-page--parts' : '',
     slug === 'attributions' ? ' article-page--attributions' : '',
