@@ -830,3 +830,22 @@ body:has(.article-page--description) { background: #f3f5ef; }
   .article-page.article-page--description #section-1 .research-blocks > p { margin: 1.25rem 0; }
   .article-page.article-page--description #section-1 .research-blocks > .research-figure { width: min(17rem, 100%); margin: 1.5rem auto; }
 }
+
+/* All article chapters use one continuous reading surface. Individual figures,
+   tables and interactive elements keep their functional boundaries, but a
+   chapter itself is no longer presented as a separate card. */
+.article-page .article-sections > section {
+  margin: 0;
+  padding: clamp(2.6rem, 5vw, 4.6rem) 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.article-page .article-sections > section:first-child { padding-top: 0; }
+.article-page .article-sections > section:last-child { padding-bottom: 0; }
+@media (max-width: 800px) {
+  .article-page .article-sections > section {
+    padding: 2.2rem 0;
+    box-shadow: none;
+  }
+}
