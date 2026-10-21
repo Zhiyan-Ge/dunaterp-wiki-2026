@@ -14,7 +14,7 @@ import { ReferenceList } from './ReferenceList';
 
 const PixelWorld = lazy(() => import("./PixelWorld").then((module) => ({ default: module.PixelWorld })));
 const MODELING_PATHS = ['/dry-lab', '/transcriptomics', '/metabolomics', '/protein', '/model', '/safety-and-security'];
-const HUMAN_PRACTICES_PATHS = ['/integrated-human-practices', '/background-research', '/stakeholder-analysis', '/project-improvement', '/education', '/cooperation'];
+const HUMAN_PRACTICES_PATHS = ['/integrated-human-practices', '/background-research', '/integrated-human-practices/stakeholder-analysis', '/project-improvement', '/education', '/cooperation'];
 const ARTICLE_GROUP_HEROES: Record<string, string> = {
   Project: '/images/great-salt-lake-iss063-e-40184.jpg',
   'Dry Lab': '/images/heroes/dry-lab.webp',
@@ -220,7 +220,7 @@ const TOC_CHAPTERS: Record<string, TocChapterDefinition[]> = {
     { title: "Parameters & Formulation", start: 4, end: 5 },
     { title: "Project Implications", start: 6, end: 6 },
   ],
-  "stakeholder-analysis": [
+  "integrated-human-practices/stakeholder-analysis": [
     { title: "Stakeholder Framework", start: 0, end: 0 },
     { title: "Public & Industry", start: 1, end: 3 },
     { title: "Regulation & Research", start: 4, end: 5 },
@@ -496,6 +496,7 @@ export default function App() {
   return <><Link className="skip-link" to={{ pathname, search, hash: "#main-content" }}>Skip to content</Link><ScrollAndTitle /><Routes>
     <Route path="/" element={<><Suspense fallback={<BootLoadingScreen />}><PixelWorld Header={Header} /></Suspense><Footer /></>} />
     <Route path="/wiki-map" element={<WikiMap />} />
+    <Route path="/stakeholder-analysis" element={<Navigate to="/integrated-human-practices/stakeholder-analysis" replace />} />
     {pageOrder.map((slug) => <Route key={slug} path={`/${slug}`} element={<Article slug={slug} />} />)}
     <Route path="*" element={<Navigate to="/wiki-map" replace />} />
   </Routes></>;

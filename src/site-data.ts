@@ -206,7 +206,7 @@ export const pages: Record<string, WikiPage> = {
   collaboration,
   "integrated-human-practices": integratedHumanPractices,
   "background-research": ihpBackgroundResearch,
-  "stakeholder-analysis": ihpStakeholderAnalysis,
+  "integrated-human-practices/stakeholder-analysis": ihpStakeholderAnalysis,
   "project-improvement": ihpProjectImprovement,
   team,
   attributions,
