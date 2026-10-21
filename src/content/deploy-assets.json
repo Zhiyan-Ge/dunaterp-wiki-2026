@@ -135,6 +135,8 @@
   "images/heroes/people.webp": "https://static.igem.wiki/teams/6212/wiki/dunaterp-81356d9e6ae9.webp",
   "protocols/Experiment_CPP2146_EN.docx": "protocols/Experiment_CPP2146_EN.docx",
   "protocols/Experiment_CPP2146_EN.pdf": "https://static.igem.wiki/teams/6212/wiki/dunaterp-caccb1bbcebd.pdf",
+  "protocols/Experiment_KillSwitch_EN.pdf": "https://static.igem.wiki/teams/6212/wiki/protocols/experiment-kill-switch-307909af7e77.pdf",
+  "protocols/Experiment_Product_Synthesis_EN.pdf": "https://static.igem.wiki/teams/6212/wiki/protocols/experiment-product-synthesis-ff2b9cea7f4e.pdf",
   "protocols/Experiment_Team_EN.docx": "protocols/Experiment_Team_EN.docx",
   "protocols/Experiment_Team_EN.pdf": "https://static.igem.wiki/teams/6212/wiki/dunaterp-58e2d2dedb67.pdf",
   "protocols/hp/responsible-ai-practice-handbook.pdf": "https://static.igem.wiki/teams/6212/wiki/hp/hp-responsible-ai-practice-handbook-cca16a417372.pdf",
@@ -265,5 +267,16 @@
   "figures/hp/ihp/ihp-improvement-fig-18.webp": "https://static.igem.wiki/teams/6212/wiki/hp/ihp-improvement-fig-18-f8360331e77e.webp",
   "figures/hp/ihp/ihp-improvement-fig-19.webp": "https://static.igem.wiki/teams/6212/wiki/hp/ihp-improvement-fig-19-ea810f686a65.webp",
   "figures/hp/ihp/ihp-improvement-fig-20.webp": "https://static.igem.wiki/teams/6212/wiki/hp/ihp-improvement-fig-20-79741ef761e6.webp",
-  "figures/hp/ihp/ihp-improvement-fig-21.webp": "https://static.igem.wiki/teams/6212/wiki/hp/ihp-improvement-fig-21-37a2d0d5d178.webp"
+  "figures/hp/ihp/ihp-improvement-fig-21.webp": "https://static.igem.wiki/teams/6212/wiki/hp/ihp-improvement-fig-21-37a2d0d5d178.webp",
+  "figures/wet-lab/kill-switch-engineering/killswitch-cycle1-colony-pcr.png": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle1-colony-pcr-42302317f27c.webp",
+  "figures/wet-lab/kill-switch-engineering/killswitch-cycle1-growth-curve.png": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle1-growth-curve-5fb8f0b7570b.webp",
+  "figures/wet-lab/kill-switch-engineering/killswitch-cycle1-map.png": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle1-map-577b58ceac20.webp",
+  "figures/wet-lab/kill-switch-engineering/killswitch-cycle1-sequencing.png": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle1-sequencing-b56436ac317d.webp",
+  "figures/wet-lab/kill-switch-engineering/killswitch-cycle2-colony-pcr.png": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle2-colony-pcr-640a2f45ff77.webp",
+  "figures/wet-lab/kill-switch-engineering/killswitch-cycle2-growth-curve.png": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle2-growth-curve-7a84daae56a7.webp",
+  "figures/wet-lab/kill-switch-engineering/killswitch-cycle2-map.png": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle2-map-65a7499e2119.webp",
+  "figures/wet-lab/kill-switch-engineering/killswitch-cycle2-sequencing.png": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle2-sequencing-1ab5409edce7.webp",
+  "figures/wet-lab/kill-switch-engineering/killswitch-cycle3-colony-pcr.png": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle3-colony-pcr-6c23b52bac00.webp",
+  "figures/wet-lab/kill-switch-engineering/killswitch-cycle3-map.png": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle3-map-30896f0b036b.webp",
+  "figures/wet-lab/kill-switch-engineering/killswitch-cycle3-sequencing.png": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle3-sequencing-02f85f1c9121.webp"
 }

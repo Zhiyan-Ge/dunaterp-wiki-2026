@@ -1790,5 +1790,96 @@
     "sha256": "d280b73223b9ad5be7d6e836b2316f05297abdb160512be72e7f31128f5b4408",
     "sourceSha256": "d280b73223b9ad5be7d6e836b2316f05297abdb160512be72e7f31128f5b4408",
     "bytes": 341456
+  },
+  {
+    "source": "figures/wet-lab/kill-switch-engineering/killswitch-cycle1-colony-pcr.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle1-colony-pcr-42302317f27c.webp",
+    "sha256": "42302317f27c4f4a96e6c87ffd6e597398f808e30ba62d48f8497a32312f2a79",
+    "sourceSha256": "d6f64e0c74fae1f37f2fe4d8c72f6b440fb528a764e78a987b6596ab77b81a3d",
+    "bytes": 149452
+  },
+  {
+    "source": "figures/wet-lab/kill-switch-engineering/killswitch-cycle1-growth-curve.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle1-growth-curve-5fb8f0b7570b.webp",
+    "sha256": "5fb8f0b7570b5ceb28ad9cfabf59d51f1832dc9c05fd57ebf66e30e59eba2d20",
+    "sourceSha256": "83f072955ae75dc0bf30685ab7af961d0bcf044d8886f3c4b7cba360ae3335bd",
+    "bytes": 9896
+  },
+  {
+    "source": "figures/wet-lab/kill-switch-engineering/killswitch-cycle1-map.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle1-map-577b58ceac20.webp",
+    "sha256": "577b58ceac20fab58c04c96fd520b80c4e8361ad216513679a85799d12098958",
+    "sourceSha256": "86254ef3e32df6ba732c414bb734ae60813484eb7076b71668dd6aa51ef0f9d4",
+    "bytes": 242032
+  },
+  {
+    "source": "figures/wet-lab/kill-switch-engineering/killswitch-cycle1-sequencing.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle1-sequencing-b56436ac317d.webp",
+    "sha256": "b56436ac317d74f54560a933732366bd67f2d591bdb22e5b43559cf33b23f6ba",
+    "sourceSha256": "3a08fb545f0faea4fa8ff56871c02b20ec908092585805ca60d8776518f46a61",
+    "bytes": 44312
+  },
+  {
+    "source": "figures/wet-lab/kill-switch-engineering/killswitch-cycle2-colony-pcr.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle2-colony-pcr-640a2f45ff77.webp",
+    "sha256": "640a2f45ff775c734849d9eb4764642583db0625966fff891e5ea07f012c5d8d",
+    "sourceSha256": "7e67b8fced3fe7bbbcc60586cd2bfc1f3fce57a3366e23470889a8890f210b90",
+    "bytes": 189558
+  },
+  {
+    "source": "figures/wet-lab/kill-switch-engineering/killswitch-cycle2-growth-curve.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle2-growth-curve-7a84daae56a7.webp",
+    "sha256": "7a84daae56a77c5f6862c214f12cf37b8a83cc4d4969690c7053a8b4c5955666",
+    "sourceSha256": "e0a3ad70a82beebe6b060a2472df4e81cbc1190bccf783a2337d99e264b51f49",
+    "bytes": 7572
+  },
+  {
+    "source": "figures/wet-lab/kill-switch-engineering/killswitch-cycle2-map.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle2-map-65a7499e2119.webp",
+    "sha256": "65a7499e211981cd0494cc1f3963577823e3db29956e8a6ffbbdec79cdc3bda5",
+    "sourceSha256": "4bd566e15dd013cd25e3dea5f2551f878b3ac0fe66a9f59db4becafdb9bf39ee",
+    "bytes": 246984
+  },
+  {
+    "source": "figures/wet-lab/kill-switch-engineering/killswitch-cycle2-sequencing.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle2-sequencing-1ab5409edce7.webp",
+    "sha256": "1ab5409edce7b640c213eb07c5140fc05bbedf5fccd387a2d3a0cc04aa4c3a7d",
+    "sourceSha256": "95d2fe35d61133a4f4ee3e7bca1d17034909a0240c35fc93f7281621c55cbb7d",
+    "bytes": 14758
+  },
+  {
+    "source": "figures/wet-lab/kill-switch-engineering/killswitch-cycle3-colony-pcr.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle3-colony-pcr-6c23b52bac00.webp",
+    "sha256": "6c23b52bac00f4f10ccad547713ae62ae947df5d62b416e243283671341f6dc4",
+    "sourceSha256": "43a7b6f42f1a2872d8c9eaf347be3a16cda02d68cae710844eacf22455f6aafa",
+    "bytes": 107836
+  },
+  {
+    "source": "figures/wet-lab/kill-switch-engineering/killswitch-cycle3-map.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle3-map-30896f0b036b.webp",
+    "sha256": "30896f0b036b0043b8c30d8f8966dae39074453870369d0953b0d28008f6648c",
+    "sourceSha256": "08615f3bd28b9258557c575d6dadde04a5d160e231ea95b19871d6f965955119",
+    "bytes": 243790
+  },
+  {
+    "source": "figures/wet-lab/kill-switch-engineering/killswitch-cycle3-sequencing.png",
+    "url": "https://static.igem.wiki/teams/6212/wiki/lab/kill-switch-engineering/killswitch-cycle3-sequencing-02f85f1c9121.webp",
+    "sha256": "02f85f1c91218a698f36284307c2e2759e1284ddffc4992d86b1bd5537fe5ad8",
+    "sourceSha256": "8ce4d4b02f837f485ea583baf85a210453e943bd5c7b2bd805554c76836b0555",
+    "bytes": 17670
+  },
+  {
+    "source": "protocols/Experiment_KillSwitch_EN.pdf",
+    "url": "https://static.igem.wiki/teams/6212/wiki/protocols/experiment-kill-switch-307909af7e77.pdf",
+    "sha256": "307909af7e77111a631f86754c6e538ddac8a7d6e8761efb81955367eacdfdf1",
+    "sourceSha256": "307909af7e77111a631f86754c6e538ddac8a7d6e8761efb81955367eacdfdf1",
+    "bytes": 164554
+  },
+  {
+    "source": "protocols/Experiment_Product_Synthesis_EN.pdf",
+    "url": "https://static.igem.wiki/teams/6212/wiki/protocols/experiment-product-synthesis-ff2b9cea7f4e.pdf",
+    "sha256": "ff2b9cea7f4e853bb1043fa2319e11350a49e8ec290286677ae8ad076601082b",
+    "sourceSha256": "ff2b9cea7f4e853bb1043fa2319e11350a49e8ec290286677ae8ad076601082b",
+    "bytes": 1059929
   }
 ]
