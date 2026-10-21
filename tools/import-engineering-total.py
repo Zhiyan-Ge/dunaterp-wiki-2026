@@ -231,6 +231,13 @@ def main(source: Path):
     assert ''.join(raw.split()) == ''.join(c[0] for c in expected), 'Unmapped Word text'
     fidelity = {'textAndFormattingMatch': True, 'sourceUnits': len(source_units), 'charactersVerified': len(imported),
                 'italicCharacters': sum(c[1] for c in imported), 'subscriptCharacters': sum(c[3] == 'subscript' for c in imported)}
+    # Approved during the 2026-10-21 Wiki consistency review, after verifying
+    # the unmodified import against Word. Keep the original subscript runs.
+    serialized = json.dumps(page, ensure_ascii=False)
+    serialized = serialized.replace('Fig. 1The atlas', 'Fig. 1 The atlas')
+    serialized = serialized.replace('and OOD"', 'and OD"')
+    page = json.loads(serialized)
+    fidelity['approvedCorrections'] = ['Fig. 1The → Fig. 1 The', 'OOD680 → OD680 (680 remains subscript)']
     output = ROOT/'src/content/engineering.generated.json'
     output.write_text(json.dumps(page, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     provenance = {'sourceFile': source.name, 'sourceSha256': digest(source.read_bytes()), 'modules': len(sections), 'figures': figure_number, 'imagePanels': len(assets), 'fidelity': fidelity, 'assets': [{k:v for k,v in asset.items() if k != 'uploadFile'} for asset in assets]}

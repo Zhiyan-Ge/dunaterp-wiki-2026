@@ -1,3 +1,4 @@
+import { renderInlineText } from './inline-text';
 import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
 import type { StationCopy } from "./pixel/station-copy";
 import "./station-dialogue.css";
@@ -86,7 +87,7 @@ export function StationDialogue({ station, onClose }: StationDialogueProps) {
         <article className="station-dialogue__page" aria-live="polite">
           <p>{current.label}</p>
           <h3>{current.title}</h3>
-          <p>{current.text}</p>
+          <p>{renderInlineText(current.text)}</p>
           <div className="station-dialogue__stamp" aria-hidden="true"><span>{station.index}</span><b>{station.short}</b></div>
         </article>
       </div>

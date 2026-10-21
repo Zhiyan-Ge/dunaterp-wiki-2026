@@ -1,3 +1,4 @@
+import { renderInlineText } from './inline-text';
 import {
   useCallback,
   useEffect,
@@ -96,7 +97,6 @@ const panelGroups: PanelGroup[] = [
       { label: "Contribution", href: "/contribution", note: "What the project contributes" },
       { label: "Design", href: "/design", note: "Platform logic and route architecture" },
       { label: "Experiments", href: "/experiments", note: "Validation workflows and records" },
-      { label: "Results", href: "/results", note: "Evidence and its limits" },
       { label: "Engineering", href: "/engineering", note: "Design · Build · Test · Learn" },
       { label: "Safety", href: "/safety-and-security", note: "Containment and risk design" },
       { label: "Parts", href: "/parts", note: "Part and device overview" },
@@ -1686,7 +1686,7 @@ export function DunaWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
             className={`duna-scroll-segment duna-scroll-chapter${index % 2 ? " is-right" : ""}`}
             style={{ "--chapter-accent": chapter.c } as CSSProperties}
             aria-labelledby={`chapter-${chapter.n}`}
-          ><div><p><span>{chapter.n} / 06</span>{chapter.kicker}</p><h2 id={`chapter-${chapter.n}`}>{chapter.title}</h2><p>{chapter.body}</p><Link to={chapter.link}>Explore this chapter <span aria-hidden="true">↗</span></Link></div></section>
+          ><div><p><span>{chapter.n} / 06</span>{chapter.kicker}</p><h2 id={`chapter-${chapter.n}`}>{renderInlineText(chapter.title)}</h2><p>{renderInlineText(chapter.body)}</p><Link to={chapter.link}>Explore this chapter <span aria-hidden="true">↗</span></Link></div></section>
         ))}
         <div className="duna-terminal-space" aria-hidden="true" />
       </div>

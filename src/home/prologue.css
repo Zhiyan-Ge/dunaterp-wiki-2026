@@ -85,6 +85,7 @@
 .story-text { position: relative; display: block; font: 500 clamp(.88rem, 1.3vw, 1.05rem)/1.65 var(--font-mono); }
 .story-text-ink { display: block; min-height: 3.3em; }
 .story-word { display: inline-block; white-space: nowrap; }
+.home-prologue .scientific-name { font-family: var(--font-sans); font-style: italic; }
 .story-char { position: relative; visibility: hidden; }
 .story-char.is-visible { visibility: visible; }
 .story-cursor { position: absolute; left: 100%; bottom: .18em; width: .4rem; height: .8rem; background: #cdf558; visibility: visible; animation: story-cursor-blink .72s steps(1, end) infinite; }

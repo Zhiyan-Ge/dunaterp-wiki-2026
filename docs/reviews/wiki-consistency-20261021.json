@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-21",
+  "destination": "GitHub preview only",
+  "approvedAndImplemented": {
+    "1": "Italicize scientific genus/species names and their abbreviations in editable Wiki text; preserve strain identifiers and other existing emphasis.",
+    "2": "Remove the Description-only caption override; use the shared caption typography and alignment.",
+    "4": "Use the shared responsive section-heading size on Experiments, Team and Attributions.",
+    "6": [
+      "Fig. 1The atlas → Fig. 1 The atlas (alt, caption and caption runs)",
+      "OOD680 → OD680; preserve 680 subscript"
+    ],
+    "8": "Withdraw the Results route, header/archive/home links, page order and deployment route; preserve the draft in results-before-upload-20261021.txt."
+  },
+  "deferred": {
+    "3": {
+      "status": "recorded_do_not_change",
+      "topic": "Shared figure-grid captions are 20.8px versus regular figure captions 17.28px at 1280px."
+    },
+    "5": {
+      "status": "awaiting_manual_verification",
+      "topic": "Engineering in-text figure citations disagree with consolidated figure numbering.",
+      "examples": {
+        "betaIonone": "Body Fig. 1–5 versus captions Fig. 7–11",
+        "betaCitraurin": "Body Fig. 1–6 versus captions Fig. 18–23"
+      }
+    },
+    "7": {
+      "status": "canonical_name_recorded_rename_not_applied",
+      "canonicalName": "CPP2146",
+      "identity": "User confirms CPP2146 and TF2146 refer to the same object.",
+      "impact": [
+        "Protein: update visible headings, text, captions, alt text, table labels and its TF2146–DNA Contents chapter together.",
+        "The Protein structure SVG contains TF2146 text converted to vector paths; replacing a caption alone will leave an old name inside the image. Regenerate from verified source before relabeling the published figure.",
+        "Keep existing asset paths, source filenames, gene/sequence accession Gene.80461::F01_cb4882_c5/f1p0/2146, residues and numerical results stable.",
+        "Model: T, m, E, L, B, Kd and solver parameters are generic symbols; the downloadable scenario JSON and model generator contain no TF2146 string. Display-name replacement does not change these computations.",
+        "tools/check-dry-lab.mjs currently rejects any CPP string in Model as an obsolete-content guard. Replace that guard with a specific identity/legacy-content check when applying the approved canonical name.",
+        "Results is withdrawn and its saved draft still contains TF2146. Use CPP2146 when the replacement Results content is uploaded.",
+        "Dry Lab overview and Attributions also use TF2146 and must be synchronized in a later rename.",
+        "Keep the current computational-evidence caveats. A naming change does not turn promoter-binding hypotheses into validated results."
+      ],
+      "sourceOccurrences": {
+        "src/content/protein.ts": 3,
+        "src/content/tf2146.ts": 11,
+        "src/content/synthetic-dna.ts": 4,
+        "src/content/dry-lab.ts": 11,
+        "src/App.tsx": 1,
+        "src/content/attributions.ts": 3
+      }
+    },
+    "9": {
+      "status": "awaiting_user_review",
+      "style": "NLM Citing Medicine, citation-sequence (Vancouver family)",
+      "rules": [
+        "Keep page-local numbered [1] citations and list references in first-citation order; reuse the same number for repeated sources.",
+        "Article: Author surname and initials. Article title. NLM journal abbreviation. Year;volume(issue):pages/article number. doi:linked DOI.",
+        "List all verified authors; complete truncated or missing metadata only after checking the original source. Preserve titles and scientific information.",
+        "Web: Organization/author. Page title [Internet]. Publication/update date when available [cited date]. Available from: linked URL.",
+        "Dataset: Creator. Dataset title [dataset]. Repository; year. Accession and linked persistent identifier.",
+        "Use Duna Serif 16.64px, normal weight, line-height 1.7, a fixed number column/hanging indent, and natural wrapping; italicize scientific names only.",
+        "Make DOI/URL the link rather than the entire paragraph. Do not add journal-title italics, bold years, or [J]/[EB/OL] labels to this NLM layout."
+      ],
+      "sources": [
+        "https://www.ncbi.nlm.nih.gov/books/NBK7265/",
+        "https://www.ncbi.nlm.nih.gov/books/NBK7282/"
+      ],
+      "sample": "D:/IGEM/wiki-consistency-audit/reference-style-review.html"
+    }
+  },
+  "limits": "Changes affect editable webpage text. Text baked into figures or embedded/downloaded PDFs retains the source typography."
+}

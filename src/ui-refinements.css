@@ -813,7 +813,6 @@ body:has(.article-page--description) { background: #f3f5ef; }
 .article-page.article-page--description .article-sections h2 { margin-bottom: 1.5rem; }
 .article-page.article-page--description .article-sections p { max-width: none; }
 .article-page.article-page--description .feature-figure { padding: 0; border: 0; background: transparent; box-shadow: none; }
-.article-page.article-page--description .feature-figure figcaption { padding: .8rem 0 0; color: #65736a; font-family: inherit; font-size: .83rem; font-weight: 500; line-height: 1.6; text-align: left; }
 .article-page.article-page--description .article-toc { padding: .2rem 0 .2rem 1rem; border: 0; border-left: 2px solid #dbe4d3; background: transparent; box-shadow: none; }
 .article-page.article-page--description #section-1 .research-blocks { display: grid; grid-template-columns: minmax(0, 1fr) minmax(13rem, 17rem); gap: 1.25rem 1.8rem; align-items: start; }
 .article-page.article-page--description #section-1 .research-blocks > p { grid-column: 1; margin: 0; }

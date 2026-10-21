@@ -1,3 +1,4 @@
+import { renderInlineText } from './inline-text';
 import {
   useCallback,
   useEffect,
@@ -811,7 +812,7 @@ export function ExpeditionJournal({
                 </div>
                 <div className="ej-speech">
                   <span className="ej-speech__tag">HP DISCUSSION SUMMARY</span>
-                  <p>{activeNpc.intro}</p>
+                  <p>{renderInlineText(activeNpc.intro)}</p>
                 </div>
                 <fieldset className="ej-prompts">
                   <legend>Ask a question</legend>
@@ -831,7 +832,7 @@ export function ExpeditionJournal({
                 </fieldset>
                 {dialogueChoice && (
                   <p className="ej-response" role="status" aria-live="polite">
-                    {activeNpc.prompts.find((prompt) => prompt.id === dialogueChoice)?.response}
+                    {renderInlineText(activeNpc.prompts.find((prompt) => prompt.id === dialogueChoice)?.response ?? "")}
                   </p>
                 )}
                 {onTravel && (

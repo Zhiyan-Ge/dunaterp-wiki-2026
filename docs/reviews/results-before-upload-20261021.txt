@@ -1,0 +1,18 @@
+  results: {
+    title: "What the evidence shows", eyebrow: "Results", intro: "Light changes carotenoid-pathway transcript abundance, but the pathway does not rise or fall as one synchronized unit. The models identify LCYB and the β-carotene entry split as useful control points, while protein, pigment and flux measurements remain necessary to test the proposed mechanism.", status: "team-draft",
+    references: [refs.transcriptomeDataset, refs.li2019, refs.fachet2020, refs.lan2022, refs.alphafold3],
+    sections: [
+      { title: "Transcript responses are not uniform", body: "Across the three light conditions, carotenoid-pathway transcripts respond individually rather than as a single coordinated block [1] [2]. One LCYB-assigned contig rises from low to medium light and then falls at high light; the other remains higher under high light than under low light. This transcript-specific behavior makes LCYB a biologically motivated modeling focus without implying that LCYB protein activity or β-carotene flux increased.", blocks: [
+        { kind: "figure", src: "/figures/dry-lab/transcriptomics-sample-expression.svg", alt: "Replicate-level normalized read counts for six carotenoid-enzyme transcripts across three light conditions.", caption: "Fig. 1 Replicate-level expression of carotenoid transcripts" },
+      ] },
+      { title: "The shared hub supports unequal product routes", body: "The reconstructed metabolic network is based on the published D. salina carbon-core reconstruction [3] and supports all four engineered product routes under the tested constraints. Conditional maximum flux is consistently highest for β-ionone, followed by β-citraurin, astaxanthin and crocetin. High-light, low-nitrate scenarios provide the strongest modeled product support, and sensitivity analysis places the greatest leverage at the β-carotene entry split.", blocks: [
+        { kind: "figure", src: "/figures/dry-lab/platform_environment_map_heatmap.png", alt: "Modeled production potential for four target products across eight environmental scenarios.", caption: "Fig. 2 Product potential across environmental scenarios" },
+      ] },
+      { title: "Structural screening narrows hypotheses", body: "F404Y produced a slightly more favorable mean lycopene docking score than WT, but the difference was small relative to seed-to-seed variation and did not establish improved binding or catalysis. The TF2146–DNA complex likewise remains a structural hypothesis: AlphaFold 3 provides a predicted interaction model [5], not evidence of native LCYB-promoter recognition.", blocks: [
+        { kind: "figure", src: "/figures/protein/docking-seeds.png", alt: "Lycopene docking scores for WT and F404Y LCYB across three search seeds.", caption: "Fig. 3 Lycopene docking scores for WT and F404Y LCYB" },
+      ] },
+      { title: "The model defines the next measurements", body: "The five-state model links regulatory input, promoter occupancy, LCYB transcript, active enzyme, lycopene conversion and the β-carotene pool. Its present predictions are conditional on assumed parameters. Matched measurements of TF2146 abundance or binding, LCYB transcript and protein, lycopene, β-carotene and product formation are required to calibrate the chain and test whether regulation changes flux.", blocks: [
+        { kind: "figure", src: "/figures/dry-lab/14_regulatory_model.png", alt: "Five-state model connecting regulatory input to LCYB expression and beta-carotene.", caption: "Fig. 4 Regulatory model of the LCYB step" },
+      ] },
+    ],
+  },

@@ -12,9 +12,6 @@
   padding: clamp(1.25rem, 3vw, 2rem);
 }
 .article-page--attributions .section-number { display: none; }
-.article-page--attributions .article-sections h2 {
-  font-size: clamp(1.65rem, 2.6vw, 2.5rem);
-}
 .article-page--attributions ul.attribution-list {
   display: grid;
   gap: 0;

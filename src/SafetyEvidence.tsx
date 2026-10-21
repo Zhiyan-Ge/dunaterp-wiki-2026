@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { renderInlineText } from './inline-text';
 import './safety.css';
 
 export function SafetyOverview() {
@@ -9,7 +10,7 @@ export function SafetyOverview() {
       <div><span>02 / RESPONSE</span><h3>Release suppression</h3><p>The proposed circuit translates lower salinity into greater effective activity of the effector.</p></div>
       <div><span>03 / OUTCOME</span><h3>Limit persistence</h3><p>We compare growth arrest and conditional killing to see which outcomes the design would require.</p></div>
     </div>
-    <p className="safety-footnote">The model represents the circuit as an effective response. Its molecular components have not been individually fitted in engineered Dunaliella.</p>
+    <p className="safety-footnote">{renderInlineText('The model represents the circuit as an effective response. Its molecular components have not been individually fitted in engineered Dunaliella.')}</p>
   </div>;
 }
 

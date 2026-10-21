@@ -54,13 +54,13 @@
         {
           "kind": "figure",
           "src": "/figures/wet-lab/engineering-total/engineering-total-01-e3b1d2f74ad6.webp",
-          "alt": "Fig. 1The atlas of plasmid pCAMBIA1302-2146",
-          "caption": "Fig. 1The atlas of plasmid pCAMBIA1302-2146",
+          "alt": "Fig. 1 The atlas of plasmid pCAMBIA1302-2146",
+          "caption": "Fig. 1 The atlas of plasmid pCAMBIA1302-2146",
           "width": 1063,
           "height": 833,
           "captionRuns": [
             {
-              "text": "Fig. 1The atlas of plasmid pCAMBIA1302-2146"
+              "text": "Fig. 1 The atlas of plasmid pCAMBIA1302-2146"
             }
           ]
         },
@@ -2643,7 +2643,7 @@
           "kind": "document-paragraph",
           "runs": [
             {
-              "text": "iv. WT and empty-vector transformants served as controls; the three groups were inoculated at the same starting density in PKS/DM liquid medium containing 0.5 M NaCl (26 °C, 50 μmol photons m⁻² s⁻¹, 16 h light / 8 h dark), and OOD"
+              "text": "iv. WT and empty-vector transformants served as controls; the three groups were inoculated at the same starting density in PKS/DM liquid medium containing 0.5 M NaCl (26 °C, 50 μmol photons m⁻² s⁻¹, 16 h light / 8 h dark), and OD"
             },
             {
               "text": "680",

@@ -380,10 +380,10 @@ function ArticleToc({ slug, sections, hasReferences }: { slug: string; sections:
     {chapters.map((chapter) => {
       const isOpen = chapter.activeIds.has(activeId);
       return <div className={`toc-group${isOpen ? " is-open" : ""}`} key={chapter.id}>
-        <Link data-toc-id={chapter.id} className={`toc-parent${activeId === chapter.id ? " is-active" : ""}`} aria-current={activeId === chapter.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${chapter.id}` }}>{chapter.titleRuns ? <span><DocumentText runs={chapter.titleRuns} /></span> : chapter.title}{chapter.links.length > 0 && <b aria-hidden="true">⌄</b>}</Link>
+        <Link data-toc-id={chapter.id} className={`toc-parent${activeId === chapter.id ? " is-active" : ""}`} aria-current={activeId === chapter.id ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${chapter.id}` }}>{chapter.titleRuns ? <span><DocumentText runs={chapter.titleRuns} /></span> : renderInlineText(chapter.title)}{chapter.links.length > 0 && <b aria-hidden="true">⌄</b>}</Link>
         {chapter.links.length > 0 && <div className="toc-sublist">{chapter.links.map((link) => {
           const isActive = link.activeIds.has(activeId);
-          return <Link key={link.id} data-toc-id={link.id} className={isActive ? "is-active" : undefined} aria-current={isActive ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${link.id}` }}>{link.titleRuns ? <span><DocumentText runs={link.titleRuns} /></span> : link.title}</Link>;
+          return <Link key={link.id} data-toc-id={link.id} className={isActive ? "is-active" : undefined} aria-current={isActive ? "location" : undefined} to={{ pathname: `/${slug}`, hash: `#${link.id}` }}>{link.titleRuns ? <span><DocumentText runs={link.titleRuns} /></span> : renderInlineText(link.title)}</Link>;
         })}</div>}
       </div>;
     })}
@@ -462,16 +462,16 @@ function Article({ slug }: { slug: string }) {
     slug === 'engineering' ? ' article-page--engineering' : '',
   ].join("");
   return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={articleClassName}>
-    <header className="article-hero"><div><h1>{heroTitle}</h1></div></header>
-    {slug === "attributions" && page.intro && <p className="attributions-introduction">{page.intro}</p>}
-    {slug === 'team' && page.intro && <p className="team-introduction">{page.intro}</p>}
+    <header className="article-hero"><div><h1>{renderInlineText(heroTitle)}</h1></div></header>
+    {slug === "attributions" && page.intro && <p className="attributions-introduction">{renderInlineText(page.intro)}</p>}
+    {slug === 'team' && page.intro && <p className="team-introduction">{renderInlineText(page.intro)}</p>}
     {hasContent && <>
     <div className="article-layout"><ArticleToc slug={slug} sections={tocSections} hasReferences={references.length > 0} />
-      <div className="article-body">{page.figure && <figure className="feature-figure"><img src={figureSrc} alt={page.figure.alt} loading="lazy" decoding="async" /><figcaption>{page.figure.caption}</figcaption></figure>}
-        <div className="article-sections">{page.sections.map((section, i) => <section id={`section-${i + 1}`} tabIndex={-1} key={`${i}-${section.title}`}><div className="section-number">{String(i + 1).padStart(2, "0")}</div><div><h2>{section.titleRuns ? <DocumentText runs={section.titleRuns} /> : section.title}</h2>{section.body && <p>{renderCitations(section.body, referenceNumbers)}</p>}{section.blocks && <ArticleBlocks blocks={section.blocks} referenceNumbers={referenceNumbers} sectionId={`section-${i + 1}`} />}{section.items && <ul>{section.items.map((item) => <li key={item}>{renderCitations(item, referenceNumbers)}</li>)}</ul>}{section.note && <aside>{section.note}</aside>}</div></section>)}</div>
+      <div className="article-body">{page.figure && <figure className="feature-figure"><img src={figureSrc} alt={page.figure.alt} loading="lazy" decoding="async" /><figcaption>{renderInlineText(page.figure.caption)}</figcaption></figure>}
+        <div className="article-sections">{page.sections.map((section, i) => <section id={`section-${i + 1}`} tabIndex={-1} key={`${i}-${section.title}`}><div className="section-number">{String(i + 1).padStart(2, "0")}</div><div><h2>{section.titleRuns ? <DocumentText runs={section.titleRuns} /> : renderInlineText(section.title)}</h2>{section.body && <p>{renderCitations(section.body, referenceNumbers)}</p>}{section.blocks && <ArticleBlocks blocks={section.blocks} referenceNumbers={referenceNumbers} sectionId={`section-${i + 1}`} />}{section.items && <ul>{section.items.map((item) => <li key={item}>{renderCitations(item, referenceNumbers)}</li>)}</ul>}{section.note && <aside>{renderInlineText(section.note)}</aside>}</div></section>)}</div>
         {references.length > 0 && <section id="references" tabIndex={-1} className="article-references"><h2>References</h2><div className="reference-list">{references.map((reference, index) => <p id={`reference-${index + 1}`} key={reference.href ?? reference.label}>
           <span className="reference-number">[{index + 1}] </span>
-          {reference.labelRuns ? <DocumentText runs={reference.labelRuns} /> : reference.href ? <a href={reference.href} target="_blank" rel="noreferrer">{reference.label}</a> : reference.label}
+          {reference.labelRuns ? <DocumentText runs={reference.labelRuns} /> : reference.href ? <a href={reference.href} target="_blank" rel="noreferrer">{renderInlineText(reference.label)}</a> : renderInlineText(reference.label)}
         </p>)}</div></section>}
       </div>
     </div>

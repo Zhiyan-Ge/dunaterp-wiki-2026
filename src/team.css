@@ -13,7 +13,6 @@
   padding: clamp(1.25rem, 2.5vw, 2rem);
 }
 .article-page--team .section-number { display: none; }
-.article-page--team .article-sections h2 { font-size: clamp(1.65rem, 2.6vw, 2.5rem); }
 .article-page--team ul.team-roster {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

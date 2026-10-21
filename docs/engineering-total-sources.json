@@ -9,7 +9,11 @@
     "sourceUnits": 290,
     "charactersVerified": 38090,
     "italicCharacters": 377,
-    "subscriptCharacters": 172
+    "subscriptCharacters": 172,
+    "approvedCorrections": [
+      "Fig. 1The → Fig. 1 The",
+      "OOD680 → OD680 (680 remains subscript)"
+    ]
   },
   "assets": [
     {

@@ -1,3 +1,4 @@
+import { renderInlineText } from './inline-text';
 import {
   useCallback,
   useEffect,
@@ -480,7 +481,7 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
               >
                 <header><span>{station.index}</span><p>{station.kicker}</p></header>
                 <h2>{station.title}</h2>
-                <p>{station.panelLead}</p>
+                <p>{renderInlineText(station.panelLead)}</p>
                 <Link to={station.route}>Explore this chapter <b aria-hidden="true">→</b></Link>
               </section>
             ))}
@@ -569,7 +570,7 @@ export function PixelWorld({ Header }: { Header: ComponentType<HeaderProps> }) {
             <button type="button" className="px-fallback-card" onClick={() => navigate(station.route)}>
               <p className="px-chapter-tag"><span>{station.index} / 04</span>{station.kicker}</p>
               <h2 id={`px-chapter-${station.index}`}>{station.title}</h2>
-              <p>{station.body}</p>
+              <p>{renderInlineText(station.body)}</p>
               <span className="px-card-action">Explore chapter →</span>
             </button>
           </section>

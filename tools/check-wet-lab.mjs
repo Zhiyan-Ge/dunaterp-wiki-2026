@@ -8,7 +8,7 @@ import { createServer } from 'vite';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const shots = fs.mkdtempSync(path.join(os.tmpdir(), 'dunaterp-wet-lab-'));
-const wetLabPaths = ['project-description', 'engineering', 'experiments', 'results', 'safety-and-security'];
+const wetLabPaths = ['project-description', 'engineering', 'experiments', 'safety-and-security'];
 const otherArticlePaths = ['transcriptomics', 'model', 'human-practices', 'team'];
 process.env.VITE_BASE_PATH = '/dunaterp-wiki-2026/';
 const server = await createServer({ root, server: { host: '127.0.0.1', port: 4177, strictPort: true } });

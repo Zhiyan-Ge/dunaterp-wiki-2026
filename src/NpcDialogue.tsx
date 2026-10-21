@@ -1,3 +1,4 @@
+import { renderInlineText } from './inline-text';
 import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
 import { NPCS, PixelPortrait } from "./ExpeditionJournal";
 import type { NpcId } from "./pixel/npc-data";
@@ -90,7 +91,7 @@ export function NpcDialogue({ npcId, onClose }: NpcDialogueProps) {
           <button type="button" onClick={onClose} aria-label={`End conversation with ${npc.name}`}>×</button>
         </div>
         <p className="npc-dialogue__line" aria-live="polite">
-          {selected?.response ?? npc.intro}
+          {renderInlineText(selected?.response ?? npc.intro)}
         </p>
         <p className="npc-dialogue__hint">
           {selected ? selected.label : "Meet the field guide, then turn the page."}

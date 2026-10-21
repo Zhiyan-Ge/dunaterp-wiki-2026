@@ -1,3 +1,4 @@
+import { renderInlineText } from '../inline-text';
 import type { CSSProperties } from "react";
 import type { StoryBeat } from "./story";
 import { StoryGlyph } from "./StoryGlyph";
@@ -17,13 +18,13 @@ export function StoryIllustration({ beat }: { beat: StoryBeat }) {
 
     case "traits":
       return <div className="story-discovery">
-        <div className="story-specimen"><StoryGlyph kind="alga" /><span>Dunaliella salina</span></div>
+        <div className="story-specimen"><StoryGlyph kind="alga" /><span>{renderInlineText("Dunaliella salina")}</span></div>
         <ul className="story-loot">{["LOW-COST, SALT-TOLERANT CULTIVATION", "COMPLETE MEP PATHWAY", "BROAD, NON-FRESHWATER POTENTIAL"].map((text, index) => <li key={text} style={stagger(index)}>+ {text}</li>)}</ul>
       </div>;
 
     case "products":
       return <div className="story-pathway" aria-label="Metabolic reprogramming redirects Dunaliella flux toward a beta-carotene hub">
-        <div className="story-specimen story-pathway__source"><StoryGlyph kind="alga" /><span>Engineered Dunaliella</span></div>
+        <div className="story-specimen story-pathway__source"><StoryGlyph kind="alga" /><span>{renderInlineText("Engineered Dunaliella")}</span></div>
         <span className="story-arrow story-pathway__arrow story-pathway__arrow--source" aria-hidden="true">→</span>
         <div className="story-hub story-pathway__hub">METABOLIC REPROGRAMMING</div>
         <span className="story-arrow story-pathway__arrow story-pathway__arrow--products" aria-hidden="true">→</span>
