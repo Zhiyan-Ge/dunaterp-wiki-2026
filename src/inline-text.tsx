@@ -1,8 +1,11 @@
-// Explicit *scientific name* markers support genes and species in the content data.
+import { DocumentText } from './DocumentText';
+
+// Parts use the same formatted-text component as the reviewed Description page.
 export function renderInlineText(text: string) {
-  return text.split(/(\*[A-Za-z][A-Za-z0-9 .-]*\*)/g).map((part, index) =>
+  const runs = text.split(/(\*[A-Za-z][A-Za-z0-9 .-]*\*)/g).map(part =>
     /^\*[A-Za-z][A-Za-z0-9 .-]*\*$/.test(part)
-      ? <em key={index}>{part.slice(1, -1)}</em>
-      : part,
+      ? { text: part.slice(1, -1), italic: true }
+      : { text: part },
   );
+  return <DocumentText runs={runs} />;
 }

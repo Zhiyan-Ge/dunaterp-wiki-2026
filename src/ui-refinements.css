@@ -528,7 +528,6 @@ main:focus:not(:focus-visible) { outline: none; }
 }
 .article-page.article-page--wet-lab .article-hero { background-color: #d7cfb2; }
 .article-page.article-page--human-practices .article-hero { background-position: center; }
-.article-page--parts .research-table-scroll th[scope="row"] { white-space: nowrap; }
 .article-page .article-layout { padding-top: 4rem; }
 .article-page .article-toc {
   position: sticky;
@@ -659,6 +658,12 @@ body:has(.article-page--hardware) { background: #f3ecd0; }
 .article-page--modeling .research-equation,
 .article-page--hardware .research-equation { border: 3px solid var(--ink); border-left: 6px solid var(--article-accent); background: #fff; box-shadow: 5px 5px 0 #d8cc9e; }
 
+/* Description uses pale surroundings and white reading surfaces. */
+body:has(.article-page--description) { background: #f3f5ef; }
+.article-page--description .article-sections > section { background: #fff; box-shadow: 6px 6px 0 #d4ded2; }
+.article-page--description .article-toc { background: #f8faf6; }
+.article-page--description .feature-figure { background: #fff; }
+
 /* Human Practices follows the 2025 page rhythm: a compact contents panel,
    broad narrative copy and documentary images placed directly beside the
    activity they evidence. Portrait posters stay readable without taking over
@@ -753,3 +758,6 @@ body:has(.article-page--hardware) { background: #f3ecd0; }
   border-left: 6px solid var(--article-accent);
   background: #fffaf0;
 }
+
+/* Keep Registry part identifiers intact in the Parts tables. */
+.article-page--parts .research-table-scroll th[scope="row"] { white-space: nowrap; }

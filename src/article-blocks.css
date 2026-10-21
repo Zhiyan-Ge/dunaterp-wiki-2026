@@ -1,6 +1,8 @@
 .research-blocks { min-width: 0; overflow-wrap: anywhere; }
 .research-blocks h3 { margin: 2.4rem 0 1rem; font-size: 1.3rem; line-height: 1.4; }
 .research-blocks p { margin: 1.2rem 0; }
+.document-paragraph[id] { scroll-margin-top: 8rem; }
+.article-sections h2 em { text-transform: none; }
 .research-blocks a { color: #176c82; text-underline-offset: .2em; }
 .research-blocks .research-figure { margin: 2rem auto; padding: .75rem; border-radius: .4rem; }
 .research-figure a, .research-figure img { display: block; width: 100%; }

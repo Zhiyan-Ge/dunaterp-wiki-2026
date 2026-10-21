@@ -1,4 +1,5 @@
-import type { ContentBlock, WikiReference } from './content/types';
+import type { ContentBlock, DocumentTextRun, WikiReference } from './content/types';
+import { projectDescription } from './content/project-description';
 import { attributions } from './content/attributions';
 import { refs } from './content/references';
 import { safety } from './content/safety';
@@ -10,6 +11,7 @@ import { team } from './content/team';
 
 export type WikiSection = {
   title: string;
+  titleRuns?: DocumentTextRun[];
   tocTitle?: string;
   body: string;
   eyebrow?: string;
@@ -59,29 +61,7 @@ export const pages: Record<string, WikiPage> = {
   transcriptomics,
   metabolomics,
   protein,
-  "project-description": {
-    title: "DunaTerp: a programmable terpenoid platform",
-    eyebrow: "Description",
-    intro: "DunaTerp asks whether a salt-compatible photosynthetic chassis can become a practical terpenoid platform. The project starts from Dunaliella salina, a naturally β-carotene-rich microalga, and builds outward toward programmable product routes and controlled cultivation.",
-    status: "team-draft",
-    sections: [
-      {
-        eyebrow: "Value and production landscape",
-        title: "Background & Challenge",
-        body: "Terpenoids are used across food, nutrition, aroma, colour and other high-value applications. Current supply spans chemical synthesis, plant extraction and biological production, but each route leaves a gap: chemical synthesis can bring process and environmental costs; plant extraction is constrained by slow growth, variable abundance, land and freshwater demand; conventional yeast or bacterial factories often rely on sterile freshwater cultivation and energy-intensive operation. DunaTerp therefore asks whether a salt-compatible photosynthetic chassis can make this production landscape more practical."
-      },
-      {
-        eyebrow: "Why this chassis",
-        title: "A Chassis Shaped by Salt",
-        body: "Dunaliella salina brings three connected advantages. First, its tolerance of seawater and hypersaline media supports cultivation in conditions that suppress many contaminants and reduces dependence on freshwater and arable land. Second, it already contains a complete MEP-to-carotenoid pathway and naturally accumulates β-carotene, providing a starting network for engineering. Third, its photosynthetic, salt-compatible biology opens a broad application space in saline environments rather than tying the platform to conventional sterile freshwater fermentation."
-      },
-      {
-        eyebrow: "Project overview",
-        title: "A Shared β-Carotene Hub",
-        body: "DunaTerp treats the native β-carotene pool of D. salina as a programmable hub rather than a fixed trait. The project introduces transcription factor 2146 as a proposed regulatory input to reshape carotenoid-pathway expression, then branches that shared hub toward several downstream product routes. In this way, the project is framed not as a single-product strain, but as a chassis-level platform with multiple possible outputs."
-      },
-    ],
-  },
+  "project-description": projectDescription,
   contribution: {
     title: "What DunaTerp contributes",
     eyebrow: "Contribution",
