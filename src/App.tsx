@@ -178,7 +178,7 @@ function renderCitations(text: string, referenceNumbers: Map<string, number>) {
   });
 }
 
-type TocSection = { id: string; title: string; titleRuns?: DocumentTextRun[]; children: Array<{ id: string; title: string }> };
+type TocSection = { id: string; title: string; titleRuns?: DocumentTextRun[]; children: Array<{ id: string; title: string; titleRuns?: DocumentTextRun[] }> };
 
 type TocChapterDefinition = { title: string; start: number; end: number };
 
@@ -414,7 +414,7 @@ function Article({ slug }: { slug: string }) {
   const hasContent = page.sections.length > 0;
   const isModeling = MODELING_PATHS.includes(`/${slug}`);
   const references = pageReferences(page);
-  const referenceNumbers = new Map(references.map((reference, index) => [reference.href, index + 1]));
+  const referenceNumbers = new Map(references.map((reference, index) => [reference.href ?? `#reference-${index + 1}`, index + 1]));
   const isWetLab = group?.label === 'Project';
   const navigationLabel = group?.items.find(([, href]) => href === `/${slug}`)?.[0];
   const fallbackHeroTitle = page.eyebrow.split("·")[0].split("/").at(-1)?.trim();
@@ -426,6 +426,7 @@ function Article({ slug }: { slug: string }) {
     titleRuns: section.tocTitle ? undefined : section.titleRuns,
     children: (section.blocks ?? []).flatMap((block, blockIndex) => {
       if (block.kind === 'heading') return [{ id: `section-${sectionIndex + 1}-heading-${blockIndex + 1}`, title: block.text }];
+      if (block.kind === 'document-heading') return [{ id: `section-${sectionIndex + 1}-heading-${blockIndex + 1}`, title: block.text, titleRuns: block.runs }];
       if (block.kind === 'wet-lab-method') return block.headings;
       return [];
     }),
@@ -437,6 +438,7 @@ function Article({ slug }: { slug: string }) {
   const articleClassName = [
     "article-page",
     isWetLab ? ' article-page--wet-lab' : '',
+    isWetLab || group?.label === 'Lab' ? ' article-page--light' : '',
     group?.label === 'Dry Lab' || slug === 'dry-lab' ? ' article-page--dry-lab' : '',
     group?.label === 'Human Practices' ? ' article-page--human-practices' : '',
     slug === 'collaboration' ? ' article-page--collaboration' : '',
@@ -449,6 +451,8 @@ function Article({ slug }: { slug: string }) {
     slug === 'team' ? ' article-page--team' : '',
     slug === 'parts' ? ' article-page--parts' : '',
     slug === 'attributions' ? ' article-page--attributions' : '',
+    slug === 'project-description' ? ' article-page--description' : '',
+    slug === 'design' ? ' article-page--design' : '',
   ].join("");
   return <><Header /><PageProgress pathname={`/${slug}`} stops={progressStops} accent={articleAccent} /><main id="main-content" tabIndex={-1} style={{ "--article-accent": articleAccent, "--article-hero-image": `url("${heroImage}")` } as CSSProperties} className={articleClassName}>
     <header className="article-hero"><div><h1>{heroTitle}</h1></div></header>
@@ -458,7 +462,10 @@ function Article({ slug }: { slug: string }) {
     <div className="article-layout"><ArticleToc slug={slug} sections={tocSections} hasReferences={references.length > 0} />
       <div className="article-body">{page.figure && <figure className="feature-figure"><img src={figureSrc} alt={page.figure.alt} loading="lazy" decoding="async" /><figcaption>{page.figure.caption}</figcaption></figure>}
         <div className="article-sections">{page.sections.map((section, i) => <section id={`section-${i + 1}`} tabIndex={-1} key={`${i}-${section.title}`}><div className="section-number">{String(i + 1).padStart(2, "0")}</div><div><h2>{section.titleRuns ? <DocumentText runs={section.titleRuns} /> : section.title}</h2>{section.body && <p>{renderCitations(section.body, referenceNumbers)}</p>}{section.blocks && <ArticleBlocks blocks={section.blocks} referenceNumbers={referenceNumbers} sectionId={`section-${i + 1}`} />}{section.items && <ul>{section.items.map((item) => <li key={item}>{renderCitations(item, referenceNumbers)}</li>)}</ul>}{section.note && <aside>{section.note}</aside>}</div></section>)}</div>
-        {references.length > 0 && <section id="references" tabIndex={-1} className="article-references"><h2>References</h2><div className="reference-list">{references.map((reference, index) => <p id={`reference-${index + 1}`} key={reference.href}><a href={reference.href} target="_blank" rel="noreferrer">{reference.label}</a></p>)}</div></section>}
+        {references.length > 0 && <section id="references" tabIndex={-1} className="article-references"><h2>References</h2><div className="reference-list">{references.map((reference, index) => <p id={`reference-${index + 1}`} key={reference.href ?? reference.label}>
+          <span className="reference-number">[{index + 1}] </span>
+          {reference.labelRuns ? <DocumentText runs={reference.labelRuns} /> : reference.href ? <a href={reference.href} target="_blank" rel="noreferrer">{reference.label}</a> : reference.label}
+        </p>)}</div></section>}
       </div>
     </div>
     </>}

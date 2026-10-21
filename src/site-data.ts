@@ -1,5 +1,6 @@
 import type { ContentBlock, DocumentTextRun, WikiReference } from './content/types';
 import { projectDescription } from './content/project-description';
+import { design } from './content/design';
 import { attributions } from './content/attributions';
 import { refs } from './content/references';
 import { safety } from './content/safety';
@@ -82,53 +83,7 @@ export const pages: Record<string, WikiPage> = {
       },
     ],
   },
-  design: {
-    title: "How the project is designed",
-    eyebrow: "Design",
-    intro: "The design starts from a naturally β-carotene-rich chassis, adds a regulatory layer intended to redirect pathway behavior and then distributes the shared hub into separate product routes and a parallel containment module.",
-    status: "team-draft",
-    sections: [
-      {
-        eyebrow: "The core intervention",
-        title: "Reprogramme the Metabolic Engine",
-        body: "DunaTerp does not stop at using a naturally productive alga. The project identifies and introduces transcription factor 2146 as a regulatory input intended to reshape carotenoid-pathway expression and redirect metabolic flux toward competitive β-carotene synthesis. This turns the native β-carotene pool from a fixed biological trait into the shared, programmable hub of the platform. LCYB remains the enzymatic gate from lycopene into that hub, while TF2146 provides the upstream regulatory intervention."
-      },
-      {
-        eyebrow: "Model-guided design",
-        title: "Connect Regulation to Flux",
-        body: "The modeling framework follows the control chain from transcription-factor activity and promoter occupancy to LCYB transcript, active enzyme, lycopene conversion and β-carotene supply. A second layer examines how downstream reactions draw from that shared pool. Together, these models define which regulatory, expression, metabolite and kinetic measurements are needed to test whether TF2146 changes pathway allocation as intended."
-      },
-      {
-        eyebrow: "Downstream demonstrations",
-        title: "Four Product Designs from One Hub",
-        body: "Only after establishing the chassis and its regulatory logic does the platform branch into four high-value products. BKT and BCH extend the hub toward astaxanthin; CCD1 cleaves β-carotene to β-ionone; BCH supplies zeaxanthin for the GjCCD4a–GjALDH2C3 crocetin route and the CitCCD4 β-citraurin route. The routes are designed as separate strains so each branch can be built and evaluated without presenting the four products as the core innovation.",
-        blocks: [
-          {
-            kind: "figure",
-            src: "/figures/project/01_product_routes.svg",
-            alt: "DunaTerp metabolic design from light and carbon through lycopene and beta-carotene to astaxanthin, beta-ionone, crocetin and beta-citraurin",
-            caption: "Fig. 1 Four product routes from the β-carotene hub"
-          }
-        ],
-        items: [
-          "Astaxanthin — BKT and BCH add keto and hydroxyl groups to β-carotene.",
-          "β-ionone — CCD1 cleaves β-carotene to release the aroma compound.",
-          "Crocetin — BCH supplies zeaxanthin, GjCCD4a forms crocetin dialdehyde and GjALDH2C3 oxidises it to crocetin.",
-          "β-citraurin — BCH supplies zeaxanthin and CitCCD4 performs the cleavage step."
-        ]
-      },
-      {
-        eyebrow: "From engineered cell to application",
-        title: "Characterise the Platform",
-        body: "Characterisation first asks whether the regulatory intervention changes pathway expression and β-carotene supply, then tests product identity, titre, conversion efficiency and by-product profiles for each downstream strain. Light delivery, salinity, biomass productivity and recovery yield connect the engineered cell to cultivation and downstream processing."
-      },
-      {
-        eyebrow: "Biosafety module",
-        title: "Add a Salt-Responsive Safeguard",
-        body: "In parallel with the production platform, the project proposes a salt-responsive safeguard module. The intended logic is to maintain cultivation under high-salt conditions while reducing persistence after salinity drops, linking process context directly to containment behavior."
-      },
-    ],
-  },
+  design,
   engineering: {
     title: "Building a salt-controlled safeguard", eyebrow: "Engineering", intro: "The containment design developed through three linked questions: can MazF suppress Dunaliella salina growth, can its expression be reduced to a controllable level, and can salt-responsive MazE protection separate cultivation from release conditions?", status: "team-draft",
     references: [refs.dca1, refs.mazf, refs.chen2009],

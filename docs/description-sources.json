@@ -51,5 +51,7 @@
       "to": "CAGR of 8.61%",
       "reason": "Team requested consistency with Figure 1 after local review."
     }
-  ]
+  ],
+  "referencePresentation": "One numbered bibliography at the page end, using the shared Dry Lab layout. Inline citations use linked [n] markers; supplied scientific-name formatting is retained.",
+  "citationFormattingChanged": true
 }

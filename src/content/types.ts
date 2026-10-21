@@ -1,13 +1,15 @@
 export type ContentBlock =
   | { kind: 'paragraph' | 'heading'; text: string }
   | { kind: 'document-paragraph'; runs: DocumentTextRun[]; id?: string }
+  | { kind: 'document-heading'; text: string; runs: DocumentTextRun[] }
+  | { kind: 'document-list'; items: DocumentTextRun[][]; ordered?: boolean }
   | { kind: 'equation'; text: string; label: string }
   | { kind: 'code'; text: string; label: string }
   | { kind: 'figure'; src: string; alt: string; caption: string; captionRuns?: DocumentTextRun[]; width?: number; height?: number }
-  | { kind: 'figure-grid'; figures: { src: string; alt: string; caption: string }[] }
+  | { kind: 'figure-grid'; figures: { src: string; alt: string; caption: string; width?: number; height?: number }[]; caption?: string; captionRuns?: DocumentTextRun[] }
   | { kind: 'member-grid'; members: TeamMember[] }
   | { kind: 'chapter-grid'; items: { index: string; title: string; text: string; href: string }[] }
-  | { kind: 'table'; caption: string; columns: string[]; rows: string[][]; collapsed?: boolean }
+  | { kind: 'table'; caption: string; columns: string[]; rows: string[][]; cellRuns?: DocumentTextRun[][][]; collapsed?: boolean }
   | { kind: 'links'; links: { label: string; href: string }[] }
   | { kind: 'attribution-list'; entries: AttributionEntry[] }
   | { kind: 'official-attributions' }
@@ -34,7 +36,8 @@ export type TeamMember = {
 
 export type WikiReference = {
   label: string;
-  href: string;
+  href?: string;
+  labelRuns?: DocumentTextRun[];
   kind?: 'Article' | 'Dataset' | 'Database' | 'Software' | 'Image' | 'Web resource';
 };
 
