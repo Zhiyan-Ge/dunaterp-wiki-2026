@@ -190,5 +190,7 @@
     "missingItalics": 0,
     "officialCdnHashesMatched": 8,
     "englishOnlyRevisionMatchesBilingualEnglish": true
-  }
+  },
+  "referencePresentation": "One numbered bibliography at the page end, using the shared Dry Lab layout. Inline citations use linked [n] markers; supplied scientific-name formatting is retained.",
+  "citationFormattingChanged": true
 }

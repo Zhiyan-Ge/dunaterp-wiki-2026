@@ -36,7 +36,8 @@ export type TeamMember = {
 
 export type WikiReference = {
   label: string;
-  href: string;
+  href?: string;
+  labelRuns?: DocumentTextRun[];
   kind?: 'Article' | 'Dataset' | 'Database' | 'Software' | 'Image' | 'Web resource';
 };
 

@@ -7,7 +7,7 @@ export function DocumentText({ runs }: { runs: DocumentTextRun[] }) {
     if (run.italic) text = <em>{text}</em>;
     if (run.bold) text = <strong>{text}</strong>;
     return run.href
-      ? <a key={index} href={run.href}>{text}</a>
+      ? <a key={index} href={run.href} className={/^#reference-\d+$/.test(run.href) ? 'inline-citation' : undefined}>{text}</a>
       : <span key={index}>{text}</span>;
   })}</>;
 }

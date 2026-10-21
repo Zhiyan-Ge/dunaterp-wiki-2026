@@ -6,7 +6,481 @@ export const design: WikiPage = {
   "eyebrow": "Design",
   "intro": "",
   "status": "review-ready",
-  "references": [],
+  "references": [
+    {
+      "label": "Song, Y., Lan, Y., Li, K., Qiao, D., Cao, Y., & Xu, H. (2024). Regulation of a novel DsGATA1 from Dunaliella salina on the synthesis of carotenoids under red light. Applied Microbiology and Biotechnology, 108(1), Article 82. https://doi.org/10.1007/s00253-023-12894-6",
+      "labelRuns": [
+        {
+          "text": "Song, Y., Lan, Y., Li, K., Qiao, D., Cao, Y., & Xu, H. (2024). Regulation of a novel "
+        },
+        {
+          "text": "DsGATA1",
+          "italic": true
+        },
+        {
+          "text": " from "
+        },
+        {
+          "text": "Dunaliella salina",
+          "italic": true
+        },
+        {
+          "text": " on the synthesis of carotenoids under red light. "
+        },
+        {
+          "text": "Applied Microbiology and Biotechnology",
+          "italic": true
+        },
+        {
+          "text": ", "
+        },
+        {
+          "text": "108",
+          "italic": true
+        },
+        {
+          "text": "(1), Article 82. "
+        },
+        {
+          "text": "https://doi.org/10.1007/s00253-023-12894-6",
+          "href": "https://doi.org/10.1007/s00253-023-12894-6"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://doi.org/10.1007/s00253-023-12894-6"
+    },
+    {
+      "label": "PlantTFDB. (n.d.). CPP family: Dunaliella salina. Plant Transcription Factor Database. Retrieved October 14, 2026, from https://planttfdb.gao-lab.org/family.php?fam=CPP&sp=Dsa",
+      "labelRuns": [
+        {
+          "text": "PlantTFDB. (n.d.). "
+        },
+        {
+          "text": "CPP family: ",
+          "italic": true
+        },
+        {
+          "text": "Dunaliella salina",
+          "italic": true
+        },
+        {
+          "text": ". Plant Transcription Factor Database. Retrieved October 14, 2026, from "
+        },
+        {
+          "text": "https://planttfdb.gao-lab.org/family.php?fam=CPP&sp=Dsa",
+          "href": "https://planttfdb.gao-lab.org/family.php?fam=CPP&sp=Dsa"
+        }
+      ],
+      "kind": "Database",
+      "href": "https://planttfdb.gao-lab.org/family.php?fam=CPP&sp=Dsa"
+    },
+    {
+      "label": "Lan, Y., Song, Y., Guo, Y., Qiao, D., Cao, Y., & Xu, H. (2022). DsLCYB directionally modulated β-carotene of the green alga Dunaliella salina under red light stress. Journal of Microbiology and Biotechnology, 32(12), 1622–1631. https://doi.org/10.4014/jmb.2208.08044",
+      "labelRuns": [
+        {
+          "text": "Lan, Y., Song, Y., Guo, Y., Qiao, D., Cao, Y., & Xu, H. (2022). "
+        },
+        {
+          "text": "DsLCYB",
+          "italic": true
+        },
+        {
+          "text": " directionally modulated β-carotene of the green alga "
+        },
+        {
+          "text": "Dunaliella salina",
+          "italic": true
+        },
+        {
+          "text": " under red light stress. "
+        },
+        {
+          "text": "Journal of Microbiology and Biotechnology",
+          "italic": true
+        },
+        {
+          "text": ", "
+        },
+        {
+          "text": "32",
+          "italic": true
+        },
+        {
+          "text": "(12), 1622–1631. "
+        },
+        {
+          "text": "https://doi.org/10.4014/jmb.2208.08044",
+          "href": "https://doi.org/10.4014/jmb.2208.08044"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://doi.org/10.4014/jmb.2208.08044"
+    },
+    {
+      "label": "Xu, Z., Pu, X., Gao, R., Demurtas, O. C., Fleck, S. J., Richter, M., He, C., Ji, A., Sun, W., Kong, J., Hu, K., Ren, F., Song, J., Wang, Z., Gao, T., Xiong, C., Yu, H., Xin, T., Albert, V. A., Giuliano, G., Chen, S., & Song, J. (2020). Tandem gene duplications drive divergent evolution of caffeine and crocin biosynthetic pathways in plants. BMC Biology, 18, 63. https://doi.org/10.1186/s12915-020-00795-3",
+      "labelRuns": [
+        {
+          "text": "Xu, Z., Pu, X., Gao, R., Demurtas, O. C., Fleck, S. J., Richter, M., He, C., Ji, A., Sun, W., Kong, J., Hu, K., Ren, F., Song, J., Wang, Z., Gao, T., Xiong, C., Yu, H., Xin, T., Albert, V. A., Giuliano, G., Chen, S., & Song, J. (2020). Tandem gene duplications drive divergent evolution of caffeine and crocin biosynthetic pathways in plants. "
+        },
+        {
+          "text": "BMC Biology",
+          "italic": true
+        },
+        {
+          "text": ", "
+        },
+        {
+          "text": "18",
+          "italic": true
+        },
+        {
+          "text": ", 63. "
+        },
+        {
+          "text": "https://doi.org/10.1186/s12915-020-00795-3",
+          "href": "https://doi.org/10.1186/s12915-020-00795-3"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://doi.org/10.1186/s12915-020-00795-3"
+    },
+    {
+      "label": "Zheng, X., Mi, J., Balakrishna, A., Liew, K. X., Ablazov, A., Sougrat, R., & Al-Babili, S. (2022). Gardenia carotenoid cleavage dioxygenase 4a is an efficient tool for biotechnological production of crocins in green and non-green plant tissues. Plant Biotechnology Journal, 20(11), 2202–2216. https://doi.org/10.1111/pbi.13901",
+      "labelRuns": [
+        {
+          "text": "Zheng, X., Mi, J., Balakrishna, A., Liew, K. X., Ablazov, A., Sougrat, R., & Al-Babili, S. (2022). "
+        },
+        {
+          "text": "Gardenia",
+          "italic": true
+        },
+        {
+          "text": " carotenoid cleavage dioxygenase 4a is an efficient tool for biotechnological production of crocins in green and non-green plant tissues. "
+        },
+        {
+          "text": "Plant Biotechnology Journal",
+          "italic": true
+        },
+        {
+          "text": ", "
+        },
+        {
+          "text": "20",
+          "italic": true
+        },
+        {
+          "text": "(11), 2202–2216. "
+        },
+        {
+          "text": "https://doi.org/10.1111/pbi.13901",
+          "href": "https://doi.org/10.1111/pbi.13901"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://doi.org/10.1111/pbi.13901"
+    },
+    {
+      "label": "Anila, N., Simon, D. P., Chandrashekar, A., Ravishankar, G. A., & Sarada, R. (2016). Metabolic engineering of Dunaliella salina for production of ketocarotenoids. Photosynthesis Research, 127(3), 321–333. https://doi.org/10.1007/s11120-015-0188-8",
+      "labelRuns": [
+        {
+          "text": "Anila, N., Simon, D. P., Chandrashekar, A., Ravishankar, G. A., & Sarada, R. (2016). Metabolic engineering of"
+        },
+        {
+          "text": " ",
+          "italic": true
+        },
+        {
+          "text": "Dunaliella salina",
+          "italic": true
+        },
+        {
+          "text": " for production of ketocarotenoids. "
+        },
+        {
+          "text": "Photosynthesis Research",
+          "italic": true
+        },
+        {
+          "text": ", "
+        },
+        {
+          "text": "127",
+          "italic": true
+        },
+        {
+          "text": "(3), 321–333. "
+        },
+        {
+          "text": "https://doi.org/10.1007/s11120-015-0188-8",
+          "href": "https://doi.org/10.1007/s11120-015-0188-8"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://doi.org/10.1007/s11120-015-0188-8"
+    },
+    {
+      "label": "Zhang, H., Kong, Y., Shao, Y., Zhang, Z., Zhao, C., Xu, F., Yang, F., Sun, F., Cui, Y., Wu, Y., Meng, C., & Gao, Z. (2026). Metabolic engineering of Dunaliella salina enhances astaxanthin production: combined effects of heterologous enzyme co-expression and dual-stress optimization. World Journal of Microbiology and Biotechnology, 42(9), 470. https://doi.org/10.1007/s11274-026-05199-z",
+      "labelRuns": [
+        {
+          "text": "Zhang, H., Kong, Y., Shao, Y., Zhang, Z., Zhao, C., Xu, F., Yang, F., Sun, F., Cui, Y., Wu, Y., Meng, C., & Gao, Z. (2026). Metabolic engineering of"
+        },
+        {
+          "text": " ",
+          "italic": true
+        },
+        {
+          "text": "Dunaliella salina",
+          "italic": true
+        },
+        {
+          "text": " ",
+          "italic": true
+        },
+        {
+          "text": "enhances astaxanthin production: combined effects of heterologous enzyme co-expression and dual-stress optimization. "
+        },
+        {
+          "text": "World Journal of Microbiology and Biotechnology",
+          "italic": true
+        },
+        {
+          "text": ", "
+        },
+        {
+          "text": "42",
+          "italic": true
+        },
+        {
+          "text": "(9), 470. "
+        },
+        {
+          "text": "https://doi.org/10.1007/s11274-026-05199-z",
+          "href": "https://doi.org/10.1007/s11274-026-05199-z"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://doi.org/10.1007/s11274-026-05199-z"
+    },
+    {
+      "label": "Chen, H.-H., Wu, J.-X., Huang, R., Dai, J.-L., Liang, M.-H., & Jiang, J.-G. (2024). Enhancing astaxanthin accumulation through the expression of the plant-derived astaxanthin biosynthetic pathway in Dunaliella salina. Plant Physiology and Biochemistry, 211, 108697. https://doi.org/10.1016/j.plaphy.2024.108697",
+      "labelRuns": [
+        {
+          "text": "Chen, H.-H., Wu, J.-X., Huang, R., Dai, J.-L., Liang, M.-H., & Jiang, J.-G. (2024). Enhancing astaxanthin accumulation through the expression of the plant-derived astaxanthin biosynthetic pathway in "
+        },
+        {
+          "text": "Dunaliella salina",
+          "italic": true
+        },
+        {
+          "text": ". "
+        },
+        {
+          "text": "Plant Physiology and Biochemistry",
+          "italic": true
+        },
+        {
+          "text": ", "
+        },
+        {
+          "text": "211",
+          "italic": true
+        },
+        {
+          "text": ", 108697. "
+        },
+        {
+          "text": "https://doi.org/10.1016/j.plaphy.2024.108697",
+          "href": "https://doi.org/10.1016/j.plaphy.2024.108697"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://doi.org/10.1016/j.plaphy.2024.108697"
+    },
+    {
+      "label": "Li, J., Lu, Y., Xue, L., et al. (2010). A structurally novel salt-regulated promoter of duplicated carbonic anhydrase gene 1 from Dunaliella salina. Molecular Biology Reports, 37, 1143–1154. https://doi.org/10.1007/s11033-009-9901-z",
+      "labelRuns": [
+        {
+          "text": "Li, J., Lu, Y., Xue, L., et al. (2010). A structurally novel salt-regulated promoter of duplicated carbonic anhydrase gene 1 from "
+        },
+        {
+          "text": "Dunaliella salina",
+          "italic": true
+        },
+        {
+          "text": ". Molecular Biology Reports, 37, 1143–1154."
+        },
+        {
+          "text": " https://doi.org/10.1007/s11033-009-9901-z",
+          "href": "https://doi.org/10.1007/s11033-009-9901-z"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://doi.org/10.1007/s11033-009-9901-z"
+    },
+    {
+      "label": "Chen, H.-H., Xie, Y.-C., Xie, S.-r., & Jiang, J.-G. (2024). Comprehensive plasmid toolkit for multipart assembly in the Dunaliella salina nuclear system. Algal Research, 78, 103413.",
+      "labelRuns": [
+        {
+          "text": "Chen, H.-H., Xie, Y.-C., Xie, S.-r., & Jiang, J.-G. (2024). Comprehensive plasmid toolkit for multipart assembly in the "
+        },
+        {
+          "text": "Dunaliella salina",
+          "italic": true
+        },
+        {
+          "text": " nuclear system. Algal Research, 78, 103413."
+        }
+      ],
+      "kind": "Article"
+    },
+    {
+      "label": "Ma, G., Zhang, L., Matsuta, A., Matsutani, K., Yamawaki, K., Yahata, M., Wahyudi, A., Motohashi, R., & Kato, M. (2013). Enzymatic formation of β-citraurin from β-cryptoxanthin and zeaxanthin by carotenoid cleavage dioxygenase4 in the flavedo of citrus fruit. Plant Physiology, 163(2), 682-695. https://doi.org/10.1104/pp.113.223297",
+      "labelRuns": [
+        {
+          "text": "Ma, G., Zhang, L., Matsuta, A., Matsutani, K., Yamawaki, K., Yahata, M., Wahyudi, A., Motohashi, R., & Kato, M. (2013). Enzymatic formation of β-citraurin from β-cryptoxanthin and zeaxanthin by carotenoid cleavage dioxygenase4 in the flavedo of citrus fruit. "
+        },
+        {
+          "text": "Plant Physiology, 163",
+          "italic": true
+        },
+        {
+          "text": "(2), 682-695. "
+        },
+        {
+          "text": "https://doi.org/10.1104/pp.113.223297",
+          "href": "https://doi.org/10.1104/pp.113.223297"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://doi.org/10.1104/pp.113.223297"
+    },
+    {
+      "label": "Zheng, X., Zhu, K., Sun, Q., Zhang, W., Wang, X., Cao, H., Tan, M., Xie, Z., Zeng, Y., Ye, J., Chai, L., Xu, Q., Pan, Z., Xiao, S., Fraser, P. D., & Deng, X. (2019). Natural variation in CCD4 promoter underpins species-specific evolution of red coloration in citrus peel. Molecular Plant, 12(9), 1294-1307. https://doi.org/10.1016/j.molp.2019.04.014",
+      "labelRuns": [
+        {
+          "text": "Zheng, X., Zhu, K., Sun, Q., Zhang, W., Wang, X., Cao, H., Tan, M., Xie, Z., Zeng, Y., Ye, J., Chai, L., Xu, Q., Pan, Z., Xiao, S., Fraser, P. D., & Deng, X. (2019). Natural variation in "
+        },
+        {
+          "text": "CCD4",
+          "italic": true
+        },
+        {
+          "text": " promoter underpins species-specific evolution of red coloration in citrus peel. "
+        },
+        {
+          "text": "Molecular Plant, 12",
+          "italic": true
+        },
+        {
+          "text": "(9), 1294-1307. "
+        },
+        {
+          "text": "https://doi.org/10.1016/j.molp.2019.04.014",
+          "href": "https://doi.org/10.1016/j.molp.2019.04.014"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://doi.org/10.1016/j.molp.2019.04.014"
+    },
+    {
+      "label": "Srinivasan, R., & Gothandam, K. M. (2016). Synergistic action of D-glucose and acetosyringone on Agrobacterium strains for efficient Dunaliella transformation. PLOS ONE, 11(6), Article e0158322. https://doi.org/10.1371/journal.pone.0158322",
+      "labelRuns": [
+        {
+          "text": "Srinivasan, R., & Gothandam, K. M. (2016). Synergistic action of D-glucose and acetosyringone on "
+        },
+        {
+          "text": "Agrobacterium",
+          "italic": true
+        },
+        {
+          "text": " strains for efficient "
+        },
+        {
+          "text": "Dunaliella",
+          "italic": true
+        },
+        {
+          "text": " transformation. "
+        },
+        {
+          "text": "PLOS ONE, 11",
+          "italic": true
+        },
+        {
+          "text": "(6), Article e0158322. "
+        },
+        {
+          "text": "https://doi.org/10.1371/journal.pone.0158322",
+          "href": "https://doi.org/10.1371/journal.pone.0158322"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://doi.org/10.1371/journal.pone.0158322"
+    },
+    {
+      "label": "Anila, N., Chandrashekar, A., Ravishankar, G. A., & Sarada, R. (2011). Establishment of Agrobacterium tumefaciens-mediated genetic transformation in Dunaliella bardawil. European Journal of Phycology, 46(1), 36-44. https://doi.org/10.1080/09670262.2010.550386",
+      "labelRuns": [
+        {
+          "text": "Anila, N., Chandrashekar, A., Ravishankar, G. A., & Sarada, R. (2011). Establishment of "
+        },
+        {
+          "text": "Agrobacterium tumefaciens",
+          "italic": true
+        },
+        {
+          "text": "-mediated genetic transformation in "
+        },
+        {
+          "text": "Dunaliella bardawil",
+          "italic": true
+        },
+        {
+          "text": ". "
+        },
+        {
+          "text": "European Journal of Phycology, 46",
+          "italic": true
+        },
+        {
+          "text": "(1), 36-44. "
+        },
+        {
+          "text": "https://doi.org/10.1080/09670262.2010.550386",
+          "href": "https://doi.org/10.1080/09670262.2010.550386"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://doi.org/10.1080/09670262.2010.550386"
+    },
+    {
+      "label": "Chen, H.-H., Zheng, Q.-X., Yu, F., Xie, S.-R., & Jiang, J.-G. (2024). Development of a chloroplast expression system for Dunaliella salina. Enzyme and Microbial Technology, 179, Article 110464. https://doi.org/10.1016/j.enzmictec.2024.110464",
+      "labelRuns": [
+        {
+          "text": "Chen, H.-H., Zheng, Q.-X., Yu, F., Xie, S.-R., & Jiang, J.-G. (2024). Development of a chloroplast expression system for "
+        },
+        {
+          "text": "Dunaliella salina",
+          "italic": true
+        },
+        {
+          "text": ". "
+        },
+        {
+          "text": "Enzyme and Microbial Technology, 179",
+          "italic": true
+        },
+        {
+          "text": ", Article 110464. "
+        },
+        {
+          "text": "https://doi.org/10.1016/j.enzmictec.2024.110464",
+          "href": "https://doi.org/10.1016/j.enzmictec.2024.110464"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://doi.org/10.1016/j.enzmictec.2024.110464"
+    }
+  ],
   "sections": [
     {
       "title": "Transcription factor CPP2146 regulatory module",
@@ -46,7 +520,14 @@ export const design: WikiPage = {
               "italic": true
             },
             {
-              "text": " have shown that transcriptional regulation can influence its carotenoid biosynthesis (Song et al., 2024)."
+              "text": " have shown that transcriptional regulation can influence its carotenoid biosynthesis "
+            },
+            {
+              "text": "[1]",
+              "href": "#reference-1"
+            },
+            {
+              "text": "."
             }
           ]
         },
@@ -61,7 +542,17 @@ export const design: WikiPage = {
               "italic": true
             },
             {
-              "text": " as a candidate regulatory factor. PlantTFDB includes the CPP family proteins of "
+              "text": " as a candidate regulatory factor. "
+            },
+            {
+              "text": "PlantTFDB "
+            },
+            {
+              "text": "[2]",
+              "href": "#reference-2"
+            },
+            {
+              "text": " includes the CPP family proteins of "
             },
             {
               "text": "Dunaliella salina",
@@ -97,7 +588,14 @@ export const design: WikiPage = {
               "italic": true
             },
             {
-              "text": " can affect β-carotene accumulation (Lan et al., 2022). Therefore, we prioritize the β-cyclase gene for investigation and, after confirming the corresponding gene annotations in the experimental system, analyze the expression of ε-cyclization-related genes and upstream carotenoid biosynthesis genes. Our working hypothesis is that changes in "
+              "text": " can affect β-carotene accumulation "
+            },
+            {
+              "text": "[3]",
+              "href": "#reference-3"
+            },
+            {
+              "text": ". Therefore, we prioritize the β-cyclase gene for investigation and, after confirming the corresponding gene annotations in the experimental system, analyze the expression of ε-cyclization-related genes and upstream carotenoid biosynthesis genes. Our working hypothesis is that changes in "
             },
             {
               "text": "CPP2146",
@@ -190,118 +688,6 @@ export const design: WikiPage = {
             },
             {
               "text": " candidate transcriptional regulatory module and its functional validation."
-            }
-          ]
-        },
-        {
-          "kind": "document-heading",
-          "text": "References",
-          "runs": [
-            {
-              "text": "References"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "Lan, Y., Song, Y., Guo, Y., Qiao, D., Cao, Y., & Xu, H. (2022). "
-            },
-            {
-              "text": "DsLCYB",
-              "italic": true
-            },
-            {
-              "text": " directionally modulated β-carotene of the green alga "
-            },
-            {
-              "text": "Dunaliella salina",
-              "italic": true
-            },
-            {
-              "text": " under red light stress. "
-            },
-            {
-              "text": "Journal of Microbiology and Biotechnology",
-              "italic": true
-            },
-            {
-              "text": ", "
-            },
-            {
-              "text": "32",
-              "italic": true
-            },
-            {
-              "text": "(12), 1622–1631. "
-            },
-            {
-              "text": "https://doi.org/10.4014/jmb.2208.08044",
-              "href": "https://doi.org/10.4014/jmb.2208.08044"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "PlantTFDB. (n.d.). "
-            },
-            {
-              "text": "CPP family: ",
-              "italic": true
-            },
-            {
-              "text": "Dunaliella salina",
-              "italic": true
-            },
-            {
-              "text": ". Plant Transcription Factor Database. Retrieved October 14, 2026, from "
-            },
-            {
-              "text": "https://planttfdb.gao-lab.org/family.php?fam=CPP&sp=Dsa",
-              "href": "https://planttfdb.gao-lab.org/family.php?fam=CPP&sp=Dsa"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "Song, Y., Lan, Y., Li, K., Qiao, D., Cao, Y., & Xu, H. (2024). Regulation of a novel "
-            },
-            {
-              "text": "DsGATA1",
-              "italic": true
-            },
-            {
-              "text": " from "
-            },
-            {
-              "text": "Dunaliella salina",
-              "italic": true
-            },
-            {
-              "text": " on the synthesis of carotenoids under red light. "
-            },
-            {
-              "text": "Applied Microbiology and Biotechnology",
-              "italic": true
-            },
-            {
-              "text": ", "
-            },
-            {
-              "text": "108",
-              "italic": true
-            },
-            {
-              "text": "(1), Article 82. "
-            },
-            {
-              "text": "https://doi.org/10.1007/s00253-023-12894-6",
-              "href": "https://doi.org/10.1007/s00253-023-12894-6"
             }
           ]
         }
@@ -668,7 +1054,14 @@ export const design: WikiPage = {
           "kind": "document-paragraph",
           "runs": [
             {
-              "text": "Crocetin is the aglycone of crocin (Xu et al., 2020). Compared with pursuing further glycosylated products, using crocetin as a staged target allows us to focus on validating two key types of reactions: carotenoid cleavage and aldehyde oxidation. Accordingly, we plan to leverage the carotenoid precursors already present in "
+              "text": "Crocetin is the aglycone of crocin "
+            },
+            {
+              "text": "[4]",
+              "href": "#reference-4"
+            },
+            {
+              "text": ". Compared with pursuing further glycosylated products, using crocetin as a staged target allows us to focus on validating two key types of reactions: carotenoid cleavage and aldehyde oxidation. Accordingly, we plan to leverage the carotenoid precursors already present in "
             },
             {
               "text": "Dunaliella salina",
@@ -711,14 +1104,28 @@ export const design: WikiPage = {
               "italic": true
             },
             {
-              "text": " can utilize β-carotene as a substrate to form C₂₀ crocetin dialdehyde via a C₃₀ apocarotenoid intermediate (Zheng et al., 2022); "
+              "text": " can utilize β-carotene as a substrate to form C₂₀ crocetin dialdehyde via a C₃₀ apocarotenoid intermediate "
+            },
+            {
+              "text": "[5]",
+              "href": "#reference-5"
+            },
+            {
+              "text": "; "
             },
             {
               "text": "GjALDH2C3",
               "italic": true
             },
             {
-              "text": " can further catalyze the oxidation of crocetin dialdehyde to form crocetin (Xu et al., 2020). Although this design requires the introduction of only two core heterologous genes, successful crocetin synthesis still depends on the coordinated action of the two enzymes; therefore, gene expression and target product accumulation will be evaluated together to assess module functionality."
+              "text": " can further catalyze the oxidation of crocetin dialdehyde to form crocetin "
+            },
+            {
+              "text": "[4]",
+              "href": "#reference-4"
+            },
+            {
+              "text": ". Although this design requires the introduction of only two core heterologous genes, successful crocetin synthesis still depends on the coordinated action of the two enzymes; therefore, gene expression and target product accumulation will be evaluated together to assess module functionality."
             }
           ]
         },
@@ -871,7 +1278,14 @@ export const design: WikiPage = {
               "italic": true
             },
             {
-              "text": " to establish a basal synthesis module (Anila et al., 2016). We will first assess whether"
+              "text": " to establish a basal synthesis module "
+            },
+            {
+              "text": "[6]",
+              "href": "#reference-6"
+            },
+            {
+              "text": ". We will first assess whether"
             },
             {
               "text": " ",
@@ -917,7 +1331,14 @@ export const design: WikiPage = {
               "italic": true
             },
             {
-              "text": ", providing an experimental basis for further refinement of this module (Zhang et al., 2026)."
+              "text": ", providing an experimental basis for further refinement of this module "
+            },
+            {
+              "text": "[7]",
+              "href": "#reference-7"
+            },
+            {
+              "text": "."
             }
           ]
         },
@@ -968,7 +1389,14 @@ export const design: WikiPage = {
               "italic": true
             },
             {
-              "text": "promoter and evaluate the effects of chloroplast transit peptides on enzyme localization and product accumulation (Anila et al., 2016). The final design will be selected based on experimental results. If astaxanthin accumulation remains limited, introducing a heterologous β-carotene hydroxylase could be explored in future work."
+              "text": "promoter and evaluate the effects of chloroplast transit peptides on enzyme localization and product accumulation "
+            },
+            {
+              "text": "[6]",
+              "href": "#reference-6"
+            },
+            {
+              "text": ". The final design will be selected based on experimental results. If astaxanthin accumulation remains limited, introducing a heterologous β-carotene hydroxylase could be explored in future work."
             }
           ]
         },
@@ -983,7 +1411,14 @@ export const design: WikiPage = {
               "italic": true
             },
             {
-              "text": " expression constructs. Growth status will also be recorded to assess whether increased product accumulation is accompanied by a significant growth burden (Chen et al., 2024). By jointly evaluating gene expression and astaxanthin accumulation, we aim to assess the functionality of the synthesis module and guide subsequent optimization. Future work could include profiling ketolated and hydroxylated intermediates to help identify potential bottlenecks in the astaxanthin biosynthetic pathway."
+              "text": " expression constructs. Growth status will also be recorded to assess whether increased product accumulation is accompanied by a significant growth burden "
+            },
+            {
+              "text": "[8]",
+              "href": "#reference-8"
+            },
+            {
+              "text": ". By jointly evaluating gene expression and astaxanthin accumulation, we aim to assess the functionality of the synthesis module and guide subsequent optimization. Future work could include profiling ketolated and hydroxylated intermediates to help identify potential bottlenecks in the astaxanthin biosynthetic pathway."
             }
           ]
         },
@@ -1026,185 +1461,6 @@ export const design: WikiPage = {
             },
             {
               "text": " prove unfavorable for a given pathway, we will adjust the combination strategy based on experimental results, ensuring that the final design is grounded in verifiable metabolic outcomes."
-            }
-          ]
-        },
-        {
-          "kind": "document-heading",
-          "text": "References",
-          "runs": [
-            {
-              "text": "References"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "Anila, N., Simon, D. P., Chandrashekar, A., Ravishankar, G. A., & Sarada, R. (2016). Metabolic engineering of"
-            },
-            {
-              "text": " ",
-              "italic": true
-            },
-            {
-              "text": "Dunaliella salina",
-              "italic": true
-            },
-            {
-              "text": " for production of ketocarotenoids. "
-            },
-            {
-              "text": "Photosynthesis Research",
-              "italic": true
-            },
-            {
-              "text": ", "
-            },
-            {
-              "text": "127",
-              "italic": true
-            },
-            {
-              "text": "(3), 321–333. "
-            },
-            {
-              "text": "https://doi.org/10.1007/s11120-015-0188-8",
-              "href": "https://doi.org/10.1007/s11120-015-0188-8"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "Chen, H.-H., Wu, J.-X., Huang, R., Dai, J.-L., Liang, M.-H., & Jiang, J.-G. (2024). Enhancing astaxanthin accumulation through the expression of the plant-derived astaxanthin biosynthetic pathway in "
-            },
-            {
-              "text": "Dunaliella salina",
-              "italic": true
-            },
-            {
-              "text": ". "
-            },
-            {
-              "text": "Plant Physiology and Biochemistry",
-              "italic": true
-            },
-            {
-              "text": ", "
-            },
-            {
-              "text": "211",
-              "italic": true
-            },
-            {
-              "text": ", 108697. "
-            },
-            {
-              "text": "https://doi.org/10.1016/j.plaphy.2024.108697",
-              "href": "https://doi.org/10.1016/j.plaphy.2024.108697"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "Xu, Z., Pu, X., Gao, R., Demurtas, O. C., Fleck, S. J., Richter, M., He, C., Ji, A., Sun, W., Kong, J., Hu, K., Ren, F., Song, J., Wang, Z., Gao, T., Xiong, C., Yu, H., Xin, T., Albert, V. A., Giuliano, G., Chen, S., & Song, J. (2020). Tandem gene duplications drive divergent evolution of caffeine and crocin biosynthetic pathways in plants. "
-            },
-            {
-              "text": "BMC Biology",
-              "italic": true
-            },
-            {
-              "text": ", "
-            },
-            {
-              "text": "18",
-              "italic": true
-            },
-            {
-              "text": ", 63. "
-            },
-            {
-              "text": "https://doi.org/10.1186/s12915-020-00795-3",
-              "href": "https://doi.org/10.1186/s12915-020-00795-3"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "Zhang, H., Kong, Y., Shao, Y., Zhang, Z., Zhao, C., Xu, F., Yang, F., Sun, F., Cui, Y., Wu, Y., Meng, C., & Gao, Z. (2026). Metabolic engineering of"
-            },
-            {
-              "text": " ",
-              "italic": true
-            },
-            {
-              "text": "Dunaliella salina",
-              "italic": true
-            },
-            {
-              "text": " ",
-              "italic": true
-            },
-            {
-              "text": "enhances astaxanthin production: combined effects of heterologous enzyme co-expression and dual-stress optimization. "
-            },
-            {
-              "text": "World Journal of Microbiology and Biotechnology",
-              "italic": true
-            },
-            {
-              "text": ", "
-            },
-            {
-              "text": "42",
-              "italic": true
-            },
-            {
-              "text": "(9), 470. "
-            },
-            {
-              "text": "https://doi.org/10.1007/s11274-026-05199-z",
-              "href": "https://doi.org/10.1007/s11274-026-05199-z"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "Zheng, X., Mi, J., Balakrishna, A., Liew, K. X., Ablazov, A., Sougrat, R., & Al-Babili, S. (2022). "
-            },
-            {
-              "text": "Gardenia",
-              "italic": true
-            },
-            {
-              "text": " carotenoid cleavage dioxygenase 4a is an efficient tool for biotechnological production of crocins in green and non-green plant tissues. "
-            },
-            {
-              "text": "Plant Biotechnology Journal",
-              "italic": true
-            },
-            {
-              "text": ", "
-            },
-            {
-              "text": "20",
-              "italic": true
-            },
-            {
-              "text": "(11), 2202–2216. "
-            },
-            {
-              "text": "https://doi.org/10.1111/pbi.13901",
-              "href": "https://doi.org/10.1111/pbi.13901"
             }
           ]
         }
@@ -1710,152 +1966,6 @@ export const design: WikiPage = {
               }
             ]
           ]
-        },
-        {
-          "kind": "document-heading",
-          "text": "References",
-          "runs": [
-            {
-              "text": "References"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "Ma, G., Zhang, L., Matsuta, A., Matsutani, K., Yamawaki, K., Yahata, M., Wahyudi, A., Motohashi, R., & Kato, M. (2013). Enzymatic formation of β-citraurin from β-cryptoxanthin and zeaxanthin by carotenoid cleavage dioxygenase4 in the flavedo of citrus fruit. "
-            },
-            {
-              "text": "Plant Physiology, 163",
-              "italic": true
-            },
-            {
-              "text": "(2), 682-695. "
-            },
-            {
-              "text": "https://doi.org/10.1104/pp.113.223297",
-              "href": "https://doi.org/10.1104/pp.113.223297"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "Zheng, X., Zhu, K., Sun, Q., Zhang, W., Wang, X., Cao, H., Tan, M., Xie, Z., Zeng, Y., Ye, J., Chai, L., Xu, Q., Pan, Z., Xiao, S., Fraser, P. D., & Deng, X. (2019). Natural variation in "
-            },
-            {
-              "text": "CCD4",
-              "italic": true
-            },
-            {
-              "text": " promoter underpins species-specific evolution of red coloration in citrus peel. "
-            },
-            {
-              "text": "Molecular Plant, 12",
-              "italic": true
-            },
-            {
-              "text": "(9), 1294-1307. "
-            },
-            {
-              "text": "https://doi.org/10.1016/j.molp.2019.04.014",
-              "href": "https://doi.org/10.1016/j.molp.2019.04.014"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "Srinivasan, R., & Gothandam, K. M. (2016). Synergistic action of D-glucose and acetosyringone on "
-            },
-            {
-              "text": "Agrobacterium",
-              "italic": true
-            },
-            {
-              "text": " strains for efficient "
-            },
-            {
-              "text": "Dunaliella",
-              "italic": true
-            },
-            {
-              "text": " transformation. "
-            },
-            {
-              "text": "PLOS ONE, 11",
-              "italic": true
-            },
-            {
-              "text": "(6), Article e0158322. "
-            },
-            {
-              "text": "https://doi.org/10.1371/journal.pone.0158322",
-              "href": "https://doi.org/10.1371/journal.pone.0158322"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "Anila, N., Chandrashekar, A., Ravishankar, G. A., & Sarada, R. (2011). Establishment of "
-            },
-            {
-              "text": "Agrobacterium tumefaciens",
-              "italic": true
-            },
-            {
-              "text": "-mediated genetic transformation in "
-            },
-            {
-              "text": "Dunaliella bardawil",
-              "italic": true
-            },
-            {
-              "text": ". "
-            },
-            {
-              "text": "European Journal of Phycology, 46",
-              "italic": true
-            },
-            {
-              "text": "(1), 36-44. "
-            },
-            {
-              "text": "https://doi.org/10.1080/09670262.2010.550386",
-              "href": "https://doi.org/10.1080/09670262.2010.550386"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "Chen, H.-H., Zheng, Q.-X., Yu, F., Xie, S.-R., & Jiang, J.-G. (2024). Development of a chloroplast expression system for "
-            },
-            {
-              "text": "Dunaliella salina",
-              "italic": true
-            },
-            {
-              "text": ". "
-            },
-            {
-              "text": "Enzyme and Microbial Technology, 179",
-              "italic": true
-            },
-            {
-              "text": ", Article 110464. "
-            },
-            {
-              "text": "https://doi.org/10.1016/j.enzmictec.2024.110464",
-              "href": "https://doi.org/10.1016/j.enzmictec.2024.110464"
-            }
-          ]
         }
       ]
     },
@@ -1950,7 +2060,14 @@ export const design: WikiPage = {
               "italic": true
             },
             {
-              "text": " is significantly induced under high-salinity conditions, reaching its peak at 2 M NaCl. In contrast, when the environmental salinity decreases to 0.5 M NaCl, promoter activity declines substantially (Li et al., 2010)."
+              "text": " is significantly induced under high-salinity conditions, reaching its peak at 2 M NaCl. In contrast, when the environmental salinity decreases to 0.5 M NaCl, promoter activity declines substantially "
+            },
+            {
+              "text": "[9]",
+              "href": "#reference-9"
+            },
+            {
+              "text": "."
             }
           ]
         },
@@ -2006,7 +2123,14 @@ export const design: WikiPage = {
               "italic": true
             },
             {
-              "text": " (Chen et al., 2024). As a promoter with relatively low expression strength, "
+              "text": " "
+            },
+            {
+              "text": "[10]",
+              "href": "#reference-10"
+            },
+            {
+              "text": ". As a promoter with relatively low expression strength, "
             },
             {
               "text": "PiP",
@@ -2159,45 +2283,6 @@ export const design: WikiPage = {
             },
             {
               "text": ". This module will also serve as a key direction for our future efforts to further improve the biocontainment system for microalgae."
-            }
-          ]
-        },
-        {
-          "kind": "document-heading",
-          "text": "References",
-          "runs": [
-            {
-              "text": "References"
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "[1] Li, J., Lu, Y., Xue, L., et al. (2010). A structurally novel salt-regulated promoter of duplicated carbonic anhydrase gene 1 from "
-            },
-            {
-              "text": "Dunaliella salina",
-              "italic": true
-            },
-            {
-              "text": ". Molecular Biology Reports, 37, 1143–1154."
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "[2] Chen, H.-H., Xie, Y.-C., Xie, S.-r., & Jiang, J.-G. (2024). Comprehensive plasmid toolkit for multipart assembly in the "
-            },
-            {
-              "text": "Dunaliella salina",
-              "italic": true
-            },
-            {
-              "text": " nuclear system. Algal Research, 78, 103413."
             }
           ]
         }

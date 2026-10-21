@@ -6,7 +6,177 @@ export const projectDescription: WikiPage = {
   "eyebrow": "Description",
   "intro": "",
   "status": "review-ready",
-  "references": [],
+  "references": [
+    {
+      "label": "Research and Markets. Natural Food Colorants Market Share Analysis, Industry Trends & Statistics, Growth Forecasts (2026–2031).  Available at:https://www.researchandmarkets.com/reports/5312392/natural-food-colorants-market-share-analysis.",
+      "labelRuns": [
+        {
+          "text": "Research and Markets. Natural Food Colorants Market Share Analysis, Industry Trends & Statistics, Growth Forecasts (2026–2031). "
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "Available at:"
+        },
+        {
+          "text": "https://www.researchandmarkets.com/reports/5312392/natural-food-colorants-market-share-analysis",
+          "href": "https://www.researchandmarkets.com/reports/5312392/natural-food-colorants-market-share-analysis"
+        },
+        {
+          "text": "."
+        }
+      ],
+      "kind": "Article",
+      "href": "https://www.researchandmarkets.com/reports/5312392/natural-food-colorants-market-share-analysis"
+    },
+    {
+      "label": "Technavio. Botanical and Plant-Derived Drugs Market Industry Analysis. Available at: https://www.technavio.com/report/botanical-and-plant-derived-drugs-market-industry-analysis",
+      "labelRuns": [
+        {
+          "text": "Technavio. Botanical and Plant-Derived Drugs Market Industry Analysis. Available at: "
+        },
+        {
+          "text": "https://www.technavio.com/report/botanical-and-plant-derived-drugs-market-industry-analysis",
+          "href": "https://www.technavio.com/report/botanical-and-plant-derived-drugs-market-industry-analysis"
+        }
+      ],
+      "kind": "Article",
+      "href": "https://www.technavio.com/report/botanical-and-plant-derived-drugs-market-industry-analysis"
+    },
+    {
+      "label": "Tan H, Chen X, Liang N, et al. Transcriptome analysis reveals novel enzymes for apo-carotenoid biosynthesis in saffron and allows construction of a pathway for crocetin synthesis in yeast[J]. Journal of Experimental Botany, 2019, 70(18): 4819–4834.",
+      "labelRuns": [
+        {
+          "text": "Tan H, Chen X, Liang N, et al. Transcriptome analysis reveals novel enzymes for apo-carotenoid biosynthesis in saffron and allows construction of a pathway for crocetin synthesis in yeast[J]. Journal of Experimental Botany, 2019, 70(18): 4819–4834. "
+        }
+      ],
+      "kind": "Article"
+    },
+    {
+      "label": "Zhang Z, Wang B, Hu Q, Sommerfeld M, Li Y, Han D. A new paradigm for producing astaxanthin from the unicellular green alga Haematococcus pluvialis[J]. Biotechnology and Bioengineering, 2016.",
+      "labelRuns": [
+        {
+          "text": "Zhang Z, Wang B, Hu Q, Sommerfeld M, Li Y, Han D. A new paradigm for producing astaxanthin from the unicellular green alga "
+        },
+        {
+          "text": "Haematococcus pluvialis",
+          "italic": true
+        },
+        {
+          "text": "[J]. Biotechnology and Bioengineering, 2016. "
+        }
+      ],
+      "kind": "Article"
+    },
+    {
+      "label": "Progress and prospects in metabolic engineering approaches for isoprenoid biosynthesis in microalgae[J/OL]. https://pmc.ncbi.nlm.nih.gov/articles/PMC12175399/.",
+      "labelRuns": [
+        {
+          "text": "Progress and prospects in metabolic engineering approaches for isoprenoid biosynthesis in microalgae[J/OL]. "
+        },
+        {
+          "text": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12175399/",
+          "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12175399/"
+        },
+        {
+          "text": "."
+        }
+      ],
+      "kind": "Article",
+      "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12175399/"
+    },
+    {
+      "label": "Optimization of the four most effective factors on β-carotene production by Dunaliella salina using response surface methodology[J/OL]. https://pmc.ncbi.nlm.nih.gov/articles/PMC6934969/.",
+      "labelRuns": [
+        {
+          "text": "Optimization of the four most effective factors on β-carotene production by "
+        },
+        {
+          "text": "Dunaliella salina",
+          "italic": true
+        },
+        {
+          "text": " using response surface methodology[J/OL]. "
+        },
+        {
+          "text": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6934969/",
+          "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6934969/"
+        },
+        {
+          "text": "."
+        }
+      ],
+      "kind": "Article",
+      "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6934969/"
+    },
+    {
+      "label": "Environmental and biotechnological potential of Dunaliella salina for sustainable environmental applications[J/OL]. Ecological Engineering & Environmental Technology.",
+      "labelRuns": [
+        {
+          "text": "Environmental and biotechnological potential of "
+        },
+        {
+          "text": "Dunaliella salina",
+          "italic": true
+        },
+        {
+          "text": " for sustainable environmental applications[J/OL]. Ecological Engineering & Environmental Technology. "
+        }
+      ],
+      "kind": "Article"
+    },
+    {
+      "label": "β-Ionone: its occurrence and biological function and metabolic engineering[J/OL]. https://pmc.ncbi.nlm.nih.gov/articles/PMC8069406/.",
+      "labelRuns": [
+        {
+          "text": "β-Ionone: its occurrence and biological function and metabolic engineering[J/OL]. "
+        },
+        {
+          "text": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8069406/",
+          "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8069406/"
+        },
+        {
+          "text": "."
+        }
+      ],
+      "kind": "Article",
+      "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8069406/"
+    },
+    {
+      "label": "Team: MSP-Maastricht. Kill-Switch (MazE/MazF toxin-antitoxin system)[EB/OL]. iGEM 2023. https://2023.igem.wiki/msp-maastricht/kill-switch.html.",
+      "labelRuns": [
+        {
+          "text": "Team: MSP-Maastricht. Kill-Switch (MazE/MazF toxin-antitoxin system)[EB/OL]. iGEM 2023. "
+        },
+        {
+          "text": "https://2023.igem.wiki/msp-maastricht/kill-switch.html",
+          "href": "https://2023.igem.wiki/msp-maastricht/kill-switch.html"
+        },
+        {
+          "text": "."
+        }
+      ],
+      "kind": "Article",
+      "href": "https://2023.igem.wiki/msp-maastricht/kill-switch.html"
+    },
+    {
+      "label": "Alagawany M, Rudayni HA, El-Kholy MS, Alawam AS, Allam AA, Elnesr SS, Abass KS, Farag MR. Promising effects and therapeutic applications of Dunaliella salina algae as a functional food in humans and animals: Toward sustainable animal production and food security. Food Bioscience. 2025;71:107280.",
+      "labelRuns": [
+        {
+          "text": "Alagawany M, Rudayni HA, El-Kholy MS, Alawam AS, Allam AA, Elnesr SS, Abass KS, Farag MR. Promising effects and therapeutic applications of "
+        },
+        {
+          "text": "Dunaliella salina",
+          "italic": true
+        },
+        {
+          "text": " algae as a functional food in humans and animals: Toward sustainable animal production and food security. Food Bioscience. 2025;71:107280."
+        }
+      ],
+      "kind": "Article"
+    }
+  ],
   "sections": [
     {
       "title": "Introduction",
@@ -46,7 +216,7 @@ export const projectDescription: WikiPage = {
             },
             {
               "text": "[1]",
-              "href": "#description-reference-1"
+              "href": "#reference-1"
             },
             {
               "text": ". Supplying these compounds sustainably, at food grade and at an affordable cost, remains an unsolved challenge."
@@ -79,7 +249,7 @@ export const projectDescription: WikiPage = {
             },
             {
               "text": "[2]",
-              "href": "#description-reference-2"
+              "href": "#reference-2"
             },
             {
               "text": "."
@@ -101,7 +271,7 @@ export const projectDescription: WikiPage = {
             },
             {
               "text": "[3]",
-              "href": "#description-reference-3"
+              "href": "#reference-3"
             },
             {
               "text": ". Natural astaxanthin is currently harvested from the green alga "
@@ -115,7 +285,7 @@ export const projectDescription: WikiPage = {
             },
             {
               "text": "[4]",
-              "href": "#description-reference-4"
+              "href": "#reference-4"
             },
             {
               "text": "."
@@ -137,7 +307,7 @@ export const projectDescription: WikiPage = {
             },
             {
               "text": "[5]",
-              "href": "#description-reference-5"
+              "href": "#reference-5"
             },
             {
               "text": "."
@@ -152,7 +322,7 @@ export const projectDescription: WikiPage = {
             },
             {
               "text": "[5]",
-              "href": "#description-reference-5"
+              "href": "#reference-5"
             },
             {
               "text": ". Which photosynthetic chassis should be chosen to make food-grade terpenoids efficiently — this is the central question our project addresses."
@@ -200,7 +370,7 @@ export const projectDescription: WikiPage = {
           "kind": "figure",
           "src": "/figures/description/02-chassis-benefits.png",
           "alt": "Biological mechanisms and nutritional benefits of Dunaliella salina (Alagawany et al., 2025)",
-          "caption": "Fig. 2 Biological mechanisms and nutritional benefits of Dunaliella salina (Alagawany et al., 2025)",
+          "caption": "Fig. 2 Biological mechanisms and nutritional benefits of Dunaliella salina [10]",
           "captionRuns": [
             {
               "text": "Fig. 2 Biological mechanisms and nutritional benefits of "
@@ -210,7 +380,11 @@ export const projectDescription: WikiPage = {
               "italic": true
             },
             {
-              "text": " (Alagawany et al., 2025)"
+              "text": " "
+            },
+            {
+              "text": "[10]",
+              "href": "#reference-10"
             }
           ],
           "width": 1382,
@@ -224,7 +398,7 @@ export const projectDescription: WikiPage = {
             },
             {
               "text": "[6]",
-              "href": "#description-reference-6"
+              "href": "#reference-6"
             },
             {
               "text": ". Endogenous "
@@ -285,7 +459,7 @@ export const projectDescription: WikiPage = {
             },
             {
               "text": "[7]",
-              "href": "#description-reference-7"
+              "href": "#reference-7"
             },
             {
               "text": ". As a free-swimming, water-cultured single cell often grown in open systems, engineered algae also carry a gene-flow and escape risk that must be contained by design."
@@ -371,7 +545,7 @@ export const projectDescription: WikiPage = {
             },
             {
               "text": "[8]",
-              "href": "#description-reference-8"
+              "href": "#reference-8"
             },
             {
               "text": "; gardenia-derived "
@@ -434,7 +608,7 @@ export const projectDescription: WikiPage = {
             },
             {
               "text": "[9]",
-              "href": "#description-reference-9"
+              "href": "#reference-9"
             },
             {
               "text": " (see Design / Safety)."
@@ -461,212 +635,6 @@ export const projectDescription: WikiPage = {
               "text": "We have also sketched an industrial vision: food ingredients produced in sunlit photobioreactors rather than chemical plants — more natural nutrition, cleaner labels, and sustainable, CO₂-consuming production. For more information, please refer to the Modeling."
             }
           ]
-        }
-      ]
-    },
-    {
-      "title": "References",
-      "titleRuns": [
-        {
-          "text": "References"
-        }
-      ],
-      "body": "",
-      "blocks": [
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "[1] "
-            },
-            {
-              "text": "Research and Markets. Natural Food Colorants Market Share Analysis, Industry Trends & Statistics, Growth Forecasts (2026–2031). "
-            }
-          ],
-          "id": "description-reference-1"
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "Available at:"
-            },
-            {
-              "text": "https://www.researchandmarkets.com/reports/5312392/natural-food-colorants-market-share-analysis",
-              "href": "https://www.researchandmarkets.com/reports/5312392/natural-food-colorants-market-share-analysis"
-            },
-            {
-              "text": "."
-            }
-          ]
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "[2]"
-            },
-            {
-              "text": " Technavio. Botanical and Plant-Derived Drugs Market Industry Analysis. Available at: "
-            },
-            {
-              "text": "https://www.technavio.com/report/botanical-and-plant-derived-drugs-market-industry-analysis",
-              "href": "https://www.technavio.com/report/botanical-and-plant-derived-drugs-market-industry-analysis"
-            }
-          ],
-          "id": "description-reference-2"
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "[3]"
-            },
-            {
-              "text": " Tan H, Chen X, Liang N, et al. Transcriptome analysis reveals novel enzymes for apo-carotenoid biosynthesis in saffron and allows construction of a pathway for crocetin synthesis in yeast[J]. Journal of Experimental Botany, 2019, 70(18): 4819–4834. "
-            }
-          ],
-          "id": "description-reference-3"
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "[4]"
-            },
-            {
-              "text": " Zhang Z, Wang B, Hu Q, Sommerfeld M, Li Y, Han D. A new paradigm for producing astaxanthin from the unicellular green alga "
-            },
-            {
-              "text": "Haematococcus pluvialis",
-              "italic": true
-            },
-            {
-              "text": "[J]. Biotechnology and Bioengineering, 2016. "
-            }
-          ],
-          "id": "description-reference-4"
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "[5]"
-            },
-            {
-              "text": " Progress and prospects in metabolic engineering approaches for isoprenoid biosynthesis in microalgae[J/OL]. "
-            },
-            {
-              "text": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12175399/",
-              "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12175399/"
-            },
-            {
-              "text": "."
-            }
-          ],
-          "id": "description-reference-5"
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "[6]"
-            },
-            {
-              "text": " Optimization of the four most effective factors on β-carotene production by "
-            },
-            {
-              "text": "Dunaliella salina",
-              "italic": true
-            },
-            {
-              "text": " using response surface methodology[J/OL]. "
-            },
-            {
-              "text": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6934969/",
-              "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6934969/"
-            },
-            {
-              "text": "."
-            }
-          ],
-          "id": "description-reference-6"
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "[7]"
-            },
-            {
-              "text": " Environmental and biotechnological potential of "
-            },
-            {
-              "text": "Dunaliella salina",
-              "italic": true
-            },
-            {
-              "text": " for sustainable environmental applications[J/OL]. Ecological Engineering & Environmental Technology. "
-            }
-          ],
-          "id": "description-reference-7"
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "[8]"
-            },
-            {
-              "text": " β-Ionone: its occurrence and biological function and metabolic engineering[J/OL]. "
-            },
-            {
-              "text": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8069406/",
-              "href": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8069406/"
-            },
-            {
-              "text": "."
-            }
-          ],
-          "id": "description-reference-8"
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "[9]"
-            },
-            {
-              "text": " Team: MSP-Maastricht. Kill-Switch (MazE/MazF toxin-antitoxin system)[EB/OL]. iGEM 2023. "
-            },
-            {
-              "text": "https://2023.igem.wiki/msp-maastricht/kill-switch.html",
-              "href": "https://2023.igem.wiki/msp-maastricht/kill-switch.html"
-            },
-            {
-              "text": "."
-            }
-          ],
-          "id": "description-reference-9"
-        },
-        {
-          "kind": "document-paragraph",
-          "runs": [
-            {
-              "text": "[10]"
-            },
-            {
-              "text": "Alagawany M, Rudayni HA, El-Kholy MS, Alawam AS, Allam AA, Elnesr SS, Abass KS, Farag MR. Promising effects and therapeutic applications of "
-            },
-            {
-              "text": "Dunaliella salina",
-              "italic": true
-            },
-            {
-              "text": " algae as a functional food in humans and animals: Toward sustainable animal production and food security. Food Bioscience. 2025;71:107280."
-            }
-          ],
-          "id": "description-reference-10"
         }
       ]
     }
