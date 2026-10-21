@@ -776,3 +776,40 @@ body:has(.article-page--light) { background: #f3f5ef; }
 
 /* Keep Registry part identifiers intact in the Parts tables. */
 .article-page--parts .research-table-scroll th[scope="row"] { white-space: nowrap; }
+
+/* Description: continuous reading layout and compact market figure. */
+body:has(.article-page--description) { background: #f3f5ef; }
+.article-page.article-page--description .article-body { padding: clamp(1.4rem, 3vw, 2.5rem); background: #fff; }
+.article-page.article-page--description .article-sections { margin-bottom: 0; }
+.article-page.article-page--description .article-sections > section {
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  gap: 1rem;
+  margin: 0;
+  padding: 2.8rem 0;
+  border: 0;
+  border-top: 1px solid #e0e7dc;
+  background: transparent;
+  box-shadow: none;
+}
+.article-page.article-page--description .article-sections > section:first-child { padding-top: 0; border-top: 0; }
+.article-page.article-page--description .article-sections > section:focus { outline: none; }
+.article-page.article-page--description .section-number { width: auto; height: auto; padding-top: .7rem; border: 0; background: transparent; box-shadow: none; color: #71864f; }
+.article-page.article-page--description .article-sections h2 { margin-bottom: 1.5rem; font-family: Georgia, serif; font-size: clamp(1.9rem, 3vw, 2.9rem); font-weight: 500; line-height: 1.15; letter-spacing: -.03em; text-transform: none; }
+.article-page.article-page--description .article-sections p { max-width: none; }
+.article-page.article-page--description .feature-figure { padding: 0; border: 0; background: transparent; box-shadow: none; }
+.article-page.article-page--description .feature-figure figcaption { padding: .8rem 0 0; color: #65736a; font-family: inherit; font-size: .83rem; font-weight: 500; line-height: 1.6; text-align: left; }
+.article-page.article-page--description .article-toc { padding: .2rem 0 .2rem 1rem; border: 0; border-left: 2px solid #dbe4d3; background: transparent; box-shadow: none; }
+.article-page.article-page--description #section-1 .research-blocks { display: grid; grid-template-columns: minmax(0, 1fr) minmax(13rem, 17rem); gap: 1.25rem 1.8rem; align-items: start; }
+.article-page.article-page--description #section-1 .research-blocks > p { grid-column: 1; margin: 0; }
+.article-page.article-page--description #section-1 .research-blocks > .research-figure { grid-column: 2; grid-row: 1 / span 2; width: 100%; margin: 0; }
+.article-page.article-page--description .article-references { margin-top: .5rem; padding: 2.8rem 0 0; border-top: 1px solid #e0e7dc; }
+@media (max-width: 1200px) {
+  .article-page.article-page--description #section-1 .research-blocks { grid-template-columns: minmax(0, 1fr) minmax(11rem, 14rem); gap: 1.25rem; }
+}
+@media (max-width: 800px) {
+  .article-page.article-page--description .article-body { padding: 1.4rem; }
+  .article-page.article-page--description .article-sections > section { grid-template-columns: 1.4rem minmax(0, 1fr); gap: .75rem; padding: 2rem 0; }
+  .article-page.article-page--description #section-1 .research-blocks { display: block; }
+  .article-page.article-page--description #section-1 .research-blocks > p { margin: 1.25rem 0; }
+  .article-page.article-page--description #section-1 .research-blocks > .research-figure { width: min(17rem, 100%); margin: 1.5rem auto; }
+}
