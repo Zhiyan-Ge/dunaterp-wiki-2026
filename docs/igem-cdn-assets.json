@@ -792,17 +792,17 @@
   },
   {
     "source": "protocols/Experiment_CPP2146_EN.pdf",
-    "url": "https://static.igem.wiki/teams/6212/wiki/protocols/experiment-cpp2146-3ea1a3012b86.pdf",
-    "sha256": "3ea1a3012b8671fece50b8eb5e8b3daf29db6b8669e8122fadcfb1c6e8769cd9",
-    "sourceSha256": "3ea1a3012b8671fece50b8eb5e8b3daf29db6b8669e8122fadcfb1c6e8769cd9",
-    "bytes": 438078
+    "url": "https://static.igem.wiki/teams/6212/wiki/protocols/experiment-cpp2146-ff2c98b984f9.pdf",
+    "sha256": "ff2c98b984f92677de8d4e89d838af9fbf1516dfd5b0d74253707666f2959417",
+    "sourceSha256": "ff2c98b984f92677de8d4e89d838af9fbf1516dfd5b0d74253707666f2959417",
+    "bytes": 187096
   },
   {
-    "source": "protocols/Experiment_Team_EN.pdf",
-    "url": "https://static.igem.wiki/teams/6212/wiki/protocols/experiment-team-dde48b7c7974.pdf",
-    "sha256": "dde48b7c7974dd2208bfdb730c4583f853e8ffaac4928401ece55db2e1a68ad3",
-    "sourceSha256": "dde48b7c7974dd2208bfdb730c4583f853e8ffaac4928401ece55db2e1a68ad3",
-    "bytes": 212225
+    "source": "protocols/Experiment_Molecular_Cloning_EN.pdf",
+    "url": "https://static.igem.wiki/teams/6212/wiki/protocols/experiment-molecular-cloning-77c825d91335.pdf",
+    "sha256": "77c825d9133553bdbc2947d3e7bcbfeb159264909ff375498fb6e327f112402b",
+    "sourceSha256": "77c825d9133553bdbc2947d3e7bcbfeb159264909ff375498fb6e327f112402b",
+    "bytes": 196540
   },
   {
     "source": "researcher-sheet.png",
@@ -1870,17 +1870,24 @@
   },
   {
     "source": "protocols/Experiment_KillSwitch_EN.pdf",
-    "url": "https://static.igem.wiki/teams/6212/wiki/protocols/experiment-kill-switch-307909af7e77.pdf",
-    "sha256": "307909af7e77111a631f86754c6e538ddac8a7d6e8761efb81955367eacdfdf1",
-    "sourceSha256": "307909af7e77111a631f86754c6e538ddac8a7d6e8761efb81955367eacdfdf1",
-    "bytes": 164554
+    "url": "https://static.igem.wiki/teams/6212/wiki/protocols/experiment-kill-switch-7910e6a012a2.pdf",
+    "sha256": "7910e6a012a218a7ad325b764aee6caf3620a47be31803efb2a80c158c91efec",
+    "sourceSha256": "7910e6a012a218a7ad325b764aee6caf3620a47be31803efb2a80c158c91efec",
+    "bytes": 123846
   },
   {
-    "source": "protocols/Experiment_Product_Synthesis_EN.pdf",
-    "url": "https://static.igem.wiki/teams/6212/wiki/protocols/experiment-product-synthesis-ff2b9cea7f4e.pdf",
-    "sha256": "ff2b9cea7f4e853bb1043fa2319e11350a49e8ec290286677ae8ad076601082b",
-    "sourceSha256": "ff2b9cea7f4e853bb1043fa2319e11350a49e8ec290286677ae8ad076601082b",
-    "bytes": 1059929
+    "source": "protocols/Experiment_Astaxanthin_Crocin_EN.pdf",
+    "url": "https://static.igem.wiki/teams/6212/wiki/protocols/experiment-astaxanthin-crocin-5c02e69bd124.pdf",
+    "sha256": "5c02e69bd124e7155c223f6c7fa5ba895b47a3dacad6875d5d944175081d2db6",
+    "sourceSha256": "5c02e69bd124e7155c223f6c7fa5ba895b47a3dacad6875d5d944175081d2db6",
+    "bytes": 196950
+  },
+  {
+    "source": "protocols/Experiment_Beta_Ionone_Beta_Citraurin_EN.pdf",
+    "url": "https://static.igem.wiki/teams/6212/wiki/protocols/experiment-beta-ionone-beta-citraurin-adee87cc7a41.pdf",
+    "sha256": "adee87cc7a414245a9945f66638c8a5a3a1e50ed57515fe156b4896c8aef888a",
+    "sourceSha256": "adee87cc7a414245a9945f66638c8a5a3a1e50ed57515fe156b4896c8aef888a",
+    "bytes": 1171317
   },
   {
     "source": "figures/wet-lab/product-experiments/experiment-product-fig-01.png",

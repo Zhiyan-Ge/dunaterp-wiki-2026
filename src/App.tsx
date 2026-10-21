@@ -206,10 +206,8 @@ type TocChapterDefinition = { title: string; start: number; end: number };
  */
 const TOC_CHAPTERS: Record<string, TocChapterDefinition[]> = {
   experiments: [
-    { title: "Experimental Workflow", start: 0, end: 0 },
-    { title: "Molecular Construction", start: 1, end: 2 },
-    { title: "Characterisation", start: 3, end: 4 },
-    { title: "Salt-response validation", start: 5, end: 6 },
+    { title: "Experiment Overview", start: 0, end: 0 },
+    { title: "Experiment Documents", start: 1, end: 5 },
   ],
   transcriptomics: [
     { title: "Pathway & Dataset", start: 0, end: 1 },
