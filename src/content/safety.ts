@@ -61,6 +61,26 @@ export const safety: WikiPage = {
       eq('Log-concentration balance', '\\ln\\!\\left(\\frac{n}{n_0}\\right)=G-H-W'),
       p('Together, these checks test computational consistency within the stated model.'),
     ] },
+    { title: 'Safety model outcomes', body: 'The salt-responsive containment model compares the same salinity drop under retained-cell and water-exchange environments, and tests three response modes: no effective switch, growth inhibition alone and conditional killing. The strongest modeled reduction in cell concentration appears when the circuit adds an explicit killing effect after the salinity change.', blocks: [
+      p('The results show how salinity change, cellular response and transport combine to determine cell concentration across the modeled environments.'),
+      { kind: 'safety-results' },
+      p('In the retained-cell baseline, the conditional-killing case reaches T90 at 8.3 h and T99 at 13.2 h, while the weaker response modes do not reach the same reduction within the modeled time window.'),
+    ] },
+    { title: 'Safety sensitivity and cultivation trade-offs', body: 'Response delay, effective mortality and surrounding salinity determine how quickly the modeled safeguard reduces cell concentration after the production boundary is crossed.', blocks: [
+      p('Sensitivity analysis identifies which quantities exert the strongest control over containment performance and therefore which measurements should guide circuit refinement.'),
+      table('Selected sensitivity results · T99 for a 48 h simulation', ['Change from baseline', 'Setting', 'T99'], [
+        ['Baseline', 'No response delay; external salt 0.05 M', '13.2 h'],
+        ['Delayed response', '6 h delay', '19.1 h'],
+        ['Delayed response', '24 h delay', '37.1 h'],
+        ['Lower maximum mortality', 'Half the assumed baseline rate', '22.8 h'],
+        ['Higher maximum mortality', 'Twice the assumed baseline rate', '8.3 h'],
+        ['Slower salt change', 'Relaxation rate 0.1 h⁻¹', '27.0 h'],
+        ['More saline surroundings', 'External salt 0.50 M', '38.4 h'],
+        ['More saline surroundings', 'External salt 0.70 M', 'Not reached within 48 h'],
+      ]),
+      p('The ranking is consistent across the tested perturbations: longer response delay, slower salinity change and a more saline receiving environment postpone clearance, while higher effective mortality accelerates it.'),
+      p('Under constant production salinity, residual circuit activity can also reduce growth. This links containment performance back to cultivation: the switch must respond strongly after escape while remaining sufficiently quiet inside the reactor.'),
+    ] },
     { title: 'Implications for the project', body: '', blocks: [
       p('The model identifies three priorities for evaluation: how quickly the full circuit responds to a fall in salinity, whether the response causes recoverable growth arrest or loss of viability, and whether residual activity affects cultivation. These questions matter more to the present design than refining a single predicted clearance time.'),
       p('A practical assessment must also account for weakly responding cells, genetic failure and recovery after conditions change. The present average-cell model does not estimate those outcomes or extinction probability. Its strongest use is to identify the conditions a safeguard would have to meet and the observations that would most change our design decisions.'),

@@ -173,7 +173,7 @@ export const pages: Record<string, WikiPage> = {
   },
   results: {
     title: "What the evidence shows", eyebrow: "Results", intro: "Light changes carotenoid-pathway transcript abundance, but the pathway does not rise or fall as one synchronized unit. The models identify LCYB and the β-carotene entry split as useful control points, while protein, pigment and flux measurements remain necessary to test the proposed mechanism.", status: "team-draft",
-    references: [refs.transcriptomeDataset, refs.li2019, refs.fachet2020, refs.lan2022, refs.alphafold3, refs.chen2009, refs.dca1, refs.mazf, refs.farhat2011, refs.gomez2005],
+    references: [refs.transcriptomeDataset, refs.li2019, refs.fachet2020, refs.lan2022, refs.alphafold3],
     sections: [
       { title: "Transcript responses are not uniform", body: "Across the three light conditions, carotenoid-pathway transcripts respond individually rather than as a single coordinated block [1] [2]. One LCYB-assigned contig rises from low to medium light and then falls at high light; the other remains higher under high light than under low light. This transcript-specific behavior makes LCYB a biologically motivated modeling focus without implying that LCYB protein activity or β-carotene flux increased.", blocks: [
         { kind: "figure", src: "/figures/dry-lab/transcriptomics-sample-expression.svg", alt: "Replicate-level normalized read counts for six carotenoid-enzyme transcripts across three light conditions.", caption: "Fig. 1 Replicate-level expression of carotenoid transcripts" },
@@ -186,26 +186,6 @@ export const pages: Record<string, WikiPage> = {
       ] },
       { title: "The model defines the next measurements", body: "The five-state model links regulatory input, promoter occupancy, LCYB transcript, active enzyme, lycopene conversion and the β-carotene pool. Its present predictions are conditional on assumed parameters. Matched measurements of TF2146 abundance or binding, LCYB transcript and protein, lycopene, β-carotene and product formation are required to calibrate the chain and test whether regulation changes flux.", blocks: [
         { kind: "figure", src: "/figures/dry-lab/14_regulatory_model.png", alt: "Five-state model connecting regulatory input to LCYB expression and beta-carotene.", caption: "Fig. 4 Regulatory model of the LCYB step" },
-      ] },
-      { title: "Safety model outcomes", body: "The salt-responsive containment model compares the same salinity drop under retained-cell and water-exchange environments, and tests three response modes: no effective switch, growth inhibition alone and conditional killing. The strongest modeled reduction in cell concentration appears only when the circuit is allowed to add an explicit killing effect after the salinity change.", blocks: [
-        { kind: "paragraph", text: "The results compare how salinity change, growth behavior and transport interact under different containment assumptions. They are scenario-based model outcomes, not direct measurements of engineered-strain clearance." },
-        { kind: "safety-results" },
-        { kind: "paragraph", text: "In the retained-cell baseline, the conditional-killing case reaches T90 at 8.3 h and T99 at 13.2 h, while weaker response assumptions do not reach the same reduction within the modeled time window." },
-      ] },
-      { title: "Safety sensitivity and cultivation trade-offs", body: "The same containment concept changes substantially when its assumptions are perturbed. Response delay, effective mortality and surrounding salinity all affect whether the modeled safeguard clears cells rapidly, slowly or not at all within the simulation window.", blocks: [
-        { kind: "paragraph", text: "Sensitivity analysis highlights which assumptions matter most for the containment design and therefore which project measurements would most improve the model." },
-        { kind: "table", caption: "Selected sensitivity results · T99 for a 48 h simulation", columns: ["Change from baseline", "Setting", "T99"], rows: [
-          ["Baseline", "No response delay; external salt 0.05 M", "13.2 h"],
-          ["Delayed response", "6 h delay", "19.1 h"],
-          ["Delayed response", "24 h delay", "37.1 h"],
-          ["Lower maximum mortality", "Half the assumed baseline rate", "22.8 h"],
-          ["Higher maximum mortality", "Twice the assumed baseline rate", "8.3 h"],
-          ["Slower salt change", "Relaxation rate 0.1 h⁻¹", "27.0 h"],
-          ["More saline surroundings", "External salt 0.50 M", "38.4 h"],
-          ["More saline surroundings", "External salt 0.70 M", "Not reached within 48 h"],
-        ] },
-        { kind: "paragraph", text: "These comparisons are mathematical stress tests rather than measured confidence intervals, but they show clearly that delay, receiving salinity and maximum effective mortality strongly influence the predicted outcome." },
-        { kind: "paragraph", text: "The model also suggests a possible cultivation trade-off: under constant production salinity, the lethal-response scenario leaves a small residual burden on growth. That result does not estimate observed biomass or product loss, but it identifies a question that should be tested experimentally." },
       ] },
     ],
   },
