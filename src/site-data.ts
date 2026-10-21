@@ -12,7 +12,6 @@ import { team } from './content/team';
 import { labSafety } from './content/lab-safety';
 import { labNotebook } from './content/lab-notebook';
 import { engineeringProductSections } from './content/engineering-products';
-import { productExperimentSections } from './content/product-experiments';
 
 export type WikiSection = {
   title: string;
@@ -188,34 +187,65 @@ export const pages: Record<string, WikiPage> = {
     ],
   },
   experiments: {
-    title: "Testing the salt-controlled circuit", eyebrow: "Experiments", intro: "Wet-lab validation begins with MazF toxicity, then verifies PDCA1 as the salt-responsive input and finally tests whether co-transformed toxin and antitoxin modules can support the intended salt-switch logic.", status: "team-draft",
-    references: [refs.mazf, refs.dca1],
+    title: "Experiments", eyebrow: "Experiments", intro: "This page follows the 2025-style experiment layout: each module introduces the goal and scope on-page, while the full records and protocols are provided as PDFs for direct review and download.", status: "team-draft",
     sections: [
       {
-        title: "Wet-lab protocols",
-        body: "The revised kill-switch workflow contains three linked experiment sets: MazF toxicity verification, PDCA1 salt-response validation and co-transformation-based functional testing of the complete switch module.",
+        title: "Common protocols",
+        tocTitle: "Common protocols",
+        body: "This chapter gathers the shared wet-lab methods that support our molecular construction and validation workflow.",
+        items: [
+          "Molecular Cloning",
+          "Osmotic Shock Transformation of D. salina",
+          "Plant Genomic DNA Extraction",
+          "Quantitative Real-Time PCR (qPCR)",
+        ],
         blocks: [
-          { kind: "heading", text: "1. Verification of MazF toxicity (p1302-CaMV35S-mazF)" },
-          { kind: "paragraph", text: "MazF is the toxin of the classical mazEF toxin-antitoxin system and serves as the core lethal element of this kill-switch design [1]. To verify whether MazF remains cytotoxic in the eukaryotic chassis D. salina, mazF was placed under the strong constitutive CaMV 35S promoter in the verification plasmid p1302-CaMV35S-mazF." },
-          { kind: "paragraph", text: "The mazF insert was cloned into the pCAMBIA1302 backbone by restriction-enzyme digestion, transformed into E. coli DH5α for amplification, and verified by colony PCR and sequencing. The confirmed plasmid was then delivered into D. salina by osmotic transformation after 1 M NaCl pre-adaptation for 8 h, resuspension in 0.1 M NaCl medium, addition of 5.46 μg plasmid DNA and 15 μL of 0.1% Triton X-100, 90 s vortexing and 48 h recovery." },
-          { kind: "paragraph", text: "Because the vector carries the hptII hygromycin-resistance marker, transformed algal cells were selected on hygromycin B-containing medium. Wild type and empty-vector transformants were cultured in parallel as controls in 0.5 M NaCl PKS/DM liquid medium at 26 °C under 50 μmol photons m⁻² s⁻¹ and a 16 h light / 8 h dark photoperiod, and OD680 was measured daily for 10 consecutive days." },
-          { kind: "figure", src: "/figures/wet-lab/experiment1.png", alt: "Plasmid map of p1302-CaMV35S-mazF used for MazF toxicity verification.", caption: "Fig. 1 Plasmid map of p1302-CaMV35S-mazF" },
-          { kind: "figure", src: "/figures/wet-lab/experiment3.png", alt: "Ten-day growth curves comparing wild type, empty-vector and MazF transformant Dunaliella salina strains.", caption: "Fig. 2 Growth curves of WT, empty-vector and MazF transformants" },
-          { kind: "paragraph", text: "Result: the MazF group remained close to its initial density and stayed clearly below both controls throughout the assay, confirming that MazF retains strong growth-inhibitory activity in the eukaryotic microalgal host." },
-          { kind: "heading", text: "2. Validation of the PDCA1 salt-induced response system (p2301-PDCA1-EGFP)" },
-          { kind: "paragraph", text: "PDCA1 is an endogenous salt-regulated promoter of D. salina whose transcriptional activity increases under high-salt conditions and weakens under low-salt conditions [2]. Verifying this salt-responsive behaviour is a prerequisite for the intended 'survive in high salt, die in low salt' logic of the switch." },
-          { kind: "paragraph", text: "To test this input layer, the endogenous PDCA1 promoter and the EGFP reporter gene were assembled into the linearised pCAMBIA2301 backbone by homologous recombination, generating p2301-PDCA1-EGFP. Colony PCR provided preliminary confirmation after E. coli DH5α transformation, and sequencing confirmed correct assembly of the functional elements." },
-          { kind: "paragraph", text: "Transformants were then cultured in media containing different NaCl concentrations, including 0.5 M, 2 M and 3 M NaCl. EGFP fluorescence was measured across the salt gradient to quantify PDCA1 activity and define its usable dynamic range as a salinity-responsive control input." },
-          { kind: "figure", src: "/figures/wet-lab/experiment6.png", alt: "Plasmid map of p2301-PDCA1-EGFP used to test PDCA1 salt responsiveness.", caption: "Fig. 3 Plasmid map of p2301-PDCA1-EGFP" },
-          { kind: "heading", text: "3. Co-transformation and functional validation of the switch module" },
-          { kind: "paragraph", text: "Because strong CaMV 35S-driven toxin expression is too high for stable maintenance, the final circuit reduces toxin output and pairs it with a salinity-responsive antitoxin module. The toxin plasmid uses the pCAMBIA1302-Bar backbone and the low-abundance endogenous Pip promoter to drive mazF, while the antitoxin plasmid places mazE under PDCA1 control in p2301-PDCA1-mazE." },
-          { kind: "paragraph", text: "For the toxin branch, the Pip promoter and mazF fragment were amplified by PCR, the pCAMBIA1302-Bar backbone was linearised, and p1302-Bar-Pip-mazF was assembled by multi-fragment homologous recombination. The product was transformed into E. coli DH5α, selected on kanamycin plates and verified by colony PCR and sequencing. In parallel, the antitoxin vector p2301-PDCA1-mazE was assembled in the pCAMBIA2301 backbone, transformed into E. coli DH5α and confirmed by colony PCR plus sequencing." },
-          { kind: "paragraph", text: "The two verified plasmids were mixed at an equal molar ratio and simultaneously delivered into D. salina by osmotic transformation using the same 1 M NaCl pre-adaptation, 0.1 M NaCl resuspension, Triton-assisted vortexing and 48 h recovery workflow. Double-positive transformants were then selected on PKS/DM medium containing phosphinothricin for p1302-Bar-Pip-mazF and G418 for p2301-PDCA1-mazE." },
-          { kind: "figure", src: "/figures/wet-lab/experiment4.png", alt: "Plasmid map of p1302-Bar-Pip-mazF using the bar marker and the weak Pip promoter.", caption: "Fig. 4 Plasmid map of p1302-Bar-Pip-mazF" },
-          { kind: "paragraph", text: "Functional validation is performed by inoculating double-positive transformants in parallel into high-salt (2 M NaCl) and low-salt (0.5 M NaCl) media and monitoring OD680 over time. Under high salt, PDCA1 is expected to activate mazE and neutralise MazF; under low salt, PDCA1 activity should fall, MazE protection should weaken and MazF toxicity should dominate." },
+          { kind: "pdf", src: "/protocols/Experiment_CPP2146_EN.pdf", downloadSrc: "/protocols/Experiment_CPP2146_EN.pdf", label: "Common protocols (PDF)", downloadLabel: "Download PDF" },
         ],
       },
-      ...productExperimentSections,
+      {
+        title: "Team experiments",
+        tocTitle: "Team experiments",
+        body: "This chapter records the protocol set written and used by our team for strain handling, nucleic-acid work and rapid product verification.",
+        items: [
+          "Osmotic Shock Transformation of D. salina",
+          "Plant Genomic DNA Extraction",
+          "Quantitative Real-Time PCR (qPCR)",
+          "Thin-Layer Chromatography for Product Verification",
+        ],
+        blocks: [
+          { kind: "pdf", src: "/protocols/Experiment_Team_EN.pdf", downloadSrc: "/protocols/Experiment_Team_EN.pdf", label: "Team experiments (PDF)", downloadLabel: "Download PDF" },
+        ],
+      },
+      {
+        title: "Product synthesis module",
+        tocTitle: "Product synthesis",
+        body: "This chapter documents the experimental route for beta-ionone and beta-citraurin synthesis, from construct building to analytical verification.",
+        items: [
+          "Molecular Cloning",
+          "Algal Transformation",
+          "Screening & Verification",
+          "Metabolomics Analysis",
+          "qPCR Identification",
+          "TLC Analysis",
+        ],
+        blocks: [
+          { kind: "pdf", src: "/protocols/Experiment_Product_Synthesis_EN.pdf", downloadSrc: "/protocols/Experiment_Product_Synthesis_EN.pdf", label: "Product synthesis module (PDF)", downloadLabel: "Download PDF" },
+        ],
+      },
+      {
+        title: "Safety module",
+        tocTitle: "Safety module",
+        body: "This chapter groups the experimental validation path for the salt-responsive suicide switch, from toxin verification to the complete co-transformation test.",
+        items: [
+          "Verification of MazF toxicity",
+          "Validation of the PDCA1 salt-induced response system",
+          "Co-transformation and functional validation of the switch module",
+        ],
+        blocks: [
+          { kind: "pdf", src: "/protocols/Experiment_KillSwitch_EN.pdf", downloadSrc: "/protocols/Experiment_KillSwitch_EN.pdf", label: "Safety module (PDF)", downloadLabel: "Download PDF" },
+        ],
+      },
     ],
   },
   results: {
